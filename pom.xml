@@ -242,10 +242,6 @@
                     <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
                 </repository>
             </distributionManagement>
-            <modules>
-                <module>tosan-camunda-client-spring-boot-starter</module>
-                <module>tosan-camunda-client-api</module>
-            </modules>
         </profile>
     </profiles>
 </project>
