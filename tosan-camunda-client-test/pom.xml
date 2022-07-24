@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.tosan.camunda</groupId>
         <artifactId>tosan-camunda-client-spring-boot-root</artifactId>
-        <version>7.17.0-1.0.1</version>
+        <version>7.17.0-1.0.2-SNAPSHOT</version>
     </parent>
 
     <artifactId>tosan-camunda-client-test</artifactId>
