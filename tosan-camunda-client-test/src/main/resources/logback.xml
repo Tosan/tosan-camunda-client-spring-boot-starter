@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false" scan="true" scanPeriod="1 minutes">
+    <property name="ROOT_LEVEL" value="INFO"/>
+    <property name="APPLICATION_LEVEL" value="INFO"/>
+    <property name="STACK_TRACE_COUNT" value="15"/>
+
+    <property name="PATTERN" scope="context"
+              value="%date{yyyy-MM-dd'T'HH:mm:ss.SSS} %-7([%level]) thread:[%-25.25(%thread)] businessKey:[%mdc{business-key}] worker:[%mdc{worker}] %logger{40}.%method@%line:
+              %n    %message %rootException{${STACK_TRACE_COUNT}}%n"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.camunda.bpm.client" additivity="true" level="${APPLICATION_LEVEL}"/>
+    <logger name="com.tosan.camunda.camundaclient.generated.api" additivity="true" level="${APPLICATION_LEVEL}"/>
+
+    <root level="${ROOT_LEVEL}">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
