@@ -4,6 +4,7 @@ import com.tosan.camunda.camundaclient.generated.api.DeploymentApi;
 import com.tosan.camunda.camundaclient.generated.api.MessageApi;
 import com.tosan.camunda.camundaclient.generated.model.CorrelationMessageDto;
 import com.tosan.camunda.camundaclient.generated.model.MessageCorrelationResultWithVariableDto;
+import com.tosan.camunda.camundaclient.generated.model.VariableValueDto;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.apache.commons.io.IOUtils;
@@ -19,7 +20,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.OffsetDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -66,6 +69,12 @@ public class CamundaClientApplication implements CommandLineRunner {
         CorrelationMessageDto correlationMessageDto = new CorrelationMessageDto();
         correlationMessageDto.setBusinessKey(UUID.randomUUID().toString());
         correlationMessageDto.setMessageName("test_message");
+        Map<String, VariableValueDto> processVariables = new HashMap<>();
+        VariableValueDto variableValueDto = new VariableValueDto();
+        variableValueDto.setValue("testState");
+        variableValueDto.setType("String");
+        processVariables.put("startState", variableValueDto);
+        correlationMessageDto.setProcessVariables(processVariables);
         ResponseEntity<List<MessageCorrelationResultWithVariableDto>> entity =
                 messageApi.deliverMessage(correlationMessageDto);
         System.out.println("entity = " + entity);

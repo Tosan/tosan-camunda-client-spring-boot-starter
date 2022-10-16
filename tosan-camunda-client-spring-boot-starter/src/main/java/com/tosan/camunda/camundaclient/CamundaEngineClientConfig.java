@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.tosan.camunda.camundaclient.config.CamundaClientConfig;
 import com.tosan.camunda.camundaclient.config.CamundaFeignConfig;
 import com.tosan.camunda.camundaclient.config.CamundaRestServiceConfig;
+import com.tosan.camunda.camundaclient.external.aspect.ExternalTaskInfoAspect;
 import com.tosan.camunda.camundaclient.external.aspect.ExternalTaskLogAspect;
 import com.tosan.camunda.camundaclient.external.aspect.ExternalTaskMdcAspect;
 import com.tosan.camunda.camundaclient.external.aspect.ExternalTaskResultAspect;
@@ -224,5 +225,10 @@ public class CamundaEngineClientConfig {
     @Bean
     public ExternalTaskResultAspect externalTaskResultAspect(CamundaClientConfig camundaClientConfig) {
         return new ExternalTaskResultAspect(camundaClientConfig);
+    }
+
+    @Bean
+    public ExternalTaskInfoAspect externalTaskInfoAspect() {
+        return new ExternalTaskInfoAspect();
     }
 }

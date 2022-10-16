@@ -3,6 +3,7 @@ package com.tosan.camunda.camundaclient.external.aspect;
 import com.tosan.camunda.api.CamundaClientRuntimeIncident;
 import com.tosan.camunda.api.ExceptionIncidentState;
 import com.tosan.camunda.camundaclient.config.CamundaClientConfig;
+import com.tosan.camunda.camundaclient.config.ExternalTaskInfo;
 import com.tosan.camunda.camundaclient.config.RetryConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -11,17 +12,17 @@ import org.aspectj.lang.annotation.Aspect;
 import org.camunda.bpm.client.task.ExternalTask;
 import org.camunda.bpm.client.task.ExternalTaskService;
 import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Objects;
 
+import static com.tosan.camunda.camundaclient.external.ExternalTaskService.getTaskInfo;
+
 /**
  * @author M.khoshnevisan
  * @since 11/1/2021
  */
-@Component
 @Aspect
 @Order(40)
 @Slf4j
@@ -54,7 +55,8 @@ public class ExternalTaskResultAspect extends ExternalTaskBaseAspect {
         Object[] args = pjp.getArgs();
         ExternalTask externalTask = (ExternalTask) args[0];
         ExternalTaskService externalTaskService = (ExternalTaskService) args[1];
-        externalTaskService.complete(externalTask);
+        ExternalTaskInfo taskInfo = getTaskInfo(externalTask);
+        externalTaskService.complete(externalTask, taskInfo.getVariables());
     }
 
     private void handleException(ExceptionIncidentState exceptionIncidentState,
@@ -63,12 +65,13 @@ public class ExternalTaskResultAspect extends ExternalTaskBaseAspect {
         Object[] args = pjp.getArgs();
         ExternalTask externalTask = (ExternalTask) args[0];
         ExternalTaskService externalTaskService = (ExternalTaskService) args[1];
+        ExternalTaskInfo taskInfo = getTaskInfo(externalTask);
         int retryCount = exceptionIncidentState.equals(ExceptionIncidentState.NON_REPEATABLE) ? 0 :
                 calculateRetries(externalTask.getRetries());
         int retryInterval = (retryCount == 0 ? 0 : retryConfig.getRetryInterval());
         log.info("determined retry count:{} with retry interval{}", retryCount, retryInterval);
-        externalTaskService.handleFailure(externalTask, e.getMessage(), getStackTrace(e),
-                retryCount, retryInterval);
+        externalTaskService.handleFailure(externalTask.getId(), e.getMessage(), getStackTrace(e),
+                retryCount, retryInterval, taskInfo.getVariables(), null);
     }
 
     private int calculateRetries(Integer retries) {

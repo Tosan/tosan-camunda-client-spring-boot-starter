@@ -21,8 +21,8 @@ public class ExternalTaskBaseAspect {
     public Worker extractWorker(ProceedingJoinPoint pjp)
             throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         Class<?> aClass = pjp.getTarget().getClass();
-        Method getWorker = aClass.getDeclaredMethod("getWorker");
-        Worker worker = (Worker)getWorker.invoke(pjp.getThis());
+        Method getWorkerMethod = aClass.getDeclaredMethod("getWorker");
+        Worker worker = (Worker)getWorkerMethod.invoke(pjp.getThis());
         return worker;
     }
 }

@@ -1,12 +1,15 @@
 package com.tosan.camunda.camundaclient.test;
 
 import com.tosan.camunda.api.Worker;
+import com.tosan.camunda.camundaclient.config.ExternalTaskInfo;
 import com.tosan.camunda.camundaclient.external.ExternalWorker;
 import com.tosan.camunda.camundaclient.test.exception.CamundaClientTestException;
 import org.camunda.bpm.client.spring.annotation.ExternalTaskSubscription;
 import org.camunda.bpm.client.task.ExternalTask;
 import org.camunda.bpm.client.task.ExternalTaskService;
 import org.springframework.stereotype.Component;
+
+import java.util.Map;
 
 /**
  * @author M.khoshnevisan
@@ -29,15 +32,20 @@ public class TestExternalWorker implements ExternalWorker {
      * declare technical exceptions as unchecked exception and implement it from CamundaClientRuntimeIncident
      * these runtime exceptions will be handled automatically by camunda client aspect
      * /aspect also declare external task completed automatically if no exception happen during execution
+     *
      * @param externalTask
      * @param externalTaskService
      */
     @Override
     public void execute(ExternalTask externalTask, ExternalTaskService externalTaskService) {
+        ExternalTaskInfo externalTaskInfo = getExternalTaskInfo(externalTask);
+        Map<String, Object> variables = externalTaskInfo.getVariables();
+        variables.put("test", "test");
+        variables.put("startState", "changedState");
         try {
             handleExecution();
         } catch (CamundaClientTestException e) {
-            externalTaskService.handleBpmnError(externalTask, e.getClass().getSimpleName());
+            externalTaskService.handleBpmnError(externalTask, e.getClass().getSimpleName(), e.getMessage(), variables);
         }
     }
 

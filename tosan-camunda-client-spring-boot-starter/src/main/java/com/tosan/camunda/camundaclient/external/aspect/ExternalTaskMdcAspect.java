@@ -6,9 +6,9 @@ import org.aspectj.lang.annotation.Aspect;
 import org.camunda.bpm.client.task.ExternalTask;
 import org.slf4j.MDC;
 import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
 
-import static com.tosan.camunda.api.Constants.*;
+import static com.tosan.camunda.api.Constants.BUSINESS_KEY_MDC_FIELD_NAME;
+import static com.tosan.camunda.api.Constants.WORKER_MDC_FIELD_NAME;
 
 /**
  * @author M.khoshnevisan
@@ -16,7 +16,6 @@ import static com.tosan.camunda.api.Constants.*;
  */
 @Order(10)
 @Aspect
-@Component
 public class ExternalTaskMdcAspect extends ExternalTaskBaseAspect {
 
     @Around(value = "externalTaskHandler()")

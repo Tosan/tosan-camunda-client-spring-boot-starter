@@ -39,6 +39,21 @@ abstract methods consist of:
 
 > getWorker: worker name must be provided in this method.(you can find a sample of implementation of this interface in [TestExternalWorker](./tosan-camunda-client-test/src/main/java/com/tosan/camunda/camundaclient/test/WorkerType.java))
 
+ExternalWorker interface also include getExternalTaskInfo default method which returns the ExternalTaskInfo related to 
+that specific external task. you can add variables to your external task as below:
+```
+ExternalTaskInfo externalTaskInfo = getExternalTaskInfo(externalTask);
+Map<String, Object> variables = externalTaskInfo.getVariables();
+variables.put("test", "test");
+variables.put("startState", "changedState");
+```
+added variables will be sent to camunda server automatically in case of task complete and handleFailure.
+in order to pass variables in handleBpmnError you can pass variables like example:
+```
+externalTaskService.handleBpmnError(externalTask, e.getClass().getSimpleName(), e.getMessage(), variables);
+```
+
+external worker sample:
 ```
 @Component
 @ExternalTaskSubscription(
@@ -54,10 +69,14 @@ public class TestExternalWorker implements ExternalWorker {
 
     @Override
     public void execute(ExternalTask externalTask, ExternalTaskService externalTaskService) {
+        ExternalTaskInfo externalTaskInfo = getExternalTaskInfo(externalTask);
+        Map<String, Object> variables = externalTaskInfo.getVariables();
+        variables.put("test", "test");
+        variables.put("startState", "changedState");
         try {
             handleExecution();
         } catch (CamundaClientTestException e) {
-            externalTaskService.handleBpmnError(externalTask, e.getClass().getSimpleName());
+            externalTaskService.handleBpmnError(externalTask, e.getClass().getSimpleName(), e.getMessage(), variables);
         }
     }
 
