@@ -1,6 +1,6 @@
 package com.tosan.camunda.camundaclient.config;
 
-import com.tosan.client.http.starter.HttpClientProperties;
+import com.tosan.client.http.core.HttpClientProperties;
 
 /**
  * rest client configuration
@@ -8,5 +8,5 @@ import com.tosan.client.http.starter.HttpClientProperties;
  * @author M.khoshnevisan
  * @since 1/23/2022
  */
-public class CamundaFeignConfig  extends HttpClientProperties {
+public class CamundaFeignConfig extends HttpClientProperties {
 }

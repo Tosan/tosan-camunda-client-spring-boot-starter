@@ -1,8 +1,7 @@
 package com.tosan.camunda.camundaclient;
 
-import com.tosan.camunda.camundaclient.config.CamundaFeignConfig;
-import com.tosan.camunda.camundaclient.feign.exception.CamundaClientConfigurationException;
 import com.tosan.camunda.camundaclient.generated.api.*;
+import com.tosan.client.http.core.HttpClientProperties;
 import com.tosan.client.http.starter.impl.feign.CustomErrorDecoder;
 import feign.*;
 import feign.codec.Decoder;
@@ -12,419 +11,254 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+
+import java.util.List;
 
 /**
  * @author M.khoshnevisan
  * @since 3/15/2022
  */
 @Slf4j
-@Configuration
 @EnableFeignClients
-public class CamundaServiceConfig {
+public class CamundaServiceConfig extends CamundaEngineClientConfig {
 
     @Bean
-    public MessageApi messageServiceClient(CamundaFeignConfig camundaFeignConfig,
+    public MessageApi messageServiceClient(@Qualifier("camunda-client-clientConfig") HttpClientProperties camundaFeignConfig,
                                            @Qualifier("camunda-client-feignClient") Client feignClient,
                                            @Qualifier("camunda-client-feignOption") Request.Options options,
+                                           @Qualifier("camunda-client-requestInterceptor") List<RequestInterceptor> requestInterceptors,
                                            @Qualifier("camunda-client-feignContract") Contract feignContract,
-                                           @Qualifier("camunda-client-springDecoder") Decoder springDecoder,
-                                           @Qualifier("camunda-client-feignFormEncoder") Encoder feignFormEncoder,
+                                           @Qualifier("camunda-client-feignDecoder") Decoder feignDecoder,
+                                           @Qualifier("camunda-client-feignEncoder") Encoder feignEncoder,
                                            @Qualifier("camunda-client-retryer") Retryer retryer,
                                            @Qualifier("camunda-client-feignLoggerLevel") Logger.Level logLevel,
                                            @Qualifier("camunda-client-feignErrorDecoder") CustomErrorDecoder errorDecoder) {
-        if (camundaFeignConfig.getBaseServiceUrl() == null) {
-            log.error("baseServiceUrl of web service must be set and not be null or empty.");
-            throw new CamundaClientConfigurationException
-                    ("baseServiceUrl of web service must be set and not be null or empty.");
-        }
-        return Feign.builder().client(feignClient)
-                .options(options)
-                .encoder(feignFormEncoder)
-                .decoder(springDecoder)
-                .errorDecoder(errorDecoder)
-                .contract(feignContract)
-                .retryer(retryer)
-                .logger(new Slf4jLogger(MessageApi.class))
-                .logLevel(logLevel)
-                .target(MessageApi.class, camundaFeignConfig.getBaseServiceUrl());
+        return super.getFeignController(camundaFeignConfig.getBaseServiceUrl(), super.feignBuilder(feignClient, options,
+                requestInterceptors, feignContract, feignDecoder, feignEncoder, retryer, logLevel, errorDecoder),
+                MessageApi.class, new Slf4jLogger(MessageApi.class));
     }
 
     @Bean
-    public DeploymentApi deploymentServiceClient(CamundaFeignConfig camundaFeignConfig,
+    public DeploymentApi deploymentServiceClient(@Qualifier("camunda-client-clientConfig") HttpClientProperties camundaFeignConfig,
                                                  @Qualifier("camunda-client-feignClient") Client feignClient,
                                                  @Qualifier("camunda-client-feignOption") Request.Options options,
+                                                 @Qualifier("camunda-client-requestInterceptor") List<RequestInterceptor> requestInterceptors,
                                                  @Qualifier("camunda-client-feignContract") Contract feignContract,
-                                                 @Qualifier("camunda-client-springDecoder") Decoder springDecoder,
-                                                 @Qualifier("camunda-client-feignFormEncoder") Encoder feignFormEncoder,
+                                                 @Qualifier("camunda-client-feignDecoder") Decoder feignDecoder,
+                                                 @Qualifier("camunda-client-feignEncoder") Encoder feignEncoder,
                                                  @Qualifier("camunda-client-retryer") Retryer retryer,
                                                  @Qualifier("camunda-client-feignLoggerLevel") Logger.Level logLevel,
                                                  @Qualifier("camunda-client-feignErrorDecoder") CustomErrorDecoder errorDecoder) {
-        if (camundaFeignConfig.getBaseServiceUrl() == null) {
-            log.error("baseServiceUrl of web service must be set and not be null or empty.");
-            throw new CamundaClientConfigurationException
-                    ("baseServiceUrl of web service must be set and not be null or empty.");
-        }
-        return Feign.builder().client(feignClient)
-                .options(options)
-                .encoder(feignFormEncoder)
-                .decoder(springDecoder)
-                .errorDecoder(errorDecoder)
-                .contract(feignContract)
-                .retryer(retryer)
-                .logger(new Slf4jLogger(DeploymentApi.class))
-                .logLevel(logLevel)
-                .target(DeploymentApi.class, camundaFeignConfig.getBaseServiceUrl());
+        return super.getFeignController(camundaFeignConfig.getBaseServiceUrl(), super.feignBuilder(feignClient, options,
+                requestInterceptors, feignContract, feignDecoder, feignEncoder, retryer, logLevel, errorDecoder),
+                DeploymentApi.class, new Slf4jLogger(DeploymentApi.class));
     }
 
     @Bean
-    public ExecutionApi executionServiceClient(CamundaFeignConfig camundaFeignConfig,
+    public ExecutionApi executionServiceClient(@Qualifier("camunda-client-clientConfig") HttpClientProperties camundaFeignConfig,
                                                @Qualifier("camunda-client-feignClient") Client feignClient,
                                                @Qualifier("camunda-client-feignOption") Request.Options options,
+                                               @Qualifier("camunda-client-requestInterceptor") List<RequestInterceptor> requestInterceptors,
                                                @Qualifier("camunda-client-feignContract") Contract feignContract,
-                                               @Qualifier("camunda-client-springDecoder") Decoder springDecoder,
-                                               @Qualifier("camunda-client-feignFormEncoder") Encoder feignFormEncoder,
+                                               @Qualifier("camunda-client-feignDecoder") Decoder feignDecoder,
+                                               @Qualifier("camunda-client-feignEncoder") Encoder feignEncoder,
                                                @Qualifier("camunda-client-retryer") Retryer retryer,
                                                @Qualifier("camunda-client-feignLoggerLevel") Logger.Level logLevel,
                                                @Qualifier("camunda-client-feignErrorDecoder") CustomErrorDecoder errorDecoder) {
-        if (camundaFeignConfig.getBaseServiceUrl() == null) {
-            log.error("baseServiceUrl of web service must be set and not be null or empty.");
-            throw new CamundaClientConfigurationException
-                    ("baseServiceUrl of web service must be set and not be null or empty.");
-        }
-        return Feign.builder().client(feignClient)
-                .options(options)
-                .encoder(feignFormEncoder)
-                .decoder(springDecoder)
-                .errorDecoder(errorDecoder)
-                .contract(feignContract)
-                .retryer(retryer)
-                .logger(new Slf4jLogger(ExecutionApi.class))
-                .logLevel(logLevel)
-                .target(ExecutionApi.class, camundaFeignConfig.getBaseServiceUrl());
+        return super.getFeignController(camundaFeignConfig.getBaseServiceUrl(), super.feignBuilder(feignClient, options,
+                requestInterceptors, feignContract, feignDecoder, feignEncoder, retryer, logLevel, errorDecoder),
+                ExecutionApi.class, new Slf4jLogger(ExecutionApi.class));
     }
 
     @Bean
-    public ExternalTaskApi externalTaskServiceClient(CamundaFeignConfig camundaFeignConfig,
+    public ExternalTaskApi externalTaskServiceClient(@Qualifier("camunda-client-clientConfig") HttpClientProperties camundaFeignConfig,
                                                      @Qualifier("camunda-client-feignClient") Client feignClient,
                                                      @Qualifier("camunda-client-feignOption") Request.Options options,
+                                                     @Qualifier("camunda-client-requestInterceptor") List<RequestInterceptor> requestInterceptors,
                                                      @Qualifier("camunda-client-feignContract") Contract feignContract,
-                                                     @Qualifier("camunda-client-springDecoder") Decoder springDecoder,
-                                                     @Qualifier("camunda-client-feignFormEncoder") Encoder feignFormEncoder,
+                                                     @Qualifier("camunda-client-feignDecoder") Decoder feignDecoder,
+                                                     @Qualifier("camunda-client-feignEncoder") Encoder feignEncoder,
                                                      @Qualifier("camunda-client-retryer") Retryer retryer,
                                                      @Qualifier("camunda-client-feignLoggerLevel") Logger.Level logLevel,
                                                      @Qualifier("camunda-client-feignErrorDecoder") CustomErrorDecoder errorDecoder) {
-        if (camundaFeignConfig.getBaseServiceUrl() == null) {
-            log.error("baseServiceUrl of web service must be set and not be null or empty.");
-            throw new CamundaClientConfigurationException
-                    ("baseServiceUrl of web service must be set and not be null or empty.");
-        }
-        return Feign.builder().client(feignClient)
-                .options(options)
-                .encoder(feignFormEncoder)
-                .decoder(springDecoder)
-                .errorDecoder(errorDecoder)
-                .contract(feignContract)
-                .retryer(retryer)
-                .logger(new Slf4jLogger(ExternalTaskApi.class))
-                .logLevel(logLevel)
-                .target(ExternalTaskApi.class, camundaFeignConfig.getBaseServiceUrl());
+        return super.getFeignController(camundaFeignConfig.getBaseServiceUrl(), super.feignBuilder(feignClient, options,
+                requestInterceptors, feignContract, feignDecoder, feignEncoder, retryer, logLevel, errorDecoder),
+                ExternalTaskApi.class, new Slf4jLogger(ExternalTaskApi.class));
     }
 
     @Bean
-    public HistoricActivityInstanceApi historicActivityInstanceTaskServiceClient(CamundaFeignConfig camundaFeignConfig,
+    public HistoricActivityInstanceApi historicActivityInstanceTaskServiceClient(@Qualifier("camunda-client-clientConfig") HttpClientProperties camundaFeignConfig,
                                                                                  @Qualifier("camunda-client-feignClient") Client feignClient,
                                                                                  @Qualifier("camunda-client-feignOption") Request.Options options,
+                                                                                 @Qualifier("camunda-client-requestInterceptor") List<RequestInterceptor> requestInterceptors,
                                                                                  @Qualifier("camunda-client-feignContract") Contract feignContract,
-                                                                                 @Qualifier("camunda-client-springDecoder") Decoder springDecoder,
-                                                                                 @Qualifier("camunda-client-feignFormEncoder") Encoder feignFormEncoder,
+                                                                                 @Qualifier("camunda-client-feignDecoder") Decoder feignDecoder,
+                                                                                 @Qualifier("camunda-client-feignEncoder") Encoder feignEncoder,
                                                                                  @Qualifier("camunda-client-retryer") Retryer retryer,
                                                                                  @Qualifier("camunda-client-feignLoggerLevel") Logger.Level logLevel,
                                                                                  @Qualifier("camunda-client-feignErrorDecoder") CustomErrorDecoder errorDecoder) {
-        if (camundaFeignConfig.getBaseServiceUrl() == null) {
-            log.error("baseServiceUrl of web service must be set and not be null or empty.");
-            throw new CamundaClientConfigurationException
-                    ("baseServiceUrl of web service must be set and not be null or empty.");
-        }
-        return Feign.builder().client(feignClient)
-                .options(options)
-                .encoder(feignFormEncoder)
-                .decoder(springDecoder)
-                .errorDecoder(errorDecoder)
-                .contract(feignContract)
-                .retryer(retryer)
-                .logger(new Slf4jLogger(HistoricActivityInstanceApi.class))
-                .logLevel(logLevel)
-                .target(HistoricActivityInstanceApi.class, camundaFeignConfig.getBaseServiceUrl());
+        return super.getFeignController(camundaFeignConfig.getBaseServiceUrl(), super.feignBuilder(feignClient, options,
+                requestInterceptors, feignContract, feignDecoder, feignEncoder, retryer, logLevel, errorDecoder),
+                HistoricActivityInstanceApi.class, new Slf4jLogger(HistoricActivityInstanceApi.class));
     }
 
     @Bean
-    public HistoricDetailApi historicDetailTaskServiceClient(CamundaFeignConfig camundaFeignConfig,
+    public HistoricDetailApi historicDetailTaskServiceClient(@Qualifier("camunda-client-clientConfig") HttpClientProperties camundaFeignConfig,
                                                              @Qualifier("camunda-client-feignClient") Client feignClient,
                                                              @Qualifier("camunda-client-feignOption") Request.Options options,
+                                                             @Qualifier("camunda-client-requestInterceptor") List<RequestInterceptor> requestInterceptors,
                                                              @Qualifier("camunda-client-feignContract") Contract feignContract,
-                                                             @Qualifier("camunda-client-springDecoder") Decoder springDecoder,
-                                                             @Qualifier("camunda-client-feignFormEncoder") Encoder feignFormEncoder,
+                                                             @Qualifier("camunda-client-feignDecoder") Decoder feignDecoder,
+                                                             @Qualifier("camunda-client-feignEncoder") Encoder feignEncoder,
                                                              @Qualifier("camunda-client-retryer") Retryer retryer,
                                                              @Qualifier("camunda-client-feignLoggerLevel") Logger.Level logLevel,
                                                              @Qualifier("camunda-client-feignErrorDecoder") CustomErrorDecoder errorDecoder) {
-        if (camundaFeignConfig.getBaseServiceUrl() == null) {
-            log.error("baseServiceUrl of web service must be set and not be null or empty.");
-            throw new CamundaClientConfigurationException
-                    ("baseServiceUrl of web service must be set and not be null or empty.");
-        }
-        return Feign.builder().client(feignClient)
-                .options(options)
-                .encoder(feignFormEncoder)
-                .decoder(springDecoder)
-                .errorDecoder(errorDecoder)
-                .contract(feignContract)
-                .retryer(retryer)
-                .logger(new Slf4jLogger(HistoricDetailApi.class))
-                .logLevel(logLevel)
-                .target(HistoricDetailApi.class, camundaFeignConfig.getBaseServiceUrl());
+        return super.getFeignController(camundaFeignConfig.getBaseServiceUrl(), super.feignBuilder(feignClient, options,
+                requestInterceptors, feignContract, feignDecoder, feignEncoder, retryer, logLevel, errorDecoder),
+                HistoricDetailApi.class, new Slf4jLogger(HistoricDetailApi.class));
     }
 
     @Bean
-    public HistoricExternalTaskLogApi historicExternalTaskLogServiceClient(CamundaFeignConfig camundaFeignConfig,
+    public HistoricExternalTaskLogApi historicExternalTaskLogServiceClient(@Qualifier("camunda-client-clientConfig") HttpClientProperties camundaFeignConfig,
                                                                            @Qualifier("camunda-client-feignClient") Client feignClient,
                                                                            @Qualifier("camunda-client-feignOption") Request.Options options,
+                                                                           @Qualifier("camunda-client-requestInterceptor") List<RequestInterceptor> requestInterceptors,
                                                                            @Qualifier("camunda-client-feignContract") Contract feignContract,
-                                                                           @Qualifier("camunda-client-springDecoder") Decoder springDecoder,
-                                                                           @Qualifier("camunda-client-feignFormEncoder") Encoder feignFormEncoder,
+                                                                           @Qualifier("camunda-client-feignDecoder") Decoder feignDecoder,
+                                                                           @Qualifier("camunda-client-feignEncoder") Encoder feignEncoder,
                                                                            @Qualifier("camunda-client-retryer") Retryer retryer,
                                                                            @Qualifier("camunda-client-feignLoggerLevel") Logger.Level logLevel,
                                                                            @Qualifier("camunda-client-feignErrorDecoder") CustomErrorDecoder errorDecoder) {
-        if (camundaFeignConfig.getBaseServiceUrl() == null) {
-            log.error("baseServiceUrl of web service must be set and not be null or empty.");
-            throw new CamundaClientConfigurationException
-                    ("baseServiceUrl of web service must be set and not be null or empty.");
-        }
-        return Feign.builder().client(feignClient)
-                .options(options)
-                .encoder(feignFormEncoder)
-                .decoder(springDecoder)
-                .errorDecoder(errorDecoder)
-                .contract(feignContract)
-                .retryer(retryer)
-                .logger(new Slf4jLogger(HistoricExternalTaskLogApi.class))
-                .logLevel(logLevel)
-                .target(HistoricExternalTaskLogApi.class, camundaFeignConfig.getBaseServiceUrl());
+        return super.getFeignController(camundaFeignConfig.getBaseServiceUrl(), super.feignBuilder(feignClient, options,
+                requestInterceptors, feignContract, feignDecoder, feignEncoder, retryer, logLevel, errorDecoder),
+                HistoricExternalTaskLogApi.class, new Slf4jLogger(HistoricExternalTaskLogApi.class));
     }
 
     @Bean
-    public HistoricIncidentApi historicIncidentServiceClient(CamundaFeignConfig camundaFeignConfig,
+    public HistoricIncidentApi historicIncidentServiceClient(@Qualifier("camunda-client-clientConfig") HttpClientProperties camundaFeignConfig,
                                                              @Qualifier("camunda-client-feignClient") Client feignClient,
                                                              @Qualifier("camunda-client-feignOption") Request.Options options,
+                                                             @Qualifier("camunda-client-requestInterceptor") List<RequestInterceptor> requestInterceptors,
                                                              @Qualifier("camunda-client-feignContract") Contract feignContract,
-                                                             @Qualifier("camunda-client-springDecoder") Decoder springDecoder,
-                                                             @Qualifier("camunda-client-feignFormEncoder") Encoder feignFormEncoder,
+                                                             @Qualifier("camunda-client-feignDecoder") Decoder feignDecoder,
+                                                             @Qualifier("camunda-client-feignEncoder") Encoder feignEncoder,
                                                              @Qualifier("camunda-client-retryer") Retryer retryer,
                                                              @Qualifier("camunda-client-feignLoggerLevel") Logger.Level logLevel,
                                                              @Qualifier("camunda-client-feignErrorDecoder") CustomErrorDecoder errorDecoder) {
-        if (camundaFeignConfig.getBaseServiceUrl() == null) {
-            log.error("baseServiceUrl of web service must be set and not be null or empty.");
-            throw new CamundaClientConfigurationException
-                    ("baseServiceUrl of web service must be set and not be null or empty.");
-        }
-        return Feign.builder().client(feignClient)
-                .options(options)
-                .encoder(feignFormEncoder)
-                .decoder(springDecoder)
-                .errorDecoder(errorDecoder)
-                .contract(feignContract)
-                .retryer(retryer)
-                .logger(new Slf4jLogger(HistoricIncidentApi.class))
-                .logLevel(logLevel)
-                .target(HistoricIncidentApi.class, camundaFeignConfig.getBaseServiceUrl());
+        return super.getFeignController(camundaFeignConfig.getBaseServiceUrl(), super.feignBuilder(feignClient, options,
+                requestInterceptors, feignContract, feignDecoder, feignEncoder, retryer, logLevel, errorDecoder),
+                HistoricIncidentApi.class, new Slf4jLogger(HistoricIncidentApi.class));
     }
 
     @Bean
-    public HistoricProcessInstanceApi historicProcessInstanceServiceClient(CamundaFeignConfig camundaFeignConfig,
+    public HistoricProcessInstanceApi historicProcessInstanceServiceClient(@Qualifier("camunda-client-clientConfig") HttpClientProperties camundaFeignConfig,
                                                                            @Qualifier("camunda-client-feignClient") Client feignClient,
                                                                            @Qualifier("camunda-client-feignOption") Request.Options options,
+                                                                           @Qualifier("camunda-client-requestInterceptor") List<RequestInterceptor> requestInterceptors,
                                                                            @Qualifier("camunda-client-feignContract") Contract feignContract,
-                                                                           @Qualifier("camunda-client-springDecoder") Decoder springDecoder,
-                                                                           @Qualifier("camunda-client-feignFormEncoder") Encoder feignFormEncoder,
+                                                                           @Qualifier("camunda-client-feignDecoder") Decoder feignDecoder,
+                                                                           @Qualifier("camunda-client-feignEncoder") Encoder feignEncoder,
                                                                            @Qualifier("camunda-client-retryer") Retryer retryer,
                                                                            @Qualifier("camunda-client-feignLoggerLevel") Logger.Level logLevel,
                                                                            @Qualifier("camunda-client-feignErrorDecoder") CustomErrorDecoder errorDecoder) {
-        if (camundaFeignConfig.getBaseServiceUrl() == null) {
-            log.error("baseServiceUrl of web service must be set and not be null or empty.");
-            throw new CamundaClientConfigurationException
-                    ("baseServiceUrl of web service must be set and not be null or empty.");
-        }
-        return Feign.builder().client(feignClient)
-                .options(options)
-                .encoder(feignFormEncoder)
-                .decoder(springDecoder)
-                .errorDecoder(errorDecoder)
-                .contract(feignContract)
-                .retryer(retryer)
-                .logger(new Slf4jLogger(HistoricProcessInstanceApi.class))
-                .logLevel(logLevel)
-                .target(HistoricProcessInstanceApi.class, camundaFeignConfig.getBaseServiceUrl());
+        return super.getFeignController(camundaFeignConfig.getBaseServiceUrl(), super.feignBuilder(feignClient, options,
+                requestInterceptors, feignContract, feignDecoder, feignEncoder, retryer, logLevel, errorDecoder),
+                HistoricProcessInstanceApi.class, new Slf4jLogger(HistoricProcessInstanceApi.class));
     }
 
     @Bean
-    public IncidentApi incidentServiceClient(CamundaFeignConfig camundaFeignConfig,
+    public IncidentApi incidentServiceClient(@Qualifier("camunda-client-clientConfig") HttpClientProperties camundaFeignConfig,
                                              @Qualifier("camunda-client-feignClient") Client feignClient,
                                              @Qualifier("camunda-client-feignOption") Request.Options options,
+                                             @Qualifier("camunda-client-requestInterceptor") List<RequestInterceptor> requestInterceptors,
                                              @Qualifier("camunda-client-feignContract") Contract feignContract,
-                                             @Qualifier("camunda-client-springDecoder") Decoder springDecoder,
-                                             @Qualifier("camunda-client-feignFormEncoder") Encoder feignFormEncoder,
+                                             @Qualifier("camunda-client-feignDecoder") Decoder feignDecoder,
+                                             @Qualifier("camunda-client-feignEncoder") Encoder feignEncoder,
                                              @Qualifier("camunda-client-retryer") Retryer retryer,
                                              @Qualifier("camunda-client-feignLoggerLevel") Logger.Level logLevel,
                                              @Qualifier("camunda-client-feignErrorDecoder") CustomErrorDecoder errorDecoder) {
-        if (camundaFeignConfig.getBaseServiceUrl() == null) {
-            log.error("baseServiceUrl of web service must be set and not be null or empty.");
-            throw new CamundaClientConfigurationException
-                    ("baseServiceUrl of web service must be set and not be null or empty.");
-        }
-        return Feign.builder().client(feignClient)
-                .options(options)
-                .encoder(feignFormEncoder)
-                .decoder(springDecoder)
-                .errorDecoder(errorDecoder)
-                .contract(feignContract)
-                .retryer(retryer)
-                .logger(new Slf4jLogger(IncidentApi.class))
-                .logLevel(logLevel)
-                .target(IncidentApi.class, camundaFeignConfig.getBaseServiceUrl());
+        return super.getFeignController(camundaFeignConfig.getBaseServiceUrl(), super.feignBuilder(feignClient, options,
+                requestInterceptors, feignContract, feignDecoder, feignEncoder, retryer, logLevel, errorDecoder),
+                IncidentApi.class, new Slf4jLogger(IncidentApi.class));
     }
 
     @Bean
-    public MetricsApi metricsServiceClient(CamundaFeignConfig camundaFeignConfig,
+    public MetricsApi metricsServiceClient(@Qualifier("camunda-client-clientConfig") HttpClientProperties camundaFeignConfig,
                                            @Qualifier("camunda-client-feignClient") Client feignClient,
                                            @Qualifier("camunda-client-feignOption") Request.Options options,
+                                           @Qualifier("camunda-client-requestInterceptor") List<RequestInterceptor> requestInterceptors,
                                            @Qualifier("camunda-client-feignContract") Contract feignContract,
-                                           @Qualifier("camunda-client-springDecoder") Decoder springDecoder,
-                                           @Qualifier("camunda-client-feignFormEncoder") Encoder feignFormEncoder,
+                                           @Qualifier("camunda-client-feignDecoder") Decoder feignDecoder,
+                                           @Qualifier("camunda-client-feignEncoder") Encoder feignEncoder,
                                            @Qualifier("camunda-client-retryer") Retryer retryer,
                                            @Qualifier("camunda-client-feignLoggerLevel") Logger.Level logLevel,
                                            @Qualifier("camunda-client-feignErrorDecoder") CustomErrorDecoder errorDecoder) {
-        if (camundaFeignConfig.getBaseServiceUrl() == null) {
-            log.error("baseServiceUrl of web service must be set and not be null or empty.");
-            throw new CamundaClientConfigurationException
-                    ("baseServiceUrl of web service must be set and not be null or empty.");
-        }
-        return Feign.builder().client(feignClient)
-                .options(options)
-                .encoder(feignFormEncoder)
-                .decoder(springDecoder)
-                .errorDecoder(errorDecoder)
-                .contract(feignContract)
-                .retryer(retryer)
-                .logger(new Slf4jLogger(MetricsApi.class))
-                .logLevel(logLevel)
-                .target(MetricsApi.class, camundaFeignConfig.getBaseServiceUrl());
+        return super.getFeignController(camundaFeignConfig.getBaseServiceUrl(), super.feignBuilder(feignClient, options,
+                requestInterceptors, feignContract, feignDecoder, feignEncoder, retryer, logLevel, errorDecoder),
+                MetricsApi.class, new Slf4jLogger(MetricsApi.class));
     }
 
     @Bean
-    public MigrationApi migrationServiceClient(CamundaFeignConfig camundaFeignConfig,
+    public MigrationApi migrationServiceClient(@Qualifier("camunda-client-clientConfig") HttpClientProperties camundaFeignConfig,
                                                @Qualifier("camunda-client-feignClient") Client feignClient,
                                                @Qualifier("camunda-client-feignOption") Request.Options options,
+                                               @Qualifier("camunda-client-requestInterceptor") List<RequestInterceptor> requestInterceptors,
                                                @Qualifier("camunda-client-feignContract") Contract feignContract,
-                                               @Qualifier("camunda-client-springDecoder") Decoder springDecoder,
-                                               @Qualifier("camunda-client-feignFormEncoder") Encoder feignFormEncoder,
+                                               @Qualifier("camunda-client-feignDecoder") Decoder feignDecoder,
+                                               @Qualifier("camunda-client-feignEncoder") Encoder feignEncoder,
                                                @Qualifier("camunda-client-retryer") Retryer retryer,
                                                @Qualifier("camunda-client-feignLoggerLevel") Logger.Level logLevel,
                                                @Qualifier("camunda-client-feignErrorDecoder") CustomErrorDecoder errorDecoder) {
-        if (camundaFeignConfig.getBaseServiceUrl() == null) {
-            log.error("baseServiceUrl of web service must be set and not be null or empty.");
-            throw new CamundaClientConfigurationException
-                    ("baseServiceUrl of web service must be set and not be null or empty.");
-        }
-        return Feign.builder().client(feignClient)
-                .options(options)
-                .encoder(feignFormEncoder)
-                .decoder(springDecoder)
-                .errorDecoder(errorDecoder)
-                .contract(feignContract)
-                .retryer(retryer)
-                .logger(new Slf4jLogger(MigrationApi.class))
-                .logLevel(logLevel)
-                .target(MigrationApi.class, camundaFeignConfig.getBaseServiceUrl());
+        return super.getFeignController(camundaFeignConfig.getBaseServiceUrl(), super.feignBuilder(feignClient, options,
+                requestInterceptors, feignContract, feignDecoder, feignEncoder, retryer, logLevel, errorDecoder),
+                MigrationApi.class, new Slf4jLogger(MigrationApi.class));
     }
 
     @Bean
-    public ProcessDefinitionApi processDefinitionServiceClient(CamundaFeignConfig camundaFeignConfig,
+    public ProcessDefinitionApi processDefinitionServiceClient(@Qualifier("camunda-client-clientConfig") HttpClientProperties camundaFeignConfig,
                                                                @Qualifier("camunda-client-feignClient") Client feignClient,
                                                                @Qualifier("camunda-client-feignOption") Request.Options options,
+                                                               @Qualifier("camunda-client-requestInterceptor") List<RequestInterceptor> requestInterceptors,
                                                                @Qualifier("camunda-client-feignContract") Contract feignContract,
-                                                               @Qualifier("camunda-client-springDecoder") Decoder springDecoder,
-                                                               @Qualifier("camunda-client-feignFormEncoder") Encoder feignFormEncoder,
+                                                               @Qualifier("camunda-client-feignDecoder") Decoder feignDecoder,
+                                                               @Qualifier("camunda-client-feignEncoder") Encoder feignEncoder,
                                                                @Qualifier("camunda-client-retryer") Retryer retryer,
                                                                @Qualifier("camunda-client-feignLoggerLevel") Logger.Level logLevel,
                                                                @Qualifier("camunda-client-feignErrorDecoder") CustomErrorDecoder errorDecoder) {
-        if (camundaFeignConfig.getBaseServiceUrl() == null) {
-            log.error("baseServiceUrl of web service must be set and not be null or empty.");
-            throw new CamundaClientConfigurationException
-                    ("baseServiceUrl of web service must be set and not be null or empty.");
-        }
-        return Feign.builder().client(feignClient)
-                .options(options)
-                .encoder(feignFormEncoder)
-                .decoder(springDecoder)
-                .errorDecoder(errorDecoder)
-                .contract(feignContract)
-                .retryer(retryer)
-                .logger(new Slf4jLogger(ProcessDefinitionApi.class))
-                .logLevel(logLevel)
-                .target(ProcessDefinitionApi.class, camundaFeignConfig.getBaseServiceUrl());
+        return super.getFeignController(camundaFeignConfig.getBaseServiceUrl(), super.feignBuilder(feignClient, options,
+                requestInterceptors, feignContract, feignDecoder, feignEncoder, retryer, logLevel, errorDecoder),
+                ProcessDefinitionApi.class, new Slf4jLogger(ProcessDefinitionApi.class));
     }
 
     @Bean
-    public ProcessInstanceApi processInstanceServiceClient(CamundaFeignConfig camundaFeignConfig,
+    public ProcessInstanceApi processInstanceServiceClient(@Qualifier("camunda-client-clientConfig") HttpClientProperties camundaFeignConfig,
                                                            @Qualifier("camunda-client-feignClient") Client feignClient,
                                                            @Qualifier("camunda-client-feignOption") Request.Options options,
+                                                           @Qualifier("camunda-client-requestInterceptor") List<RequestInterceptor> requestInterceptors,
                                                            @Qualifier("camunda-client-feignContract") Contract feignContract,
-                                                           @Qualifier("camunda-client-springDecoder") Decoder springDecoder,
-                                                           @Qualifier("camunda-client-feignFormEncoder") Encoder feignFormEncoder,
+                                                           @Qualifier("camunda-client-feignDecoder") Decoder feignDecoder,
+                                                           @Qualifier("camunda-client-feignEncoder") Encoder feignEncoder,
                                                            @Qualifier("camunda-client-retryer") Retryer retryer,
                                                            @Qualifier("camunda-client-feignLoggerLevel") Logger.Level logLevel,
                                                            @Qualifier("camunda-client-feignErrorDecoder") CustomErrorDecoder errorDecoder) {
-        if (camundaFeignConfig.getBaseServiceUrl() == null) {
-            log.error("baseServiceUrl of web service must be set and not be null or empty.");
-            throw new CamundaClientConfigurationException
-                    ("baseServiceUrl of web service must be set and not be null or empty.");
-        }
-        return Feign.builder().client(feignClient)
-                .options(options)
-                .encoder(feignFormEncoder)
-                .decoder(springDecoder)
-                .errorDecoder(errorDecoder)
-                .contract(feignContract)
-                .retryer(retryer)
-                .logger(new Slf4jLogger(ProcessInstanceApi.class))
-                .logLevel(logLevel)
-                .target(ProcessInstanceApi.class, camundaFeignConfig.getBaseServiceUrl());
+        return super.getFeignController(camundaFeignConfig.getBaseServiceUrl(), super.feignBuilder(feignClient, options,
+                requestInterceptors, feignContract, feignDecoder, feignEncoder, retryer, logLevel, errorDecoder),
+                ProcessInstanceApi.class, new Slf4jLogger(ProcessInstanceApi.class));
     }
 
     @Bean
-    public VariableInstanceApi variableInstanceServiceClient(CamundaFeignConfig camundaFeignConfig,
+    public VariableInstanceApi variableInstanceServiceClient(@Qualifier("camunda-client-clientConfig") HttpClientProperties camundaFeignConfig,
                                                              @Qualifier("camunda-client-feignClient") Client feignClient,
                                                              @Qualifier("camunda-client-feignOption") Request.Options options,
+                                                             @Qualifier("camunda-client-requestInterceptor") List<RequestInterceptor> requestInterceptors,
                                                              @Qualifier("camunda-client-feignContract") Contract feignContract,
-                                                             @Qualifier("camunda-client-springDecoder") Decoder springDecoder,
-                                                             @Qualifier("camunda-client-feignFormEncoder") Encoder feignFormEncoder,
+                                                             @Qualifier("camunda-client-feignDecoder") Decoder feignDecoder,
+                                                             @Qualifier("camunda-client-feignEncoder") Encoder feignEncoder,
                                                              @Qualifier("camunda-client-retryer") Retryer retryer,
                                                              @Qualifier("camunda-client-feignLoggerLevel") Logger.Level logLevel,
                                                              @Qualifier("camunda-client-feignErrorDecoder") CustomErrorDecoder errorDecoder) {
-        if (camundaFeignConfig.getBaseServiceUrl() == null) {
-            log.error("baseServiceUrl of web service must be set and not be null or empty.");
-            throw new CamundaClientConfigurationException
-                    ("baseServiceUrl of web service must be set and not be null or empty.");
-        }
-        return Feign.builder().client(feignClient)
-                .options(options)
-                .encoder(feignFormEncoder)
-                .decoder(springDecoder)
-                .errorDecoder(errorDecoder)
-                .contract(feignContract)
-                .retryer(retryer)
-                .logger(new Slf4jLogger(VariableInstanceApi.class))
-                .logLevel(logLevel)
-                .target(VariableInstanceApi.class, camundaFeignConfig.getBaseServiceUrl());
+        return super.getFeignController(camundaFeignConfig.getBaseServiceUrl(), super.feignBuilder(feignClient, options,
+                requestInterceptors, feignContract, feignDecoder, feignEncoder, retryer, logLevel, errorDecoder),
+                VariableInstanceApi.class, new Slf4jLogger(VariableInstanceApi.class));
     }
 }

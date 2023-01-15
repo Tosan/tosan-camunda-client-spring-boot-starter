@@ -1,3 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.tosan.camunda.camundaclient.CamundaEngineClientConfig,\
 com.tosan.camunda.camundaclient.CamundaServiceConfig

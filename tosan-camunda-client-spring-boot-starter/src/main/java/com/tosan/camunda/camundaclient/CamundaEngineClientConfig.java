@@ -12,57 +12,44 @@ import com.tosan.camunda.camundaclient.external.aspect.ExternalTaskLogAspect;
 import com.tosan.camunda.camundaclient.external.aspect.ExternalTaskMdcAspect;
 import com.tosan.camunda.camundaclient.external.aspect.ExternalTaskResultAspect;
 import com.tosan.camunda.camundaclient.feign.aspect.FeignUndeclaredThrowableExceptionAspect;
-import com.tosan.client.http.starter.HttpClientProperties;
-import com.tosan.client.http.starter.impl.ConfigurableApacheHttpClientFactory;
+import com.tosan.client.http.core.HttpClientProperties;
+import com.tosan.client.http.starter.configuration.AbstractFeignConfiguration;
 import com.tosan.client.http.starter.impl.feign.CustomErrorDecoder;
 import com.tosan.client.http.starter.impl.feign.CustomErrorDecoderConfig;
 import com.tosan.client.http.starter.impl.feign.ExceptionExtractType;
 import feign.*;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
-import feign.httpclient.ApacheHttpClient;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.commons.httpclient.ApacheHttpClientConnectionManagerFactory;
 import org.springframework.cloud.commons.httpclient.ApacheHttpClientFactory;
-import org.springframework.cloud.commons.httpclient.DefaultApacheHttpClientConnectionManagerFactory;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-import org.springframework.cloud.openfeign.support.ResponseEntityDecoder;
-import org.springframework.cloud.openfeign.support.SpringDecoder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.client.ClientHttpRequestFactory;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
+import java.util.List;
 
 /**
  * @author M.khoshnevisan
  * @since 1/17/2022
  */
-@Configuration
 @EnableFeignClients
 @Slf4j
-public class CamundaEngineClientConfig {
+public class CamundaEngineClientConfig extends AbstractFeignConfiguration {
+
     public static final String DATE_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
-
     private static HashMap<String, Class<? extends Exception>> exceptionMap = new HashMap<>();
-    private ObjectFactory<HttpMessageConverters> messageConverters;
-
     static {
         exceptionMap.put("Validation.invalid", Exception.class);
     }
@@ -81,15 +68,6 @@ public class CamundaEngineClientConfig {
         return objectMapper;
     }
 
-    @Bean({"camunda-client-jacksonHttpMessageConverter"})
-    public HttpMessageConverter<Object> httpMessageConverter(@Qualifier("camunda-client-objectMapper")
-                                                                     ObjectMapper camundaClientObjectMapper) {
-        MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter =
-                new MappingJackson2HttpMessageConverter(camundaClientObjectMapper);
-        messageConverters = () -> new HttpMessageConverters(mappingJackson2HttpMessageConverter);
-        return mappingJackson2HttpMessageConverter;
-    }
-
     @Bean
     @ConfigurationProperties(prefix = "camunda.bpm.client")
     @Primary
@@ -97,9 +75,9 @@ public class CamundaEngineClientConfig {
         return new CamundaClientConfig();
     }
 
-    @Bean
-    @ConditionalOnMissingBean
-    public CamundaFeignConfig camundaFeignConfig(CamundaClientConfig camundaClientConfig) {
+    @Bean("camunda-client-clientConfig")
+    @ConditionalOnMissingBean(name = "camunda-client-clientConfig")
+    public HttpClientProperties camundaFeignConfig(CamundaClientConfig camundaClientConfig) {
         CamundaFeignConfig camundaEngineClientConfig = new CamundaFeignConfig();
         camundaEngineClientConfig.setBaseServiceUrl(camundaClientConfig.getBaseUrl());
         HttpClientProperties.ConnectionConfiguration connectionConfiguration =
@@ -111,65 +89,82 @@ public class CamundaEngineClientConfig {
         return camundaEngineClientConfig;
     }
 
-    @Bean("camunda-client-connectionManagerFactory")
-    public ApacheHttpClientConnectionManagerFactory connectionManagerFactory() {
-        return new DefaultApacheHttpClientConnectionManagerFactory();
-    }
-
+    @Override
     @Bean("camunda-client-apacheHttpClientFactory")
     public ApacheHttpClientFactory apacheHttpClientFactory(
-            @Qualifier("camunda-client-apacheHttpClientBuilder")
-                    HttpClientBuilder builder,
-            @Qualifier("camunda-client-connectionManagerFactory")
-                    ApacheHttpClientConnectionManagerFactory connectionManagerFactory,
-            CamundaFeignConfig camundaFeignConfig) {
-        return new ConfigurableApacheHttpClientFactory(builder, connectionManagerFactory, camundaFeignConfig);
+            @Qualifier("camunda-client-httpClientBuilder") HttpClientBuilder builder,
+            @Qualifier("camunda-client-connectionManagerFactory") ApacheHttpClientConnectionManagerFactory clientConnectionManagerFactory,
+            @Qualifier("camunda-client-clientConfig") HttpClientProperties httpClientProperties) {
+        return super.apacheHttpClientFactory(builder, clientConnectionManagerFactory, httpClientProperties);
     }
 
+    @Override
     @Bean("camunda-client-clientHttpRequestFactory")
     public ClientHttpRequestFactory clientHttpRequestFactory(
             @Qualifier("camunda-client-apacheHttpClientFactory") ApacheHttpClientFactory apacheHttpClientFactory) {
-        return new HttpComponentsClientHttpRequestFactory(apacheHttpClientFactory.createBuilder().build());
+        return super.clientHttpRequestFactory(apacheHttpClientFactory);
     }
 
+    @Override
     @Bean("camunda-client-httpclient")
     public CloseableHttpClient httpClient(
             @Qualifier("camunda-client-apacheHttpClientFactory") ApacheHttpClientFactory apacheHttpClientFactory) {
-        return apacheHttpClientFactory.createBuilder().build();
+        return super.httpClient(apacheHttpClientFactory);
     }
 
-    @Bean("camunda-client-feignOption")
-    Request.Options options(CamundaFeignConfig camundaFeignConfig) {
-        HttpClientProperties.ConnectionConfiguration connectionConfiguration = camundaFeignConfig
-                .getConnection();
-        return new Request.Options(
-                connectionConfiguration.getConnectionTimeout(), TimeUnit.MILLISECONDS,
-                connectionConfiguration.getSocketTimeout(), TimeUnit.MILLISECONDS, connectionConfiguration
-                .isFollowRedirects());
+    @Override
+    @Bean("camunda-client-connectionManagerFactory")
+    public ApacheHttpClientConnectionManagerFactory connectionManagerFactory() {
+        return super.connectionManagerFactory();
     }
 
+    @Override
     @Bean("camunda-client-feignClient")
     public Client feignClient(@Qualifier("camunda-client-httpclient") HttpClient httpClient) {
-        return new ApacheHttpClient(httpClient);
+        return super.feignClient(httpClient);
     }
 
+    @Override
+    @Bean("camunda-client-requestInterceptor")
+    public RequestInterceptor requestInterceptor() {
+        return requestTemplate -> {
+        };
+    }
+
+    @Override
+    @Bean("camunda-client-requestInterceptors")
+    public List<RequestInterceptor> requestInterceptors(
+            @Qualifier("camunda-client-clientConfig") HttpClientProperties customServerClientConfig,
+            @Qualifier("camunda-client-requestInterceptor") RequestInterceptor requestInterceptor) {
+        return super.requestInterceptors(customServerClientConfig, requestInterceptor);
+    }
+
+    @Override
     @Bean("camunda-client-feignContract")
     public Contract feignContract() {
         return new SpringMvcContractImpl();
     }
 
-    @Bean("camunda-client-feignFormEncoder")
-    @DependsOn(value = "camunda-client-jacksonHttpMessageConverter")
-    public Encoder feignFormEncoder() {
+    @Override
+    @Bean("camunda-client-feignEncoder")
+    public Encoder feignEncoder(@Qualifier("camunda-client-jacksonHttpMessageConverter") HttpMessageConverter<Object> httpMessageConverter) {
         return new SpringEncoderImpl(messageConverters);
     }
 
-    @Bean("camunda-client-springDecoder")
-    @DependsOn(value = "camunda-client-jacksonHttpMessageConverter")
-    public Decoder springDecoder() {
-        return new ResponseEntityDecoder(new SpringDecoder(messageConverters));
+    @Override
+    @Bean("camunda-client-feignDecoder")
+    public Decoder feignDecoder(@Qualifier("camunda-client-jacksonHttpMessageConverter") HttpMessageConverter<Object> httpMessageConverter) {
+        return super.feignDecoder(httpMessageConverter);
     }
 
+    @Override
+    @Bean("camunda-client-jacksonHttpMessageConverter")
+    public HttpMessageConverter<Object> httpMessageConverter(@Qualifier("camunda-client-objectMapper")
+                                                                     ObjectMapper objectMapper) {
+        return super.httpMessageConverter(objectMapper);
+    }
+
+    @Override
     @Bean("camunda-client-feignErrorDecoderConfig")
     public CustomErrorDecoderConfig customErrorDecoderConfig(@Qualifier("camunda-client-objectMapper") ObjectMapper objectMapper) {
         CustomErrorDecoderConfig customErrorDecoderConfig = new CustomErrorDecoderConfig();
@@ -179,32 +174,41 @@ public class CamundaEngineClientConfig {
         return customErrorDecoderConfig;
     }
 
+    @Override
     @Bean("camunda-client-feignErrorDecoder")
-    public CustomErrorDecoder customErrorDecoder(@Qualifier("camunda-client-feignErrorDecoderConfig") CustomErrorDecoderConfig
-                                                         customErrorDecoderConfig) {
-        return new CustomErrorDecoder(customErrorDecoderConfig);
+    public CustomErrorDecoder customErrorDecoder(@Qualifier("camunda-client-feignErrorDecoderConfig") CustomErrorDecoderConfig customErrorDecoderConfig) {
+        return super.customErrorDecoder(customErrorDecoderConfig);
     }
 
-    @Bean("camunda-client-apacheHttpClientBuilder")
+    @Override
+    @Bean("camunda-client-httpClientBuilder")
     public HttpClientBuilder apacheHttpClientBuilder() {
-        return HttpClientBuilder.create();
+        return super.apacheHttpClientBuilder();
     }
 
+    @Override
     @Bean("camunda-client-retryer")
     @ConditionalOnMissingBean(
-            name = {"camunda-client-feignLoggerLevel"}
+            name = {"camunda-client-retryer"}
     )
     public Retryer retryer() {
-        return Retryer.NEVER_RETRY;
+        return super.retryer();
     }
 
-
+    @Override
     @Bean("camunda-client-feignLoggerLevel")
     @ConditionalOnMissingBean(
             name = {"camunda-client-feignLoggerLevel"}
     )
     public Logger.Level feignLoggerLevel() {
-        return Logger.Level.FULL;
+        return super.feignLoggerLevel();
+    }
+
+    @Override
+    @Bean("camunda-client-feignOption")
+    public Request.Options options(
+            @Qualifier("camunda-client-clientConfig") HttpClientProperties customServerClientConfig) {
+        return super.options(customServerClientConfig);
     }
 
     @Bean
