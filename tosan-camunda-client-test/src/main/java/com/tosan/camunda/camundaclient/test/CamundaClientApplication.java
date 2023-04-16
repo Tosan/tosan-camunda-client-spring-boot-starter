@@ -2,9 +2,8 @@ package com.tosan.camunda.camundaclient.test;
 
 import com.tosan.camunda.camundaclient.generated.api.DeploymentApi;
 import com.tosan.camunda.camundaclient.generated.api.MessageApi;
-import com.tosan.camunda.camundaclient.generated.model.CorrelationMessageDto;
-import com.tosan.camunda.camundaclient.generated.model.MessageCorrelationResultWithVariableDto;
-import com.tosan.camunda.camundaclient.generated.model.VariableValueDto;
+import com.tosan.camunda.camundaclient.generated.api.ProcessDefinitionApi;
+import com.tosan.camunda.camundaclient.generated.model.*;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.apache.commons.io.IOUtils;
@@ -34,10 +33,12 @@ public class CamundaClientApplication implements CommandLineRunner {
 
     private MessageApi messageApi;
     private DeploymentApi deploymentApi;
+    private ProcessDefinitionApi processDefinitionApi;
 
-    public CamundaClientApplication(MessageApi messageApi, DeploymentApi deploymentApi) {
+    public CamundaClientApplication(MessageApi messageApi, DeploymentApi deploymentApi, ProcessDefinitionApi processDefinitionApi) {
         this.messageApi = messageApi;
         this.deploymentApi = deploymentApi;
+        this.processDefinitionApi = processDefinitionApi;
     }
 
     public static void main(String[] args) {
@@ -49,12 +50,21 @@ public class CamundaClientApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws IOException {
-        deployBpmn();
+        deployBpmn("process");
+        startInstanceWithMessage();
+        deployBpmn("SimpleProcess");
         startInstance();
     }
 
-    private void deployBpmn() throws IOException {
-        String fileName = "process.bpmn";
+    private void startInstance() {
+        StartProcessInstanceDto body = new StartProcessInstanceDto();
+        body.setBusinessKey(UUID.randomUUID().toString());
+        ResponseEntity<ProcessInstanceWithVariablesDto> simpleProcess = processDefinitionApi.
+                startProcessInstanceByKey("SimpleProcess", body);
+    }
+
+    private void deployBpmn(String processName) throws IOException {
+        String fileName = processName + ".bpmn";
         InputStream inputStream = getFileFromResourceAsStream(fileName);
         File outFile = new File("\\tmp\\file.bpmn");
         FileItem fileItem = new DiskFileItem(fileName, "multipart/form-data", false,
@@ -62,10 +72,10 @@ public class CamundaClientApplication implements CommandLineRunner {
         IOUtils.copy(inputStream, fileItem.getOutputStream());
         MultipartFile data = new CommonsMultipartFile(fileItem);
         deploymentApi.createDeployment("testApplication", true, true,
-                "process", OffsetDateTime.now(), data);
+                processName, OffsetDateTime.now(), data);
     }
 
-    private void startInstance() {
+    private void startInstanceWithMessage() {
         CorrelationMessageDto correlationMessageDto = new CorrelationMessageDto();
         correlationMessageDto.setBusinessKey(UUID.randomUUID().toString());
         correlationMessageDto.setMessageName("test_message");
