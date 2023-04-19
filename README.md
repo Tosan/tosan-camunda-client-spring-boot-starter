@@ -215,6 +215,78 @@ provided apis as far is as below:
 
 > VariableInstanceApi
 
+> AuthorizationApi
+
+> BatchApi
+
+> ConditionApi
+
+> DecisionDefinitionApi
+
+> DecisionRequirementsDefinitionApi
+
+> EngineApi
+
+> EventSubscriptionApi
+
+> FilterApi
+
+> GroupApi
+
+> HistoricBatchApi
+
+> HistoricDecisionDefinitionApi
+
+> HistoricDecisionInstanceApi
+
+> HistoricDecisionRequirementsDefinitionApi
+
+> HistoricIdentityLinkLogApi
+
+> HistoricJobLogApi
+
+> HistoricProcessDefinitionApi
+
+> HistoricTaskInstanceApi
+
+> HistoricUserOperationLogApi
+
+> HistoricVariableInstanceApi
+
+> HistoryCleanupApi
+
+> IdentityApi
+
+> JobApi
+
+> JobDefinitionApi
+
+> ModificationApi
+
+> SchemaLogApi
+
+> SignalApi
+
+> TaskApi
+
+> TaskAttachmentApi
+
+> TaskCommentApi
+
+> TaskIdentityLinkApi
+
+> TaskLocalVariableApi
+
+> TaskVariableApi
+
+> TelemetryApi
+
+> TenantApi
+
+> UserApi
+
+> VersionApi
+
 other apis can be added easily via [CamundaServiceConfig](./tosan-camunda-client-spring-boot-starter/src/main/java/com/tosan/camunda/camundaclient/CamundaServiceConfig.java)
 
 ### Sample Project
