@@ -5,13 +5,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.0</version>
+        <version>3.0.6</version>
         <relativePath />
     </parent>
 
     <groupId>com.tosan.camunda</groupId>
     <artifactId>tosan-camunda-client-spring-boot-root</artifactId>
-    <version>7.17.0-1.0.8-SNAPSHOT</version>
+    <version>7.17.0-2.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>tosan-camunda-client-spring-boot-starter</name>
@@ -44,8 +44,8 @@
     </modules>
 
     <properties>
-        <java.version>8</java.version>
-        <tosan.httpclient.version>2.0.1</tosan.httpclient.version>
+        <java.version>17</java.version>
+        <tosan.httpclient.version>3.0.2</tosan.httpclient.version>
         <camunda.version>7.17.0</camunda.version>
         <swagger-annotations.version>2.1.13</swagger-annotations.version>
     </properties>
@@ -221,7 +221,7 @@
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.12</version>
+                        <version>1.6.13</version>
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ossrh</serverId>

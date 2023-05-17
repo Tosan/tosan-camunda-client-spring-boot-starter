@@ -2,7 +2,7 @@ package com.tosan.camunda.camundaclient.config;
 
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * @author M.khoshnevisan

@@ -3,8 +3,8 @@ package com.tosan.camunda.camundaclient.generated.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.Valid;
 import org.springframework.validation.annotation.Validated;
-import javax.validation.Valid;
 
 /**
  * PasswordPolicyRequestDto

@@ -13,6 +13,7 @@ import com.tosan.camunda.camundaclient.external.aspect.ExternalTaskMdcAspect;
 import com.tosan.camunda.camundaclient.external.aspect.ExternalTaskResultAspect;
 import com.tosan.camunda.camundaclient.feign.aspect.FeignUndeclaredThrowableExceptionAspect;
 import com.tosan.client.http.core.HttpClientProperties;
+import com.tosan.client.http.core.factory.ConfigurableApacheHttpClientFactory;
 import com.tosan.client.http.starter.configuration.AbstractFeignConfiguration;
 import com.tosan.client.http.starter.impl.feign.CustomErrorDecoder;
 import com.tosan.client.http.starter.impl.feign.CustomErrorDecoderConfig;
@@ -21,14 +22,12 @@ import feign.*;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.http.client.HttpClient;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
+import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.cloud.commons.httpclient.ApacheHttpClientConnectionManagerFactory;
-import org.springframework.cloud.commons.httpclient.ApacheHttpClientFactory;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
@@ -54,8 +53,9 @@ public class CamundaEngineClientConfig extends AbstractFeignConfiguration {
         exceptionMap.put("Validation.invalid", Exception.class);
     }
 
+    @Override
     @Bean({"camunda-client-objectMapper"})
-    public ObjectMapper camundaClientObjectMapper() {
+    public ObjectMapper objectMapper() {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.findAndRegisterModules();
         objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
@@ -91,36 +91,36 @@ public class CamundaEngineClientConfig extends AbstractFeignConfiguration {
 
     @Override
     @Bean("camunda-client-apacheHttpClientFactory")
-    public ApacheHttpClientFactory apacheHttpClientFactory(
+    public ConfigurableApacheHttpClientFactory apacheHttpClientFactory(
             @Qualifier("camunda-client-httpClientBuilder") HttpClientBuilder builder,
-            @Qualifier("camunda-client-connectionManagerFactory") ApacheHttpClientConnectionManagerFactory clientConnectionManagerFactory,
-            @Qualifier("camunda-client-clientConfig") HttpClientProperties httpClientProperties) {
-        return super.apacheHttpClientFactory(builder, clientConnectionManagerFactory, httpClientProperties);
+            @Qualifier("camunda-client-connectionManagerFactory") PoolingHttpClientConnectionManagerBuilder connectionManagerBuilder,
+            @Qualifier("camunda-client-clientConfig") HttpClientProperties customServerClientConfig) {
+        return super.apacheHttpClientFactory(builder, connectionManagerBuilder, customServerClientConfig);
     }
 
     @Override
     @Bean("camunda-client-clientHttpRequestFactory")
     public ClientHttpRequestFactory clientHttpRequestFactory(
-            @Qualifier("camunda-client-apacheHttpClientFactory") ApacheHttpClientFactory apacheHttpClientFactory) {
+            @Qualifier("camunda-client-apacheHttpClientFactory") ConfigurableApacheHttpClientFactory apacheHttpClientFactory) {
         return super.clientHttpRequestFactory(apacheHttpClientFactory);
     }
 
     @Override
     @Bean("camunda-client-httpclient")
     public CloseableHttpClient httpClient(
-            @Qualifier("camunda-client-apacheHttpClientFactory") ApacheHttpClientFactory apacheHttpClientFactory) {
+            @Qualifier("camunda-client-apacheHttpClientFactory") ConfigurableApacheHttpClientFactory apacheHttpClientFactory) {
         return super.httpClient(apacheHttpClientFactory);
     }
 
     @Override
     @Bean("camunda-client-connectionManagerFactory")
-    public ApacheHttpClientConnectionManagerFactory connectionManagerFactory() {
-        return super.connectionManagerFactory();
+    public PoolingHttpClientConnectionManagerBuilder connectionManagerBuilder() {
+        return super.connectionManagerBuilder();
     }
 
     @Override
     @Bean("camunda-client-feignClient")
-    public Client feignClient(@Qualifier("camunda-client-httpclient") HttpClient httpClient) {
+    public Client feignClient(@Qualifier("camunda-client-httpclient") org.apache.hc.client5.http.classic.HttpClient httpClient) {
         return super.feignClient(httpClient);
     }
 

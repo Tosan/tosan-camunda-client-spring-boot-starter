@@ -294,7 +294,7 @@ other apis can be added easily via [CamundaServiceConfig](./tosan-camunda-client
 You can find a sample project in tosan-camunda-client-test module
 
 ### Prerequisites
-This Library requires java version 8 or above.
+This Library requires java version 17 or above and spring boot version 3 and above.
 
 ## Contributing
 Any contribution is greatly appreciated.
