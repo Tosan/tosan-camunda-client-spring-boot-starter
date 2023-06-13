@@ -1,25 +1,29 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * AtomLink
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class AtomLink {
 
-public class AtomLink   {
-  @JsonProperty("rel")
   private String rel = null;
 
-  @JsonProperty("href")
   private String href = null;
 
-  @JsonProperty("method")
   private String method = null;
 
   public AtomLink rel(String rel) {
@@ -30,10 +34,11 @@ public class AtomLink   {
   /**
    * The relation of the link to the object that belongs to.
    * @return rel
-   **/
-  @Schema(description = "The relation of the link to the object that belongs to.")
+  */
   
-    public String getRel() {
+  @Schema(name = "rel", description = "The relation of the link to the object that belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("rel")
+  public String getRel() {
     return rel;
   }
 
@@ -49,10 +54,11 @@ public class AtomLink   {
   /**
    * The url of the link.
    * @return href
-   **/
-  @Schema(description = "The url of the link.")
+  */
   
-    public String getHref() {
+  @Schema(name = "href", description = "The url of the link.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("href")
+  public String getHref() {
     return href;
   }
 
@@ -68,17 +74,17 @@ public class AtomLink   {
   /**
    * The http method.
    * @return method
-   **/
-  @Schema(description = "The http method.")
+  */
   
-    public String getMethod() {
+  @Schema(name = "method", description = "The http method.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("method")
+  public String getMethod() {
     return method;
   }
 
   public void setMethod(String method) {
     this.method = method;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -103,7 +109,6 @@ public class AtomLink   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AtomLink {\n");
-    
     sb.append("    rel: ").append(toIndentedString(rel)).append("\n");
     sb.append("    href: ").append(toIndentedString(href)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
@@ -122,3 +127,4 @@ public class AtomLink   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

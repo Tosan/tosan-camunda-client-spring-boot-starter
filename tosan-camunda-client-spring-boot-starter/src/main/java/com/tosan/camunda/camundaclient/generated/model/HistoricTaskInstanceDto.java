@@ -1,96 +1,82 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * HistoricTaskInstanceDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricTaskInstanceDto {
 
-public class HistoricTaskInstanceDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("caseDefinitionKey")
   private String caseDefinitionKey = null;
 
-  @JsonProperty("caseDefinitionId")
   private String caseDefinitionId = null;
 
-  @JsonProperty("caseInstanceId")
   private String caseInstanceId = null;
 
-  @JsonProperty("caseExecutionId")
   private String caseExecutionId = null;
 
-  @JsonProperty("activityInstanceId")
   private String activityInstanceId = null;
 
-  @JsonProperty("name")
   private String name = null;
 
-  @JsonProperty("description")
   private String description = null;
 
-  @JsonProperty("deleteReason")
   private String deleteReason = null;
 
-  @JsonProperty("owner")
   private String owner = null;
 
-  @JsonProperty("assignee")
   private String assignee = null;
 
-  @JsonProperty("startTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime startTime = null;
 
-  @JsonProperty("endTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime endTime = null;
 
-  @JsonProperty("duration")
   private Long duration = null;
 
-  @JsonProperty("taskDefinitionKey")
   private String taskDefinitionKey = null;
 
-  @JsonProperty("priority")
   private Integer priority = null;
 
-  @JsonProperty("due")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime due = null;
 
-  @JsonProperty("parentTaskId")
   private String parentTaskId = null;
 
-  @JsonProperty("followUp")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime followUp = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("removalTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime removalTime = null;
 
-  @JsonProperty("rootProcessInstanceId")
   private String rootProcessInstanceId = null;
 
   public HistoricTaskInstanceDto id(String id) {
@@ -101,10 +87,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The task id.
    * @return id
-   **/
-  @Schema(description = "The task id.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The task id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -120,10 +107,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The key of the process definition the task belongs to.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "The key of the process definition the task belongs to.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "The key of the process definition the task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -139,10 +127,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The id of the process definition the task belongs to.
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definition the task belongs to.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definition the task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -158,10 +147,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The id of the process instance the task belongs to.
    * @return processInstanceId
-   **/
-  @Schema(description = "The id of the process instance the task belongs to.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "The id of the process instance the task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -177,10 +167,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The id of the execution the task belongs to.
    * @return executionId
-   **/
-  @Schema(description = "The id of the execution the task belongs to.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "The id of the execution the task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -196,10 +187,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The key of the case definition the task belongs to.
    * @return caseDefinitionKey
-   **/
-  @Schema(description = "The key of the case definition the task belongs to.")
+  */
   
-    public String getCaseDefinitionKey() {
+  @Schema(name = "caseDefinitionKey", description = "The key of the case definition the task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseDefinitionKey")
+  public String getCaseDefinitionKey() {
     return caseDefinitionKey;
   }
 
@@ -215,10 +207,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The id of the case definition the task belongs to.
    * @return caseDefinitionId
-   **/
-  @Schema(description = "The id of the case definition the task belongs to.")
+  */
   
-    public String getCaseDefinitionId() {
+  @Schema(name = "caseDefinitionId", description = "The id of the case definition the task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseDefinitionId")
+  public String getCaseDefinitionId() {
     return caseDefinitionId;
   }
 
@@ -234,10 +227,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The id of the case instance the task belongs to.
    * @return caseInstanceId
-   **/
-  @Schema(description = "The id of the case instance the task belongs to.")
+  */
   
-    public String getCaseInstanceId() {
+  @Schema(name = "caseInstanceId", description = "The id of the case instance the task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceId")
+  public String getCaseInstanceId() {
     return caseInstanceId;
   }
 
@@ -253,10 +247,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The id of the case execution the task belongs to.
    * @return caseExecutionId
-   **/
-  @Schema(description = "The id of the case execution the task belongs to.")
+  */
   
-    public String getCaseExecutionId() {
+  @Schema(name = "caseExecutionId", description = "The id of the case execution the task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseExecutionId")
+  public String getCaseExecutionId() {
     return caseExecutionId;
   }
 
@@ -272,10 +267,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The id of the activity that this object is an instance of.
    * @return activityInstanceId
-   **/
-  @Schema(description = "The id of the activity that this object is an instance of.")
+  */
   
-    public String getActivityInstanceId() {
+  @Schema(name = "activityInstanceId", description = "The id of the activity that this object is an instance of.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityInstanceId")
+  public String getActivityInstanceId() {
     return activityInstanceId;
   }
 
@@ -291,10 +287,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The task name.
    * @return name
-   **/
-  @Schema(description = "The task name.")
+  */
   
-    public String getName() {
+  @Schema(name = "name", description = "The task name.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
     return name;
   }
 
@@ -310,10 +307,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The task's description.
    * @return description
-   **/
-  @Schema(description = "The task's description.")
+  */
   
-    public String getDescription() {
+  @Schema(name = "description", description = "The task's description.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("description")
+  public String getDescription() {
     return description;
   }
 
@@ -329,10 +327,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The task's delete reason.
    * @return deleteReason
-   **/
-  @Schema(description = "The task's delete reason.")
+  */
   
-    public String getDeleteReason() {
+  @Schema(name = "deleteReason", description = "The task's delete reason.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deleteReason")
+  public String getDeleteReason() {
     return deleteReason;
   }
 
@@ -348,10 +347,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The owner's id.
    * @return owner
-   **/
-  @Schema(description = "The owner's id.")
+  */
   
-    public String getOwner() {
+  @Schema(name = "owner", description = "The owner's id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("owner")
+  public String getOwner() {
     return owner;
   }
 
@@ -367,10 +367,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The assignee's id.
    * @return assignee
-   **/
-  @Schema(description = "The assignee's id.")
+  */
   
-    public String getAssignee() {
+  @Schema(name = "assignee", description = "The assignee's id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("assignee")
+  public String getAssignee() {
     return assignee;
   }
 
@@ -386,11 +387,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The time the task was started. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return startTime
-   **/
-  @Schema(description = "The time the task was started. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getStartTime() {
+  */
+  @Valid 
+  @Schema(name = "startTime", description = "The time the task was started. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("startTime")
+  public OffsetDateTime getStartTime() {
     return startTime;
   }
 
@@ -406,11 +407,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The time the task ended. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return endTime
-   **/
-  @Schema(description = "The time the task ended. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getEndTime() {
+  */
+  @Valid 
+  @Schema(name = "endTime", description = "The time the task ended. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("endTime")
+  public OffsetDateTime getEndTime() {
     return endTime;
   }
 
@@ -426,10 +427,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The time the task took to finish (in milliseconds).
    * @return duration
-   **/
-  @Schema(description = "The time the task took to finish (in milliseconds).")
+  */
   
-    public Long getDuration() {
+  @Schema(name = "duration", description = "The time the task took to finish (in milliseconds).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("duration")
+  public Long getDuration() {
     return duration;
   }
 
@@ -445,10 +447,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The task's key.
    * @return taskDefinitionKey
-   **/
-  @Schema(description = "The task's key.")
+  */
   
-    public String getTaskDefinitionKey() {
+  @Schema(name = "taskDefinitionKey", description = "The task's key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskDefinitionKey")
+  public String getTaskDefinitionKey() {
     return taskDefinitionKey;
   }
 
@@ -464,10 +467,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The task's priority.
    * @return priority
-   **/
-  @Schema(description = "The task's priority.")
+  */
   
-    public Integer getPriority() {
+  @Schema(name = "priority", description = "The task's priority.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("priority")
+  public Integer getPriority() {
     return priority;
   }
 
@@ -483,11 +487,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The task's due date. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return due
-   **/
-  @Schema(description = "The task's due date. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getDue() {
+  */
+  @Valid 
+  @Schema(name = "due", description = "The task's due date. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("due")
+  public OffsetDateTime getDue() {
     return due;
   }
 
@@ -503,10 +507,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The id of the parent task, if this task is a subtask.
    * @return parentTaskId
-   **/
-  @Schema(description = "The id of the parent task, if this task is a subtask.")
+  */
   
-    public String getParentTaskId() {
+  @Schema(name = "parentTaskId", description = "The id of the parent task, if this task is a subtask.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("parentTaskId")
+  public String getParentTaskId() {
     return parentTaskId;
   }
 
@@ -522,11 +527,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The follow-up date for the task. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return followUp
-   **/
-  @Schema(description = "The follow-up date for the task. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getFollowUp() {
+  */
+  @Valid 
+  @Schema(name = "followUp", description = "The follow-up date for the task. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("followUp")
+  public OffsetDateTime getFollowUp() {
     return followUp;
   }
 
@@ -542,10 +547,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The tenant id of the task instance.
    * @return tenantId
-   **/
-  @Schema(description = "The tenant id of the task instance.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The tenant id of the task instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -561,11 +567,11 @@ public class HistoricTaskInstanceDto   {
   /**
    * The time after which the task should be removed by the History Cleanup job. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return removalTime
-   **/
-  @Schema(description = "The time after which the task should be removed by the History Cleanup job. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getRemovalTime() {
+  */
+  @Valid 
+  @Schema(name = "removalTime", description = "The time after which the task should be removed by the History Cleanup job. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("removalTime")
+  public OffsetDateTime getRemovalTime() {
     return removalTime;
   }
 
@@ -581,17 +587,17 @@ public class HistoricTaskInstanceDto   {
   /**
    * The process instance id of the root process instance that initiated the process containing this task.
    * @return rootProcessInstanceId
-   **/
-  @Schema(description = "The process instance id of the root process instance that initiated the process containing this task.")
+  */
   
-    public String getRootProcessInstanceId() {
+  @Schema(name = "rootProcessInstanceId", description = "The process instance id of the root process instance that initiated the process containing this task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("rootProcessInstanceId")
+  public String getRootProcessInstanceId() {
     return rootProcessInstanceId;
   }
 
   public void setRootProcessInstanceId(String rootProcessInstanceId) {
     this.rootProcessInstanceId = rootProcessInstanceId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -639,7 +645,6 @@ public class HistoricTaskInstanceDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricTaskInstanceDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    processDefinitionKey: ").append(toIndentedString(processDefinitionKey)).append("\n");
     sb.append("    processDefinitionId: ").append(toIndentedString(processDefinitionId)).append("\n");
@@ -681,3 +686,4 @@ public class HistoricTaskInstanceDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

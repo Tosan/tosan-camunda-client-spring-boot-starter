@@ -1,31 +1,34 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A JSON object with the following properties:
  */
-@Schema(description = "A JSON object with the following properties:")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "RedeploymentDto", description = "A JSON object with the following properties:")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class RedeploymentDto {
 
-public class RedeploymentDto   {
-  @JsonProperty("resourceIds")
   @Valid
-  private List<String> resourceIds = null;
+  private List<String> resourceIds;
 
-  @JsonProperty("resourceNames")
   @Valid
-  private List<String> resourceNames = null;
+  private List<String> resourceNames;
 
-  @JsonProperty("source")
   private String source = null;
 
   public RedeploymentDto resourceIds(List<String> resourceIds) {
@@ -44,10 +47,11 @@ public class RedeploymentDto   {
   /**
    * A list of deployment resource ids to re-deploy.
    * @return resourceIds
-   **/
-  @Schema(description = "A list of deployment resource ids to re-deploy.")
+  */
   
-    public List<String> getResourceIds() {
+  @Schema(name = "resourceIds", description = "A list of deployment resource ids to re-deploy.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resourceIds")
+  public List<String> getResourceIds() {
     return resourceIds;
   }
 
@@ -71,10 +75,11 @@ public class RedeploymentDto   {
   /**
    * A list of deployment resource names to re-deploy.
    * @return resourceNames
-   **/
-  @Schema(description = "A list of deployment resource names to re-deploy.")
+  */
   
-    public List<String> getResourceNames() {
+  @Schema(name = "resourceNames", description = "A list of deployment resource names to re-deploy.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resourceNames")
+  public List<String> getResourceNames() {
     return resourceNames;
   }
 
@@ -90,17 +95,17 @@ public class RedeploymentDto   {
   /**
    * Sets the source of the deployment.
    * @return source
-   **/
-  @Schema(description = "Sets the source of the deployment.")
+  */
   
-    public String getSource() {
+  @Schema(name = "source", description = "Sets the source of the deployment.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("source")
+  public String getSource() {
     return source;
   }
 
   public void setSource(String source) {
     this.source = source;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -125,7 +130,6 @@ public class RedeploymentDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RedeploymentDto {\n");
-    
     sb.append("    resourceIds: ").append(toIndentedString(resourceIds)).append("\n");
     sb.append("    resourceNames: ").append(toIndentedString(resourceNames)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
@@ -144,3 +148,4 @@ public class RedeploymentDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

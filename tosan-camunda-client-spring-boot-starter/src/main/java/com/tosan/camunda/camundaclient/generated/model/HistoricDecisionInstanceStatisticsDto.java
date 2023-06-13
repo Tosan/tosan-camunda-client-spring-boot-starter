@@ -1,22 +1,27 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * HistoricDecisionInstanceStatisticsDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricDecisionInstanceStatisticsDto {
 
-public class HistoricDecisionInstanceStatisticsDto   {
-  @JsonProperty("decisionDefinitionKey")
   private String decisionDefinitionKey = null;
 
-  @JsonProperty("evaluations")
   private Integer evaluations = null;
 
   public HistoricDecisionInstanceStatisticsDto decisionDefinitionKey(String decisionDefinitionKey) {
@@ -27,10 +32,11 @@ public class HistoricDecisionInstanceStatisticsDto   {
   /**
    * A key of decision definition.
    * @return decisionDefinitionKey
-   **/
-  @Schema(description = "A key of decision definition.")
+  */
   
-    public String getDecisionDefinitionKey() {
+  @Schema(name = "decisionDefinitionKey", description = "A key of decision definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionDefinitionKey")
+  public String getDecisionDefinitionKey() {
     return decisionDefinitionKey;
   }
 
@@ -46,17 +52,17 @@ public class HistoricDecisionInstanceStatisticsDto   {
   /**
    * A number of evaluation for decision definition.
    * @return evaluations
-   **/
-  @Schema(description = "A number of evaluation for decision definition.")
+  */
   
-    public Integer getEvaluations() {
+  @Schema(name = "evaluations", description = "A number of evaluation for decision definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("evaluations")
+  public Integer getEvaluations() {
     return evaluations;
   }
 
   public void setEvaluations(Integer evaluations) {
     this.evaluations = evaluations;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -80,7 +86,6 @@ public class HistoricDecisionInstanceStatisticsDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricDecisionInstanceStatisticsDto {\n");
-    
     sb.append("    decisionDefinitionKey: ").append(toIndentedString(decisionDefinitionKey)).append("\n");
     sb.append("    evaluations: ").append(toIndentedString(evaluations)).append("\n");
     sb.append("}");
@@ -98,3 +103,4 @@ public class HistoricDecisionInstanceStatisticsDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

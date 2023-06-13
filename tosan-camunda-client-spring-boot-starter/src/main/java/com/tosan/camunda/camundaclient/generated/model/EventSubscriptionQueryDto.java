@@ -1,28 +1,32 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.tosan.camunda.camundaclient.generated.model.EventSubscriptionQueryDtoSortingInner;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A event subscription query which retrieves a list of event subscriptions
  */
-@Schema(description = "A event subscription query which retrieves a list of event subscriptions")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "EventSubscriptionQueryDto", description = "A event subscription query which retrieves a list of event subscriptions")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class EventSubscriptionQueryDto {
 
-public class EventSubscriptionQueryDto   {
-  @JsonProperty("eventSubscriptionId")
   private String eventSubscriptionId = null;
 
-  @JsonProperty("eventName")
   private String eventName = null;
 
   /**
@@ -43,47 +47,44 @@ public class EventSubscriptionQueryDto   {
       this.value = value;
     }
 
-    @Override
     @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static EventTypeEnum fromValue(String text) {
+    public static EventTypeEnum fromValue(String value) {
       for (EventTypeEnum b : EventTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
       return null;
     }
   }
-  @JsonProperty("eventType")
+
   private EventTypeEnum eventType = null;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("activityId")
   private String activityId = null;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("withoutTenantId")
   private Boolean withoutTenantId = null;
 
-  @JsonProperty("includeEventSubscriptionsWithoutTenantId")
   private Boolean includeEventSubscriptionsWithoutTenantId = null;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<EventSubscriptionQueryDtoSorting> sorting = null;
+  private List<@Valid EventSubscriptionQueryDtoSortingInner> sorting;
 
   public EventSubscriptionQueryDto eventSubscriptionId(String eventSubscriptionId) {
     this.eventSubscriptionId = eventSubscriptionId;
@@ -93,10 +94,11 @@ public class EventSubscriptionQueryDto   {
   /**
    * The id of the event subscription.
    * @return eventSubscriptionId
-   **/
-  @Schema(description = "The id of the event subscription.")
+  */
   
-    public String getEventSubscriptionId() {
+  @Schema(name = "eventSubscriptionId", description = "The id of the event subscription.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("eventSubscriptionId")
+  public String getEventSubscriptionId() {
     return eventSubscriptionId;
   }
 
@@ -112,10 +114,11 @@ public class EventSubscriptionQueryDto   {
   /**
    * The name of the event this subscription belongs to as defined in the process model.
    * @return eventName
-   **/
-  @Schema(description = "The name of the event this subscription belongs to as defined in the process model.")
+  */
   
-    public String getEventName() {
+  @Schema(name = "eventName", description = "The name of the event this subscription belongs to as defined in the process model.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("eventName")
+  public String getEventName() {
     return eventName;
   }
 
@@ -131,10 +134,11 @@ public class EventSubscriptionQueryDto   {
   /**
    * The type of the event subscription.
    * @return eventType
-   **/
-  @Schema(description = "The type of the event subscription.")
+  */
   
-    public EventTypeEnum getEventType() {
+  @Schema(name = "eventType", description = "The type of the event subscription.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("eventType")
+  public EventTypeEnum getEventType() {
     return eventType;
   }
 
@@ -150,10 +154,11 @@ public class EventSubscriptionQueryDto   {
   /**
    * The execution that is subscribed on the referenced event.
    * @return executionId
-   **/
-  @Schema(description = "The execution that is subscribed on the referenced event.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "The execution that is subscribed on the referenced event.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -169,10 +174,11 @@ public class EventSubscriptionQueryDto   {
   /**
    * The process instance this subscription belongs to.
    * @return processInstanceId
-   **/
-  @Schema(description = "The process instance this subscription belongs to.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "The process instance this subscription belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -188,10 +194,11 @@ public class EventSubscriptionQueryDto   {
   /**
    * The identifier of the activity that this event subscription belongs to. This could for example be the id of a receive task.
    * @return activityId
-   **/
-  @Schema(description = "The identifier of the activity that this event subscription belongs to. This could for example be the id of a receive task.")
+  */
   
-    public String getActivityId() {
+  @Schema(name = "activityId", description = "The identifier of the activity that this event subscription belongs to. This could for example be the id of a receive task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityId")
+  public String getActivityId() {
     return activityId;
   }
 
@@ -215,10 +222,11 @@ public class EventSubscriptionQueryDto   {
   /**
    * Filter by a comma-separated list of tenant ids. Only select subscriptions that belong to one of the given tenant ids.
    * @return tenantIdIn
-   **/
-  @Schema(description = "Filter by a comma-separated list of tenant ids. Only select subscriptions that belong to one of the given tenant ids.")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Filter by a comma-separated list of tenant ids. Only select subscriptions that belong to one of the given tenant ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -234,10 +242,11 @@ public class EventSubscriptionQueryDto   {
   /**
    * Only select subscriptions which have no tenant id. Value may only be `true`, as `false` is the default behavior.
    * @return withoutTenantId
-   **/
-  @Schema(description = "Only select subscriptions which have no tenant id. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "Only select subscriptions which have no tenant id. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
@@ -253,10 +262,11 @@ public class EventSubscriptionQueryDto   {
   /**
    * Select event subscriptions which have no tenant id. Can be used in combination with tenantIdIn parameter. Value may only be `true`, as `false` is the default behavior.
    * @return includeEventSubscriptionsWithoutTenantId
-   **/
-  @Schema(description = "Select event subscriptions which have no tenant id. Can be used in combination with tenantIdIn parameter. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isIncludeEventSubscriptionsWithoutTenantId() {
+  @Schema(name = "includeEventSubscriptionsWithoutTenantId", description = "Select event subscriptions which have no tenant id. Can be used in combination with tenantIdIn parameter. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("includeEventSubscriptionsWithoutTenantId")
+  public Boolean getIncludeEventSubscriptionsWithoutTenantId() {
     return includeEventSubscriptionsWithoutTenantId;
   }
 
@@ -264,12 +274,12 @@ public class EventSubscriptionQueryDto   {
     this.includeEventSubscriptionsWithoutTenantId = includeEventSubscriptionsWithoutTenantId;
   }
 
-  public EventSubscriptionQueryDto sorting(List<EventSubscriptionQueryDtoSorting> sorting) {
+  public EventSubscriptionQueryDto sorting(List<@Valid EventSubscriptionQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public EventSubscriptionQueryDto addSortingItem(EventSubscriptionQueryDtoSorting sortingItem) {
+  public EventSubscriptionQueryDto addSortingItem(EventSubscriptionQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -280,17 +290,17 @@ public class EventSubscriptionQueryDto   {
   /**
    * Apply sorting of the result
    * @return sorting
-   **/
-  @Schema(description = "Apply sorting of the result")
-      @Valid
-    public List<EventSubscriptionQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "Apply sorting of the result", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid EventSubscriptionQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<EventSubscriptionQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid EventSubscriptionQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -322,7 +332,6 @@ public class EventSubscriptionQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EventSubscriptionQueryDto {\n");
-    
     sb.append("    eventSubscriptionId: ").append(toIndentedString(eventSubscriptionId)).append("\n");
     sb.append("    eventName: ").append(toIndentedString(eventName)).append("\n");
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
@@ -348,3 +357,4 @@ public class EventSubscriptionQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

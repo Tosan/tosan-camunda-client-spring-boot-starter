@@ -1,22 +1,27 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * FormDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class FormDto {
 
-public class FormDto   {
-  @JsonProperty("key")
   private String key = null;
 
-  @JsonProperty("contextPath")
   private String contextPath = null;
 
   public FormDto key(String key) {
@@ -27,10 +32,11 @@ public class FormDto   {
   /**
    * The form key.
    * @return key
-   **/
-  @Schema(description = "The form key.")
+  */
   
-    public String getKey() {
+  @Schema(name = "key", description = "The form key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("key")
+  public String getKey() {
     return key;
   }
 
@@ -46,17 +52,17 @@ public class FormDto   {
   /**
    * The context path of the process application. If the task (or the process definition) does not belong to a process application deployment or a process definition at all, this property is not set.
    * @return contextPath
-   **/
-  @Schema(description = "The context path of the process application. If the task (or the process definition) does not belong to a process application deployment or a process definition at all, this property is not set.")
+  */
   
-    public String getContextPath() {
+  @Schema(name = "contextPath", description = "The context path of the process application. If the task (or the process definition) does not belong to a process application deployment or a process definition at all, this property is not set.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("contextPath")
+  public String getContextPath() {
     return contextPath;
   }
 
   public void setContextPath(String contextPath) {
     this.contextPath = contextPath;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -80,7 +86,6 @@ public class FormDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FormDto {\n");
-    
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    contextPath: ").append(toIndentedString(contextPath)).append("\n");
     sb.append("}");
@@ -98,3 +103,4 @@ public class FormDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

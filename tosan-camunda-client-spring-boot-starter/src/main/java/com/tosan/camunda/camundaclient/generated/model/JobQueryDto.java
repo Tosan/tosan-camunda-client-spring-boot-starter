@@ -1,108 +1,89 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.JobConditionQueryParameterDto;
+import com.tosan.camunda.camundaclient.generated.model.JobQueryDtoSortingInner;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A Job instance query which defines a list of Job instances
  */
-@Schema(description = "A Job instance query which defines a list of Job instances")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "JobQueryDto", description = "A Job instance query which defines a list of Job instances")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class JobQueryDto {
 
-public class JobQueryDto   {
-  @JsonProperty("jobId")
   private String jobId = null;
 
-  @JsonProperty("jobIds")
   @Valid
-  private List<String> jobIds = null;
+  private List<String> jobIds;
 
-  @JsonProperty("jobDefinitionId")
   private String jobDefinitionId = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("processInstanceIds")
   @Valid
-  private List<String> processInstanceIds = null;
+  private List<String> processInstanceIds;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("activityId")
   private String activityId = null;
 
-  @JsonProperty("withRetriesLeft")
   private Boolean withRetriesLeft = null;
 
-  @JsonProperty("executable")
   private Boolean executable = null;
 
-  @JsonProperty("timers")
   private Boolean timers = null;
 
-  @JsonProperty("messages")
   private Boolean messages = null;
 
-  @JsonProperty("dueDates")
   @Valid
-  private List<JobConditionQueryParameterDto> dueDates = null;
+  private List<@Valid JobConditionQueryParameterDto> dueDates;
 
-  @JsonProperty("createTimes")
   @Valid
-  private List<JobConditionQueryParameterDto> createTimes = null;
+  private List<@Valid JobConditionQueryParameterDto> createTimes;
 
-  @JsonProperty("withException")
   private Boolean withException = null;
 
-  @JsonProperty("exceptionMessage")
   private String exceptionMessage = null;
 
-  @JsonProperty("failedActivityId")
   private String failedActivityId = null;
 
-  @JsonProperty("noRetriesLeft")
   private Boolean noRetriesLeft = null;
 
-  @JsonProperty("active")
   private Boolean active = null;
 
-  @JsonProperty("suspended")
   private Boolean suspended = null;
 
-  @JsonProperty("priorityLowerThanOrEquals")
   private Long priorityLowerThanOrEquals = null;
 
-  @JsonProperty("priorityHigherThanOrEquals")
   private Long priorityHigherThanOrEquals = null;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("withoutTenantId")
   private Boolean withoutTenantId = null;
 
-  @JsonProperty("includeJobsWithoutTenantId")
   private Boolean includeJobsWithoutTenantId = null;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<JobQueryDtoSorting> sorting = null;
+  private List<@Valid JobQueryDtoSortingInner> sorting;
 
   public JobQueryDto jobId(String jobId) {
     this.jobId = jobId;
@@ -112,10 +93,11 @@ public class JobQueryDto   {
   /**
    * Filter by job id.
    * @return jobId
-   **/
-  @Schema(description = "Filter by job id.")
+  */
   
-    public String getJobId() {
+  @Schema(name = "jobId", description = "Filter by job id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobId")
+  public String getJobId() {
     return jobId;
   }
 
@@ -139,10 +121,11 @@ public class JobQueryDto   {
   /**
    * Filter by a  list of job ids.
    * @return jobIds
-   **/
-  @Schema(description = "Filter by a  list of job ids.")
+  */
   
-    public List<String> getJobIds() {
+  @Schema(name = "jobIds", description = "Filter by a  list of job ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobIds")
+  public List<String> getJobIds() {
     return jobIds;
   }
 
@@ -158,10 +141,11 @@ public class JobQueryDto   {
   /**
    * Only select jobs which exist for the given job definition.
    * @return jobDefinitionId
-   **/
-  @Schema(description = "Only select jobs which exist for the given job definition.")
+  */
   
-    public String getJobDefinitionId() {
+  @Schema(name = "jobDefinitionId", description = "Only select jobs which exist for the given job definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobDefinitionId")
+  public String getJobDefinitionId() {
     return jobDefinitionId;
   }
 
@@ -177,10 +161,11 @@ public class JobQueryDto   {
   /**
    * Only select jobs which exist for the given process instance.
    * @return processInstanceId
-   **/
-  @Schema(description = "Only select jobs which exist for the given process instance.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "Only select jobs which exist for the given process instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -204,10 +189,11 @@ public class JobQueryDto   {
   /**
    * Only select jobs which exist for the given  list of process instance ids.
    * @return processInstanceIds
-   **/
-  @Schema(description = "Only select jobs which exist for the given  list of process instance ids.")
+  */
   
-    public List<String> getProcessInstanceIds() {
+  @Schema(name = "processInstanceIds", description = "Only select jobs which exist for the given  list of process instance ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceIds")
+  public List<String> getProcessInstanceIds() {
     return processInstanceIds;
   }
 
@@ -223,10 +209,11 @@ public class JobQueryDto   {
   /**
    * Only select jobs which exist for the given execution.
    * @return executionId
-   **/
-  @Schema(description = "Only select jobs which exist for the given execution.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "Only select jobs which exist for the given execution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -242,10 +229,11 @@ public class JobQueryDto   {
   /**
    * Filter by the id of the process definition the jobs run on.
    * @return processDefinitionId
-   **/
-  @Schema(description = "Filter by the id of the process definition the jobs run on.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "Filter by the id of the process definition the jobs run on.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -261,10 +249,11 @@ public class JobQueryDto   {
   /**
    * Filter by the key of the process definition the jobs run on.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "Filter by the key of the process definition the jobs run on.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "Filter by the key of the process definition the jobs run on.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -280,10 +269,11 @@ public class JobQueryDto   {
   /**
    * Only select jobs which exist for an activity with the given id.
    * @return activityId
-   **/
-  @Schema(description = "Only select jobs which exist for an activity with the given id.")
+  */
   
-    public String getActivityId() {
+  @Schema(name = "activityId", description = "Only select jobs which exist for an activity with the given id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityId")
+  public String getActivityId() {
     return activityId;
   }
 
@@ -299,10 +289,11 @@ public class JobQueryDto   {
   /**
    * Only select jobs which have retries left. Value may only be `true`, as `false` is the default behavior.
    * @return withRetriesLeft
-   **/
-  @Schema(description = "Only select jobs which have retries left. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithRetriesLeft() {
+  @Schema(name = "withRetriesLeft", description = "Only select jobs which have retries left. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withRetriesLeft")
+  public Boolean getWithRetriesLeft() {
     return withRetriesLeft;
   }
 
@@ -318,10 +309,11 @@ public class JobQueryDto   {
   /**
    * Only select jobs which are executable, i.e., retries > 0 and due date is `null` or due date is in the past. Value may only be `true`, as `false` is the default behavior.
    * @return executable
-   **/
-  @Schema(description = "Only select jobs which are executable, i.e., retries > 0 and due date is `null` or due date is in the past. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isExecutable() {
+  @Schema(name = "executable", description = "Only select jobs which are executable, i.e., retries > 0 and due date is `null` or due date is in the past. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executable")
+  public Boolean getExecutable() {
     return executable;
   }
 
@@ -337,10 +329,11 @@ public class JobQueryDto   {
   /**
    * Only select jobs that are timers. Cannot be used together with `messages`. Value may only be `true`, as `false` is the default behavior.
    * @return timers
-   **/
-  @Schema(description = "Only select jobs that are timers. Cannot be used together with `messages`. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isTimers() {
+  @Schema(name = "timers", description = "Only select jobs that are timers. Cannot be used together with `messages`. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("timers")
+  public Boolean getTimers() {
     return timers;
   }
 
@@ -356,10 +349,11 @@ public class JobQueryDto   {
   /**
    * Only select jobs that are messages. Cannot be used together with `timers`. Value may only be `true`, as `false` is the default behavior.
    * @return messages
-   **/
-  @Schema(description = "Only select jobs that are messages. Cannot be used together with `timers`. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isMessages() {
+  @Schema(name = "messages", description = "Only select jobs that are messages. Cannot be used together with `timers`. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("messages")
+  public Boolean getMessages() {
     return messages;
   }
 
@@ -367,7 +361,7 @@ public class JobQueryDto   {
     this.messages = messages;
   }
 
-  public JobQueryDto dueDates(List<JobConditionQueryParameterDto> dueDates) {
+  public JobQueryDto dueDates(List<@Valid JobConditionQueryParameterDto> dueDates) {
     this.dueDates = dueDates;
     return this;
   }
@@ -383,18 +377,19 @@ public class JobQueryDto   {
   /**
    * Only select jobs where the due date is lower or higher than the given date. 
    * @return dueDates
-   **/
-  @Schema(description = "Only select jobs where the due date is lower or higher than the given date. ")
-      @Valid
-    public List<JobConditionQueryParameterDto> getDueDates() {
+  */
+  @Valid 
+  @Schema(name = "dueDates", description = "Only select jobs where the due date is lower or higher than the given date. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("dueDates")
+  public List<@Valid JobConditionQueryParameterDto> getDueDates() {
     return dueDates;
   }
 
-  public void setDueDates(List<JobConditionQueryParameterDto> dueDates) {
+  public void setDueDates(List<@Valid JobConditionQueryParameterDto> dueDates) {
     this.dueDates = dueDates;
   }
 
-  public JobQueryDto createTimes(List<JobConditionQueryParameterDto> createTimes) {
+  public JobQueryDto createTimes(List<@Valid JobConditionQueryParameterDto> createTimes) {
     this.createTimes = createTimes;
     return this;
   }
@@ -410,14 +405,15 @@ public class JobQueryDto   {
   /**
    * Only select jobs created before or after the given date. 
    * @return createTimes
-   **/
-  @Schema(description = "Only select jobs created before or after the given date. ")
-      @Valid
-    public List<JobConditionQueryParameterDto> getCreateTimes() {
+  */
+  @Valid 
+  @Schema(name = "createTimes", description = "Only select jobs created before or after the given date. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("createTimes")
+  public List<@Valid JobConditionQueryParameterDto> getCreateTimes() {
     return createTimes;
   }
 
-  public void setCreateTimes(List<JobConditionQueryParameterDto> createTimes) {
+  public void setCreateTimes(List<@Valid JobConditionQueryParameterDto> createTimes) {
     this.createTimes = createTimes;
   }
 
@@ -429,10 +425,11 @@ public class JobQueryDto   {
   /**
    * Only select jobs that failed due to an exception. Value may only be `true`, as `false` is the default behavior.
    * @return withException
-   **/
-  @Schema(description = "Only select jobs that failed due to an exception. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithException() {
+  @Schema(name = "withException", description = "Only select jobs that failed due to an exception. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withException")
+  public Boolean getWithException() {
     return withException;
   }
 
@@ -448,10 +445,11 @@ public class JobQueryDto   {
   /**
    * Only select jobs that failed due to an exception with the given message.
    * @return exceptionMessage
-   **/
-  @Schema(description = "Only select jobs that failed due to an exception with the given message.")
+  */
   
-    public String getExceptionMessage() {
+  @Schema(name = "exceptionMessage", description = "Only select jobs that failed due to an exception with the given message.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("exceptionMessage")
+  public String getExceptionMessage() {
     return exceptionMessage;
   }
 
@@ -467,10 +465,11 @@ public class JobQueryDto   {
   /**
    * Only select jobs that failed due to an exception at an activity with the given id.
    * @return failedActivityId
-   **/
-  @Schema(description = "Only select jobs that failed due to an exception at an activity with the given id.")
+  */
   
-    public String getFailedActivityId() {
+  @Schema(name = "failedActivityId", description = "Only select jobs that failed due to an exception at an activity with the given id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("failedActivityId")
+  public String getFailedActivityId() {
     return failedActivityId;
   }
 
@@ -486,10 +485,11 @@ public class JobQueryDto   {
   /**
    * Only select jobs which have no retries left. Value may only be `true`, as `false` is the default behavior.
    * @return noRetriesLeft
-   **/
-  @Schema(description = "Only select jobs which have no retries left. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isNoRetriesLeft() {
+  @Schema(name = "noRetriesLeft", description = "Only select jobs which have no retries left. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("noRetriesLeft")
+  public Boolean getNoRetriesLeft() {
     return noRetriesLeft;
   }
 
@@ -505,10 +505,11 @@ public class JobQueryDto   {
   /**
    * Only include active jobs. Value may only be `true`, as `false` is the default behavior.
    * @return active
-   **/
-  @Schema(description = "Only include active jobs. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isActive() {
+  @Schema(name = "active", description = "Only include active jobs. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("active")
+  public Boolean getActive() {
     return active;
   }
 
@@ -524,10 +525,11 @@ public class JobQueryDto   {
   /**
    * Only include suspended jobs. Value may only be `true`, as `false` is the default behavior.
    * @return suspended
-   **/
-  @Schema(description = "Only include suspended jobs. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isSuspended() {
+  @Schema(name = "suspended", description = "Only include suspended jobs. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("suspended")
+  public Boolean getSuspended() {
     return suspended;
   }
 
@@ -543,10 +545,11 @@ public class JobQueryDto   {
   /**
    * Only include jobs with a priority lower than or equal to the given value. Value must be a valid `long` value.
    * @return priorityLowerThanOrEquals
-   **/
-  @Schema(description = "Only include jobs with a priority lower than or equal to the given value. Value must be a valid `long` value.")
+  */
   
-    public Long getPriorityLowerThanOrEquals() {
+  @Schema(name = "priorityLowerThanOrEquals", description = "Only include jobs with a priority lower than or equal to the given value. Value must be a valid `long` value.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("priorityLowerThanOrEquals")
+  public Long getPriorityLowerThanOrEquals() {
     return priorityLowerThanOrEquals;
   }
 
@@ -562,10 +565,11 @@ public class JobQueryDto   {
   /**
    * Only include jobs with a priority higher than or equal to the given value. Value must be a valid `long` value.
    * @return priorityHigherThanOrEquals
-   **/
-  @Schema(description = "Only include jobs with a priority higher than or equal to the given value. Value must be a valid `long` value.")
+  */
   
-    public Long getPriorityHigherThanOrEquals() {
+  @Schema(name = "priorityHigherThanOrEquals", description = "Only include jobs with a priority higher than or equal to the given value. Value must be a valid `long` value.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("priorityHigherThanOrEquals")
+  public Long getPriorityHigherThanOrEquals() {
     return priorityHigherThanOrEquals;
   }
 
@@ -589,10 +593,11 @@ public class JobQueryDto   {
   /**
    * Only include jobs which belong to one of the passed  tenant ids.
    * @return tenantIdIn
-   **/
-  @Schema(description = "Only include jobs which belong to one of the passed  tenant ids.")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Only include jobs which belong to one of the passed  tenant ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -608,10 +613,11 @@ public class JobQueryDto   {
   /**
    * Only include jobs which belong to no tenant. Value may only be `true`, as `false` is the default behavior.
    * @return withoutTenantId
-   **/
-  @Schema(description = "Only include jobs which belong to no tenant. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "Only include jobs which belong to no tenant. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
@@ -627,10 +633,11 @@ public class JobQueryDto   {
   /**
    * Include jobs which belong to no tenant. Can be used in combination with `tenantIdIn`. Value may only be `true`, as `false` is the default behavior.
    * @return includeJobsWithoutTenantId
-   **/
-  @Schema(description = "Include jobs which belong to no tenant. Can be used in combination with `tenantIdIn`. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isIncludeJobsWithoutTenantId() {
+  @Schema(name = "includeJobsWithoutTenantId", description = "Include jobs which belong to no tenant. Can be used in combination with `tenantIdIn`. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("includeJobsWithoutTenantId")
+  public Boolean getIncludeJobsWithoutTenantId() {
     return includeJobsWithoutTenantId;
   }
 
@@ -638,12 +645,12 @@ public class JobQueryDto   {
     this.includeJobsWithoutTenantId = includeJobsWithoutTenantId;
   }
 
-  public JobQueryDto sorting(List<JobQueryDtoSorting> sorting) {
+  public JobQueryDto sorting(List<@Valid JobQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public JobQueryDto addSortingItem(JobQueryDtoSorting sortingItem) {
+  public JobQueryDto addSortingItem(JobQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -654,17 +661,17 @@ public class JobQueryDto   {
   /**
    * An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Does not have an effect for the `count` endpoint.
    * @return sorting
-   **/
-  @Schema(description = "An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Does not have an effect for the `count` endpoint.")
-      @Valid
-    public List<JobQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Does not have an effect for the `count` endpoint.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid JobQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<JobQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid JobQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -713,7 +720,6 @@ public class JobQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class JobQueryDto {\n");
-    
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    jobIds: ").append(toIndentedString(jobIds)).append("\n");
     sb.append("    jobDefinitionId: ").append(toIndentedString(jobDefinitionId)).append("\n");
@@ -756,3 +762,4 @@ public class JobQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

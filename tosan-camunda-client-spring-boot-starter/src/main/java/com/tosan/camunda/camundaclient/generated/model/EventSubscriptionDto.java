@@ -1,42 +1,42 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * EventSubscriptionDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class EventSubscriptionDto {
 
-public class EventSubscriptionDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("eventType")
   private String eventType = null;
 
-  @JsonProperty("eventName")
   private String eventName = null;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("activityId")
   private String activityId = null;
 
-  @JsonProperty("createdDate")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime createdDate = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
   public EventSubscriptionDto id(String id) {
@@ -47,10 +47,11 @@ public class EventSubscriptionDto   {
   /**
    * The id of the event subscription.
    * @return id
-   **/
-  @Schema(description = "The id of the event subscription.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the event subscription.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -66,10 +67,11 @@ public class EventSubscriptionDto   {
   /**
    * The type of the event subscription.
    * @return eventType
-   **/
-  @Schema(description = "The type of the event subscription.")
+  */
   
-    public String getEventType() {
+  @Schema(name = "eventType", description = "The type of the event subscription.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("eventType")
+  public String getEventType() {
     return eventType;
   }
 
@@ -85,10 +87,11 @@ public class EventSubscriptionDto   {
   /**
    * The name of the event this subscription belongs to as defined in the process model.
    * @return eventName
-   **/
-  @Schema(description = "The name of the event this subscription belongs to as defined in the process model.")
+  */
   
-    public String getEventName() {
+  @Schema(name = "eventName", description = "The name of the event this subscription belongs to as defined in the process model.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("eventName")
+  public String getEventName() {
     return eventName;
   }
 
@@ -104,10 +107,11 @@ public class EventSubscriptionDto   {
   /**
    * The execution that is subscribed on the referenced event.
    * @return executionId
-   **/
-  @Schema(description = "The execution that is subscribed on the referenced event.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "The execution that is subscribed on the referenced event.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -123,10 +127,11 @@ public class EventSubscriptionDto   {
   /**
    * The process instance this subscription belongs to.
    * @return processInstanceId
-   **/
-  @Schema(description = "The process instance this subscription belongs to.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "The process instance this subscription belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -142,10 +147,11 @@ public class EventSubscriptionDto   {
   /**
    * The identifier of the activity that this event subscription belongs to. This could for example be the id of a receive task.
    * @return activityId
-   **/
-  @Schema(description = "The identifier of the activity that this event subscription belongs to. This could for example be the id of a receive task.")
+  */
   
-    public String getActivityId() {
+  @Schema(name = "activityId", description = "The identifier of the activity that this event subscription belongs to. This could for example be the id of a receive task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityId")
+  public String getActivityId() {
     return activityId;
   }
 
@@ -161,11 +167,11 @@ public class EventSubscriptionDto   {
   /**
    * The time this event subscription was created.
    * @return createdDate
-   **/
-  @Schema(description = "The time this event subscription was created.")
-  
-    @Valid
-    public OffsetDateTime getCreatedDate() {
+  */
+  @Valid 
+  @Schema(name = "createdDate", description = "The time this event subscription was created.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("createdDate")
+  public OffsetDateTime getCreatedDate() {
     return createdDate;
   }
 
@@ -181,17 +187,17 @@ public class EventSubscriptionDto   {
   /**
    * The id of the tenant this event subscription belongs to. Can be `null` if the subscription belongs to no single tenant.
    * @return tenantId
-   **/
-  @Schema(description = "The id of the tenant this event subscription belongs to. Can be `null` if the subscription belongs to no single tenant.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The id of the tenant this event subscription belongs to. Can be `null` if the subscription belongs to no single tenant.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
   public void setTenantId(String tenantId) {
     this.tenantId = tenantId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -221,7 +227,6 @@ public class EventSubscriptionDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EventSubscriptionDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
     sb.append("    eventName: ").append(toIndentedString(eventName)).append("\n");
@@ -245,3 +250,4 @@ public class EventSubscriptionDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

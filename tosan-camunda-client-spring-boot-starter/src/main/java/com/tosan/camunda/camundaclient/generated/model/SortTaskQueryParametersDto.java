@@ -1,23 +1,28 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Mandatory when &#x60;sortBy&#x60; is one of the following values: &#x60;processVariable&#x60;, &#x60;executionVariable&#x60;, &#x60;taskVariable&#x60;, &#x60;caseExecutionVariable&#x60; or &#x60;caseInstanceVariable&#x60;. Must be a JSON object with the properties &#x60;variable&#x60; and &#x60;type&#x60; where &#x60;variable&#x60; is a variable name and &#x60;type&#x60; is the name of a variable value type.
  */
-@Schema(description = "Mandatory when `sortBy` is one of the following values: `processVariable`, `executionVariable`, `taskVariable`, `caseExecutionVariable` or `caseInstanceVariable`. Must be a JSON object with the properties `variable` and `type` where `variable` is a variable name and `type` is the name of a variable value type.")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "SortTaskQueryParametersDto", description = "Mandatory when `sortBy` is one of the following values: `processVariable`, `executionVariable`, `taskVariable`, `caseExecutionVariable` or `caseInstanceVariable`. Must be a JSON object with the properties `variable` and `type` where `variable` is a variable name and `type` is the name of a variable value type.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class SortTaskQueryParametersDto {
 
-public class SortTaskQueryParametersDto   {
-  @JsonProperty("variable")
   private String variable = null;
 
-  @JsonProperty("type")
   private String type = null;
 
   public SortTaskQueryParametersDto variable(String variable) {
@@ -28,10 +33,11 @@ public class SortTaskQueryParametersDto   {
   /**
    * The name of the variable to sort by.
    * @return variable
-   **/
-  @Schema(description = "The name of the variable to sort by.")
+  */
   
-    public String getVariable() {
+  @Schema(name = "variable", description = "The name of the variable to sort by.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variable")
+  public String getVariable() {
     return variable;
   }
 
@@ -47,17 +53,17 @@ public class SortTaskQueryParametersDto   {
   /**
    * The name of the type of the variable value.
    * @return type
-   **/
-  @Schema(description = "The name of the type of the variable value.")
+  */
   
-    public String getType() {
+  @Schema(name = "type", description = "The name of the type of the variable value.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("type")
+  public String getType() {
     return type;
   }
 
   public void setType(String type) {
     this.type = type;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -81,7 +87,6 @@ public class SortTaskQueryParametersDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SortTaskQueryParametersDto {\n");
-    
     sb.append("    variable: ").append(toIndentedString(variable)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -99,3 +104,4 @@ public class SortTaskQueryParametersDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

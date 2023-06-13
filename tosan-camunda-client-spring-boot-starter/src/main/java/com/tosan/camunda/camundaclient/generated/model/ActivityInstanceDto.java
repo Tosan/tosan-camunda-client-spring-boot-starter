@@ -1,62 +1,58 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.ActivityInstanceIncidentDto;
+import com.tosan.camunda.camundaclient.generated.model.TransitionInstanceDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A JSON object corresponding to the Activity Instance tree of the given process instance.
  */
-@Schema(description = "A JSON object corresponding to the Activity Instance tree of the given process instance.")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "ActivityInstanceDto", description = "A JSON object corresponding to the Activity Instance tree of the given process instance.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ActivityInstanceDto {
 
-public class ActivityInstanceDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("parentActivityInstanceId")
   private String parentActivityInstanceId = null;
 
-  @JsonProperty("activityId")
   private String activityId = null;
 
-  @JsonProperty("activityName")
   private String activityName = null;
 
-  @JsonProperty("activityType")
   private String activityType = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("childActivityInstances")
   @Valid
-  private List<ActivityInstanceDto> childActivityInstances = null;
+  private List<@Valid ActivityInstanceDto> childActivityInstances;
 
-  @JsonProperty("childTransitionInstances")
   @Valid
-  private List<TransitionInstanceDto> childTransitionInstances = null;
+  private List<@Valid TransitionInstanceDto> childTransitionInstances;
 
-  @JsonProperty("executionIds")
   @Valid
-  private List<String> executionIds = null;
+  private List<String> executionIds;
 
-  @JsonProperty("incidentIds")
   @Valid
-  private List<String> incidentIds = null;
+  private List<String> incidentIds;
 
-  @JsonProperty("incidents")
   @Valid
-  private List<ActivityInstanceIncidentDto> incidents = null;
+  private List<@Valid ActivityInstanceIncidentDto> incidents;
 
   public ActivityInstanceDto id(String id) {
     this.id = id;
@@ -66,10 +62,11 @@ public class ActivityInstanceDto   {
   /**
    * The id of the activity instance.
    * @return id
-   **/
-  @Schema(description = "The id of the activity instance.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the activity instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -85,10 +82,11 @@ public class ActivityInstanceDto   {
   /**
    * The id of the parent activity instance, for example a sub process instance.
    * @return parentActivityInstanceId
-   **/
-  @Schema(description = "The id of the parent activity instance, for example a sub process instance.")
+  */
   
-    public String getParentActivityInstanceId() {
+  @Schema(name = "parentActivityInstanceId", description = "The id of the parent activity instance, for example a sub process instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("parentActivityInstanceId")
+  public String getParentActivityInstanceId() {
     return parentActivityInstanceId;
   }
 
@@ -104,10 +102,11 @@ public class ActivityInstanceDto   {
   /**
    * The id of the activity.
    * @return activityId
-   **/
-  @Schema(description = "The id of the activity.")
+  */
   
-    public String getActivityId() {
+  @Schema(name = "activityId", description = "The id of the activity.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityId")
+  public String getActivityId() {
     return activityId;
   }
 
@@ -123,10 +122,11 @@ public class ActivityInstanceDto   {
   /**
    * The name of the activity
    * @return activityName
-   **/
-  @Schema(description = "The name of the activity")
+  */
   
-    public String getActivityName() {
+  @Schema(name = "activityName", description = "The name of the activity", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityName")
+  public String getActivityName() {
     return activityName;
   }
 
@@ -142,10 +142,11 @@ public class ActivityInstanceDto   {
   /**
    * The type of activity (corresponds to the XML element name in the BPMN 2.0, e.g., 'userTask')
    * @return activityType
-   **/
-  @Schema(description = "The type of activity (corresponds to the XML element name in the BPMN 2.0, e.g., 'userTask')")
+  */
   
-    public String getActivityType() {
+  @Schema(name = "activityType", description = "The type of activity (corresponds to the XML element name in the BPMN 2.0, e.g., 'userTask')", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityType")
+  public String getActivityType() {
     return activityType;
   }
 
@@ -161,10 +162,11 @@ public class ActivityInstanceDto   {
   /**
    * The id of the process instance this activity instance is part of.
    * @return processInstanceId
-   **/
-  @Schema(description = "The id of the process instance this activity instance is part of.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "The id of the process instance this activity instance is part of.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -180,10 +182,11 @@ public class ActivityInstanceDto   {
   /**
    * The id of the process definition.
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definition.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -191,7 +194,7 @@ public class ActivityInstanceDto   {
     this.processDefinitionId = processDefinitionId;
   }
 
-  public ActivityInstanceDto childActivityInstances(List<ActivityInstanceDto> childActivityInstances) {
+  public ActivityInstanceDto childActivityInstances(List<@Valid ActivityInstanceDto> childActivityInstances) {
     this.childActivityInstances = childActivityInstances;
     return this;
   }
@@ -207,18 +210,19 @@ public class ActivityInstanceDto   {
   /**
    * A list of child activity instances.
    * @return childActivityInstances
-   **/
-  @Schema(description = "A list of child activity instances.")
-      @Valid
-    public List<ActivityInstanceDto> getChildActivityInstances() {
+  */
+  @Valid 
+  @Schema(name = "childActivityInstances", description = "A list of child activity instances.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("childActivityInstances")
+  public List<@Valid ActivityInstanceDto> getChildActivityInstances() {
     return childActivityInstances;
   }
 
-  public void setChildActivityInstances(List<ActivityInstanceDto> childActivityInstances) {
+  public void setChildActivityInstances(List<@Valid ActivityInstanceDto> childActivityInstances) {
     this.childActivityInstances = childActivityInstances;
   }
 
-  public ActivityInstanceDto childTransitionInstances(List<TransitionInstanceDto> childTransitionInstances) {
+  public ActivityInstanceDto childTransitionInstances(List<@Valid TransitionInstanceDto> childTransitionInstances) {
     this.childTransitionInstances = childTransitionInstances;
     return this;
   }
@@ -234,14 +238,15 @@ public class ActivityInstanceDto   {
   /**
    * A list of child transition instances. A transition instance represents an execution waiting in an asynchronous continuation.
    * @return childTransitionInstances
-   **/
-  @Schema(description = "A list of child transition instances. A transition instance represents an execution waiting in an asynchronous continuation.")
-      @Valid
-    public List<TransitionInstanceDto> getChildTransitionInstances() {
+  */
+  @Valid 
+  @Schema(name = "childTransitionInstances", description = "A list of child transition instances. A transition instance represents an execution waiting in an asynchronous continuation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("childTransitionInstances")
+  public List<@Valid TransitionInstanceDto> getChildTransitionInstances() {
     return childTransitionInstances;
   }
 
-  public void setChildTransitionInstances(List<TransitionInstanceDto> childTransitionInstances) {
+  public void setChildTransitionInstances(List<@Valid TransitionInstanceDto> childTransitionInstances) {
     this.childTransitionInstances = childTransitionInstances;
   }
 
@@ -261,10 +266,11 @@ public class ActivityInstanceDto   {
   /**
    * A list of execution ids.
    * @return executionIds
-   **/
-  @Schema(description = "A list of execution ids.")
+  */
   
-    public List<String> getExecutionIds() {
+  @Schema(name = "executionIds", description = "A list of execution ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionIds")
+  public List<String> getExecutionIds() {
     return executionIds;
   }
 
@@ -288,10 +294,11 @@ public class ActivityInstanceDto   {
   /**
    * A list of incident ids.
    * @return incidentIds
-   **/
-  @Schema(description = "A list of incident ids.")
+  */
   
-    public List<String> getIncidentIds() {
+  @Schema(name = "incidentIds", description = "A list of incident ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentIds")
+  public List<String> getIncidentIds() {
     return incidentIds;
   }
 
@@ -299,7 +306,7 @@ public class ActivityInstanceDto   {
     this.incidentIds = incidentIds;
   }
 
-  public ActivityInstanceDto incidents(List<ActivityInstanceIncidentDto> incidents) {
+  public ActivityInstanceDto incidents(List<@Valid ActivityInstanceIncidentDto> incidents) {
     this.incidents = incidents;
     return this;
   }
@@ -315,17 +322,17 @@ public class ActivityInstanceDto   {
   /**
    * A list of JSON objects containing incident specific properties: * `id`: the id of the incident * `activityId`: the activity id in which the incident occurred
    * @return incidents
-   **/
-  @Schema(description = "A list of JSON objects containing incident specific properties: * `id`: the id of the incident * `activityId`: the activity id in which the incident occurred")
-      @Valid
-    public List<ActivityInstanceIncidentDto> getIncidents() {
+  */
+  @Valid 
+  @Schema(name = "incidents", description = "A list of JSON objects containing incident specific properties: * `id`: the id of the incident * `activityId`: the activity id in which the incident occurred", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidents")
+  public List<@Valid ActivityInstanceIncidentDto> getIncidents() {
     return incidents;
   }
 
-  public void setIncidents(List<ActivityInstanceIncidentDto> incidents) {
+  public void setIncidents(List<@Valid ActivityInstanceIncidentDto> incidents) {
     this.incidents = incidents;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -359,7 +366,6 @@ public class ActivityInstanceDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ActivityInstanceDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    parentActivityInstanceId: ").append(toIndentedString(parentActivityInstanceId)).append("\n");
     sb.append("    activityId: ").append(toIndentedString(activityId)).append("\n");
@@ -387,3 +393,4 @@ public class ActivityInstanceDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

@@ -1,94 +1,80 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.HistoricVariableInstanceQueryDtoSortingInner;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A Historic Variable Instance instance query which defines a list of Historic Variable Instance instances
  */
-@Schema(description = "A Historic Variable Instance instance query which defines a list of Historic Variable Instance instances")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "HistoricVariableInstanceQueryDto", description = "A Historic Variable Instance instance query which defines a list of Historic Variable Instance instances")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricVariableInstanceQueryDto {
 
-public class HistoricVariableInstanceQueryDto   {
-  @JsonProperty("variableName")
   private String variableName = null;
 
-  @JsonProperty("variableNameLike")
   private String variableNameLike = null;
 
-  @JsonProperty("variableValue")
-  private Object variableValue = null;
+  private Object variableValue;
 
-  @JsonProperty("variableNamesIgnoreCase")
   private Boolean variableNamesIgnoreCase = null;
 
-  @JsonProperty("variableValuesIgnoreCase")
   private Boolean variableValuesIgnoreCase = null;
 
-  @JsonProperty("variableTypeIn")
   @Valid
-  private List<String> variableTypeIn = null;
+  private List<String> variableTypeIn;
 
-  @JsonProperty("includeDeleted")
   private Boolean includeDeleted = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("processInstanceIdIn")
   @Valid
-  private List<String> processInstanceIdIn = null;
+  private List<String> processInstanceIdIn;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("executionIdIn")
   @Valid
-  private List<String> executionIdIn = null;
+  private List<String> executionIdIn;
 
-  @JsonProperty("caseInstanceId")
   private String caseInstanceId = null;
 
-  @JsonProperty("caseExecutionIdIn")
   @Valid
-  private List<String> caseExecutionIdIn = null;
+  private List<String> caseExecutionIdIn;
 
-  @JsonProperty("caseActivityIdIn")
   @Valid
-  private List<String> caseActivityIdIn = null;
+  private List<String> caseActivityIdIn;
 
-  @JsonProperty("taskIdIn")
   @Valid
-  private List<String> taskIdIn = null;
+  private List<String> taskIdIn;
 
-  @JsonProperty("activityInstanceIdIn")
   @Valid
-  private List<String> activityInstanceIdIn = null;
+  private List<String> activityInstanceIdIn;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("withoutTenantId")
   private Boolean withoutTenantId = null;
 
-  @JsonProperty("variableNameIn")
   @Valid
-  private List<String> variableNameIn = null;
+  private List<String> variableNameIn;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<HistoricVariableInstanceQueryDtoSorting> sorting = null;
+  private List<@Valid HistoricVariableInstanceQueryDtoSortingInner> sorting;
 
   public HistoricVariableInstanceQueryDto variableName(String variableName) {
     this.variableName = variableName;
@@ -98,10 +84,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Filter by variable name.
    * @return variableName
-   **/
-  @Schema(description = "Filter by variable name.")
+  */
   
-    public String getVariableName() {
+  @Schema(name = "variableName", description = "Filter by variable name.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableName")
+  public String getVariableName() {
     return variableName;
   }
 
@@ -117,10 +104,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Restrict to variables with a name like the parameter.
    * @return variableNameLike
-   **/
-  @Schema(description = "Restrict to variables with a name like the parameter.")
+  */
   
-    public String getVariableNameLike() {
+  @Schema(name = "variableNameLike", description = "Restrict to variables with a name like the parameter.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableNameLike")
+  public String getVariableNameLike() {
     return variableNameLike;
   }
 
@@ -136,10 +124,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Filter by variable value. May be `String`, `Number` or `Boolean`.
    * @return variableValue
-   **/
-  @Schema(description = "Filter by variable value. May be `String`, `Number` or `Boolean`.")
+  */
   
-    public Object getVariableValue() {
+  @Schema(name = "variableValue", description = "Filter by variable value. May be `String`, `Number` or `Boolean`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableValue")
+  public Object getVariableValue() {
     return variableValue;
   }
 
@@ -155,10 +144,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Match the variable name provided in `variableName` and `variableNameLike` case- insensitively. If set to `true` **variableName** and **variablename** are treated as equal.
    * @return variableNamesIgnoreCase
-   **/
-  @Schema(description = "Match the variable name provided in `variableName` and `variableNameLike` case- insensitively. If set to `true` **variableName** and **variablename** are treated as equal.")
+  */
   
-    public Boolean isVariableNamesIgnoreCase() {
+  @Schema(name = "variableNamesIgnoreCase", description = "Match the variable name provided in `variableName` and `variableNameLike` case- insensitively. If set to `true` **variableName** and **variablename** are treated as equal.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableNamesIgnoreCase")
+  public Boolean getVariableNamesIgnoreCase() {
     return variableNamesIgnoreCase;
   }
 
@@ -174,10 +164,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Match the variable value provided in `variableValue` case-insensitively. If set to `true` **variableValue** and **variablevalue** are treated as equal.
    * @return variableValuesIgnoreCase
-   **/
-  @Schema(description = "Match the variable value provided in `variableValue` case-insensitively. If set to `true` **variableValue** and **variablevalue** are treated as equal.")
+  */
   
-    public Boolean isVariableValuesIgnoreCase() {
+  @Schema(name = "variableValuesIgnoreCase", description = "Match the variable value provided in `variableValue` case-insensitively. If set to `true` **variableValue** and **variablevalue** are treated as equal.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableValuesIgnoreCase")
+  public Boolean getVariableValuesIgnoreCase() {
     return variableValuesIgnoreCase;
   }
 
@@ -201,10 +192,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Only include historic variable instances which belong to one of the passed and comma- separated variable types. A list of all supported variable types can be found [here](https://docs.camunda.org/manual/7.17/user-guide/process-engine/variables/#supported-variable-values). **Note:** All non-primitive variables are associated with the type 'serializable'.
    * @return variableTypeIn
-   **/
-  @Schema(description = "Only include historic variable instances which belong to one of the passed and comma- separated variable types. A list of all supported variable types can be found [here](https://docs.camunda.org/manual/7.17/user-guide/process-engine/variables/#supported-variable-values). **Note:** All non-primitive variables are associated with the type 'serializable'.")
+  */
   
-    public List<String> getVariableTypeIn() {
+  @Schema(name = "variableTypeIn", description = "Only include historic variable instances which belong to one of the passed and comma- separated variable types. A list of all supported variable types can be found [here](https://docs.camunda.org/manual/7.17/user-guide/process-engine/variables/#supported-variable-values). **Note:** All non-primitive variables are associated with the type 'serializable'.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableTypeIn")
+  public List<String> getVariableTypeIn() {
     return variableTypeIn;
   }
 
@@ -220,10 +212,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Include variables that has already been deleted during the execution.
    * @return includeDeleted
-   **/
-  @Schema(description = "Include variables that has already been deleted during the execution.")
+  */
   
-    public Boolean isIncludeDeleted() {
+  @Schema(name = "includeDeleted", description = "Include variables that has already been deleted during the execution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("includeDeleted")
+  public Boolean getIncludeDeleted() {
     return includeDeleted;
   }
 
@@ -239,10 +232,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Filter by the process instance the variable belongs to.
    * @return processInstanceId
-   **/
-  @Schema(description = "Filter by the process instance the variable belongs to.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "Filter by the process instance the variable belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -266,10 +260,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Only include historic variable instances which belong to one of the passed  process instance ids.
    * @return processInstanceIdIn
-   **/
-  @Schema(description = "Only include historic variable instances which belong to one of the passed  process instance ids.")
+  */
   
-    public List<String> getProcessInstanceIdIn() {
+  @Schema(name = "processInstanceIdIn", description = "Only include historic variable instances which belong to one of the passed  process instance ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceIdIn")
+  public List<String> getProcessInstanceIdIn() {
     return processInstanceIdIn;
   }
 
@@ -285,10 +280,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Filter by the process definition the variable belongs to.
    * @return processDefinitionId
-   **/
-  @Schema(description = "Filter by the process definition the variable belongs to.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "Filter by the process definition the variable belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -304,10 +300,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Filter by a key of the process definition the variable belongs to.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "Filter by a key of the process definition the variable belongs to.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "Filter by a key of the process definition the variable belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -331,10 +328,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Only include historic variable instances which belong to one of the passed and  execution ids.
    * @return executionIdIn
-   **/
-  @Schema(description = "Only include historic variable instances which belong to one of the passed and  execution ids.")
+  */
   
-    public List<String> getExecutionIdIn() {
+  @Schema(name = "executionIdIn", description = "Only include historic variable instances which belong to one of the passed and  execution ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionIdIn")
+  public List<String> getExecutionIdIn() {
     return executionIdIn;
   }
 
@@ -350,10 +348,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Filter by the case instance the variable belongs to.
    * @return caseInstanceId
-   **/
-  @Schema(description = "Filter by the case instance the variable belongs to.")
+  */
   
-    public String getCaseInstanceId() {
+  @Schema(name = "caseInstanceId", description = "Filter by the case instance the variable belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceId")
+  public String getCaseInstanceId() {
     return caseInstanceId;
   }
 
@@ -377,10 +376,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Only include historic variable instances which belong to one of the passed and  case execution ids.
    * @return caseExecutionIdIn
-   **/
-  @Schema(description = "Only include historic variable instances which belong to one of the passed and  case execution ids.")
+  */
   
-    public List<String> getCaseExecutionIdIn() {
+  @Schema(name = "caseExecutionIdIn", description = "Only include historic variable instances which belong to one of the passed and  case execution ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseExecutionIdIn")
+  public List<String> getCaseExecutionIdIn() {
     return caseExecutionIdIn;
   }
 
@@ -404,10 +404,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Only include historic variable instances which belong to one of the passed and  case activity ids.
    * @return caseActivityIdIn
-   **/
-  @Schema(description = "Only include historic variable instances which belong to one of the passed and  case activity ids.")
+  */
   
-    public List<String> getCaseActivityIdIn() {
+  @Schema(name = "caseActivityIdIn", description = "Only include historic variable instances which belong to one of the passed and  case activity ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseActivityIdIn")
+  public List<String> getCaseActivityIdIn() {
     return caseActivityIdIn;
   }
 
@@ -431,10 +432,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Only include historic variable instances which belong to one of the passed and  task ids.
    * @return taskIdIn
-   **/
-  @Schema(description = "Only include historic variable instances which belong to one of the passed and  task ids.")
+  */
   
-    public List<String> getTaskIdIn() {
+  @Schema(name = "taskIdIn", description = "Only include historic variable instances which belong to one of the passed and  task ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskIdIn")
+  public List<String> getTaskIdIn() {
     return taskIdIn;
   }
 
@@ -458,10 +460,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Only include historic variable instances which belong to one of the passed and  activity instance ids.
    * @return activityInstanceIdIn
-   **/
-  @Schema(description = "Only include historic variable instances which belong to one of the passed and  activity instance ids.")
+  */
   
-    public List<String> getActivityInstanceIdIn() {
+  @Schema(name = "activityInstanceIdIn", description = "Only include historic variable instances which belong to one of the passed and  activity instance ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityInstanceIdIn")
+  public List<String> getActivityInstanceIdIn() {
     return activityInstanceIdIn;
   }
 
@@ -485,10 +488,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Only include historic variable instances which belong to one of the passed and comma- separated tenant ids.
    * @return tenantIdIn
-   **/
-  @Schema(description = "Only include historic variable instances which belong to one of the passed and comma- separated tenant ids.")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Only include historic variable instances which belong to one of the passed and comma- separated tenant ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -504,10 +508,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Only include historic variable instances that belong to no tenant. Value may only be `true`, as `false` is the default behavior.
    * @return withoutTenantId
-   **/
-  @Schema(description = "Only include historic variable instances that belong to no tenant. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "Only include historic variable instances that belong to no tenant. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
@@ -531,10 +536,11 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * Only include historic variable instances which belong to one of the passed  variable names.
    * @return variableNameIn
-   **/
-  @Schema(description = "Only include historic variable instances which belong to one of the passed  variable names.")
+  */
   
-    public List<String> getVariableNameIn() {
+  @Schema(name = "variableNameIn", description = "Only include historic variable instances which belong to one of the passed  variable names.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableNameIn")
+  public List<String> getVariableNameIn() {
     return variableNameIn;
   }
 
@@ -542,12 +548,12 @@ public class HistoricVariableInstanceQueryDto   {
     this.variableNameIn = variableNameIn;
   }
 
-  public HistoricVariableInstanceQueryDto sorting(List<HistoricVariableInstanceQueryDtoSorting> sorting) {
+  public HistoricVariableInstanceQueryDto sorting(List<@Valid HistoricVariableInstanceQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public HistoricVariableInstanceQueryDto addSortingItem(HistoricVariableInstanceQueryDtoSorting sortingItem) {
+  public HistoricVariableInstanceQueryDto addSortingItem(HistoricVariableInstanceQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -558,17 +564,17 @@ public class HistoricVariableInstanceQueryDto   {
   /**
    * An array of criteria to sort the result by. Each element of the array is                      an object that specifies one ordering. The position in the array                      identifies the rank of an ordering, i.e., whether it is primary, secondary,                      etc. Sorting has no effect for `count` endpoints
    * @return sorting
-   **/
-  @Schema(description = "An array of criteria to sort the result by. Each element of the array is                      an object that specifies one ordering. The position in the array                      identifies the rank of an ordering, i.e., whether it is primary, secondary,                      etc. Sorting has no effect for `count` endpoints")
-      @Valid
-    public List<HistoricVariableInstanceQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "An array of criteria to sort the result by. Each element of the array is                      an object that specifies one ordering. The position in the array                      identifies the rank of an ordering, i.e., whether it is primary, secondary,                      etc. Sorting has no effect for `count` endpoints", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid HistoricVariableInstanceQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<HistoricVariableInstanceQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid HistoricVariableInstanceQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -611,7 +617,6 @@ public class HistoricVariableInstanceQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricVariableInstanceQueryDto {\n");
-    
     sb.append("    variableName: ").append(toIndentedString(variableName)).append("\n");
     sb.append("    variableNameLike: ").append(toIndentedString(variableNameLike)).append("\n");
     sb.append("    variableValue: ").append(toIndentedString(variableValue)).append("\n");
@@ -648,3 +653,4 @@ public class HistoricVariableInstanceQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

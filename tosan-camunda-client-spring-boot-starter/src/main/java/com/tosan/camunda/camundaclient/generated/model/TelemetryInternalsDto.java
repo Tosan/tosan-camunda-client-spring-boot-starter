@@ -1,54 +1,55 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.AbstractVendorVersionInformationDto;
+import com.tosan.camunda.camundaclient.generated.model.TelemetryCountDto;
+import com.tosan.camunda.camundaclient.generated.model.TelemetryLicenseKeyDto;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * TelemetryInternalsDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class TelemetryInternalsDto {
 
-public class TelemetryInternalsDto   {
-  @JsonProperty("database")
   @Valid
-  private Map<String, AbstractVendorVersionInformationDto> database = null;
+  private Map<String, AbstractVendorVersionInformationDto> database;
 
-  @JsonProperty("application-server")
   @Valid
-  private Map<String, AbstractVendorVersionInformationDto> applicationServer = null;
+  private Map<String, AbstractVendorVersionInformationDto> applicationServer;
 
-  @JsonProperty("license-key")
   @Valid
-  private Map<String, TelemetryLicenseKeyDto> licenseKey = null;
+  private Map<String, TelemetryLicenseKeyDto> licenseKey;
 
-  @JsonProperty("camunda-integration")
   @Valid
-  private List<String> camundaIntegration = null;
+  private List<String> camundaIntegration;
 
-  @JsonProperty("commands")
   @Valid
-  private Map<String, TelemetryCountDto> commands = null;
+  private Map<String, TelemetryCountDto> commands;
 
-  @JsonProperty("metrics")
   @Valid
-  private Map<String, TelemetryCountDto> metrics = null;
+  private Map<String, TelemetryCountDto> metrics;
 
-  @JsonProperty("webapps")
   @Valid
-  private List<String> webapps = null;
+  private List<String> webapps;
 
-  @JsonProperty("jdk")
   @Valid
-  private Map<String, AbstractVendorVersionInformationDto> jdk = null;
+  private Map<String, AbstractVendorVersionInformationDto> jdk;
 
   public TelemetryInternalsDto database(Map<String, AbstractVendorVersionInformationDto> database) {
     this.database = database;
@@ -66,10 +67,11 @@ public class TelemetryInternalsDto   {
   /**
    * Vendor and version of the connected database.
    * @return database
-   **/
-  @Schema(description = "Vendor and version of the connected database.")
-      @Valid
-    public Map<String, AbstractVendorVersionInformationDto> getDatabase() {
+  */
+  @Valid 
+  @Schema(name = "database", description = "Vendor and version of the connected database.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("database")
+  public Map<String, AbstractVendorVersionInformationDto> getDatabase() {
     return database;
   }
 
@@ -93,10 +95,11 @@ public class TelemetryInternalsDto   {
   /**
    * Vendor and version of the application server.
    * @return applicationServer
-   **/
-  @Schema(description = "Vendor and version of the application server.")
-      @Valid
-    public Map<String, AbstractVendorVersionInformationDto> getApplicationServer() {
+  */
+  @Valid 
+  @Schema(name = "application-server", description = "Vendor and version of the application server.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("application-server")
+  public Map<String, AbstractVendorVersionInformationDto> getApplicationServer() {
     return applicationServer;
   }
 
@@ -120,10 +123,11 @@ public class TelemetryInternalsDto   {
   /**
    * Information about the Camunda license key.
    * @return licenseKey
-   **/
-  @Schema(description = "Information about the Camunda license key.")
-      @Valid
-    public Map<String, TelemetryLicenseKeyDto> getLicenseKey() {
+  */
+  @Valid 
+  @Schema(name = "license-key", description = "Information about the Camunda license key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("license-key")
+  public Map<String, TelemetryLicenseKeyDto> getLicenseKey() {
     return licenseKey;
   }
 
@@ -147,10 +151,11 @@ public class TelemetryInternalsDto   {
   /**
    * List of Camunda integrations used (e.g., Camunda Spring Boot Starter, Camunda Run, WildFly/JBoss subsystem, Camunda EJB).
    * @return camundaIntegration
-   **/
-  @Schema(description = "List of Camunda integrations used (e.g., Camunda Spring Boot Starter, Camunda Run, WildFly/JBoss subsystem, Camunda EJB).")
+  */
   
-    public List<String> getCamundaIntegration() {
+  @Schema(name = "camunda-integration", description = "List of Camunda integrations used (e.g., Camunda Spring Boot Starter, Camunda Run, WildFly/JBoss subsystem, Camunda EJB).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("camunda-integration")
+  public List<String> getCamundaIntegration() {
     return camundaIntegration;
   }
 
@@ -174,10 +179,11 @@ public class TelemetryInternalsDto   {
   /**
    * The count of executed commands after the last retrieved data.
    * @return commands
-   **/
-  @Schema(description = "The count of executed commands after the last retrieved data.")
-      @Valid
-    public Map<String, TelemetryCountDto> getCommands() {
+  */
+  @Valid 
+  @Schema(name = "commands", description = "The count of executed commands after the last retrieved data.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("commands")
+  public Map<String, TelemetryCountDto> getCommands() {
     return commands;
   }
 
@@ -201,10 +207,11 @@ public class TelemetryInternalsDto   {
   /**
    * The collected metrics are the number of root process instance executions started, the number of activity instances started or also known as flow node instances, and the number of executed decision instances and elements.
    * @return metrics
-   **/
-  @Schema(description = "The collected metrics are the number of root process instance executions started, the number of activity instances started or also known as flow node instances, and the number of executed decision instances and elements.")
-      @Valid
-    public Map<String, TelemetryCountDto> getMetrics() {
+  */
+  @Valid 
+  @Schema(name = "metrics", description = "The collected metrics are the number of root process instance executions started, the number of activity instances started or also known as flow node instances, and the number of executed decision instances and elements.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("metrics")
+  public Map<String, TelemetryCountDto> getMetrics() {
     return metrics;
   }
 
@@ -228,10 +235,11 @@ public class TelemetryInternalsDto   {
   /**
    * The webapps enabled in this installation of Camunda.
    * @return webapps
-   **/
-  @Schema(description = "The webapps enabled in this installation of Camunda.")
+  */
   
-    public List<String> getWebapps() {
+  @Schema(name = "webapps", description = "The webapps enabled in this installation of Camunda.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("webapps")
+  public List<String> getWebapps() {
     return webapps;
   }
 
@@ -255,17 +263,17 @@ public class TelemetryInternalsDto   {
   /**
    * Vendor and version of the installed JDK.
    * @return jdk
-   **/
-  @Schema(description = "Vendor and version of the installed JDK.")
-      @Valid
-    public Map<String, AbstractVendorVersionInformationDto> getJdk() {
+  */
+  @Valid 
+  @Schema(name = "jdk", description = "Vendor and version of the installed JDK.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jdk")
+  public Map<String, AbstractVendorVersionInformationDto> getJdk() {
     return jdk;
   }
 
   public void setJdk(Map<String, AbstractVendorVersionInformationDto> jdk) {
     this.jdk = jdk;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -295,7 +303,6 @@ public class TelemetryInternalsDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TelemetryInternalsDto {\n");
-    
     sb.append("    database: ").append(toIndentedString(database)).append("\n");
     sb.append("    applicationServer: ").append(toIndentedString(applicationServer)).append("\n");
     sb.append("    licenseKey: ").append(toIndentedString(licenseKey)).append("\n");
@@ -319,3 +326,4 @@ public class TelemetryInternalsDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

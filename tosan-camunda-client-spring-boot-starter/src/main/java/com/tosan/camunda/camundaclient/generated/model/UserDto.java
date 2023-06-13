@@ -1,24 +1,30 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.UserCredentialsDto;
+import com.tosan.camunda.camundaclient.generated.model.UserProfileDto;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * UserDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class UserDto {
 
-public class UserDto   {
-  @JsonProperty("profile")
-  private UserProfileDto profile = null;
+  private UserProfileDto profile;
 
-  @JsonProperty("credentials")
-  private UserCredentialsDto credentials = null;
+  private UserCredentialsDto credentials;
 
   public UserDto profile(UserProfileDto profile) {
     this.profile = profile;
@@ -28,11 +34,11 @@ public class UserDto   {
   /**
    * Get profile
    * @return profile
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public UserProfileDto getProfile() {
+  */
+  @Valid 
+  @Schema(name = "profile", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("profile")
+  public UserProfileDto getProfile() {
     return profile;
   }
 
@@ -48,18 +54,17 @@ public class UserDto   {
   /**
    * Get credentials
    * @return credentials
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public UserCredentialsDto getCredentials() {
+  */
+  @Valid 
+  @Schema(name = "credentials", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("credentials")
+  public UserCredentialsDto getCredentials() {
     return credentials;
   }
 
   public void setCredentials(UserCredentialsDto credentials) {
     this.credentials = credentials;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -83,7 +88,6 @@ public class UserDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserDto {\n");
-    
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
     sb.append("    credentials: ").append(toIndentedString(credentials)).append("\n");
     sb.append("}");
@@ -101,3 +105,4 @@ public class UserDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

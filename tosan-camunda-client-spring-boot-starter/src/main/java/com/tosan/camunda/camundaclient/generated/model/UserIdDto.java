@@ -1,19 +1,25 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * UserIdDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class UserIdDto {
 
-public class UserIdDto   {
-  @JsonProperty("userId")
   private String userId = null;
 
   public UserIdDto userId(String userId) {
@@ -24,17 +30,17 @@ public class UserIdDto   {
   /**
    * The id of the user that the current action refers to.
    * @return userId
-   **/
-  @Schema(description = "The id of the user that the current action refers to.")
+  */
   
-    public String getUserId() {
+  @Schema(name = "userId", description = "The id of the user that the current action refers to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("userId")
+  public String getUserId() {
     return userId;
   }
 
   public void setUserId(String userId) {
     this.userId = userId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -57,7 +63,6 @@ public class UserIdDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserIdDto {\n");
-    
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -74,3 +79,4 @@ public class UserIdDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

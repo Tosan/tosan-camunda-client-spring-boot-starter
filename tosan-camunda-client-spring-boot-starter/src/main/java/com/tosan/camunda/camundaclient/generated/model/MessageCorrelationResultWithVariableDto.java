@@ -1,24 +1,32 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.tosan.camunda.camundaclient.generated.model.ExecutionDto;
+import com.tosan.camunda.camundaclient.generated.model.ProcessInstanceDto;
+import com.tosan.camunda.camundaclient.generated.model.VariableValueDto;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * The &#x60;processInstance&#x60; property only has a value if the resultType is set to &#x60;ProcessDefinition&#x60;. The processInstance with the properties as described in the [get single instance](https://docs.camunda.org/manual/7.17/reference/rest/process-instance/get/) method.  The &#x60;execution&#x60; property only has a value if the resultType is set to &#x60;Execution&#x60;. The execution with the properties as described in the [get single execution](https://docs.camunda.org/manual/7.17/reference/rest/execution/get/) method.
  */
-@Schema(description = "The `processInstance` property only has a value if the resultType is set to `ProcessDefinition`. The processInstance with the properties as described in the [get single instance](https://docs.camunda.org/manual/7.17/reference/rest/process-instance/get/) method.  The `execution` property only has a value if the resultType is set to `Execution`. The execution with the properties as described in the [get single execution](https://docs.camunda.org/manual/7.17/reference/rest/execution/get/) method.")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "MessageCorrelationResultWithVariableDto", description = "The `processInstance` property only has a value if the resultType is set to `ProcessDefinition`. The processInstance with the properties as described in the [get single instance](https://docs.camunda.org/manual/7.17/reference/rest/process-instance/get/) method.  The `execution` property only has a value if the resultType is set to `Execution`. The execution with the properties as described in the [get single execution](https://docs.camunda.org/manual/7.17/reference/rest/execution/get/) method.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class MessageCorrelationResultWithVariableDto {
 
-public class MessageCorrelationResultWithVariableDto   {
   /**
    * Indicates if the message was correlated to a message start event or an  intermediate message catching event. In the first case, the resultType is  `ProcessDefinition` and otherwise `Execution`.
    */
@@ -33,34 +41,35 @@ public class MessageCorrelationResultWithVariableDto   {
       this.value = value;
     }
 
-    @Override
     @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static ResultTypeEnum fromValue(String text) {
+    public static ResultTypeEnum fromValue(String value) {
       for (ResultTypeEnum b : ResultTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
       return null;
     }
   }
-  @JsonProperty("resultType")
+
   private ResultTypeEnum resultType = null;
 
-  @JsonProperty("processInstance")
-  private ProcessInstanceDto processInstance = null;
+  private ProcessInstanceDto processInstance;
 
-  @JsonProperty("execution")
-  private ExecutionDto execution = null;
+  private ExecutionDto execution;
 
-  @JsonProperty("variables")
   @Valid
-  private Map<String, VariableValueDto> variables = null;
+  private Map<String, VariableValueDto> variables;
 
   public MessageCorrelationResultWithVariableDto resultType(ResultTypeEnum resultType) {
     this.resultType = resultType;
@@ -70,10 +79,11 @@ public class MessageCorrelationResultWithVariableDto   {
   /**
    * Indicates if the message was correlated to a message start event or an  intermediate message catching event. In the first case, the resultType is  `ProcessDefinition` and otherwise `Execution`.
    * @return resultType
-   **/
-  @Schema(description = "Indicates if the message was correlated to a message start event or an  intermediate message catching event. In the first case, the resultType is  `ProcessDefinition` and otherwise `Execution`.")
+  */
   
-    public ResultTypeEnum getResultType() {
+  @Schema(name = "resultType", description = "Indicates if the message was correlated to a message start event or an  intermediate message catching event. In the first case, the resultType is  `ProcessDefinition` and otherwise `Execution`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resultType")
+  public ResultTypeEnum getResultType() {
     return resultType;
   }
 
@@ -89,11 +99,11 @@ public class MessageCorrelationResultWithVariableDto   {
   /**
    * Get processInstance
    * @return processInstance
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public ProcessInstanceDto getProcessInstance() {
+  */
+  @Valid 
+  @Schema(name = "processInstance", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstance")
+  public ProcessInstanceDto getProcessInstance() {
     return processInstance;
   }
 
@@ -109,11 +119,11 @@ public class MessageCorrelationResultWithVariableDto   {
   /**
    * Get execution
    * @return execution
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public ExecutionDto getExecution() {
+  */
+  @Valid 
+  @Schema(name = "execution", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("execution")
+  public ExecutionDto getExecution() {
     return execution;
   }
 
@@ -137,17 +147,17 @@ public class MessageCorrelationResultWithVariableDto   {
   /**
    * This property is returned if the `variablesInResultEnabled` is set to `true`. Contains a list of the process variables. 
    * @return variables
-   **/
-  @Schema(description = "This property is returned if the `variablesInResultEnabled` is set to `true`. Contains a list of the process variables. ")
-      @Valid
-    public Map<String, VariableValueDto> getVariables() {
+  */
+  @Valid 
+  @Schema(name = "variables", description = "This property is returned if the `variablesInResultEnabled` is set to `true`. Contains a list of the process variables. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variables")
+  public Map<String, VariableValueDto> getVariables() {
     return variables;
   }
 
   public void setVariables(Map<String, VariableValueDto> variables) {
     this.variables = variables;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -173,7 +183,6 @@ public class MessageCorrelationResultWithVariableDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MessageCorrelationResultWithVariableDto {\n");
-    
     sb.append("    resultType: ").append(toIndentedString(resultType)).append("\n");
     sb.append("    processInstance: ").append(toIndentedString(processInstance)).append("\n");
     sb.append("    execution: ").append(toIndentedString(execution)).append("\n");
@@ -193,3 +202,4 @@ public class MessageCorrelationResultWithVariableDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

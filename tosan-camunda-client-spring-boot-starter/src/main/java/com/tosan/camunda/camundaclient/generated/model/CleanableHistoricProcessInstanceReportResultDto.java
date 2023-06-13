@@ -1,40 +1,39 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * CleanableHistoricProcessInstanceReportResultDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class CleanableHistoricProcessInstanceReportResultDto {
 
-public class CleanableHistoricProcessInstanceReportResultDto   {
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("processDefinitionName")
   private String processDefinitionName = null;
 
-  @JsonProperty("processDefinitionVersion")
   private Integer processDefinitionVersion = null;
 
-  @JsonProperty("historyTimeToLive")
   private Integer historyTimeToLive = null;
 
-  @JsonProperty("finishedProcessInstanceCount")
   private Long finishedProcessInstanceCount = null;
 
-  @JsonProperty("cleanableProcessInstanceCount")
   private Long cleanableProcessInstanceCount = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
   public CleanableHistoricProcessInstanceReportResultDto processDefinitionId(String processDefinitionId) {
@@ -45,10 +44,11 @@ public class CleanableHistoricProcessInstanceReportResultDto   {
   /**
    * The id of the process definition.
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definition.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -64,10 +64,11 @@ public class CleanableHistoricProcessInstanceReportResultDto   {
   /**
    * The key of the process definition.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "The key of the process definition.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "The key of the process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -83,10 +84,11 @@ public class CleanableHistoricProcessInstanceReportResultDto   {
   /**
    * The name of the process definition.
    * @return processDefinitionName
-   **/
-  @Schema(description = "The name of the process definition.")
+  */
   
-    public String getProcessDefinitionName() {
+  @Schema(name = "processDefinitionName", description = "The name of the process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionName")
+  public String getProcessDefinitionName() {
     return processDefinitionName;
   }
 
@@ -102,10 +104,11 @@ public class CleanableHistoricProcessInstanceReportResultDto   {
   /**
    * The version of the process definition.
    * @return processDefinitionVersion
-   **/
-  @Schema(description = "The version of the process definition.")
+  */
   
-    public Integer getProcessDefinitionVersion() {
+  @Schema(name = "processDefinitionVersion", description = "The version of the process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionVersion")
+  public Integer getProcessDefinitionVersion() {
     return processDefinitionVersion;
   }
 
@@ -121,10 +124,11 @@ public class CleanableHistoricProcessInstanceReportResultDto   {
   /**
    * The history time to live of the process definition.
    * @return historyTimeToLive
-   **/
-  @Schema(description = "The history time to live of the process definition.")
+  */
   
-    public Integer getHistoryTimeToLive() {
+  @Schema(name = "historyTimeToLive", description = "The history time to live of the process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historyTimeToLive")
+  public Integer getHistoryTimeToLive() {
     return historyTimeToLive;
   }
 
@@ -140,10 +144,11 @@ public class CleanableHistoricProcessInstanceReportResultDto   {
   /**
    * The count of the finished historic process instances.
    * @return finishedProcessInstanceCount
-   **/
-  @Schema(description = "The count of the finished historic process instances.")
+  */
   
-    public Long getFinishedProcessInstanceCount() {
+  @Schema(name = "finishedProcessInstanceCount", description = "The count of the finished historic process instances.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("finishedProcessInstanceCount")
+  public Long getFinishedProcessInstanceCount() {
     return finishedProcessInstanceCount;
   }
 
@@ -159,10 +164,11 @@ public class CleanableHistoricProcessInstanceReportResultDto   {
   /**
    * The count of the cleanable historic process instances, referring to history time to live.
    * @return cleanableProcessInstanceCount
-   **/
-  @Schema(description = "The count of the cleanable historic process instances, referring to history time to live.")
+  */
   
-    public Long getCleanableProcessInstanceCount() {
+  @Schema(name = "cleanableProcessInstanceCount", description = "The count of the cleanable historic process instances, referring to history time to live.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("cleanableProcessInstanceCount")
+  public Long getCleanableProcessInstanceCount() {
     return cleanableProcessInstanceCount;
   }
 
@@ -178,17 +184,17 @@ public class CleanableHistoricProcessInstanceReportResultDto   {
   /**
    * The tenant id of the process definition.
    * @return tenantId
-   **/
-  @Schema(description = "The tenant id of the process definition.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The tenant id of the process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
   public void setTenantId(String tenantId) {
     this.tenantId = tenantId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -218,7 +224,6 @@ public class CleanableHistoricProcessInstanceReportResultDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CleanableHistoricProcessInstanceReportResultDto {\n");
-    
     sb.append("    processDefinitionId: ").append(toIndentedString(processDefinitionId)).append("\n");
     sb.append("    processDefinitionKey: ").append(toIndentedString(processDefinitionKey)).append("\n");
     sb.append("    processDefinitionName: ").append(toIndentedString(processDefinitionName)).append("\n");
@@ -242,3 +247,4 @@ public class CleanableHistoricProcessInstanceReportResultDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

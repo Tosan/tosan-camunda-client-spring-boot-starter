@@ -1,41 +1,42 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.HistoricBatchQueryDtoSortingInner;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Query for the historic batches to set the removal time for.
  */
-@Schema(description = "Query for the historic batches to set the removal time for.")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "HistoricBatchQueryDto", description = "Query for the historic batches to set the removal time for.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricBatchQueryDto {
 
-public class HistoricBatchQueryDto   {
-  @JsonProperty("batchId")
   private String batchId = null;
 
-  @JsonProperty("type")
   private String type = null;
 
-  @JsonProperty("completed")
   private Boolean completed = null;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("withoutTenantId")
   private Boolean withoutTenantId = null;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<HistoricBatchQueryDtoSorting> sorting = null;
+  private List<@Valid HistoricBatchQueryDtoSortingInner> sorting;
 
   public HistoricBatchQueryDto batchId(String batchId) {
     this.batchId = batchId;
@@ -45,10 +46,11 @@ public class HistoricBatchQueryDto   {
   /**
    * Filter by batch id.
    * @return batchId
-   **/
-  @Schema(description = "Filter by batch id.")
+  */
   
-    public String getBatchId() {
+  @Schema(name = "batchId", description = "Filter by batch id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("batchId")
+  public String getBatchId() {
     return batchId;
   }
 
@@ -64,10 +66,11 @@ public class HistoricBatchQueryDto   {
   /**
    * Filter by batch type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/batch/#creating-a-batch) for more information about batch types.
    * @return type
-   **/
-  @Schema(description = "Filter by batch type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/batch/#creating-a-batch) for more information about batch types.")
+  */
   
-    public String getType() {
+  @Schema(name = "type", description = "Filter by batch type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/batch/#creating-a-batch) for more information about batch types.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("type")
+  public String getType() {
     return type;
   }
 
@@ -83,10 +86,11 @@ public class HistoricBatchQueryDto   {
   /**
    *  Filter completed or not completed batches. If the value is `true`, only completed batches, i.e., end time is set, are returned. Otherwise, if the value is `false`, only running batches, i.e., end time is null, are returned.
    * @return completed
-   **/
-  @Schema(description = " Filter completed or not completed batches. If the value is `true`, only completed batches, i.e., end time is set, are returned. Otherwise, if the value is `false`, only running batches, i.e., end time is null, are returned.")
+  */
   
-    public Boolean isCompleted() {
+  @Schema(name = "completed", description = " Filter completed or not completed batches. If the value is `true`, only completed batches, i.e., end time is set, are returned. Otherwise, if the value is `false`, only running batches, i.e., end time is null, are returned.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("completed")
+  public Boolean getCompleted() {
     return completed;
   }
 
@@ -110,10 +114,11 @@ public class HistoricBatchQueryDto   {
   /**
    * Filter by a comma-separated list of tenant ids. A batch matches if it has one of the given tenant ids.
    * @return tenantIdIn
-   **/
-  @Schema(description = "Filter by a comma-separated list of tenant ids. A batch matches if it has one of the given tenant ids.")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Filter by a comma-separated list of tenant ids. A batch matches if it has one of the given tenant ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -129,10 +134,11 @@ public class HistoricBatchQueryDto   {
   /**
    * Only include batches which belong to no tenant. Value can effectively only be `true`, as `false` is the default behavior.
    * @return withoutTenantId
-   **/
-  @Schema(description = "Only include batches which belong to no tenant. Value can effectively only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "Only include batches which belong to no tenant. Value can effectively only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
@@ -140,12 +146,12 @@ public class HistoricBatchQueryDto   {
     this.withoutTenantId = withoutTenantId;
   }
 
-  public HistoricBatchQueryDto sorting(List<HistoricBatchQueryDtoSorting> sorting) {
+  public HistoricBatchQueryDto sorting(List<@Valid HistoricBatchQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public HistoricBatchQueryDto addSortingItem(HistoricBatchQueryDtoSorting sortingItem) {
+  public HistoricBatchQueryDto addSortingItem(HistoricBatchQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -156,17 +162,17 @@ public class HistoricBatchQueryDto   {
   /**
    * An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Has no effect for the `/count` endpoint
    * @return sorting
-   **/
-  @Schema(description = "An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Has no effect for the `/count` endpoint")
-      @Valid
-    public List<HistoricBatchQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Has no effect for the `/count` endpoint", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid HistoricBatchQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<HistoricBatchQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid HistoricBatchQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -194,7 +200,6 @@ public class HistoricBatchQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricBatchQueryDto {\n");
-    
     sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    completed: ").append(toIndentedString(completed)).append("\n");
@@ -216,3 +221,4 @@ public class HistoricBatchQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

@@ -1,57 +1,53 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * HistoricIdentityLinkLogDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricIdentityLinkLogDto {
 
-public class HistoricIdentityLinkLogDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("time")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime time = null;
 
-  @JsonProperty("type")
   private String type = null;
 
-  @JsonProperty("userId")
   private String userId = null;
 
-  @JsonProperty("groupId")
   private String groupId = null;
 
-  @JsonProperty("taskId")
   private String taskId = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("operationType")
   private String operationType = null;
 
-  @JsonProperty("assignerId")
   private String assignerId = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("removalTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime removalTime = null;
 
-  @JsonProperty("rootProcessInstanceId")
   private String rootProcessInstanceId = null;
 
   public HistoricIdentityLinkLogDto id(String id) {
@@ -62,10 +58,11 @@ public class HistoricIdentityLinkLogDto   {
   /**
    * Id of the Historic identity link entry.
    * @return id
-   **/
-  @Schema(description = "Id of the Historic identity link entry.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "Id of the Historic identity link entry.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -81,11 +78,11 @@ public class HistoricIdentityLinkLogDto   {
   /**
    * The time when the identity link is logged.  [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return time
-   **/
-  @Schema(description = "The time when the identity link is logged.  [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getTime() {
+  */
+  @Valid 
+  @Schema(name = "time", description = "The time when the identity link is logged.  [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("time")
+  public OffsetDateTime getTime() {
     return time;
   }
 
@@ -101,10 +98,11 @@ public class HistoricIdentityLinkLogDto   {
   /**
    * The type of identity link (candidate/assignee/owner).
    * @return type
-   **/
-  @Schema(description = "The type of identity link (candidate/assignee/owner).")
+  */
   
-    public String getType() {
+  @Schema(name = "type", description = "The type of identity link (candidate/assignee/owner).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("type")
+  public String getType() {
     return type;
   }
 
@@ -120,10 +118,11 @@ public class HistoricIdentityLinkLogDto   {
   /**
    * The id of the user/assignee.
    * @return userId
-   **/
-  @Schema(description = "The id of the user/assignee.")
+  */
   
-    public String getUserId() {
+  @Schema(name = "userId", description = "The id of the user/assignee.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("userId")
+  public String getUserId() {
     return userId;
   }
 
@@ -139,10 +138,11 @@ public class HistoricIdentityLinkLogDto   {
   /**
    * The id of the group.
    * @return groupId
-   **/
-  @Schema(description = "The id of the group.")
+  */
   
-    public String getGroupId() {
+  @Schema(name = "groupId", description = "The id of the group.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("groupId")
+  public String getGroupId() {
     return groupId;
   }
 
@@ -158,10 +158,11 @@ public class HistoricIdentityLinkLogDto   {
   /**
    * The id of the task.
    * @return taskId
-   **/
-  @Schema(description = "The id of the task.")
+  */
   
-    public String getTaskId() {
+  @Schema(name = "taskId", description = "The id of the task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskId")
+  public String getTaskId() {
     return taskId;
   }
 
@@ -177,10 +178,11 @@ public class HistoricIdentityLinkLogDto   {
   /**
    * The id of the process definition.
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definition.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -196,10 +198,11 @@ public class HistoricIdentityLinkLogDto   {
   /**
    * The key of the process definition.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "The key of the process definition.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "The key of the process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -215,10 +218,11 @@ public class HistoricIdentityLinkLogDto   {
   /**
    * Type of operation (add/delete).
    * @return operationType
-   **/
-  @Schema(description = "Type of operation (add/delete).")
+  */
   
-    public String getOperationType() {
+  @Schema(name = "operationType", description = "Type of operation (add/delete).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("operationType")
+  public String getOperationType() {
     return operationType;
   }
 
@@ -234,10 +238,11 @@ public class HistoricIdentityLinkLogDto   {
   /**
    * The id of the assigner.
    * @return assignerId
-   **/
-  @Schema(description = "The id of the assigner.")
+  */
   
-    public String getAssignerId() {
+  @Schema(name = "assignerId", description = "The id of the assigner.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("assignerId")
+  public String getAssignerId() {
     return assignerId;
   }
 
@@ -253,10 +258,11 @@ public class HistoricIdentityLinkLogDto   {
   /**
    * The id of the tenant.
    * @return tenantId
-   **/
-  @Schema(description = "The id of the tenant.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The id of the tenant.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -272,11 +278,11 @@ public class HistoricIdentityLinkLogDto   {
   /**
    * The time after which the identity link should be removed by the History Cleanup job.  [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return removalTime
-   **/
-  @Schema(description = "The time after which the identity link should be removed by the History Cleanup job.  [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getRemovalTime() {
+  */
+  @Valid 
+  @Schema(name = "removalTime", description = "The time after which the identity link should be removed by the History Cleanup job.  [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("removalTime")
+  public OffsetDateTime getRemovalTime() {
     return removalTime;
   }
 
@@ -292,17 +298,17 @@ public class HistoricIdentityLinkLogDto   {
   /**
    * The process instance id of the root process instance that initiated the process containing this identity link.
    * @return rootProcessInstanceId
-   **/
-  @Schema(description = "The process instance id of the root process instance that initiated the process containing this identity link.")
+  */
   
-    public String getRootProcessInstanceId() {
+  @Schema(name = "rootProcessInstanceId", description = "The process instance id of the root process instance that initiated the process containing this identity link.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("rootProcessInstanceId")
+  public String getRootProcessInstanceId() {
     return rootProcessInstanceId;
   }
 
   public void setRootProcessInstanceId(String rootProcessInstanceId) {
     this.rootProcessInstanceId = rootProcessInstanceId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -337,7 +343,6 @@ public class HistoricIdentityLinkLogDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricIdentityLinkLogDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -366,3 +371,4 @@ public class HistoricIdentityLinkLogDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

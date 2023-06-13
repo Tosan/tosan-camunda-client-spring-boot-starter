@@ -1,22 +1,28 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * JobConditionQueryParameterDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class JobConditionQueryParameterDto {
 
-public class JobConditionQueryParameterDto   {
   /**
    * Comparison operator to be used.
    */
@@ -31,26 +37,30 @@ public class JobConditionQueryParameterDto   {
       this.value = value;
     }
 
-    @Override
     @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static OperatorEnum fromValue(String text) {
+    public static OperatorEnum fromValue(String value) {
       for (OperatorEnum b : OperatorEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
       return null;
     }
   }
-  @JsonProperty("operator")
+
   private OperatorEnum operator = null;
 
-  @JsonProperty("value")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime value = null;
 
   public JobConditionQueryParameterDto operator(OperatorEnum operator) {
@@ -61,10 +71,11 @@ public class JobConditionQueryParameterDto   {
   /**
    * Comparison operator to be used.
    * @return operator
-   **/
-  @Schema(description = "Comparison operator to be used.")
+  */
   
-    public OperatorEnum getOperator() {
+  @Schema(name = "operator", description = "Comparison operator to be used.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("operator")
+  public OperatorEnum getOperator() {
     return operator;
   }
 
@@ -80,18 +91,17 @@ public class JobConditionQueryParameterDto   {
   /**
    * Date value to compare with.
    * @return value
-   **/
-  @Schema(description = "Date value to compare with.")
-  
-    @Valid
-    public OffsetDateTime getValue() {
+  */
+  @Valid 
+  @Schema(name = "value", description = "Date value to compare with.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("value")
+  public OffsetDateTime getValue() {
     return value;
   }
 
   public void setValue(OffsetDateTime value) {
     this.value = value;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -115,7 +125,6 @@ public class JobConditionQueryParameterDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class JobConditionQueryParameterDto {\n");
-    
     sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -133,3 +142,4 @@ public class JobConditionQueryParameterDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

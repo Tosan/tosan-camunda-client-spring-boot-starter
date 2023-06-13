@@ -1,24 +1,30 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * JobDuedateDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class JobDuedateDto {
 
-public class JobDuedateDto   {
-  @JsonProperty("duedate")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime duedate = null;
 
-  @JsonProperty("cascade")
   private Boolean cascade = null;
 
   public JobDuedateDto duedate(OffsetDateTime duedate) {
@@ -29,11 +35,11 @@ public class JobDuedateDto   {
   /**
    * The date to set when the job has the next execution.
    * @return duedate
-   **/
-  @Schema(description = "The date to set when the job has the next execution.")
-  
-    @Valid
-    public OffsetDateTime getDuedate() {
+  */
+  @Valid 
+  @Schema(name = "duedate", description = "The date to set when the job has the next execution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("duedate")
+  public OffsetDateTime getDuedate() {
     return duedate;
   }
 
@@ -49,17 +55,17 @@ public class JobDuedateDto   {
   /**
    * A boolean value to indicate if modifications to the due date should cascade to subsequent jobs. (e.g. Modify the due date of a timer by +15 minutes. This flag indicates if a +15 minutes should be applied to all subsequent timers.) This flag only affects timer jobs and only works if due date is not null. Default: `false`
    * @return cascade
-   **/
-  @Schema(description = "A boolean value to indicate if modifications to the due date should cascade to subsequent jobs. (e.g. Modify the due date of a timer by +15 minutes. This flag indicates if a +15 minutes should be applied to all subsequent timers.) This flag only affects timer jobs and only works if due date is not null. Default: `false`")
+  */
   
-    public Boolean isCascade() {
+  @Schema(name = "cascade", description = "A boolean value to indicate if modifications to the due date should cascade to subsequent jobs. (e.g. Modify the due date of a timer by +15 minutes. This flag indicates if a +15 minutes should be applied to all subsequent timers.) This flag only affects timer jobs and only works if due date is not null. Default: `false`", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("cascade")
+  public Boolean getCascade() {
     return cascade;
   }
 
   public void setCascade(Boolean cascade) {
     this.cascade = cascade;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -83,7 +89,6 @@ public class JobDuedateDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class JobDuedateDto {\n");
-    
     sb.append("    duedate: ").append(toIndentedString(duedate)).append("\n");
     sb.append("    cascade: ").append(toIndentedString(cascade)).append("\n");
     sb.append("}");
@@ -101,3 +106,4 @@ public class JobDuedateDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

@@ -1,35 +1,37 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.VariableValueDto;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * EvaluationConditionDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class EvaluationConditionDto {
 
-public class EvaluationConditionDto   {
-  @JsonProperty("variables")
   @Valid
-  private Map<String, VariableValueDto> variables = null;
+  private Map<String, VariableValueDto> variables;
 
-  @JsonProperty("businessKey")
   private String businessKey = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("withoutTenantId")
   private Boolean withoutTenantId = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
   public EvaluationConditionDto variables(Map<String, VariableValueDto> variables) {
@@ -48,10 +50,11 @@ public class EvaluationConditionDto   {
   /**
    * A map of variables which are used for evaluation of the conditions and are injected into the process instances which have been triggered. Each key is a variable name and each value a JSON variable value object with the following properties.
    * @return variables
-   **/
-  @Schema(description = "A map of variables which are used for evaluation of the conditions and are injected into the process instances which have been triggered. Each key is a variable name and each value a JSON variable value object with the following properties.")
-      @Valid
-    public Map<String, VariableValueDto> getVariables() {
+  */
+  @Valid 
+  @Schema(name = "variables", description = "A map of variables which are used for evaluation of the conditions and are injected into the process instances which have been triggered. Each key is a variable name and each value a JSON variable value object with the following properties.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variables")
+  public Map<String, VariableValueDto> getVariables() {
     return variables;
   }
 
@@ -67,10 +70,11 @@ public class EvaluationConditionDto   {
   /**
    * Used for the process instances that have been triggered after the evaluation.
    * @return businessKey
-   **/
-  @Schema(description = "Used for the process instances that have been triggered after the evaluation.")
+  */
   
-    public String getBusinessKey() {
+  @Schema(name = "businessKey", description = "Used for the process instances that have been triggered after the evaluation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("businessKey")
+  public String getBusinessKey() {
     return businessKey;
   }
 
@@ -86,10 +90,11 @@ public class EvaluationConditionDto   {
   /**
    * Used to evaluate a condition for a tenant with the given id. Will only evaluate conditions of process definitions which belong to the tenant.
    * @return tenantId
-   **/
-  @Schema(description = "Used to evaluate a condition for a tenant with the given id. Will only evaluate conditions of process definitions which belong to the tenant.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "Used to evaluate a condition for a tenant with the given id. Will only evaluate conditions of process definitions which belong to the tenant.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -105,10 +110,11 @@ public class EvaluationConditionDto   {
   /**
    * A Boolean value that indicates whether the conditions should only be evaluated of process definitions which belong to no tenant or not. Value may only be true, as false is the default behavior.
    * @return withoutTenantId
-   **/
-  @Schema(description = "A Boolean value that indicates whether the conditions should only be evaluated of process definitions which belong to no tenant or not. Value may only be true, as false is the default behavior.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "A Boolean value that indicates whether the conditions should only be evaluated of process definitions which belong to no tenant or not. Value may only be true, as false is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
@@ -124,17 +130,17 @@ public class EvaluationConditionDto   {
   /**
    * Used to evaluate conditions of the process definition with the given id.
    * @return processDefinitionId
-   **/
-  @Schema(description = "Used to evaluate conditions of the process definition with the given id.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "Used to evaluate conditions of the process definition with the given id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
   public void setProcessDefinitionId(String processDefinitionId) {
     this.processDefinitionId = processDefinitionId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -161,7 +167,6 @@ public class EvaluationConditionDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EvaluationConditionDto {\n");
-    
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
     sb.append("    businessKey: ").append(toIndentedString(businessKey)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
@@ -182,3 +187,4 @@ public class EvaluationConditionDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

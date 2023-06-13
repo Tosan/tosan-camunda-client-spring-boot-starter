@@ -1,20 +1,28 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * VariableQueryParameterDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class VariableQueryParameterDto {
 
-public class VariableQueryParameterDto   {
+  private String name = null;
+
   /**
    * Comparison operator to be used. `notLike` is not supported by all endpoints.
    */
@@ -41,27 +49,50 @@ public class VariableQueryParameterDto   {
       this.value = value;
     }
 
-    @Override
     @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static OperatorEnum fromValue(String text) {
+    public static OperatorEnum fromValue(String value) {
       for (OperatorEnum b : OperatorEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
       return null;
     }
   }
-  @JsonProperty("operator")
+
   private OperatorEnum operator = null;
 
-  @JsonProperty("value")
-  private Object value = null;
+  private Object value;
+
+  public VariableQueryParameterDto name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Variable name
+   * @return name
+  */
+  
+  @Schema(name = "name", description = "Variable name", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
 
   public VariableQueryParameterDto operator(OperatorEnum operator) {
     this.operator = operator;
@@ -71,10 +102,11 @@ public class VariableQueryParameterDto   {
   /**
    * Comparison operator to be used. `notLike` is not supported by all endpoints.
    * @return operator
-   **/
-  @Schema(description = "Comparison operator to be used. `notLike` is not supported by all endpoints.")
+  */
   
-    public OperatorEnum getOperator() {
+  @Schema(name = "operator", description = "Comparison operator to be used. `notLike` is not supported by all endpoints.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("operator")
+  public OperatorEnum getOperator() {
     return operator;
   }
 
@@ -90,17 +122,17 @@ public class VariableQueryParameterDto   {
   /**
    * Get value
    * @return value
-   **/
-  @Schema(description = "")
+  */
   
-    public Object getValue() {
+  @Schema(name = "value", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("value")
+  public Object getValue() {
     return value;
   }
 
   public void setValue(Object value) {
     this.value = value;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -111,20 +143,21 @@ public class VariableQueryParameterDto   {
       return false;
     }
     VariableQueryParameterDto variableQueryParameterDto = (VariableQueryParameterDto) o;
-    return Objects.equals(this.operator, variableQueryParameterDto.operator) &&
+    return Objects.equals(this.name, variableQueryParameterDto.name) &&
+        Objects.equals(this.operator, variableQueryParameterDto.operator) &&
         Objects.equals(this.value, variableQueryParameterDto.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(operator, value);
+    return Objects.hash(name, operator, value);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class VariableQueryParameterDto {\n");
-    
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -142,3 +175,4 @@ public class VariableQueryParameterDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

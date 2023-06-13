@@ -1,54 +1,47 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * DecisionDefinitionDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class DecisionDefinitionDto {
 
-public class DecisionDefinitionDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("key")
   private String key = null;
 
-  @JsonProperty("category")
   private String category = null;
 
-  @JsonProperty("name")
   private String name = null;
 
-  @JsonProperty("version")
   private Integer version = null;
 
-  @JsonProperty("resource")
   private String resource = null;
 
-  @JsonProperty("deploymentId")
   private String deploymentId = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("decisionRequirementsDefinitionId")
   private String decisionRequirementsDefinitionId = null;
 
-  @JsonProperty("decisionRequirementsDefinitionKey")
   private String decisionRequirementsDefinitionKey = null;
 
-  @JsonProperty("historyTimeToLive")
   private Integer historyTimeToLive = null;
 
-  @JsonProperty("versionTag")
   private String versionTag = null;
 
   public DecisionDefinitionDto id(String id) {
@@ -59,10 +52,11 @@ public class DecisionDefinitionDto   {
   /**
    * The id of the decision definition
    * @return id
-   **/
-  @Schema(description = "The id of the decision definition")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the decision definition", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -78,10 +72,11 @@ public class DecisionDefinitionDto   {
   /**
    * The key of the decision definition, i.e., the id of the DMN 1.0 XML decision definition.
    * @return key
-   **/
-  @Schema(description = "The key of the decision definition, i.e., the id of the DMN 1.0 XML decision definition.")
+  */
   
-    public String getKey() {
+  @Schema(name = "key", description = "The key of the decision definition, i.e., the id of the DMN 1.0 XML decision definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("key")
+  public String getKey() {
     return key;
   }
 
@@ -97,10 +92,11 @@ public class DecisionDefinitionDto   {
   /**
    * The category of the decision definition.
    * @return category
-   **/
-  @Schema(description = "The category of the decision definition.")
+  */
   
-    public String getCategory() {
+  @Schema(name = "category", description = "The category of the decision definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("category")
+  public String getCategory() {
     return category;
   }
 
@@ -116,10 +112,11 @@ public class DecisionDefinitionDto   {
   /**
    * The name of the decision definition.
    * @return name
-   **/
-  @Schema(description = "The name of the decision definition.")
+  */
   
-    public String getName() {
+  @Schema(name = "name", description = "The name of the decision definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
     return name;
   }
 
@@ -135,10 +132,11 @@ public class DecisionDefinitionDto   {
   /**
    * The version of the decision definition that the engine assigned to it.
    * @return version
-   **/
-  @Schema(description = "The version of the decision definition that the engine assigned to it.")
+  */
   
-    public Integer getVersion() {
+  @Schema(name = "version", description = "The version of the decision definition that the engine assigned to it.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("version")
+  public Integer getVersion() {
     return version;
   }
 
@@ -154,10 +152,11 @@ public class DecisionDefinitionDto   {
   /**
    * The file name of the decision definition.
    * @return resource
-   **/
-  @Schema(description = "The file name of the decision definition.")
+  */
   
-    public String getResource() {
+  @Schema(name = "resource", description = "The file name of the decision definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resource")
+  public String getResource() {
     return resource;
   }
 
@@ -173,10 +172,11 @@ public class DecisionDefinitionDto   {
   /**
    * The deployment id of the decision definition.
    * @return deploymentId
-   **/
-  @Schema(description = "The deployment id of the decision definition.")
+  */
   
-    public String getDeploymentId() {
+  @Schema(name = "deploymentId", description = "The deployment id of the decision definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deploymentId")
+  public String getDeploymentId() {
     return deploymentId;
   }
 
@@ -192,10 +192,11 @@ public class DecisionDefinitionDto   {
   /**
    * The tenant id of the decision definition.
    * @return tenantId
-   **/
-  @Schema(description = "The tenant id of the decision definition.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The tenant id of the decision definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -211,10 +212,11 @@ public class DecisionDefinitionDto   {
   /**
    * The id of the decision requirements definition this decision definition belongs to.
    * @return decisionRequirementsDefinitionId
-   **/
-  @Schema(description = "The id of the decision requirements definition this decision definition belongs to.")
+  */
   
-    public String getDecisionRequirementsDefinitionId() {
+  @Schema(name = "decisionRequirementsDefinitionId", description = "The id of the decision requirements definition this decision definition belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionRequirementsDefinitionId")
+  public String getDecisionRequirementsDefinitionId() {
     return decisionRequirementsDefinitionId;
   }
 
@@ -230,10 +232,11 @@ public class DecisionDefinitionDto   {
   /**
    * The key of the decision requirements definition this decision definition belongs to.
    * @return decisionRequirementsDefinitionKey
-   **/
-  @Schema(description = "The key of the decision requirements definition this decision definition belongs to.")
+  */
   
-    public String getDecisionRequirementsDefinitionKey() {
+  @Schema(name = "decisionRequirementsDefinitionKey", description = "The key of the decision requirements definition this decision definition belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionRequirementsDefinitionKey")
+  public String getDecisionRequirementsDefinitionKey() {
     return decisionRequirementsDefinitionKey;
   }
 
@@ -250,10 +253,11 @@ public class DecisionDefinitionDto   {
    * History time to live value of the decision definition. Is used within [History cleanup](https://docs.camunda.org/manual/7.17/user-guide/process-engine/history/#history-cleanup).
    * minimum: 0
    * @return historyTimeToLive
-   **/
-  @Schema(description = "History time to live value of the decision definition. Is used within [History cleanup](https://docs.camunda.org/manual/7.17/user-guide/process-engine/history/#history-cleanup).")
-  
-  @Min(0)  public Integer getHistoryTimeToLive() {
+  */
+  @Min(0) 
+  @Schema(name = "historyTimeToLive", description = "History time to live value of the decision definition. Is used within [History cleanup](https://docs.camunda.org/manual/7.17/user-guide/process-engine/history/#history-cleanup).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historyTimeToLive")
+  public Integer getHistoryTimeToLive() {
     return historyTimeToLive;
   }
 
@@ -269,17 +273,17 @@ public class DecisionDefinitionDto   {
   /**
    * The version tag of the decision definition.
    * @return versionTag
-   **/
-  @Schema(description = "The version tag of the decision definition.")
+  */
   
-    public String getVersionTag() {
+  @Schema(name = "versionTag", description = "The version tag of the decision definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("versionTag")
+  public String getVersionTag() {
     return versionTag;
   }
 
   public void setVersionTag(String versionTag) {
     this.versionTag = versionTag;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -313,7 +317,6 @@ public class DecisionDefinitionDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DecisionDefinitionDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
@@ -341,3 +344,4 @@ public class DecisionDefinitionDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

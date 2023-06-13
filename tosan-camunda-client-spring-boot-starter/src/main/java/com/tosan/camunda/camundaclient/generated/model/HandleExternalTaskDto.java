@@ -1,20 +1,26 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * HandleExternalTaskDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HandleExternalTaskDto {
 
-public class HandleExternalTaskDto   {
-  @JsonProperty("workerId")
-  private String workerId = null;
+  private String workerId;
 
   public HandleExternalTaskDto workerId(String workerId) {
     this.workerId = workerId;
@@ -24,17 +30,17 @@ public class HandleExternalTaskDto   {
   /**
    * **Mandatory.** The ID of the worker who is performing the operation on the external task. If the task is already locked, must match the id of the worker who has most recently locked the task.
    * @return workerId
-   **/
-  @Schema(description = "**Mandatory.** The ID of the worker who is performing the operation on the external task. If the task is already locked, must match the id of the worker who has most recently locked the task.")
+  */
   
-    public String getWorkerId() {
+  @Schema(name = "workerId", description = "**Mandatory.** The ID of the worker who is performing the operation on the external task. If the task is already locked, must match the id of the worker who has most recently locked the task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("workerId")
+  public String getWorkerId() {
     return workerId;
   }
 
   public void setWorkerId(String workerId) {
     this.workerId = workerId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -57,7 +63,6 @@ public class HandleExternalTaskDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HandleExternalTaskDto {\n");
-    
     sb.append("    workerId: ").append(toIndentedString(workerId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -74,3 +79,4 @@ public class HandleExternalTaskDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

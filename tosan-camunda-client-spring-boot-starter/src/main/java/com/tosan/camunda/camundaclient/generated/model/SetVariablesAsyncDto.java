@@ -1,36 +1,41 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.HistoricProcessInstanceQueryDto;
+import com.tosan.camunda.camundaclient.generated.model.ProcessInstanceQueryDto;
+import com.tosan.camunda.camundaclient.generated.model.VariableValueDto;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * SetVariablesAsyncDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class SetVariablesAsyncDto {
 
-public class SetVariablesAsyncDto   {
-  @JsonProperty("processInstanceIds")
   @Valid
-  private List<String> processInstanceIds = null;
+  private List<String> processInstanceIds;
 
-  @JsonProperty("processInstanceQuery")
-  private ProcessInstanceQueryDto processInstanceQuery = null;
+  private ProcessInstanceQueryDto processInstanceQuery;
 
-  @JsonProperty("historicProcessInstanceQuery")
-  private HistoricProcessInstanceQueryDto historicProcessInstanceQuery = null;
+  private HistoricProcessInstanceQueryDto historicProcessInstanceQuery;
 
-  @JsonProperty("variables")
   @Valid
-  private Map<String, VariableValueDto> variables = null;
+  private Map<String, VariableValueDto> variables;
 
   public SetVariablesAsyncDto processInstanceIds(List<String> processInstanceIds) {
     this.processInstanceIds = processInstanceIds;
@@ -48,10 +53,11 @@ public class SetVariablesAsyncDto   {
   /**
    * A list of process instance ids that define a group of process instances to which the operation will set variables.  Please note that if `processInstanceIds`, `processInstanceQuery` and `historicProcessInstanceQuery` are defined, the resulting operation will be performed on the union of these sets.
    * @return processInstanceIds
-   **/
-  @Schema(description = "A list of process instance ids that define a group of process instances to which the operation will set variables.  Please note that if `processInstanceIds`, `processInstanceQuery` and `historicProcessInstanceQuery` are defined, the resulting operation will be performed on the union of these sets.")
+  */
   
-    public List<String> getProcessInstanceIds() {
+  @Schema(name = "processInstanceIds", description = "A list of process instance ids that define a group of process instances to which the operation will set variables.  Please note that if `processInstanceIds`, `processInstanceQuery` and `historicProcessInstanceQuery` are defined, the resulting operation will be performed on the union of these sets.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceIds")
+  public List<String> getProcessInstanceIds() {
     return processInstanceIds;
   }
 
@@ -67,11 +73,11 @@ public class SetVariablesAsyncDto   {
   /**
    * Get processInstanceQuery
    * @return processInstanceQuery
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public ProcessInstanceQueryDto getProcessInstanceQuery() {
+  */
+  @Valid 
+  @Schema(name = "processInstanceQuery", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceQuery")
+  public ProcessInstanceQueryDto getProcessInstanceQuery() {
     return processInstanceQuery;
   }
 
@@ -87,11 +93,11 @@ public class SetVariablesAsyncDto   {
   /**
    * Get historicProcessInstanceQuery
    * @return historicProcessInstanceQuery
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public HistoricProcessInstanceQueryDto getHistoricProcessInstanceQuery() {
+  */
+  @Valid 
+  @Schema(name = "historicProcessInstanceQuery", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historicProcessInstanceQuery")
+  public HistoricProcessInstanceQueryDto getHistoricProcessInstanceQuery() {
     return historicProcessInstanceQuery;
   }
 
@@ -115,17 +121,17 @@ public class SetVariablesAsyncDto   {
   /**
    * A variables the operation will set in the root scope of the process instances.
    * @return variables
-   **/
-  @Schema(description = "A variables the operation will set in the root scope of the process instances.")
-      @Valid
-    public Map<String, VariableValueDto> getVariables() {
+  */
+  @Valid 
+  @Schema(name = "variables", description = "A variables the operation will set in the root scope of the process instances.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variables")
+  public Map<String, VariableValueDto> getVariables() {
     return variables;
   }
 
   public void setVariables(Map<String, VariableValueDto> variables) {
     this.variables = variables;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -151,7 +157,6 @@ public class SetVariablesAsyncDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SetVariablesAsyncDto {\n");
-    
     sb.append("    processInstanceIds: ").append(toIndentedString(processInstanceIds)).append("\n");
     sb.append("    processInstanceQuery: ").append(toIndentedString(processInstanceQuery)).append("\n");
     sb.append("    historicProcessInstanceQuery: ").append(toIndentedString(historicProcessInstanceQuery)).append("\n");
@@ -171,3 +176,4 @@ public class SetVariablesAsyncDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

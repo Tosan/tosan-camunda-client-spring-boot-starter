@@ -1,114 +1,94 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A historic decision instance query which defines a list of historic decision instances
  */
-@Schema(description = "A historic decision instance query which defines a list of historic decision instances")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "HistoricDecisionInstanceQueryDto", description = "A historic decision instance query which defines a list of historic decision instances")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricDecisionInstanceQueryDto {
 
-public class HistoricDecisionInstanceQueryDto   {
-  @JsonProperty("decisionInstanceId")
   private String decisionInstanceId = null;
 
-  @JsonProperty("decisionInstanceIdIn")
   @Valid
-  private List<String> decisionInstanceIdIn = null;
+  private List<String> decisionInstanceIdIn;
 
-  @JsonProperty("decisionDefinitionId")
   private String decisionDefinitionId = null;
 
-  @JsonProperty("decisionDefinitionIdIn")
   @Valid
-  private List<String> decisionDefinitionIdIn = null;
+  private List<String> decisionDefinitionIdIn;
 
-  @JsonProperty("decisionDefinitionKey")
   private String decisionDefinitionKey = null;
 
-  @JsonProperty("decisionDefinitionKeyIn")
   @Valid
-  private List<String> decisionDefinitionKeyIn = null;
+  private List<String> decisionDefinitionKeyIn;
 
-  @JsonProperty("decisionDefinitionName")
   private String decisionDefinitionName = null;
 
-  @JsonProperty("decisionDefinitionNameLike")
   private String decisionDefinitionNameLike = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("caseDefinitionId")
   private String caseDefinitionId = null;
 
-  @JsonProperty("caseDefinitionKey")
   private String caseDefinitionKey = null;
 
-  @JsonProperty("caseInstanceId")
   private String caseInstanceId = null;
 
-  @JsonProperty("activityIdIn")
   @Valid
-  private List<String> activityIdIn = null;
+  private List<String> activityIdIn;
 
-  @JsonProperty("activityInstanceIdIn")
   @Valid
-  private List<String> activityInstanceIdIn = null;
+  private List<String> activityInstanceIdIn;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("withoutTenantId")
   private Boolean withoutTenantId = null;
 
-  @JsonProperty("evaluatedBefore")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime evaluatedBefore = null;
 
-  @JsonProperty("evaluatedAfter")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime evaluatedAfter = null;
 
-  @JsonProperty("userId")
   private String userId = null;
 
-  @JsonProperty("rootDecisionInstanceId")
   private String rootDecisionInstanceId = null;
 
-  @JsonProperty("rootDecisionInstancesOnly")
   private Boolean rootDecisionInstancesOnly = null;
 
-  @JsonProperty("decisionRequirementsDefinitionId")
   private String decisionRequirementsDefinitionId = null;
 
-  @JsonProperty("decisionRequirementsDefinitionKey")
   private String decisionRequirementsDefinitionKey = null;
 
-  @JsonProperty("includeInputs")
   private Boolean includeInputs = null;
 
-  @JsonProperty("includeOutputs")
   private Boolean includeOutputs = null;
 
-  @JsonProperty("disableBinaryFetching")
   private Boolean disableBinaryFetching = null;
 
-  @JsonProperty("disableCustomObjectDeserialization")
   private Boolean disableCustomObjectDeserialization = null;
 
   public HistoricDecisionInstanceQueryDto decisionInstanceId(String decisionInstanceId) {
@@ -119,10 +99,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by decision instance id.
    * @return decisionInstanceId
-   **/
-  @Schema(description = "Filter by decision instance id.")
+  */
   
-    public String getDecisionInstanceId() {
+  @Schema(name = "decisionInstanceId", description = "Filter by decision instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionInstanceId")
+  public String getDecisionInstanceId() {
     return decisionInstanceId;
   }
 
@@ -146,10 +127,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by decision instance ids. Must be a comma-separated list of decision instance ids.
    * @return decisionInstanceIdIn
-   **/
-  @Schema(description = "Filter by decision instance ids. Must be a comma-separated list of decision instance ids.")
+  */
   
-    public List<String> getDecisionInstanceIdIn() {
+  @Schema(name = "decisionInstanceIdIn", description = "Filter by decision instance ids. Must be a comma-separated list of decision instance ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionInstanceIdIn")
+  public List<String> getDecisionInstanceIdIn() {
     return decisionInstanceIdIn;
   }
 
@@ -165,10 +147,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by the decision definition the instances belongs to.
    * @return decisionDefinitionId
-   **/
-  @Schema(description = "Filter by the decision definition the instances belongs to.")
+  */
   
-    public String getDecisionDefinitionId() {
+  @Schema(name = "decisionDefinitionId", description = "Filter by the decision definition the instances belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionDefinitionId")
+  public String getDecisionDefinitionId() {
     return decisionDefinitionId;
   }
 
@@ -192,10 +175,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by the decision definitions the instances belongs to. Must be a comma-separated list of decision definition ids.
    * @return decisionDefinitionIdIn
-   **/
-  @Schema(description = "Filter by the decision definitions the instances belongs to. Must be a comma-separated list of decision definition ids.")
+  */
   
-    public List<String> getDecisionDefinitionIdIn() {
+  @Schema(name = "decisionDefinitionIdIn", description = "Filter by the decision definitions the instances belongs to. Must be a comma-separated list of decision definition ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionDefinitionIdIn")
+  public List<String> getDecisionDefinitionIdIn() {
     return decisionDefinitionIdIn;
   }
 
@@ -211,10 +195,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by the key of the decision definition the instances belongs to.
    * @return decisionDefinitionKey
-   **/
-  @Schema(description = "Filter by the key of the decision definition the instances belongs to.")
+  */
   
-    public String getDecisionDefinitionKey() {
+  @Schema(name = "decisionDefinitionKey", description = "Filter by the key of the decision definition the instances belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionDefinitionKey")
+  public String getDecisionDefinitionKey() {
     return decisionDefinitionKey;
   }
 
@@ -238,10 +223,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by the keys of the decision definition the instances belongs to. Must be a comma- separated list of decision definition keys.
    * @return decisionDefinitionKeyIn
-   **/
-  @Schema(description = "Filter by the keys of the decision definition the instances belongs to. Must be a comma- separated list of decision definition keys.")
+  */
   
-    public List<String> getDecisionDefinitionKeyIn() {
+  @Schema(name = "decisionDefinitionKeyIn", description = "Filter by the keys of the decision definition the instances belongs to. Must be a comma- separated list of decision definition keys.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionDefinitionKeyIn")
+  public List<String> getDecisionDefinitionKeyIn() {
     return decisionDefinitionKeyIn;
   }
 
@@ -257,10 +243,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by the name of the decision definition the instances belongs to.
    * @return decisionDefinitionName
-   **/
-  @Schema(description = "Filter by the name of the decision definition the instances belongs to.")
+  */
   
-    public String getDecisionDefinitionName() {
+  @Schema(name = "decisionDefinitionName", description = "Filter by the name of the decision definition the instances belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionDefinitionName")
+  public String getDecisionDefinitionName() {
     return decisionDefinitionName;
   }
 
@@ -276,10 +263,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by the name of the decision definition the instances belongs to, that the parameter is a substring of.
    * @return decisionDefinitionNameLike
-   **/
-  @Schema(description = "Filter by the name of the decision definition the instances belongs to, that the parameter is a substring of.")
+  */
   
-    public String getDecisionDefinitionNameLike() {
+  @Schema(name = "decisionDefinitionNameLike", description = "Filter by the name of the decision definition the instances belongs to, that the parameter is a substring of.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionDefinitionNameLike")
+  public String getDecisionDefinitionNameLike() {
     return decisionDefinitionNameLike;
   }
 
@@ -295,10 +283,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by the process definition the instances belongs to.
    * @return processDefinitionId
-   **/
-  @Schema(description = "Filter by the process definition the instances belongs to.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "Filter by the process definition the instances belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -314,10 +303,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by the key of the process definition the instances belongs to.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "Filter by the key of the process definition the instances belongs to.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "Filter by the key of the process definition the instances belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -333,10 +323,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by the process instance the instances belongs to.
    * @return processInstanceId
-   **/
-  @Schema(description = "Filter by the process instance the instances belongs to.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "Filter by the process instance the instances belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -352,10 +343,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by the case definition the instances belongs to.
    * @return caseDefinitionId
-   **/
-  @Schema(description = "Filter by the case definition the instances belongs to.")
+  */
   
-    public String getCaseDefinitionId() {
+  @Schema(name = "caseDefinitionId", description = "Filter by the case definition the instances belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseDefinitionId")
+  public String getCaseDefinitionId() {
     return caseDefinitionId;
   }
 
@@ -371,10 +363,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by the key of the case definition the instances belongs to.
    * @return caseDefinitionKey
-   **/
-  @Schema(description = "Filter by the key of the case definition the instances belongs to.")
+  */
   
-    public String getCaseDefinitionKey() {
+  @Schema(name = "caseDefinitionKey", description = "Filter by the key of the case definition the instances belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseDefinitionKey")
+  public String getCaseDefinitionKey() {
     return caseDefinitionKey;
   }
 
@@ -390,10 +383,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by the case instance the instances belongs to.
    * @return caseInstanceId
-   **/
-  @Schema(description = "Filter by the case instance the instances belongs to.")
+  */
   
-    public String getCaseInstanceId() {
+  @Schema(name = "caseInstanceId", description = "Filter by the case instance the instances belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceId")
+  public String getCaseInstanceId() {
     return caseInstanceId;
   }
 
@@ -417,10 +411,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by the activity ids the instances belongs to. Must be a comma-separated list of acitvity ids.
    * @return activityIdIn
-   **/
-  @Schema(description = "Filter by the activity ids the instances belongs to. Must be a comma-separated list of acitvity ids.")
+  */
   
-    public List<String> getActivityIdIn() {
+  @Schema(name = "activityIdIn", description = "Filter by the activity ids the instances belongs to. Must be a comma-separated list of acitvity ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityIdIn")
+  public List<String> getActivityIdIn() {
     return activityIdIn;
   }
 
@@ -444,10 +439,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by the activity instance ids the instances belongs to. Must be a comma-separated list of acitvity instance ids.
    * @return activityInstanceIdIn
-   **/
-  @Schema(description = "Filter by the activity instance ids the instances belongs to. Must be a comma-separated list of acitvity instance ids.")
+  */
   
-    public List<String> getActivityInstanceIdIn() {
+  @Schema(name = "activityInstanceIdIn", description = "Filter by the activity instance ids the instances belongs to. Must be a comma-separated list of acitvity instance ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityInstanceIdIn")
+  public List<String> getActivityInstanceIdIn() {
     return activityInstanceIdIn;
   }
 
@@ -471,10 +467,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by a comma-separated list of tenant ids. A historic decision instance must have one of the given tenant ids.
    * @return tenantIdIn
-   **/
-  @Schema(description = "Filter by a comma-separated list of tenant ids. A historic decision instance must have one of the given tenant ids.")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Filter by a comma-separated list of tenant ids. A historic decision instance must have one of the given tenant ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -490,10 +487,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Only include historic decision instances that belong to no tenant. Value may only be `true`, as `false` is the default behavior.
    * @return withoutTenantId
-   **/
-  @Schema(description = "Only include historic decision instances that belong to no tenant. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "Only include historic decision instances that belong to no tenant. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
@@ -509,11 +507,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Restrict to instances that were evaluated before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM- dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return evaluatedBefore
-   **/
-  @Schema(description = "Restrict to instances that were evaluated before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM- dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getEvaluatedBefore() {
+  */
+  @Valid 
+  @Schema(name = "evaluatedBefore", description = "Restrict to instances that were evaluated before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM- dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("evaluatedBefore")
+  public OffsetDateTime getEvaluatedBefore() {
     return evaluatedBefore;
   }
 
@@ -529,11 +527,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Restrict to instances that were evaluated after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM- dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return evaluatedAfter
-   **/
-  @Schema(description = "Restrict to instances that were evaluated after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM- dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getEvaluatedAfter() {
+  */
+  @Valid 
+  @Schema(name = "evaluatedAfter", description = "Restrict to instances that were evaluated after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM- dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("evaluatedAfter")
+  public OffsetDateTime getEvaluatedAfter() {
     return evaluatedAfter;
   }
 
@@ -549,10 +547,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Restrict to instances that were evaluated by the given user.
    * @return userId
-   **/
-  @Schema(description = "Restrict to instances that were evaluated by the given user.")
+  */
   
-    public String getUserId() {
+  @Schema(name = "userId", description = "Restrict to instances that were evaluated by the given user.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("userId")
+  public String getUserId() {
     return userId;
   }
 
@@ -568,10 +567,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Restrict to instances that have a given root decision instance id. This also includes the decision instance with the given id.
    * @return rootDecisionInstanceId
-   **/
-  @Schema(description = "Restrict to instances that have a given root decision instance id. This also includes the decision instance with the given id.")
+  */
   
-    public String getRootDecisionInstanceId() {
+  @Schema(name = "rootDecisionInstanceId", description = "Restrict to instances that have a given root decision instance id. This also includes the decision instance with the given id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("rootDecisionInstanceId")
+  public String getRootDecisionInstanceId() {
     return rootDecisionInstanceId;
   }
 
@@ -587,10 +587,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Restrict to instances those are the root decision instance of an evaluation. Value may only be `true`, as `false` is the default behavior.
    * @return rootDecisionInstancesOnly
-   **/
-  @Schema(description = "Restrict to instances those are the root decision instance of an evaluation. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isRootDecisionInstancesOnly() {
+  @Schema(name = "rootDecisionInstancesOnly", description = "Restrict to instances those are the root decision instance of an evaluation. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("rootDecisionInstancesOnly")
+  public Boolean getRootDecisionInstancesOnly() {
     return rootDecisionInstancesOnly;
   }
 
@@ -606,10 +607,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by the decision requirements definition the instances belongs to.
    * @return decisionRequirementsDefinitionId
-   **/
-  @Schema(description = "Filter by the decision requirements definition the instances belongs to.")
+  */
   
-    public String getDecisionRequirementsDefinitionId() {
+  @Schema(name = "decisionRequirementsDefinitionId", description = "Filter by the decision requirements definition the instances belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionRequirementsDefinitionId")
+  public String getDecisionRequirementsDefinitionId() {
     return decisionRequirementsDefinitionId;
   }
 
@@ -625,10 +627,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Filter by the key of the decision requirements definition the instances belongs to.
    * @return decisionRequirementsDefinitionKey
-   **/
-  @Schema(description = "Filter by the key of the decision requirements definition the instances belongs to.")
+  */
   
-    public String getDecisionRequirementsDefinitionKey() {
+  @Schema(name = "decisionRequirementsDefinitionKey", description = "Filter by the key of the decision requirements definition the instances belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionRequirementsDefinitionKey")
+  public String getDecisionRequirementsDefinitionKey() {
     return decisionRequirementsDefinitionKey;
   }
 
@@ -644,10 +647,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Include input values in the result. Value may only be `true`, as `false` is the default behavior.
    * @return includeInputs
-   **/
-  @Schema(description = "Include input values in the result. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isIncludeInputs() {
+  @Schema(name = "includeInputs", description = "Include input values in the result. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("includeInputs")
+  public Boolean getIncludeInputs() {
     return includeInputs;
   }
 
@@ -663,10 +667,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Include output values in the result. Value may only be `true`, as `false` is the default behavior.
    * @return includeOutputs
-   **/
-  @Schema(description = "Include output values in the result. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isIncludeOutputs() {
+  @Schema(name = "includeOutputs", description = "Include output values in the result. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("includeOutputs")
+  public Boolean getIncludeOutputs() {
     return includeOutputs;
   }
 
@@ -682,10 +687,11 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Disables fetching of byte array input and output values. Value may only be `true`, as `false` is the default behavior.
    * @return disableBinaryFetching
-   **/
-  @Schema(description = "Disables fetching of byte array input and output values. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isDisableBinaryFetching() {
+  @Schema(name = "disableBinaryFetching", description = "Disables fetching of byte array input and output values. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("disableBinaryFetching")
+  public Boolean getDisableBinaryFetching() {
     return disableBinaryFetching;
   }
 
@@ -701,17 +707,17 @@ public class HistoricDecisionInstanceQueryDto   {
   /**
    * Disables deserialization of input and output values that are custom objects. Value may only be `true`, as `false` is the default behavior.
    * @return disableCustomObjectDeserialization
-   **/
-  @Schema(description = "Disables deserialization of input and output values that are custom objects. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isDisableCustomObjectDeserialization() {
+  @Schema(name = "disableCustomObjectDeserialization", description = "Disables deserialization of input and output values that are custom objects. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("disableCustomObjectDeserialization")
+  public Boolean getDisableCustomObjectDeserialization() {
     return disableCustomObjectDeserialization;
   }
 
   public void setDisableCustomObjectDeserialization(Boolean disableCustomObjectDeserialization) {
     this.disableCustomObjectDeserialization = disableCustomObjectDeserialization;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -762,7 +768,6 @@ public class HistoricDecisionInstanceQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricDecisionInstanceQueryDto {\n");
-    
     sb.append("    decisionInstanceId: ").append(toIndentedString(decisionInstanceId)).append("\n");
     sb.append("    decisionInstanceIdIn: ").append(toIndentedString(decisionInstanceIdIn)).append("\n");
     sb.append("    decisionDefinitionId: ").append(toIndentedString(decisionDefinitionId)).append("\n");
@@ -807,3 +812,4 @@ public class HistoricDecisionInstanceQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

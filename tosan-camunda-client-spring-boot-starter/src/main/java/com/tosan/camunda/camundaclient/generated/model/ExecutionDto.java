@@ -1,28 +1,31 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * ExecutionDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ExecutionDto {
 
-public class ExecutionDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("ended")
   private Boolean ended = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
   public ExecutionDto id(String id) {
@@ -33,10 +36,11 @@ public class ExecutionDto   {
   /**
    * The id of the Execution.
    * @return id
-   **/
-  @Schema(description = "The id of the Execution.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the Execution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -52,10 +56,11 @@ public class ExecutionDto   {
   /**
    * The id of the root of the execution tree representing the process instance.
    * @return processInstanceId
-   **/
-  @Schema(description = "The id of the root of the execution tree representing the process instance.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "The id of the root of the execution tree representing the process instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -71,10 +76,11 @@ public class ExecutionDto   {
   /**
    * Indicates if the execution is ended.
    * @return ended
-   **/
-  @Schema(description = "Indicates if the execution is ended.")
+  */
   
-    public Boolean isEnded() {
+  @Schema(name = "ended", description = "Indicates if the execution is ended.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("ended")
+  public Boolean getEnded() {
     return ended;
   }
 
@@ -90,17 +96,17 @@ public class ExecutionDto   {
   /**
    * The id of the tenant this execution belongs to. Can be `null` if the execution belongs to no single tenant.
    * @return tenantId
-   **/
-  @Schema(description = "The id of the tenant this execution belongs to. Can be `null` if the execution belongs to no single tenant.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The id of the tenant this execution belongs to. Can be `null` if the execution belongs to no single tenant.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
   public void setTenantId(String tenantId) {
     this.tenantId = tenantId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -126,7 +132,6 @@ public class ExecutionDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExecutionDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    processInstanceId: ").append(toIndentedString(processInstanceId)).append("\n");
     sb.append("    ended: ").append(toIndentedString(ended)).append("\n");
@@ -146,3 +151,4 @@ public class ExecutionDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

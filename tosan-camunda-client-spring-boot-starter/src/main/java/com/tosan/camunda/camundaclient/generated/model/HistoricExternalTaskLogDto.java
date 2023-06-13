@@ -1,81 +1,69 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * HistoricExternalTaskLogDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricExternalTaskLogDto {
 
-public class HistoricExternalTaskLogDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("externalTaskId")
   private String externalTaskId = null;
 
-  @JsonProperty("timestamp")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime timestamp = null;
 
-  @JsonProperty("topicName")
   private String topicName = null;
 
-  @JsonProperty("workerId")
   private String workerId = null;
 
-  @JsonProperty("retries")
   private Integer retries = null;
 
-  @JsonProperty("priority")
   private Long priority = null;
 
-  @JsonProperty("errorMessage")
   private String errorMessage = null;
 
-  @JsonProperty("activityId")
   private String activityId = null;
 
-  @JsonProperty("activityInstanceId")
   private String activityInstanceId = null;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("creationLog")
   private Boolean creationLog = null;
 
-  @JsonProperty("failureLog")
   private Boolean failureLog = null;
 
-  @JsonProperty("successLog")
   private Boolean successLog = null;
 
-  @JsonProperty("deletionLog")
   private Boolean deletionLog = null;
 
-  @JsonProperty("removalTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime removalTime = null;
 
-  @JsonProperty("rootProcessInstanceId")
   private String rootProcessInstanceId = null;
 
   public HistoricExternalTaskLogDto id(String id) {
@@ -86,10 +74,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * The id of the log entry.
    * @return id
-   **/
-  @Schema(description = "The id of the log entry.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the log entry.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -105,10 +94,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * The id of the external task.
    * @return externalTaskId
-   **/
-  @Schema(description = "The id of the external task.")
+  */
   
-    public String getExternalTaskId() {
+  @Schema(name = "externalTaskId", description = "The id of the external task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("externalTaskId")
+  public String getExternalTaskId() {
     return externalTaskId;
   }
 
@@ -124,11 +114,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * The time when the log entry has been written.
    * @return timestamp
-   **/
-  @Schema(description = "The time when the log entry has been written.")
-  
-    @Valid
-    public OffsetDateTime getTimestamp() {
+  */
+  @Valid 
+  @Schema(name = "timestamp", description = "The time when the log entry has been written.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("timestamp")
+  public OffsetDateTime getTimestamp() {
     return timestamp;
   }
 
@@ -144,10 +134,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * The topic name of the associated external task.
    * @return topicName
-   **/
-  @Schema(description = "The topic name of the associated external task.")
+  */
   
-    public String getTopicName() {
+  @Schema(name = "topicName", description = "The topic name of the associated external task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("topicName")
+  public String getTopicName() {
     return topicName;
   }
 
@@ -163,10 +154,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * The id of the worker that posessed the most recent lock.
    * @return workerId
-   **/
-  @Schema(description = "The id of the worker that posessed the most recent lock.")
+  */
   
-    public String getWorkerId() {
+  @Schema(name = "workerId", description = "The id of the worker that posessed the most recent lock.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("workerId")
+  public String getWorkerId() {
     return workerId;
   }
 
@@ -182,10 +174,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * The number of retries the associated external task has left.
    * @return retries
-   **/
-  @Schema(description = "The number of retries the associated external task has left.")
+  */
   
-    public Integer getRetries() {
+  @Schema(name = "retries", description = "The number of retries the associated external task has left.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("retries")
+  public Integer getRetries() {
     return retries;
   }
 
@@ -201,10 +194,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * The execution priority the external task had when the log entry was created.
    * @return priority
-   **/
-  @Schema(description = "The execution priority the external task had when the log entry was created.")
+  */
   
-    public Long getPriority() {
+  @Schema(name = "priority", description = "The execution priority the external task had when the log entry was created.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("priority")
+  public Long getPriority() {
     return priority;
   }
 
@@ -220,10 +214,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * The message of the error that occurred by executing the associated external task.
    * @return errorMessage
-   **/
-  @Schema(description = "The message of the error that occurred by executing the associated external task.")
+  */
   
-    public String getErrorMessage() {
+  @Schema(name = "errorMessage", description = "The message of the error that occurred by executing the associated external task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("errorMessage")
+  public String getErrorMessage() {
     return errorMessage;
   }
 
@@ -239,10 +234,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * The id of the activity on which the associated external task was created.
    * @return activityId
-   **/
-  @Schema(description = "The id of the activity on which the associated external task was created.")
+  */
   
-    public String getActivityId() {
+  @Schema(name = "activityId", description = "The id of the activity on which the associated external task was created.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityId")
+  public String getActivityId() {
     return activityId;
   }
 
@@ -258,10 +254,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * The id of the activity instance on which the associated external task was created.
    * @return activityInstanceId
-   **/
-  @Schema(description = "The id of the activity instance on which the associated external task was created.")
+  */
   
-    public String getActivityInstanceId() {
+  @Schema(name = "activityInstanceId", description = "The id of the activity instance on which the associated external task was created.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityInstanceId")
+  public String getActivityInstanceId() {
     return activityInstanceId;
   }
 
@@ -277,10 +274,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * The execution id on which the associated external task was created.
    * @return executionId
-   **/
-  @Schema(description = "The execution id on which the associated external task was created.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "The execution id on which the associated external task was created.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -296,10 +294,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * The id of the process instance on which the associated external task was created.
    * @return processInstanceId
-   **/
-  @Schema(description = "The id of the process instance on which the associated external task was created.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "The id of the process instance on which the associated external task was created.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -315,10 +314,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * The id of the process definition which the associated external task belongs to.
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definition which the associated external task belongs to.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definition which the associated external task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -334,10 +334,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * The key of the process definition which the associated external task belongs to.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "The key of the process definition which the associated external task belongs to.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "The key of the process definition which the associated external task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -353,10 +354,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * The id of the tenant that this historic external task log entry belongs to.
    * @return tenantId
-   **/
-  @Schema(description = "The id of the tenant that this historic external task log entry belongs to.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The id of the tenant that this historic external task log entry belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -372,10 +374,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * A flag indicating whether this log represents the creation of the associated external task.
    * @return creationLog
-   **/
-  @Schema(description = "A flag indicating whether this log represents the creation of the associated external task.")
+  */
   
-    public Boolean isCreationLog() {
+  @Schema(name = "creationLog", description = "A flag indicating whether this log represents the creation of the associated external task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("creationLog")
+  public Boolean getCreationLog() {
     return creationLog;
   }
 
@@ -391,10 +394,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * A flag indicating whether this log represents the failed execution of the associated external task.
    * @return failureLog
-   **/
-  @Schema(description = "A flag indicating whether this log represents the failed execution of the associated external task.")
+  */
   
-    public Boolean isFailureLog() {
+  @Schema(name = "failureLog", description = "A flag indicating whether this log represents the failed execution of the associated external task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("failureLog")
+  public Boolean getFailureLog() {
     return failureLog;
   }
 
@@ -410,10 +414,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * A flag indicating whether this log represents the successful execution of the associated external task.
    * @return successLog
-   **/
-  @Schema(description = "A flag indicating whether this log represents the successful execution of the associated external task.")
+  */
   
-    public Boolean isSuccessLog() {
+  @Schema(name = "successLog", description = "A flag indicating whether this log represents the successful execution of the associated external task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("successLog")
+  public Boolean getSuccessLog() {
     return successLog;
   }
 
@@ -429,10 +434,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * A flag indicating whether this log represents the deletion of the associated external task.
    * @return deletionLog
-   **/
-  @Schema(description = "A flag indicating whether this log represents the deletion of the associated external task.")
+  */
   
-    public Boolean isDeletionLog() {
+  @Schema(name = "deletionLog", description = "A flag indicating whether this log represents the deletion of the associated external task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deletionLog")
+  public Boolean getDeletionLog() {
     return deletionLog;
   }
 
@@ -448,11 +454,11 @@ public class HistoricExternalTaskLogDto   {
   /**
    * The time after which this log should be removed by the History Cleanup job. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.  For further information, please see the [documentation](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/)
    * @return removalTime
-   **/
-  @Schema(description = "The time after which this log should be removed by the History Cleanup job. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.  For further information, please see the [documentation](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/)")
-  
-    @Valid
-    public OffsetDateTime getRemovalTime() {
+  */
+  @Valid 
+  @Schema(name = "removalTime", description = "The time after which this log should be removed by the History Cleanup job. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.  For further information, please see the [documentation](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("removalTime")
+  public OffsetDateTime getRemovalTime() {
     return removalTime;
   }
 
@@ -468,17 +474,17 @@ public class HistoricExternalTaskLogDto   {
   /**
    * The process instance id of the root process instance that initiated the process containing this log.
    * @return rootProcessInstanceId
-   **/
-  @Schema(description = "The process instance id of the root process instance that initiated the process containing this log.")
+  */
   
-    public String getRootProcessInstanceId() {
+  @Schema(name = "rootProcessInstanceId", description = "The process instance id of the root process instance that initiated the process containing this log.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("rootProcessInstanceId")
+  public String getRootProcessInstanceId() {
     return rootProcessInstanceId;
   }
 
   public void setRootProcessInstanceId(String rootProcessInstanceId) {
     this.rootProcessInstanceId = rootProcessInstanceId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -521,7 +527,6 @@ public class HistoricExternalTaskLogDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricExternalTaskLogDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    externalTaskId: ").append(toIndentedString(externalTaskId)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
@@ -558,3 +563,4 @@ public class HistoricExternalTaskLogDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

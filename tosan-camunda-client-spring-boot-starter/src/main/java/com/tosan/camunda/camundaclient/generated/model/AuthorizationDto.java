@@ -1,48 +1,47 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * AuthorizationDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class AuthorizationDto {
 
-public class AuthorizationDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("type")
   private Integer type = null;
 
-  @JsonProperty("permissions")
   @Valid
-  private List<String> permissions = null;
+  private List<String> permissions;
 
-  @JsonProperty("userId")
   private String userId = null;
 
-  @JsonProperty("groupId")
   private String groupId = null;
 
-  @JsonProperty("resourceType")
   private Integer resourceType = null;
 
-  @JsonProperty("resourceId")
   private String resourceId = null;
 
-  @JsonProperty("removalTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime removalTime = null;
 
-  @JsonProperty("rootProcessInstanceId")
   private String rootProcessInstanceId = null;
 
   public AuthorizationDto id(String id) {
@@ -53,10 +52,11 @@ public class AuthorizationDto   {
   /**
    * The id of the authorization.
    * @return id
-   **/
-  @Schema(description = "The id of the authorization.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the authorization.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -72,10 +72,11 @@ public class AuthorizationDto   {
   /**
    * The type of the authorization (0=global, 1=grant, 2=revoke). See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/authorization-service.md#authorization-type) for more information about authorization types.
    * @return type
-   **/
-  @Schema(description = "The type of the authorization (0=global, 1=grant, 2=revoke). See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/authorization-service.md#authorization-type) for more information about authorization types.")
+  */
   
-    public Integer getType() {
+  @Schema(name = "type", description = "The type of the authorization (0=global, 1=grant, 2=revoke). See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/authorization-service.md#authorization-type) for more information about authorization types.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("type")
+  public Integer getType() {
     return type;
   }
 
@@ -99,10 +100,11 @@ public class AuthorizationDto   {
   /**
    * An array of Strings holding the permissions provided by this authorization.
    * @return permissions
-   **/
-  @Schema(description = "An array of Strings holding the permissions provided by this authorization.")
+  */
   
-    public List<String> getPermissions() {
+  @Schema(name = "permissions", description = "An array of Strings holding the permissions provided by this authorization.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("permissions")
+  public List<String> getPermissions() {
     return permissions;
   }
 
@@ -118,10 +120,11 @@ public class AuthorizationDto   {
   /**
    * The id of the user this authorization has been created for. The value `*` represents a global authorization ranging over all users.
    * @return userId
-   **/
-  @Schema(description = "The id of the user this authorization has been created for. The value `*` represents a global authorization ranging over all users.")
+  */
   
-    public String getUserId() {
+  @Schema(name = "userId", description = "The id of the user this authorization has been created for. The value `*` represents a global authorization ranging over all users.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("userId")
+  public String getUserId() {
     return userId;
   }
 
@@ -137,10 +140,11 @@ public class AuthorizationDto   {
   /**
    * The id of the group this authorization has been created for.
    * @return groupId
-   **/
-  @Schema(description = "The id of the group this authorization has been created for.")
+  */
   
-    public String getGroupId() {
+  @Schema(name = "groupId", description = "The id of the group this authorization has been created for.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("groupId")
+  public String getGroupId() {
     return groupId;
   }
 
@@ -156,10 +160,11 @@ public class AuthorizationDto   {
   /**
    * An integer representing the resource type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/authorization-service/#resources) for a list of integer representations of resource types.
    * @return resourceType
-   **/
-  @Schema(description = "An integer representing the resource type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/authorization-service/#resources) for a list of integer representations of resource types.")
+  */
   
-    public Integer getResourceType() {
+  @Schema(name = "resourceType", description = "An integer representing the resource type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/authorization-service/#resources) for a list of integer representations of resource types.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resourceType")
+  public Integer getResourceType() {
     return resourceType;
   }
 
@@ -175,10 +180,11 @@ public class AuthorizationDto   {
   /**
    * The resource Id. The value `*` represents an authorization ranging over all instances of a resource.
    * @return resourceId
-   **/
-  @Schema(description = "The resource Id. The value `*` represents an authorization ranging over all instances of a resource.")
+  */
   
-    public String getResourceId() {
+  @Schema(name = "resourceId", description = "The resource Id. The value `*` represents an authorization ranging over all instances of a resource.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resourceId")
+  public String getResourceId() {
     return resourceId;
   }
 
@@ -194,11 +200,11 @@ public class AuthorizationDto   {
   /**
    * The removal time indicates the date a historic instance authorization is cleaned up. A removal time can only be assigned to a historic instance authorization. Can be `null` when not related to a historic instance resource or when the removal time strategy is end and the root process instance is not finished. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return removalTime
-   **/
-  @Schema(description = "The removal time indicates the date a historic instance authorization is cleaned up. A removal time can only be assigned to a historic instance authorization. Can be `null` when not related to a historic instance resource or when the removal time strategy is end and the root process instance is not finished. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getRemovalTime() {
+  */
+  @Valid 
+  @Schema(name = "removalTime", description = "The removal time indicates the date a historic instance authorization is cleaned up. A removal time can only be assigned to a historic instance authorization. Can be `null` when not related to a historic instance resource or when the removal time strategy is end and the root process instance is not finished. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("removalTime")
+  public OffsetDateTime getRemovalTime() {
     return removalTime;
   }
 
@@ -214,17 +220,17 @@ public class AuthorizationDto   {
   /**
    * The process instance id of the root process instance the historic instance authorization is related to. Can be `null` if not related to a historic instance resource.
    * @return rootProcessInstanceId
-   **/
-  @Schema(description = "The process instance id of the root process instance the historic instance authorization is related to. Can be `null` if not related to a historic instance resource.")
+  */
   
-    public String getRootProcessInstanceId() {
+  @Schema(name = "rootProcessInstanceId", description = "The process instance id of the root process instance the historic instance authorization is related to. Can be `null` if not related to a historic instance resource.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("rootProcessInstanceId")
+  public String getRootProcessInstanceId() {
     return rootProcessInstanceId;
   }
 
   public void setRootProcessInstanceId(String rootProcessInstanceId) {
     this.rootProcessInstanceId = rootProcessInstanceId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -255,7 +261,6 @@ public class AuthorizationDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthorizationDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
@@ -280,3 +285,4 @@ public class AuthorizationDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

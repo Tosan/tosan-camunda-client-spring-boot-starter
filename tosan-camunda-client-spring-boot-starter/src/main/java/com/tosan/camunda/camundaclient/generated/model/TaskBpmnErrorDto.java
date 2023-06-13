@@ -1,30 +1,34 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.VariableValueDto;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * TaskBpmnErrorDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class TaskBpmnErrorDto {
 
-public class TaskBpmnErrorDto   {
-  @JsonProperty("errorCode")
   private String errorCode = null;
 
-  @JsonProperty("errorMessage")
   private String errorMessage = null;
 
-  @JsonProperty("variables")
   @Valid
-  private Map<String, VariableValueDto> variables = null;
+  private Map<String, VariableValueDto> variables;
 
   public TaskBpmnErrorDto errorCode(String errorCode) {
     this.errorCode = errorCode;
@@ -34,10 +38,11 @@ public class TaskBpmnErrorDto   {
   /**
    * An error code that indicates the predefined error. It is used to identify the BPMN error handler.
    * @return errorCode
-   **/
-  @Schema(description = "An error code that indicates the predefined error. It is used to identify the BPMN error handler.")
+  */
   
-    public String getErrorCode() {
+  @Schema(name = "errorCode", description = "An error code that indicates the predefined error. It is used to identify the BPMN error handler.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("errorCode")
+  public String getErrorCode() {
     return errorCode;
   }
 
@@ -53,10 +58,11 @@ public class TaskBpmnErrorDto   {
   /**
    * An error message that describes the error.
    * @return errorMessage
-   **/
-  @Schema(description = "An error message that describes the error.")
+  */
   
-    public String getErrorMessage() {
+  @Schema(name = "errorMessage", description = "An error message that describes the error.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("errorMessage")
+  public String getErrorMessage() {
     return errorMessage;
   }
 
@@ -80,17 +86,17 @@ public class TaskBpmnErrorDto   {
   /**
    * A JSON object containing variable key-value pairs.
    * @return variables
-   **/
-  @Schema(description = "A JSON object containing variable key-value pairs.")
-      @Valid
-    public Map<String, VariableValueDto> getVariables() {
+  */
+  @Valid 
+  @Schema(name = "variables", description = "A JSON object containing variable key-value pairs.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variables")
+  public Map<String, VariableValueDto> getVariables() {
     return variables;
   }
 
   public void setVariables(Map<String, VariableValueDto> variables) {
     this.variables = variables;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -115,7 +121,6 @@ public class TaskBpmnErrorDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TaskBpmnErrorDto {\n");
-    
     sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
@@ -134,3 +139,4 @@ public class TaskBpmnErrorDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

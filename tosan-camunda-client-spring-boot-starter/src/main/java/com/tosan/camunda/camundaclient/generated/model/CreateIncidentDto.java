@@ -1,25 +1,29 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * CreateIncidentDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class CreateIncidentDto {
 
-public class CreateIncidentDto   {
-  @JsonProperty("incidentType")
   private String incidentType = null;
 
-  @JsonProperty("configuration")
   private String _configuration = null;
 
-  @JsonProperty("message")
   private String message = null;
 
   public CreateIncidentDto incidentType(String incidentType) {
@@ -30,10 +34,11 @@ public class CreateIncidentDto   {
   /**
    * A type of the new incident.
    * @return incidentType
-   **/
-  @Schema(description = "A type of the new incident.")
+  */
   
-    public String getIncidentType() {
+  @Schema(name = "incidentType", description = "A type of the new incident.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentType")
+  public String getIncidentType() {
     return incidentType;
   }
 
@@ -49,10 +54,11 @@ public class CreateIncidentDto   {
   /**
    * A configuration for the new incident.
    * @return _configuration
-   **/
-  @Schema(description = "A configuration for the new incident.")
+  */
   
-    public String getConfiguration() {
+  @Schema(name = "configuration", description = "A configuration for the new incident.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("configuration")
+  public String getConfiguration() {
     return _configuration;
   }
 
@@ -68,17 +74,17 @@ public class CreateIncidentDto   {
   /**
    * A message for the new incident.
    * @return message
-   **/
-  @Schema(description = "A message for the new incident.")
+  */
   
-    public String getMessage() {
+  @Schema(name = "message", description = "A message for the new incident.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("message")
+  public String getMessage() {
     return message;
   }
 
   public void setMessage(String message) {
     this.message = message;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -103,7 +109,6 @@ public class CreateIncidentDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateIncidentDto {\n");
-    
     sb.append("    incidentType: ").append(toIndentedString(incidentType)).append("\n");
     sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
@@ -122,3 +127,4 @@ public class CreateIncidentDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

@@ -1,28 +1,88 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * SetRemovalTimeToHistoricBatchesDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class SetRemovalTimeToHistoricBatchesDto {
 
-public class SetRemovalTimeToHistoricBatchesDto   {
-  @JsonProperty("absoluteRemovalTime")
+  private Object historicBatchQuery = null;
+
+  @Valid
+  private List<String> historicBatchIds;
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime absoluteRemovalTime = null;
 
-  @JsonProperty("clearedRemovalTime")
   private Boolean clearedRemovalTime = null;
 
-  @JsonProperty("calculatedRemovalTime")
   private Boolean calculatedRemovalTime = null;
+
+  public SetRemovalTimeToHistoricBatchesDto historicBatchQuery(Object historicBatchQuery) {
+    this.historicBatchQuery = historicBatchQuery;
+    return this;
+  }
+
+  /**
+   * Query for the historic batches to set the removal time for.
+   * @return historicBatchQuery
+  */
+  
+  @Schema(name = "historicBatchQuery", description = "Query for the historic batches to set the removal time for.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historicBatchQuery")
+  public Object getHistoricBatchQuery() {
+    return historicBatchQuery;
+  }
+
+  public void setHistoricBatchQuery(Object historicBatchQuery) {
+    this.historicBatchQuery = historicBatchQuery;
+  }
+
+  public SetRemovalTimeToHistoricBatchesDto historicBatchIds(List<String> historicBatchIds) {
+    this.historicBatchIds = historicBatchIds;
+    return this;
+  }
+
+  public SetRemovalTimeToHistoricBatchesDto addHistoricBatchIdsItem(String historicBatchIdsItem) {
+    if (this.historicBatchIds == null) {
+      this.historicBatchIds = new ArrayList<>();
+    }
+    this.historicBatchIds.add(historicBatchIdsItem);
+    return this;
+  }
+
+  /**
+   * The ids of the historic batches to set the removal time for.
+   * @return historicBatchIds
+  */
+  
+  @Schema(name = "historicBatchIds", description = "The ids of the historic batches to set the removal time for.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historicBatchIds")
+  public List<String> getHistoricBatchIds() {
+    return historicBatchIds;
+  }
+
+  public void setHistoricBatchIds(List<String> historicBatchIds) {
+    this.historicBatchIds = historicBatchIds;
+  }
 
   public SetRemovalTimeToHistoricBatchesDto absoluteRemovalTime(OffsetDateTime absoluteRemovalTime) {
     this.absoluteRemovalTime = absoluteRemovalTime;
@@ -32,11 +92,11 @@ public class SetRemovalTimeToHistoricBatchesDto   {
   /**
    * The date for which the instances shall be removed. Value may not be `null`.  **Note:** Cannot be set in conjunction with `clearedRemovalTime` or `calculatedRemovalTime`.
    * @return absoluteRemovalTime
-   **/
-  @Schema(description = "The date for which the instances shall be removed. Value may not be `null`.  **Note:** Cannot be set in conjunction with `clearedRemovalTime` or `calculatedRemovalTime`.")
-  
-    @Valid
-    public OffsetDateTime getAbsoluteRemovalTime() {
+  */
+  @Valid 
+  @Schema(name = "absoluteRemovalTime", description = "The date for which the instances shall be removed. Value may not be `null`.  **Note:** Cannot be set in conjunction with `clearedRemovalTime` or `calculatedRemovalTime`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("absoluteRemovalTime")
+  public OffsetDateTime getAbsoluteRemovalTime() {
     return absoluteRemovalTime;
   }
 
@@ -52,10 +112,11 @@ public class SetRemovalTimeToHistoricBatchesDto   {
   /**
    * Sets the removal time to `null`. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `calculatedRemovalTime`.
    * @return clearedRemovalTime
-   **/
-  @Schema(description = "Sets the removal time to `null`. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `calculatedRemovalTime`.")
+  */
   
-    public Boolean isClearedRemovalTime() {
+  @Schema(name = "clearedRemovalTime", description = "Sets the removal time to `null`. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `calculatedRemovalTime`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("clearedRemovalTime")
+  public Boolean getClearedRemovalTime() {
     return clearedRemovalTime;
   }
 
@@ -71,17 +132,17 @@ public class SetRemovalTimeToHistoricBatchesDto   {
   /**
    * The removal time is calculated based on the engine's configuration settings. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `clearedRemovalTime`.
    * @return calculatedRemovalTime
-   **/
-  @Schema(description = "The removal time is calculated based on the engine's configuration settings. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `clearedRemovalTime`.")
+  */
   
-    public Boolean isCalculatedRemovalTime() {
+  @Schema(name = "calculatedRemovalTime", description = "The removal time is calculated based on the engine's configuration settings. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `clearedRemovalTime`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("calculatedRemovalTime")
+  public Boolean getCalculatedRemovalTime() {
     return calculatedRemovalTime;
   }
 
   public void setCalculatedRemovalTime(Boolean calculatedRemovalTime) {
     this.calculatedRemovalTime = calculatedRemovalTime;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -92,21 +153,24 @@ public class SetRemovalTimeToHistoricBatchesDto   {
       return false;
     }
     SetRemovalTimeToHistoricBatchesDto setRemovalTimeToHistoricBatchesDto = (SetRemovalTimeToHistoricBatchesDto) o;
-    return Objects.equals(this.absoluteRemovalTime, setRemovalTimeToHistoricBatchesDto.absoluteRemovalTime) &&
+    return Objects.equals(this.historicBatchQuery, setRemovalTimeToHistoricBatchesDto.historicBatchQuery) &&
+        Objects.equals(this.historicBatchIds, setRemovalTimeToHistoricBatchesDto.historicBatchIds) &&
+        Objects.equals(this.absoluteRemovalTime, setRemovalTimeToHistoricBatchesDto.absoluteRemovalTime) &&
         Objects.equals(this.clearedRemovalTime, setRemovalTimeToHistoricBatchesDto.clearedRemovalTime) &&
         Objects.equals(this.calculatedRemovalTime, setRemovalTimeToHistoricBatchesDto.calculatedRemovalTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(absoluteRemovalTime, clearedRemovalTime, calculatedRemovalTime);
+    return Objects.hash(historicBatchQuery, historicBatchIds, absoluteRemovalTime, clearedRemovalTime, calculatedRemovalTime);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SetRemovalTimeToHistoricBatchesDto {\n");
-    
+    sb.append("    historicBatchQuery: ").append(toIndentedString(historicBatchQuery)).append("\n");
+    sb.append("    historicBatchIds: ").append(toIndentedString(historicBatchIds)).append("\n");
     sb.append("    absoluteRemovalTime: ").append(toIndentedString(absoluteRemovalTime)).append("\n");
     sb.append("    clearedRemovalTime: ").append(toIndentedString(clearedRemovalTime)).append("\n");
     sb.append("    calculatedRemovalTime: ").append(toIndentedString(calculatedRemovalTime)).append("\n");
@@ -125,3 +189,4 @@ public class SetRemovalTimeToHistoricBatchesDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

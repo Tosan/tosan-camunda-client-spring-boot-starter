@@ -1,19 +1,25 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * TelemetryConfigurationDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class TelemetryConfigurationDto {
 
-public class TelemetryConfigurationDto   {
-  @JsonProperty("enableTelemetry")
   private Boolean enableTelemetry = null;
 
   public TelemetryConfigurationDto enableTelemetry(Boolean enableTelemetry) {
@@ -24,17 +30,17 @@ public class TelemetryConfigurationDto   {
   /**
    * Specifies if the telemetry data should be sent or not.
    * @return enableTelemetry
-   **/
-  @Schema(description = "Specifies if the telemetry data should be sent or not.")
+  */
   
-    public Boolean isEnableTelemetry() {
+  @Schema(name = "enableTelemetry", description = "Specifies if the telemetry data should be sent or not.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("enableTelemetry")
+  public Boolean getEnableTelemetry() {
     return enableTelemetry;
   }
 
   public void setEnableTelemetry(Boolean enableTelemetry) {
     this.enableTelemetry = enableTelemetry;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -57,7 +63,6 @@ public class TelemetryConfigurationDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TelemetryConfigurationDto {\n");
-    
     sb.append("    enableTelemetry: ").append(toIndentedString(enableTelemetry)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -74,3 +79,4 @@ public class TelemetryConfigurationDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

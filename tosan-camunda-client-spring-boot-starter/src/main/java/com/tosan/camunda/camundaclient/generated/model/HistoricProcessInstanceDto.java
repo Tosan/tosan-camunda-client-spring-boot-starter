@@ -1,74 +1,65 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * HistoricProcessInstanceDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricProcessInstanceDto {
 
-public class HistoricProcessInstanceDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("rootProcessInstanceId")
   private String rootProcessInstanceId = null;
 
-  @JsonProperty("superProcessInstanceId")
   private String superProcessInstanceId = null;
 
-  @JsonProperty("superCaseInstanceId")
   private String superCaseInstanceId = null;
 
-  @JsonProperty("caseInstanceId")
   private String caseInstanceId = null;
 
-  @JsonProperty("processDefinitionName")
   private String processDefinitionName = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("processDefinitionVersion")
   private Integer processDefinitionVersion = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("businessKey")
   private String businessKey = null;
 
-  @JsonProperty("startTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime startTime = null;
 
-  @JsonProperty("endTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime endTime = null;
 
-  @JsonProperty("removalTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime removalTime = null;
 
-  @JsonProperty("durationInMillis")
   private Long durationInMillis = null;
 
-  @JsonProperty("startUserId")
   private String startUserId = null;
 
-  @JsonProperty("startActivityId")
   private String startActivityId = null;
 
-  @JsonProperty("deleteReason")
   private String deleteReason = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
   /**
@@ -91,23 +82,27 @@ public class HistoricProcessInstanceDto   {
       this.value = value;
     }
 
-    @Override
     @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static StateEnum fromValue(String text) {
+    public static StateEnum fromValue(String value) {
       for (StateEnum b : StateEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
       return null;
     }
   }
-  @JsonProperty("state")
+
   private StateEnum state = null;
 
   public HistoricProcessInstanceDto id(String id) {
@@ -118,10 +113,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The id of the process instance.
    * @return id
-   **/
-  @Schema(description = "The id of the process instance.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the process instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -137,10 +133,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The process instance id of the root process instance that initiated the process.
    * @return rootProcessInstanceId
-   **/
-  @Schema(description = "The process instance id of the root process instance that initiated the process.")
+  */
   
-    public String getRootProcessInstanceId() {
+  @Schema(name = "rootProcessInstanceId", description = "The process instance id of the root process instance that initiated the process.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("rootProcessInstanceId")
+  public String getRootProcessInstanceId() {
     return rootProcessInstanceId;
   }
 
@@ -156,10 +153,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The id of the parent process instance, if it exists.
    * @return superProcessInstanceId
-   **/
-  @Schema(description = "The id of the parent process instance, if it exists.")
+  */
   
-    public String getSuperProcessInstanceId() {
+  @Schema(name = "superProcessInstanceId", description = "The id of the parent process instance, if it exists.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("superProcessInstanceId")
+  public String getSuperProcessInstanceId() {
     return superProcessInstanceId;
   }
 
@@ -175,10 +173,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The id of the parent case instance, if it exists.
    * @return superCaseInstanceId
-   **/
-  @Schema(description = "The id of the parent case instance, if it exists.")
+  */
   
-    public String getSuperCaseInstanceId() {
+  @Schema(name = "superCaseInstanceId", description = "The id of the parent case instance, if it exists.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("superCaseInstanceId")
+  public String getSuperCaseInstanceId() {
     return superCaseInstanceId;
   }
 
@@ -194,10 +193,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The id of the parent case instance, if it exists.
    * @return caseInstanceId
-   **/
-  @Schema(description = "The id of the parent case instance, if it exists.")
+  */
   
-    public String getCaseInstanceId() {
+  @Schema(name = "caseInstanceId", description = "The id of the parent case instance, if it exists.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceId")
+  public String getCaseInstanceId() {
     return caseInstanceId;
   }
 
@@ -213,10 +213,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The name of the process definition that this process instance belongs to.
    * @return processDefinitionName
-   **/
-  @Schema(description = "The name of the process definition that this process instance belongs to.")
+  */
   
-    public String getProcessDefinitionName() {
+  @Schema(name = "processDefinitionName", description = "The name of the process definition that this process instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionName")
+  public String getProcessDefinitionName() {
     return processDefinitionName;
   }
 
@@ -232,10 +233,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The key of the process definition that this process instance belongs to.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "The key of the process definition that this process instance belongs to.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "The key of the process definition that this process instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -251,10 +253,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The version of the process definition that this process instance belongs to.
    * @return processDefinitionVersion
-   **/
-  @Schema(description = "The version of the process definition that this process instance belongs to.")
+  */
   
-    public Integer getProcessDefinitionVersion() {
+  @Schema(name = "processDefinitionVersion", description = "The version of the process definition that this process instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionVersion")
+  public Integer getProcessDefinitionVersion() {
     return processDefinitionVersion;
   }
 
@@ -270,10 +273,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The id of the process definition that this process instance belongs to.
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definition that this process instance belongs to.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definition that this process instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -289,10 +293,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The business key of the process instance.
    * @return businessKey
-   **/
-  @Schema(description = "The business key of the process instance.")
+  */
   
-    public String getBusinessKey() {
+  @Schema(name = "businessKey", description = "The business key of the process instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("businessKey")
+  public String getBusinessKey() {
     return businessKey;
   }
 
@@ -308,11 +313,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The time the instance was started. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return startTime
-   **/
-  @Schema(description = "The time the instance was started. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getStartTime() {
+  */
+  @Valid 
+  @Schema(name = "startTime", description = "The time the instance was started. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("startTime")
+  public OffsetDateTime getStartTime() {
     return startTime;
   }
 
@@ -328,11 +333,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The time the instance ended. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return endTime
-   **/
-  @Schema(description = "The time the instance ended. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getEndTime() {
+  */
+  @Valid 
+  @Schema(name = "endTime", description = "The time the instance ended. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("endTime")
+  public OffsetDateTime getEndTime() {
     return endTime;
   }
 
@@ -348,11 +353,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The time after which the instance should be removed by the History Cleanup job. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return removalTime
-   **/
-  @Schema(description = "The time after which the instance should be removed by the History Cleanup job. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getRemovalTime() {
+  */
+  @Valid 
+  @Schema(name = "removalTime", description = "The time after which the instance should be removed by the History Cleanup job. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("removalTime")
+  public OffsetDateTime getRemovalTime() {
     return removalTime;
   }
 
@@ -368,10 +373,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The time the instance took to finish (in milliseconds).
    * @return durationInMillis
-   **/
-  @Schema(description = "The time the instance took to finish (in milliseconds).")
+  */
   
-    public Long getDurationInMillis() {
+  @Schema(name = "durationInMillis", description = "The time the instance took to finish (in milliseconds).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("durationInMillis")
+  public Long getDurationInMillis() {
     return durationInMillis;
   }
 
@@ -387,10 +393,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The id of the user who started the process instance.
    * @return startUserId
-   **/
-  @Schema(description = "The id of the user who started the process instance.")
+  */
   
-    public String getStartUserId() {
+  @Schema(name = "startUserId", description = "The id of the user who started the process instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("startUserId")
+  public String getStartUserId() {
     return startUserId;
   }
 
@@ -406,10 +413,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The id of the initial activity that was executed (e.g., a start event).
    * @return startActivityId
-   **/
-  @Schema(description = "The id of the initial activity that was executed (e.g., a start event).")
+  */
   
-    public String getStartActivityId() {
+  @Schema(name = "startActivityId", description = "The id of the initial activity that was executed (e.g., a start event).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("startActivityId")
+  public String getStartActivityId() {
     return startActivityId;
   }
 
@@ -425,10 +433,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The provided delete reason in case the process instance was canceled during execution.
    * @return deleteReason
-   **/
-  @Schema(description = "The provided delete reason in case the process instance was canceled during execution.")
+  */
   
-    public String getDeleteReason() {
+  @Schema(name = "deleteReason", description = "The provided delete reason in case the process instance was canceled during execution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deleteReason")
+  public String getDeleteReason() {
     return deleteReason;
   }
 
@@ -444,10 +453,11 @@ public class HistoricProcessInstanceDto   {
   /**
    * The tenant id of the process instance.
    * @return tenantId
-   **/
-  @Schema(description = "The tenant id of the process instance.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The tenant id of the process instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -463,17 +473,17 @@ public class HistoricProcessInstanceDto   {
   /**
    * Last state of the process instance, possible values are:  `ACTIVE` - running process instance  `SUSPENDED` - suspended process instances  `COMPLETED` - completed through normal end event  `EXTERNALLY_TERMINATED` - terminated externally, for instance through REST API  `INTERNALLY_TERMINATED` - terminated internally, for instance by terminating boundary event
    * @return state
-   **/
-  @Schema(description = "Last state of the process instance, possible values are:  `ACTIVE` - running process instance  `SUSPENDED` - suspended process instances  `COMPLETED` - completed through normal end event  `EXTERNALLY_TERMINATED` - terminated externally, for instance through REST API  `INTERNALLY_TERMINATED` - terminated internally, for instance by terminating boundary event")
+  */
   
-    public StateEnum getState() {
+  @Schema(name = "state", description = "Last state of the process instance, possible values are:  `ACTIVE` - running process instance  `SUSPENDED` - suspended process instances  `COMPLETED` - completed through normal end event  `EXTERNALLY_TERMINATED` - terminated externally, for instance through REST API  `INTERNALLY_TERMINATED` - terminated internally, for instance by terminating boundary event", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("state")
+  public StateEnum getState() {
     return state;
   }
 
   public void setState(StateEnum state) {
     this.state = state;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -514,7 +524,6 @@ public class HistoricProcessInstanceDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricProcessInstanceDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    rootProcessInstanceId: ").append(toIndentedString(rootProcessInstanceId)).append("\n");
     sb.append("    superProcessInstanceId: ").append(toIndentedString(superProcessInstanceId)).append("\n");
@@ -549,3 +558,4 @@ public class HistoricProcessInstanceDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

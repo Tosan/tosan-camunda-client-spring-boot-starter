@@ -1,33 +1,36 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.VariableValueDto;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * MigrationPlanGenerationDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class MigrationPlanGenerationDto {
 
-public class MigrationPlanGenerationDto   {
-  @JsonProperty("sourceProcessDefinitionId")
   private String sourceProcessDefinitionId = null;
 
-  @JsonProperty("targetProcessDefinitionId")
   private String targetProcessDefinitionId = null;
 
-  @JsonProperty("updateEventTriggers")
   private Boolean updateEventTriggers = null;
 
-  @JsonProperty("variables")
   @Valid
-  private Map<String, VariableValueDto> variables = null;
+  private Map<String, VariableValueDto> variables;
 
   public MigrationPlanGenerationDto sourceProcessDefinitionId(String sourceProcessDefinitionId) {
     this.sourceProcessDefinitionId = sourceProcessDefinitionId;
@@ -37,10 +40,11 @@ public class MigrationPlanGenerationDto   {
   /**
    * The id of the source process definition for the migration.
    * @return sourceProcessDefinitionId
-   **/
-  @Schema(description = "The id of the source process definition for the migration.")
+  */
   
-    public String getSourceProcessDefinitionId() {
+  @Schema(name = "sourceProcessDefinitionId", description = "The id of the source process definition for the migration.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sourceProcessDefinitionId")
+  public String getSourceProcessDefinitionId() {
     return sourceProcessDefinitionId;
   }
 
@@ -56,10 +60,11 @@ public class MigrationPlanGenerationDto   {
   /**
    * The id of the target process definition for the migration.
    * @return targetProcessDefinitionId
-   **/
-  @Schema(description = "The id of the target process definition for the migration.")
+  */
   
-    public String getTargetProcessDefinitionId() {
+  @Schema(name = "targetProcessDefinitionId", description = "The id of the target process definition for the migration.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("targetProcessDefinitionId")
+  public String getTargetProcessDefinitionId() {
     return targetProcessDefinitionId;
   }
 
@@ -75,10 +80,11 @@ public class MigrationPlanGenerationDto   {
   /**
    * A boolean flag indicating whether instructions between events should be configured to update the event triggers.
    * @return updateEventTriggers
-   **/
-  @Schema(description = "A boolean flag indicating whether instructions between events should be configured to update the event triggers.")
+  */
   
-    public Boolean isUpdateEventTriggers() {
+  @Schema(name = "updateEventTriggers", description = "A boolean flag indicating whether instructions between events should be configured to update the event triggers.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("updateEventTriggers")
+  public Boolean getUpdateEventTriggers() {
     return updateEventTriggers;
   }
 
@@ -102,17 +108,17 @@ public class MigrationPlanGenerationDto   {
   /**
    * A map of variables which will be set into the process instances' scope. Each key is a variable name and each value a JSON variable value object.
    * @return variables
-   **/
-  @Schema(description = "A map of variables which will be set into the process instances' scope. Each key is a variable name and each value a JSON variable value object.")
-      @Valid
-    public Map<String, VariableValueDto> getVariables() {
+  */
+  @Valid 
+  @Schema(name = "variables", description = "A map of variables which will be set into the process instances' scope. Each key is a variable name and each value a JSON variable value object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variables")
+  public Map<String, VariableValueDto> getVariables() {
     return variables;
   }
 
   public void setVariables(Map<String, VariableValueDto> variables) {
     this.variables = variables;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -138,7 +144,6 @@ public class MigrationPlanGenerationDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MigrationPlanGenerationDto {\n");
-    
     sb.append("    sourceProcessDefinitionId: ").append(toIndentedString(sourceProcessDefinitionId)).append("\n");
     sb.append("    targetProcessDefinitionId: ").append(toIndentedString(targetProcessDefinitionId)).append("\n");
     sb.append("    updateEventTriggers: ").append(toIndentedString(updateEventTriggers)).append("\n");
@@ -158,3 +163,4 @@ public class MigrationPlanGenerationDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

@@ -1,34 +1,37 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.HistoricProcessInstanceQueryDto;
+import com.tosan.camunda.camundaclient.generated.model.ProcessInstanceQueryDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * SetJobRetriesByProcessDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class SetJobRetriesByProcessDto {
 
-public class SetJobRetriesByProcessDto   {
-  @JsonProperty("processInstances")
   @Valid
-  private List<String> processInstances = null;
+  private List<String> processInstances;
 
-  @JsonProperty("retries")
   private Integer retries = null;
 
-  @JsonProperty("processInstanceQuery")
-  private ProcessInstanceQueryDto processInstanceQuery = null;
+  private ProcessInstanceQueryDto processInstanceQuery;
 
-  @JsonProperty("historicProcessInstanceQuery")
-  private HistoricProcessInstanceQueryDto historicProcessInstanceQuery = null;
+  private HistoricProcessInstanceQueryDto historicProcessInstanceQuery;
 
   public SetJobRetriesByProcessDto processInstances(List<String> processInstances) {
     this.processInstances = processInstances;
@@ -46,10 +49,11 @@ public class SetJobRetriesByProcessDto   {
   /**
    * A list of process instance ids to fetch jobs, for which retries will be set.
    * @return processInstances
-   **/
-  @Schema(description = "A list of process instance ids to fetch jobs, for which retries will be set.")
+  */
   
-    public List<String> getProcessInstances() {
+  @Schema(name = "processInstances", description = "A list of process instance ids to fetch jobs, for which retries will be set.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstances")
+  public List<String> getProcessInstances() {
     return processInstances;
   }
 
@@ -66,10 +70,11 @@ public class SetJobRetriesByProcessDto   {
    * An integer representing the number of retries. Please note that the value cannot be negative or null.
    * minimum: 0
    * @return retries
-   **/
-  @Schema(description = "An integer representing the number of retries. Please note that the value cannot be negative or null.")
-  
-  @Min(0)  public Integer getRetries() {
+  */
+  @Min(0) 
+  @Schema(name = "retries", description = "An integer representing the number of retries. Please note that the value cannot be negative or null.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("retries")
+  public Integer getRetries() {
     return retries;
   }
 
@@ -85,11 +90,11 @@ public class SetJobRetriesByProcessDto   {
   /**
    * Get processInstanceQuery
    * @return processInstanceQuery
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public ProcessInstanceQueryDto getProcessInstanceQuery() {
+  */
+  @Valid 
+  @Schema(name = "processInstanceQuery", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceQuery")
+  public ProcessInstanceQueryDto getProcessInstanceQuery() {
     return processInstanceQuery;
   }
 
@@ -105,18 +110,17 @@ public class SetJobRetriesByProcessDto   {
   /**
    * Get historicProcessInstanceQuery
    * @return historicProcessInstanceQuery
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public HistoricProcessInstanceQueryDto getHistoricProcessInstanceQuery() {
+  */
+  @Valid 
+  @Schema(name = "historicProcessInstanceQuery", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historicProcessInstanceQuery")
+  public HistoricProcessInstanceQueryDto getHistoricProcessInstanceQuery() {
     return historicProcessInstanceQuery;
   }
 
   public void setHistoricProcessInstanceQuery(HistoricProcessInstanceQueryDto historicProcessInstanceQuery) {
     this.historicProcessInstanceQuery = historicProcessInstanceQuery;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -142,7 +146,6 @@ public class SetJobRetriesByProcessDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SetJobRetriesByProcessDto {\n");
-    
     sb.append("    processInstances: ").append(toIndentedString(processInstances)).append("\n");
     sb.append("    retries: ").append(toIndentedString(retries)).append("\n");
     sb.append("    processInstanceQuery: ").append(toIndentedString(processInstanceQuery)).append("\n");
@@ -162,3 +165,4 @@ public class SetJobRetriesByProcessDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

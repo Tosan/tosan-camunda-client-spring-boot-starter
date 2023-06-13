@@ -1,35 +1,38 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.MigrationPlanDto;
+import com.tosan.camunda.camundaclient.generated.model.ProcessInstanceQueryDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * MigrationExecutionDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class MigrationExecutionDto {
 
-public class MigrationExecutionDto   {
-  @JsonProperty("migrationPlan")
-  private MigrationPlanDto migrationPlan = null;
+  private MigrationPlanDto migrationPlan;
 
-  @JsonProperty("processInstanceIds")
   @Valid
-  private List<String> processInstanceIds = null;
+  private List<String> processInstanceIds;
 
-  @JsonProperty("processInstanceQuery")
-  private ProcessInstanceQueryDto processInstanceQuery = null;
+  private ProcessInstanceQueryDto processInstanceQuery;
 
-  @JsonProperty("skipCustomListeners")
   private Boolean skipCustomListeners = null;
 
-  @JsonProperty("skipIoMappings")
   private Boolean skipIoMappings = null;
 
   public MigrationExecutionDto migrationPlan(MigrationPlanDto migrationPlan) {
@@ -40,11 +43,11 @@ public class MigrationExecutionDto   {
   /**
    * Get migrationPlan
    * @return migrationPlan
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public MigrationPlanDto getMigrationPlan() {
+  */
+  @Valid 
+  @Schema(name = "migrationPlan", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("migrationPlan")
+  public MigrationPlanDto getMigrationPlan() {
     return migrationPlan;
   }
 
@@ -68,10 +71,11 @@ public class MigrationExecutionDto   {
   /**
    * A list of process instance ids to migrate.
    * @return processInstanceIds
-   **/
-  @Schema(description = "A list of process instance ids to migrate.")
+  */
   
-    public List<String> getProcessInstanceIds() {
+  @Schema(name = "processInstanceIds", description = "A list of process instance ids to migrate.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceIds")
+  public List<String> getProcessInstanceIds() {
     return processInstanceIds;
   }
 
@@ -87,11 +91,11 @@ public class MigrationExecutionDto   {
   /**
    * Get processInstanceQuery
    * @return processInstanceQuery
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public ProcessInstanceQueryDto getProcessInstanceQuery() {
+  */
+  @Valid 
+  @Schema(name = "processInstanceQuery", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceQuery")
+  public ProcessInstanceQueryDto getProcessInstanceQuery() {
     return processInstanceQuery;
   }
 
@@ -107,10 +111,11 @@ public class MigrationExecutionDto   {
   /**
    * A boolean value to control whether execution listeners should be invoked during migration.
    * @return skipCustomListeners
-   **/
-  @Schema(description = "A boolean value to control whether execution listeners should be invoked during migration.")
+  */
   
-    public Boolean isSkipCustomListeners() {
+  @Schema(name = "skipCustomListeners", description = "A boolean value to control whether execution listeners should be invoked during migration.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("skipCustomListeners")
+  public Boolean getSkipCustomListeners() {
     return skipCustomListeners;
   }
 
@@ -126,17 +131,17 @@ public class MigrationExecutionDto   {
   /**
    * A boolean value to control whether input/output mappings should be executed during migration.
    * @return skipIoMappings
-   **/
-  @Schema(description = "A boolean value to control whether input/output mappings should be executed during migration.")
+  */
   
-    public Boolean isSkipIoMappings() {
+  @Schema(name = "skipIoMappings", description = "A boolean value to control whether input/output mappings should be executed during migration.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("skipIoMappings")
+  public Boolean getSkipIoMappings() {
     return skipIoMappings;
   }
 
   public void setSkipIoMappings(Boolean skipIoMappings) {
     this.skipIoMappings = skipIoMappings;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -163,7 +168,6 @@ public class MigrationExecutionDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MigrationExecutionDto {\n");
-    
     sb.append("    migrationPlan: ").append(toIndentedString(migrationPlan)).append("\n");
     sb.append("    processInstanceIds: ").append(toIndentedString(processInstanceIds)).append("\n");
     sb.append("    processInstanceQuery: ").append(toIndentedString(processInstanceQuery)).append("\n");
@@ -184,3 +188,4 @@ public class MigrationExecutionDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

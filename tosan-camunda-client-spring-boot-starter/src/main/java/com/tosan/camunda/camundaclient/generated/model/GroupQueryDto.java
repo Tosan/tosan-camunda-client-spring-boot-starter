@@ -1,47 +1,46 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.GroupQueryDtoSortingInner;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A group instance query which defines a list of group instances
  */
-@Schema(description = "A group instance query which defines a list of group instances")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "GroupQueryDto", description = "A group instance query which defines a list of group instances")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class GroupQueryDto {
 
-public class GroupQueryDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("idIn")
   @Valid
-  private List<String> idIn = null;
+  private List<String> idIn;
 
-  @JsonProperty("name")
   private String name = null;
 
-  @JsonProperty("nameLike")
   private String nameLike = null;
 
-  @JsonProperty("type")
   private String type = null;
 
-  @JsonProperty("member")
   private String member = null;
 
-  @JsonProperty("memberOfTenant")
   private String memberOfTenant = null;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<GroupQueryDtoSorting> sorting = null;
+  private List<@Valid GroupQueryDtoSortingInner> sorting;
 
   public GroupQueryDto id(String id) {
     this.id = id;
@@ -51,10 +50,11 @@ public class GroupQueryDto   {
   /**
    * Filter by the id of the group.
    * @return id
-   **/
-  @Schema(description = "Filter by the id of the group.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "Filter by the id of the group.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -78,10 +78,11 @@ public class GroupQueryDto   {
   /**
    * Filter by a JSON string array of group ids.
    * @return idIn
-   **/
-  @Schema(description = "Filter by a JSON string array of group ids.")
+  */
   
-    public List<String> getIdIn() {
+  @Schema(name = "idIn", description = "Filter by a JSON string array of group ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("idIn")
+  public List<String> getIdIn() {
     return idIn;
   }
 
@@ -97,10 +98,11 @@ public class GroupQueryDto   {
   /**
    * Filter by the name of the group.
    * @return name
-   **/
-  @Schema(description = "Filter by the name of the group.")
+  */
   
-    public String getName() {
+  @Schema(name = "name", description = "Filter by the name of the group.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
     return name;
   }
 
@@ -116,10 +118,11 @@ public class GroupQueryDto   {
   /**
    * Filter by the name that the parameter is a substring of.
    * @return nameLike
-   **/
-  @Schema(description = "Filter by the name that the parameter is a substring of.")
+  */
   
-    public String getNameLike() {
+  @Schema(name = "nameLike", description = "Filter by the name that the parameter is a substring of.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("nameLike")
+  public String getNameLike() {
     return nameLike;
   }
 
@@ -135,10 +138,11 @@ public class GroupQueryDto   {
   /**
    * Filter by the type of the group.
    * @return type
-   **/
-  @Schema(description = "Filter by the type of the group.")
+  */
   
-    public String getType() {
+  @Schema(name = "type", description = "Filter by the type of the group.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("type")
+  public String getType() {
     return type;
   }
 
@@ -154,10 +158,11 @@ public class GroupQueryDto   {
   /**
    * Only retrieve groups where the given user id is a member of.
    * @return member
-   **/
-  @Schema(description = "Only retrieve groups where the given user id is a member of.")
+  */
   
-    public String getMember() {
+  @Schema(name = "member", description = "Only retrieve groups where the given user id is a member of.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("member")
+  public String getMember() {
     return member;
   }
 
@@ -173,10 +178,11 @@ public class GroupQueryDto   {
   /**
    * Only retrieve groups which are members of the given tenant.
    * @return memberOfTenant
-   **/
-  @Schema(description = "Only retrieve groups which are members of the given tenant.")
+  */
   
-    public String getMemberOfTenant() {
+  @Schema(name = "memberOfTenant", description = "Only retrieve groups which are members of the given tenant.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("memberOfTenant")
+  public String getMemberOfTenant() {
     return memberOfTenant;
   }
 
@@ -184,12 +190,12 @@ public class GroupQueryDto   {
     this.memberOfTenant = memberOfTenant;
   }
 
-  public GroupQueryDto sorting(List<GroupQueryDtoSorting> sorting) {
+  public GroupQueryDto sorting(List<@Valid GroupQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public GroupQueryDto addSortingItem(GroupQueryDtoSorting sortingItem) {
+  public GroupQueryDto addSortingItem(GroupQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -200,17 +206,17 @@ public class GroupQueryDto   {
   /**
    * Apply sorting of the result
    * @return sorting
-   **/
-  @Schema(description = "Apply sorting of the result")
-      @Valid
-    public List<GroupQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "Apply sorting of the result", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid GroupQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<GroupQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid GroupQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -240,7 +246,6 @@ public class GroupQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GroupQueryDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    idIn: ").append(toIndentedString(idIn)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -264,3 +269,4 @@ public class GroupQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

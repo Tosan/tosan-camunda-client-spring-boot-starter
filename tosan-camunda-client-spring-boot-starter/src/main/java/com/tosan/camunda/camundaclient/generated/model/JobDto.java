@@ -1,60 +1,55 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * JobDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class JobDto {
 
-public class JobDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("jobDefinitionId")
   private String jobDefinitionId = null;
 
-  @JsonProperty("dueDate")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime dueDate = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("retries")
   private Integer retries = null;
 
-  @JsonProperty("exceptionMessage")
   private String exceptionMessage = null;
 
-  @JsonProperty("failedActivityId")
   private String failedActivityId = null;
 
-  @JsonProperty("suspended")
   private Boolean suspended = null;
 
-  @JsonProperty("priority")
   private Long priority = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("createTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime createTime = null;
 
   public JobDto id(String id) {
@@ -65,10 +60,11 @@ public class JobDto   {
   /**
    * The id of the job.
    * @return id
-   **/
-  @Schema(description = "The id of the job.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the job.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -84,10 +80,11 @@ public class JobDto   {
   /**
    * The id of the associated job definition.
    * @return jobDefinitionId
-   **/
-  @Schema(description = "The id of the associated job definition.")
+  */
   
-    public String getJobDefinitionId() {
+  @Schema(name = "jobDefinitionId", description = "The id of the associated job definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobDefinitionId")
+  public String getJobDefinitionId() {
     return jobDefinitionId;
   }
 
@@ -103,11 +100,11 @@ public class JobDto   {
   /**
    * The date on which this job is supposed to be processed.
    * @return dueDate
-   **/
-  @Schema(description = "The date on which this job is supposed to be processed.")
-  
-    @Valid
-    public OffsetDateTime getDueDate() {
+  */
+  @Valid 
+  @Schema(name = "dueDate", description = "The date on which this job is supposed to be processed.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("dueDate")
+  public OffsetDateTime getDueDate() {
     return dueDate;
   }
 
@@ -123,10 +120,11 @@ public class JobDto   {
   /**
    * The id of the process instance which execution created the job.
    * @return processInstanceId
-   **/
-  @Schema(description = "The id of the process instance which execution created the job.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "The id of the process instance which execution created the job.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -142,10 +140,11 @@ public class JobDto   {
   /**
    * The specific execution id on which the job was created.
    * @return executionId
-   **/
-  @Schema(description = "The specific execution id on which the job was created.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "The specific execution id on which the job was created.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -161,10 +160,11 @@ public class JobDto   {
   /**
    * The id of the process definition which this job belongs to.
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definition which this job belongs to.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definition which this job belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -180,10 +180,11 @@ public class JobDto   {
   /**
    * The key of the process definition which this job belongs to.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "The key of the process definition which this job belongs to.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "The key of the process definition which this job belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -199,10 +200,11 @@ public class JobDto   {
   /**
    * The number of retries this job has left.
    * @return retries
-   **/
-  @Schema(description = "The number of retries this job has left.")
+  */
   
-    public Integer getRetries() {
+  @Schema(name = "retries", description = "The number of retries this job has left.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("retries")
+  public Integer getRetries() {
     return retries;
   }
 
@@ -218,10 +220,11 @@ public class JobDto   {
   /**
    * The message of the exception that occurred, the last time the job was executed. Is null when no exception occurred.
    * @return exceptionMessage
-   **/
-  @Schema(description = "The message of the exception that occurred, the last time the job was executed. Is null when no exception occurred.")
+  */
   
-    public String getExceptionMessage() {
+  @Schema(name = "exceptionMessage", description = "The message of the exception that occurred, the last time the job was executed. Is null when no exception occurred.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("exceptionMessage")
+  public String getExceptionMessage() {
     return exceptionMessage;
   }
 
@@ -237,10 +240,11 @@ public class JobDto   {
   /**
    * The id of the activity on which the last exception occurred, the last time the job was executed. Is null when no exception occurred.
    * @return failedActivityId
-   **/
-  @Schema(description = "The id of the activity on which the last exception occurred, the last time the job was executed. Is null when no exception occurred.")
+  */
   
-    public String getFailedActivityId() {
+  @Schema(name = "failedActivityId", description = "The id of the activity on which the last exception occurred, the last time the job was executed. Is null when no exception occurred.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("failedActivityId")
+  public String getFailedActivityId() {
     return failedActivityId;
   }
 
@@ -256,10 +260,11 @@ public class JobDto   {
   /**
    * A flag indicating whether the job is suspended or not.
    * @return suspended
-   **/
-  @Schema(description = "A flag indicating whether the job is suspended or not.")
+  */
   
-    public Boolean isSuspended() {
+  @Schema(name = "suspended", description = "A flag indicating whether the job is suspended or not.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("suspended")
+  public Boolean getSuspended() {
     return suspended;
   }
 
@@ -275,10 +280,11 @@ public class JobDto   {
   /**
    * The job's priority for execution.
    * @return priority
-   **/
-  @Schema(description = "The job's priority for execution.")
+  */
   
-    public Long getPriority() {
+  @Schema(name = "priority", description = "The job's priority for execution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("priority")
+  public Long getPriority() {
     return priority;
   }
 
@@ -294,10 +300,11 @@ public class JobDto   {
   /**
    * The id of the tenant which this job belongs to.
    * @return tenantId
-   **/
-  @Schema(description = "The id of the tenant which this job belongs to.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The id of the tenant which this job belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -313,18 +320,17 @@ public class JobDto   {
   /**
    * The date on which this job has been created.
    * @return createTime
-   **/
-  @Schema(description = "The date on which this job has been created.")
-  
-    @Valid
-    public OffsetDateTime getCreateTime() {
+  */
+  @Valid 
+  @Schema(name = "createTime", description = "The date on which this job has been created.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("createTime")
+  public OffsetDateTime getCreateTime() {
     return createTime;
   }
 
   public void setCreateTime(OffsetDateTime createTime) {
     this.createTime = createTime;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -360,7 +366,6 @@ public class JobDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class JobDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    jobDefinitionId: ").append(toIndentedString(jobDefinitionId)).append("\n");
     sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
@@ -390,3 +395,4 @@ public class JobDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

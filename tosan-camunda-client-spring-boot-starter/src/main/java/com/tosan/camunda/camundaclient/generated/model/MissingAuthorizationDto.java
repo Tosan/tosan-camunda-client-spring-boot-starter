@@ -1,25 +1,29 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * MissingAuthorizationDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class MissingAuthorizationDto {
 
-public class MissingAuthorizationDto   {
-  @JsonProperty("permissionName")
   private String permissionName = null;
 
-  @JsonProperty("resourceName")
   private String resourceName = null;
 
-  @JsonProperty("resourceId")
   private String resourceId = null;
 
   public MissingAuthorizationDto permissionName(String permissionName) {
@@ -30,10 +34,11 @@ public class MissingAuthorizationDto   {
   /**
    * The permission name that the user is missing.
    * @return permissionName
-   **/
-  @Schema(description = "The permission name that the user is missing.")
+  */
   
-    public String getPermissionName() {
+  @Schema(name = "permissionName", description = "The permission name that the user is missing.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("permissionName")
+  public String getPermissionName() {
     return permissionName;
   }
 
@@ -49,10 +54,11 @@ public class MissingAuthorizationDto   {
   /**
    * The name of the resource that the user is missing permission for.
    * @return resourceName
-   **/
-  @Schema(description = "The name of the resource that the user is missing permission for.")
+  */
   
-    public String getResourceName() {
+  @Schema(name = "resourceName", description = "The name of the resource that the user is missing permission for.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resourceName")
+  public String getResourceName() {
     return resourceName;
   }
 
@@ -68,17 +74,17 @@ public class MissingAuthorizationDto   {
   /**
    * The id of the resource that the user is missing permission for.
    * @return resourceId
-   **/
-  @Schema(description = "The id of the resource that the user is missing permission for.")
+  */
   
-    public String getResourceId() {
+  @Schema(name = "resourceId", description = "The id of the resource that the user is missing permission for.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resourceId")
+  public String getResourceId() {
     return resourceId;
   }
 
   public void setResourceId(String resourceId) {
     this.resourceId = resourceId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -103,7 +109,6 @@ public class MissingAuthorizationDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MissingAuthorizationDto {\n");
-    
     sb.append("    permissionName: ").append(toIndentedString(permissionName)).append("\n");
     sb.append("    resourceName: ").append(toIndentedString(resourceName)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
@@ -122,3 +127,4 @@ public class MissingAuthorizationDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

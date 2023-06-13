@@ -1,30 +1,34 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * MetricsIntervalResultDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class MetricsIntervalResultDto {
 
-public class MetricsIntervalResultDto   {
-  @JsonProperty("timestamp")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime timestamp = null;
 
-  @JsonProperty("name")
   private String name = null;
 
-  @JsonProperty("reporter")
   private String reporter = null;
 
-  @JsonProperty("value")
   private Long value = null;
 
   public MetricsIntervalResultDto timestamp(OffsetDateTime timestamp) {
@@ -35,11 +39,11 @@ public class MetricsIntervalResultDto   {
   /**
    * The interval timestamp.
    * @return timestamp
-   **/
-  @Schema(description = "The interval timestamp.")
-  
-    @Valid
-    public OffsetDateTime getTimestamp() {
+  */
+  @Valid 
+  @Schema(name = "timestamp", description = "The interval timestamp.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("timestamp")
+  public OffsetDateTime getTimestamp() {
     return timestamp;
   }
 
@@ -55,10 +59,11 @@ public class MetricsIntervalResultDto   {
   /**
    * The name of the metric.
    * @return name
-   **/
-  @Schema(description = "The name of the metric.")
+  */
   
-    public String getName() {
+  @Schema(name = "name", description = "The name of the metric.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
     return name;
   }
 
@@ -74,10 +79,11 @@ public class MetricsIntervalResultDto   {
   /**
    * The reporter of the metric. `null` if the metrics are aggregated by reporter.
    * @return reporter
-   **/
-  @Schema(description = "The reporter of the metric. `null` if the metrics are aggregated by reporter.")
+  */
   
-    public String getReporter() {
+  @Schema(name = "reporter", description = "The reporter of the metric. `null` if the metrics are aggregated by reporter.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("reporter")
+  public String getReporter() {
     return reporter;
   }
 
@@ -93,17 +99,17 @@ public class MetricsIntervalResultDto   {
   /**
    * The value of the metric aggregated by the interval.
    * @return value
-   **/
-  @Schema(description = "The value of the metric aggregated by the interval.")
+  */
   
-    public Long getValue() {
+  @Schema(name = "value", description = "The value of the metric aggregated by the interval.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("value")
+  public Long getValue() {
     return value;
   }
 
   public void setValue(Long value) {
     this.value = value;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -129,7 +135,6 @@ public class MetricsIntervalResultDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricsIntervalResultDto {\n");
-    
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    reporter: ").append(toIndentedString(reporter)).append("\n");
@@ -149,3 +154,4 @@ public class MetricsIntervalResultDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

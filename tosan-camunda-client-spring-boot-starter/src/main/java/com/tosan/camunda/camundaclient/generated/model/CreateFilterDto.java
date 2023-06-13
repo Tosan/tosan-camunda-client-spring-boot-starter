@@ -1,32 +1,34 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * CreateFilterDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class CreateFilterDto {
 
-public class CreateFilterDto   {
-  @JsonProperty("resourceType")
   private String resourceType = null;
 
-  @JsonProperty("name")
   private String name = null;
 
-  @JsonProperty("owner")
   private String owner = null;
 
-  @JsonProperty("query")
-  private Object query = null;
+  private Object query;
 
-  @JsonProperty("properties")
-  private Object properties = null;
+  private Object properties;
 
   public CreateFilterDto resourceType(String resourceType) {
     this.resourceType = resourceType;
@@ -36,10 +38,11 @@ public class CreateFilterDto   {
   /**
    * The resource type of the filter.
    * @return resourceType
-   **/
-  @Schema(description = "The resource type of the filter.")
+  */
   
-    public String getResourceType() {
+  @Schema(name = "resourceType", description = "The resource type of the filter.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resourceType")
+  public String getResourceType() {
     return resourceType;
   }
 
@@ -55,10 +58,11 @@ public class CreateFilterDto   {
   /**
    * The name of the filter.
    * @return name
-   **/
-  @Schema(description = "The name of the filter.")
+  */
   
-    public String getName() {
+  @Schema(name = "name", description = "The name of the filter.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
     return name;
   }
 
@@ -74,10 +78,11 @@ public class CreateFilterDto   {
   /**
    * The user id of the owner of the filter.
    * @return owner
-   **/
-  @Schema(description = "The user id of the owner of the filter.")
+  */
   
-    public String getOwner() {
+  @Schema(name = "owner", description = "The user id of the owner of the filter.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("owner")
+  public String getOwner() {
     return owner;
   }
 
@@ -93,10 +98,11 @@ public class CreateFilterDto   {
   /**
    * The query of the filter as a JSON object.
    * @return query
-   **/
-  @Schema(description = "The query of the filter as a JSON object.")
+  */
   
-    public Object getQuery() {
+  @Schema(name = "query", description = "The query of the filter as a JSON object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("query")
+  public Object getQuery() {
     return query;
   }
 
@@ -112,17 +118,17 @@ public class CreateFilterDto   {
   /**
    * The properties of a filter as a JSON object.
    * @return properties
-   **/
-  @Schema(description = "The properties of a filter as a JSON object.")
+  */
   
-    public Object getProperties() {
+  @Schema(name = "properties", description = "The properties of a filter as a JSON object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("properties")
+  public Object getProperties() {
     return properties;
   }
 
   public void setProperties(Object properties) {
     this.properties = properties;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -149,7 +155,6 @@ public class CreateFilterDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateFilterDto {\n");
-    
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
@@ -170,3 +175,4 @@ public class CreateFilterDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

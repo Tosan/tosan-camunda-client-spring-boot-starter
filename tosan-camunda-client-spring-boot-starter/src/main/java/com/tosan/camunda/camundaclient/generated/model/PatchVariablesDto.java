@@ -1,30 +1,35 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.VariableValueDto;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * PatchVariablesDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class PatchVariablesDto {
 
-public class PatchVariablesDto   {
-  @JsonProperty("modifications")
   @Valid
-  private Map<String, VariableValueDto> modifications = null;
+  private Map<String, VariableValueDto> modifications;
 
-  @JsonProperty("deletions")
   @Valid
-  private List<String> deletions = null;
+  private List<String> deletions;
 
   public PatchVariablesDto modifications(Map<String, VariableValueDto> modifications) {
     this.modifications = modifications;
@@ -42,10 +47,11 @@ public class PatchVariablesDto   {
   /**
    * A JSON object containing variable key-value pairs.
    * @return modifications
-   **/
-  @Schema(description = "A JSON object containing variable key-value pairs.")
-      @Valid
-    public Map<String, VariableValueDto> getModifications() {
+  */
+  @Valid 
+  @Schema(name = "modifications", description = "A JSON object containing variable key-value pairs.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("modifications")
+  public Map<String, VariableValueDto> getModifications() {
     return modifications;
   }
 
@@ -69,17 +75,17 @@ public class PatchVariablesDto   {
   /**
    * An array of String keys of variables to be deleted.
    * @return deletions
-   **/
-  @Schema(description = "An array of String keys of variables to be deleted.")
+  */
   
-    public List<String> getDeletions() {
+  @Schema(name = "deletions", description = "An array of String keys of variables to be deleted.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deletions")
+  public List<String> getDeletions() {
     return deletions;
   }
 
   public void setDeletions(List<String> deletions) {
     this.deletions = deletions;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -103,7 +109,6 @@ public class PatchVariablesDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PatchVariablesDto {\n");
-    
     sb.append("    modifications: ").append(toIndentedString(modifications)).append("\n");
     sb.append("    deletions: ").append(toIndentedString(deletions)).append("\n");
     sb.append("}");
@@ -121,3 +126,4 @@ public class PatchVariablesDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

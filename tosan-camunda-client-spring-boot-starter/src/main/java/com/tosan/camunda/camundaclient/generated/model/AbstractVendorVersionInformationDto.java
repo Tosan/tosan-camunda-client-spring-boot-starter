@@ -1,22 +1,27 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * AbstractVendorVersionInformationDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class AbstractVendorVersionInformationDto {
 
-public class AbstractVendorVersionInformationDto   {
-  @JsonProperty("vendor")
   private String vendor = null;
 
-  @JsonProperty("version")
   private String version = null;
 
   public AbstractVendorVersionInformationDto vendor(String vendor) {
@@ -27,10 +32,11 @@ public class AbstractVendorVersionInformationDto   {
   /**
    * Information about the vendor.
    * @return vendor
-   **/
-  @Schema(description = "Information about the vendor.")
+  */
   
-    public String getVendor() {
+  @Schema(name = "vendor", description = "Information about the vendor.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("vendor")
+  public String getVendor() {
     return vendor;
   }
 
@@ -46,17 +52,17 @@ public class AbstractVendorVersionInformationDto   {
   /**
    * Information about the version.
    * @return version
-   **/
-  @Schema(description = "Information about the version.")
+  */
   
-    public String getVersion() {
+  @Schema(name = "version", description = "Information about the version.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("version")
+  public String getVersion() {
     return version;
   }
 
   public void setVersion(String version) {
     this.version = version;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -80,7 +86,6 @@ public class AbstractVendorVersionInformationDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AbstractVendorVersionInformationDto {\n");
-    
     sb.append("    vendor: ").append(toIndentedString(vendor)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
@@ -98,3 +103,4 @@ public class AbstractVendorVersionInformationDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

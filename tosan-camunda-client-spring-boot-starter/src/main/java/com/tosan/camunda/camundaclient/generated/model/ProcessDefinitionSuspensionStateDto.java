@@ -1,33 +1,36 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * ProcessDefinitionSuspensionStateDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ProcessDefinitionSuspensionStateDto {
 
-public class ProcessDefinitionSuspensionStateDto   {
-  @JsonProperty("suspended")
   private Boolean suspended = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("includeProcessInstances")
   private Boolean includeProcessInstances = null;
 
-  @JsonProperty("executionDate")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime executionDate = null;
 
   public ProcessDefinitionSuspensionStateDto suspended(Boolean suspended) {
@@ -38,10 +41,11 @@ public class ProcessDefinitionSuspensionStateDto   {
   /**
    * A `Boolean` value which indicates whether to activate or suspend all process definitions with the given key. When the value is set to `true`, all process definitions with the given key will be suspended and when the value is set to `false`, all process definitions with the given key will be activated.
    * @return suspended
-   **/
-  @Schema(description = "A `Boolean` value which indicates whether to activate or suspend all process definitions with the given key. When the value is set to `true`, all process definitions with the given key will be suspended and when the value is set to `false`, all process definitions with the given key will be activated.")
+  */
   
-    public Boolean isSuspended() {
+  @Schema(name = "suspended", description = "A `Boolean` value which indicates whether to activate or suspend all process definitions with the given key. When the value is set to `true`, all process definitions with the given key will be suspended and when the value is set to `false`, all process definitions with the given key will be activated.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("suspended")
+  public Boolean getSuspended() {
     return suspended;
   }
 
@@ -57,10 +61,11 @@ public class ProcessDefinitionSuspensionStateDto   {
   /**
    * The id of the process definitions to activate or suspend.
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definitions to activate or suspend.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definitions to activate or suspend.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -76,10 +81,11 @@ public class ProcessDefinitionSuspensionStateDto   {
   /**
    * The key of the process definitions to activate or suspend.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "The key of the process definitions to activate or suspend.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "The key of the process definitions to activate or suspend.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -95,10 +101,11 @@ public class ProcessDefinitionSuspensionStateDto   {
   /**
    * A `Boolean` value which indicates whether to activate or suspend also all process instances of  the process definitions with the given key. When the value is set to `true`, all process instances of the process definitions with the given key will be activated or suspended and when the value is set to `false`, the suspension state of  all process instances of the process definitions with the given key will not be updated.
    * @return includeProcessInstances
-   **/
-  @Schema(description = "A `Boolean` value which indicates whether to activate or suspend also all process instances of  the process definitions with the given key. When the value is set to `true`, all process instances of the process definitions with the given key will be activated or suspended and when the value is set to `false`, the suspension state of  all process instances of the process definitions with the given key will not be updated.")
+  */
   
-    public Boolean isIncludeProcessInstances() {
+  @Schema(name = "includeProcessInstances", description = "A `Boolean` value which indicates whether to activate or suspend also all process instances of  the process definitions with the given key. When the value is set to `true`, all process instances of the process definitions with the given key will be activated or suspended and when the value is set to `false`, the suspension state of  all process instances of the process definitions with the given key will not be updated.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("includeProcessInstances")
+  public Boolean getIncludeProcessInstances() {
     return includeProcessInstances;
   }
 
@@ -114,18 +121,17 @@ public class ProcessDefinitionSuspensionStateDto   {
   /**
    * The date on which all process definitions with the given key will be activated or suspended. If `null`, the suspension state of all process definitions with the given key is updated immediately. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return executionDate
-   **/
-  @Schema(description = "The date on which all process definitions with the given key will be activated or suspended. If `null`, the suspension state of all process definitions with the given key is updated immediately. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getExecutionDate() {
+  */
+  @Valid 
+  @Schema(name = "executionDate", description = "The date on which all process definitions with the given key will be activated or suspended. If `null`, the suspension state of all process definitions with the given key is updated immediately. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionDate")
+  public OffsetDateTime getExecutionDate() {
     return executionDate;
   }
 
   public void setExecutionDate(OffsetDateTime executionDate) {
     this.executionDate = executionDate;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -152,7 +158,6 @@ public class ProcessDefinitionSuspensionStateDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessDefinitionSuspensionStateDto {\n");
-    
     sb.append("    suspended: ").append(toIndentedString(suspended)).append("\n");
     sb.append("    processDefinitionId: ").append(toIndentedString(processDefinitionId)).append("\n");
     sb.append("    processDefinitionKey: ").append(toIndentedString(processDefinitionKey)).append("\n");
@@ -173,3 +178,4 @@ public class ProcessDefinitionSuspensionStateDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

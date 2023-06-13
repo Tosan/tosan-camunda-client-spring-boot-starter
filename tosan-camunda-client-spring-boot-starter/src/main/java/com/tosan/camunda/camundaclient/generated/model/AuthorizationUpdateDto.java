@@ -1,35 +1,36 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * AuthorizationUpdateDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class AuthorizationUpdateDto {
 
-public class AuthorizationUpdateDto   {
-  @JsonProperty("permissions")
   @Valid
-  private List<String> permissions = null;
+  private List<String> permissions;
 
-  @JsonProperty("userId")
   private String userId = null;
 
-  @JsonProperty("groupId")
   private String groupId = null;
 
-  @JsonProperty("resourceType")
   private Integer resourceType = null;
 
-  @JsonProperty("resourceId")
   private String resourceId = null;
 
   public AuthorizationUpdateDto permissions(List<String> permissions) {
@@ -48,10 +49,11 @@ public class AuthorizationUpdateDto   {
   /**
    * An array of Strings holding the permissions provided by this authorization.
    * @return permissions
-   **/
-  @Schema(description = "An array of Strings holding the permissions provided by this authorization.")
+  */
   
-    public List<String> getPermissions() {
+  @Schema(name = "permissions", description = "An array of Strings holding the permissions provided by this authorization.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("permissions")
+  public List<String> getPermissions() {
     return permissions;
   }
 
@@ -67,10 +69,11 @@ public class AuthorizationUpdateDto   {
   /**
    * The id of the user this authorization has been created for. The value `*` represents a global authorization ranging over all users.
    * @return userId
-   **/
-  @Schema(description = "The id of the user this authorization has been created for. The value `*` represents a global authorization ranging over all users.")
+  */
   
-    public String getUserId() {
+  @Schema(name = "userId", description = "The id of the user this authorization has been created for. The value `*` represents a global authorization ranging over all users.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("userId")
+  public String getUserId() {
     return userId;
   }
 
@@ -86,10 +89,11 @@ public class AuthorizationUpdateDto   {
   /**
    * The id of the group this authorization has been created for.
    * @return groupId
-   **/
-  @Schema(description = "The id of the group this authorization has been created for.")
+  */
   
-    public String getGroupId() {
+  @Schema(name = "groupId", description = "The id of the group this authorization has been created for.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("groupId")
+  public String getGroupId() {
     return groupId;
   }
 
@@ -105,10 +109,11 @@ public class AuthorizationUpdateDto   {
   /**
    * An integer representing the resource type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/authorization-service/#resources) for a list of integer representations of resource types.
    * @return resourceType
-   **/
-  @Schema(description = "An integer representing the resource type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/authorization-service/#resources) for a list of integer representations of resource types.")
+  */
   
-    public Integer getResourceType() {
+  @Schema(name = "resourceType", description = "An integer representing the resource type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/authorization-service/#resources) for a list of integer representations of resource types.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resourceType")
+  public Integer getResourceType() {
     return resourceType;
   }
 
@@ -124,17 +129,17 @@ public class AuthorizationUpdateDto   {
   /**
    * The resource Id. The value `*` represents an authorization ranging over all instances of a resource.
    * @return resourceId
-   **/
-  @Schema(description = "The resource Id. The value `*` represents an authorization ranging over all instances of a resource.")
+  */
   
-    public String getResourceId() {
+  @Schema(name = "resourceId", description = "The resource Id. The value `*` represents an authorization ranging over all instances of a resource.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resourceId")
+  public String getResourceId() {
     return resourceId;
   }
 
   public void setResourceId(String resourceId) {
     this.resourceId = resourceId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -161,7 +166,6 @@ public class AuthorizationUpdateDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthorizationUpdateDto {\n");
-    
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
@@ -182,3 +186,4 @@ public class AuthorizationUpdateDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

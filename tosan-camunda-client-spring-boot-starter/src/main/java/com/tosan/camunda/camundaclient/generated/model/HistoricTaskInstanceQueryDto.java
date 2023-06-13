@@ -1,210 +1,169 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.HistoricTaskInstanceQueryDtoSortingInner;
+import com.tosan.camunda.camundaclient.generated.model.VariableQueryParameterDto;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A Historic Task instance query which defines a list of Historic Task instances
  */
-@Schema(description = "A Historic Task instance query which defines a list of Historic Task instances")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "HistoricTaskInstanceQueryDto", description = "A Historic Task instance query which defines a list of Historic Task instances")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricTaskInstanceQueryDto {
 
-public class HistoricTaskInstanceQueryDto   {
-  @JsonProperty("taskId")
   private String taskId = null;
 
-  @JsonProperty("taskParentTaskId")
   private String taskParentTaskId = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("processInstanceBusinessKey")
   private String processInstanceBusinessKey = null;
 
-  @JsonProperty("processInstanceBusinessKeyIn")
   @Valid
-  private List<String> processInstanceBusinessKeyIn = null;
+  private List<String> processInstanceBusinessKeyIn;
 
-  @JsonProperty("processInstanceBusinessKeyLike")
   private String processInstanceBusinessKeyLike = null;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("processDefinitionName")
   private String processDefinitionName = null;
 
-  @JsonProperty("caseInstanceId")
   private String caseInstanceId = null;
 
-  @JsonProperty("caseExecutionId")
   private String caseExecutionId = null;
 
-  @JsonProperty("caseDefinitionId")
   private String caseDefinitionId = null;
 
-  @JsonProperty("caseDefinitionKey")
   private String caseDefinitionKey = null;
 
-  @JsonProperty("caseDefinitionName")
   private String caseDefinitionName = null;
 
-  @JsonProperty("activityInstanceIdIn")
   @Valid
-  private List<String> activityInstanceIdIn = null;
+  private List<String> activityInstanceIdIn;
 
-  @JsonProperty("taskName")
   private String taskName = null;
 
-  @JsonProperty("taskNameLike")
   private String taskNameLike = null;
 
-  @JsonProperty("taskDescription")
   private String taskDescription = null;
 
-  @JsonProperty("taskDescriptionLike")
   private String taskDescriptionLike = null;
 
-  @JsonProperty("taskDefinitionKey")
   private String taskDefinitionKey = null;
 
-  @JsonProperty("taskDefinitionKeyIn")
   @Valid
-  private List<String> taskDefinitionKeyIn = null;
+  private List<String> taskDefinitionKeyIn;
 
-  @JsonProperty("taskDeleteReason")
   private String taskDeleteReason = null;
 
-  @JsonProperty("taskDeleteReasonLike")
   private String taskDeleteReasonLike = null;
 
-  @JsonProperty("taskAssignee")
   private String taskAssignee = null;
 
-  @JsonProperty("taskAssigneeLike")
   private String taskAssigneeLike = null;
 
-  @JsonProperty("taskOwner")
   private String taskOwner = null;
 
-  @JsonProperty("taskOwnerLike")
   private String taskOwnerLike = null;
 
-  @JsonProperty("taskPriority")
   private Integer taskPriority = null;
 
-  @JsonProperty("assigned")
   private Boolean assigned = null;
 
-  @JsonProperty("unassigned")
   private Boolean unassigned = null;
 
-  @JsonProperty("finished")
   private Boolean finished = null;
 
-  @JsonProperty("unfinished")
   private Boolean unfinished = null;
 
-  @JsonProperty("processFinished")
   private Boolean processFinished = null;
 
-  @JsonProperty("processUnfinished")
   private Boolean processUnfinished = null;
 
-  @JsonProperty("taskDueDate")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime taskDueDate = null;
 
-  @JsonProperty("taskDueDateBefore")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime taskDueDateBefore = null;
 
-  @JsonProperty("taskDueDateAfter")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime taskDueDateAfter = null;
 
-  @JsonProperty("withoutTaskDueDate")
   private Boolean withoutTaskDueDate = null;
 
-  @JsonProperty("taskFollowUpDate")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime taskFollowUpDate = null;
 
-  @JsonProperty("taskFollowUpDateBefore")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime taskFollowUpDateBefore = null;
 
-  @JsonProperty("taskFollowUpDateAfter")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime taskFollowUpDateAfter = null;
 
-  @JsonProperty("startedBefore")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime startedBefore = null;
 
-  @JsonProperty("startedAfter")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime startedAfter = null;
 
-  @JsonProperty("finishedBefore")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime finishedBefore = null;
 
-  @JsonProperty("finishedAfter")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime finishedAfter = null;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("withoutTenantId")
   private Boolean withoutTenantId = null;
 
-  @JsonProperty("taskVariables")
   @Valid
-  private List<VariableQueryParameterDto> taskVariables = null;
+  private List<@Valid VariableQueryParameterDto> taskVariables;
 
-  @JsonProperty("processVariables")
   @Valid
-  private List<VariableQueryParameterDto> processVariables = null;
+  private List<@Valid VariableQueryParameterDto> processVariables;
 
-  @JsonProperty("variableNamesIgnoreCase")
   private Boolean variableNamesIgnoreCase = null;
 
-  @JsonProperty("variableValuesIgnoreCase")
   private Boolean variableValuesIgnoreCase = null;
 
-  @JsonProperty("taskInvolvedUser")
   private String taskInvolvedUser = null;
 
-  @JsonProperty("taskInvolvedGroup")
   private String taskInvolvedGroup = null;
 
-  @JsonProperty("taskHadCandidateUser")
   private String taskHadCandidateUser = null;
 
-  @JsonProperty("taskHadCandidateGroup")
   private String taskHadCandidateGroup = null;
 
-  @JsonProperty("withCandidateGroups")
   private Boolean withCandidateGroups = null;
 
-  @JsonProperty("withoutCandidateGroups")
   private Boolean withoutCandidateGroups = null;
 
-  @JsonProperty("orQueries")
   @Valid
-  private List<HistoricTaskInstanceQueryDto> orQueries = null;
+  private List<@Valid HistoricTaskInstanceQueryDto> orQueries;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<HistoricTaskInstanceQueryDtoSorting> sorting = null;
+  private List<@Valid HistoricTaskInstanceQueryDtoSortingInner> sorting;
 
   public HistoricTaskInstanceQueryDto taskId(String taskId) {
     this.taskId = taskId;
@@ -214,10 +173,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Filter by task id.
    * @return taskId
-   **/
-  @Schema(description = "Filter by task id.")
+  */
   
-    public String getTaskId() {
+  @Schema(name = "taskId", description = "Filter by task id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskId")
+  public String getTaskId() {
     return taskId;
   }
 
@@ -233,10 +193,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Filter by parent task id.
    * @return taskParentTaskId
-   **/
-  @Schema(description = "Filter by parent task id.")
+  */
   
-    public String getTaskParentTaskId() {
+  @Schema(name = "taskParentTaskId", description = "Filter by parent task id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskParentTaskId")
+  public String getTaskParentTaskId() {
     return taskParentTaskId;
   }
 
@@ -252,10 +213,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Filter by process instance id.
    * @return processInstanceId
-   **/
-  @Schema(description = "Filter by process instance id.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "Filter by process instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -271,10 +233,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Filter by process instance business key.
    * @return processInstanceBusinessKey
-   **/
-  @Schema(description = "Filter by process instance business key.")
+  */
   
-    public String getProcessInstanceBusinessKey() {
+  @Schema(name = "processInstanceBusinessKey", description = "Filter by process instance business key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceBusinessKey")
+  public String getProcessInstanceBusinessKey() {
     return processInstanceBusinessKey;
   }
 
@@ -298,10 +261,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Filter by process instances with one of the give business keys. The keys need to be in a comma-separated list.
    * @return processInstanceBusinessKeyIn
-   **/
-  @Schema(description = "Filter by process instances with one of the give business keys. The keys need to be in a comma-separated list.")
+  */
   
-    public List<String> getProcessInstanceBusinessKeyIn() {
+  @Schema(name = "processInstanceBusinessKeyIn", description = "Filter by process instances with one of the give business keys. The keys need to be in a comma-separated list.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceBusinessKeyIn")
+  public List<String> getProcessInstanceBusinessKeyIn() {
     return processInstanceBusinessKeyIn;
   }
 
@@ -317,10 +281,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Filter by  process instance business key that has the parameter value as a substring.
    * @return processInstanceBusinessKeyLike
-   **/
-  @Schema(description = "Filter by  process instance business key that has the parameter value as a substring.")
+  */
   
-    public String getProcessInstanceBusinessKeyLike() {
+  @Schema(name = "processInstanceBusinessKeyLike", description = "Filter by  process instance business key that has the parameter value as a substring.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceBusinessKeyLike")
+  public String getProcessInstanceBusinessKeyLike() {
     return processInstanceBusinessKeyLike;
   }
 
@@ -336,10 +301,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Filter by the id of the execution that executed the task.
    * @return executionId
-   **/
-  @Schema(description = "Filter by the id of the execution that executed the task.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "Filter by the id of the execution that executed the task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -355,10 +321,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Filter by process definition id.
    * @return processDefinitionId
-   **/
-  @Schema(description = "Filter by process definition id.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "Filter by process definition id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -374,10 +341,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that belong to a process definition with the given key.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "Restrict to tasks that belong to a process definition with the given key.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "Restrict to tasks that belong to a process definition with the given key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -393,10 +361,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that belong to a process definition with the given name.
    * @return processDefinitionName
-   **/
-  @Schema(description = "Restrict to tasks that belong to a process definition with the given name.")
+  */
   
-    public String getProcessDefinitionName() {
+  @Schema(name = "processDefinitionName", description = "Restrict to tasks that belong to a process definition with the given name.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionName")
+  public String getProcessDefinitionName() {
     return processDefinitionName;
   }
 
@@ -412,10 +381,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Filter by case instance id.
    * @return caseInstanceId
-   **/
-  @Schema(description = "Filter by case instance id.")
+  */
   
-    public String getCaseInstanceId() {
+  @Schema(name = "caseInstanceId", description = "Filter by case instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceId")
+  public String getCaseInstanceId() {
     return caseInstanceId;
   }
 
@@ -431,10 +401,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Filter by the id of the case execution that executed the task.
    * @return caseExecutionId
-   **/
-  @Schema(description = "Filter by the id of the case execution that executed the task.")
+  */
   
-    public String getCaseExecutionId() {
+  @Schema(name = "caseExecutionId", description = "Filter by the id of the case execution that executed the task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseExecutionId")
+  public String getCaseExecutionId() {
     return caseExecutionId;
   }
 
@@ -450,10 +421,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Filter by case definition id.
    * @return caseDefinitionId
-   **/
-  @Schema(description = "Filter by case definition id.")
+  */
   
-    public String getCaseDefinitionId() {
+  @Schema(name = "caseDefinitionId", description = "Filter by case definition id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseDefinitionId")
+  public String getCaseDefinitionId() {
     return caseDefinitionId;
   }
 
@@ -469,10 +441,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that belong to a case definition with the given key.
    * @return caseDefinitionKey
-   **/
-  @Schema(description = "Restrict to tasks that belong to a case definition with the given key.")
+  */
   
-    public String getCaseDefinitionKey() {
+  @Schema(name = "caseDefinitionKey", description = "Restrict to tasks that belong to a case definition with the given key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseDefinitionKey")
+  public String getCaseDefinitionKey() {
     return caseDefinitionKey;
   }
 
@@ -488,10 +461,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that belong to a case definition with the given name.
    * @return caseDefinitionName
-   **/
-  @Schema(description = "Restrict to tasks that belong to a case definition with the given name.")
+  */
   
-    public String getCaseDefinitionName() {
+  @Schema(name = "caseDefinitionName", description = "Restrict to tasks that belong to a case definition with the given name.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseDefinitionName")
+  public String getCaseDefinitionName() {
     return caseDefinitionName;
   }
 
@@ -515,10 +489,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Only include tasks which belong to one of the passed  activity instance ids.
    * @return activityInstanceIdIn
-   **/
-  @Schema(description = "Only include tasks which belong to one of the passed  activity instance ids.")
+  */
   
-    public List<String> getActivityInstanceIdIn() {
+  @Schema(name = "activityInstanceIdIn", description = "Only include tasks which belong to one of the passed  activity instance ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityInstanceIdIn")
+  public List<String> getActivityInstanceIdIn() {
     return activityInstanceIdIn;
   }
 
@@ -534,10 +509,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that have the given name.
    * @return taskName
-   **/
-  @Schema(description = "Restrict to tasks that have the given name.")
+  */
   
-    public String getTaskName() {
+  @Schema(name = "taskName", description = "Restrict to tasks that have the given name.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskName")
+  public String getTaskName() {
     return taskName;
   }
 
@@ -553,10 +529,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that have a name with the given parameter value as substring.
    * @return taskNameLike
-   **/
-  @Schema(description = "Restrict to tasks that have a name with the given parameter value as substring.")
+  */
   
-    public String getTaskNameLike() {
+  @Schema(name = "taskNameLike", description = "Restrict to tasks that have a name with the given parameter value as substring.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskNameLike")
+  public String getTaskNameLike() {
     return taskNameLike;
   }
 
@@ -572,10 +549,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that have the given description.
    * @return taskDescription
-   **/
-  @Schema(description = "Restrict to tasks that have the given description.")
+  */
   
-    public String getTaskDescription() {
+  @Schema(name = "taskDescription", description = "Restrict to tasks that have the given description.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskDescription")
+  public String getTaskDescription() {
     return taskDescription;
   }
 
@@ -591,10 +569,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that have a description that has the parameter value as a substring.
    * @return taskDescriptionLike
-   **/
-  @Schema(description = "Restrict to tasks that have a description that has the parameter value as a substring.")
+  */
   
-    public String getTaskDescriptionLike() {
+  @Schema(name = "taskDescriptionLike", description = "Restrict to tasks that have a description that has the parameter value as a substring.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskDescriptionLike")
+  public String getTaskDescriptionLike() {
     return taskDescriptionLike;
   }
 
@@ -610,10 +589,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that have the given key.
    * @return taskDefinitionKey
-   **/
-  @Schema(description = "Restrict to tasks that have the given key.")
+  */
   
-    public String getTaskDefinitionKey() {
+  @Schema(name = "taskDefinitionKey", description = "Restrict to tasks that have the given key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskDefinitionKey")
+  public String getTaskDefinitionKey() {
     return taskDefinitionKey;
   }
 
@@ -637,10 +617,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that have one of the passed  task definition keys.
    * @return taskDefinitionKeyIn
-   **/
-  @Schema(description = "Restrict to tasks that have one of the passed  task definition keys.")
+  */
   
-    public List<String> getTaskDefinitionKeyIn() {
+  @Schema(name = "taskDefinitionKeyIn", description = "Restrict to tasks that have one of the passed  task definition keys.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskDefinitionKeyIn")
+  public List<String> getTaskDefinitionKeyIn() {
     return taskDefinitionKeyIn;
   }
 
@@ -656,10 +637,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that have the given delete reason.
    * @return taskDeleteReason
-   **/
-  @Schema(description = "Restrict to tasks that have the given delete reason.")
+  */
   
-    public String getTaskDeleteReason() {
+  @Schema(name = "taskDeleteReason", description = "Restrict to tasks that have the given delete reason.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskDeleteReason")
+  public String getTaskDeleteReason() {
     return taskDeleteReason;
   }
 
@@ -675,10 +657,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that have a delete reason that has the parameter value as a substring.
    * @return taskDeleteReasonLike
-   **/
-  @Schema(description = "Restrict to tasks that have a delete reason that has the parameter value as a substring.")
+  */
   
-    public String getTaskDeleteReasonLike() {
+  @Schema(name = "taskDeleteReasonLike", description = "Restrict to tasks that have a delete reason that has the parameter value as a substring.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskDeleteReasonLike")
+  public String getTaskDeleteReasonLike() {
     return taskDeleteReasonLike;
   }
 
@@ -694,10 +677,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that the given user is assigned to.
    * @return taskAssignee
-   **/
-  @Schema(description = "Restrict to tasks that the given user is assigned to.")
+  */
   
-    public String getTaskAssignee() {
+  @Schema(name = "taskAssignee", description = "Restrict to tasks that the given user is assigned to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskAssignee")
+  public String getTaskAssignee() {
     return taskAssignee;
   }
 
@@ -713,10 +697,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that are assigned to users with the parameter value as a substring.
    * @return taskAssigneeLike
-   **/
-  @Schema(description = "Restrict to tasks that are assigned to users with the parameter value as a substring.")
+  */
   
-    public String getTaskAssigneeLike() {
+  @Schema(name = "taskAssigneeLike", description = "Restrict to tasks that are assigned to users with the parameter value as a substring.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskAssigneeLike")
+  public String getTaskAssigneeLike() {
     return taskAssigneeLike;
   }
 
@@ -732,10 +717,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that the given user owns.
    * @return taskOwner
-   **/
-  @Schema(description = "Restrict to tasks that the given user owns.")
+  */
   
-    public String getTaskOwner() {
+  @Schema(name = "taskOwner", description = "Restrict to tasks that the given user owns.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskOwner")
+  public String getTaskOwner() {
     return taskOwner;
   }
 
@@ -751,10 +737,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that are owned by users with the parameter value as a substring.
    * @return taskOwnerLike
-   **/
-  @Schema(description = "Restrict to tasks that are owned by users with the parameter value as a substring.")
+  */
   
-    public String getTaskOwnerLike() {
+  @Schema(name = "taskOwnerLike", description = "Restrict to tasks that are owned by users with the parameter value as a substring.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskOwnerLike")
+  public String getTaskOwnerLike() {
     return taskOwnerLike;
   }
 
@@ -770,10 +757,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that have the given priority.
    * @return taskPriority
-   **/
-  @Schema(description = "Restrict to tasks that have the given priority.")
+  */
   
-    public Integer getTaskPriority() {
+  @Schema(name = "taskPriority", description = "Restrict to tasks that have the given priority.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskPriority")
+  public Integer getTaskPriority() {
     return taskPriority;
   }
 
@@ -789,10 +777,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * If set to `true`, restricts the query to all tasks that are assigned.
    * @return assigned
-   **/
-  @Schema(description = "If set to `true`, restricts the query to all tasks that are assigned.")
+  */
   
-    public Boolean isAssigned() {
+  @Schema(name = "assigned", description = "If set to `true`, restricts the query to all tasks that are assigned.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("assigned")
+  public Boolean getAssigned() {
     return assigned;
   }
 
@@ -808,10 +797,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * If set to `true`, restricts the query to all tasks that are unassigned.
    * @return unassigned
-   **/
-  @Schema(description = "If set to `true`, restricts the query to all tasks that are unassigned.")
+  */
   
-    public Boolean isUnassigned() {
+  @Schema(name = "unassigned", description = "If set to `true`, restricts the query to all tasks that are unassigned.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("unassigned")
+  public Boolean getUnassigned() {
     return unassigned;
   }
 
@@ -827,10 +817,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Only include finished tasks. Value may only be `true`, as `false` is the default behavior.
    * @return finished
-   **/
-  @Schema(description = "Only include finished tasks. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isFinished() {
+  @Schema(name = "finished", description = "Only include finished tasks. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("finished")
+  public Boolean getFinished() {
     return finished;
   }
 
@@ -846,10 +837,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Only include unfinished tasks. Value may only be `true`, as `false` is the default behavior.
    * @return unfinished
-   **/
-  @Schema(description = "Only include unfinished tasks. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isUnfinished() {
+  @Schema(name = "unfinished", description = "Only include unfinished tasks. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("unfinished")
+  public Boolean getUnfinished() {
     return unfinished;
   }
 
@@ -865,10 +857,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Only include tasks of finished processes. Value may only be `true`, as `false` is the default behavior.
    * @return processFinished
-   **/
-  @Schema(description = "Only include tasks of finished processes. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isProcessFinished() {
+  @Schema(name = "processFinished", description = "Only include tasks of finished processes. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processFinished")
+  public Boolean getProcessFinished() {
     return processFinished;
   }
 
@@ -884,10 +877,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Only include tasks of unfinished processes. Value may only be `true`, as `false` is the default behavior.
    * @return processUnfinished
-   **/
-  @Schema(description = "Only include tasks of unfinished processes. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isProcessUnfinished() {
+  @Schema(name = "processUnfinished", description = "Only include tasks of unfinished processes. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processUnfinished")
+  public Boolean getProcessUnfinished() {
     return processUnfinished;
   }
 
@@ -903,11 +897,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that are due on the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return taskDueDate
-   **/
-  @Schema(description = "Restrict to tasks that are due on the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getTaskDueDate() {
+  */
+  @Valid 
+  @Schema(name = "taskDueDate", description = "Restrict to tasks that are due on the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskDueDate")
+  public OffsetDateTime getTaskDueDate() {
     return taskDueDate;
   }
 
@@ -923,11 +917,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that are due before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return taskDueDateBefore
-   **/
-  @Schema(description = "Restrict to tasks that are due before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getTaskDueDateBefore() {
+  */
+  @Valid 
+  @Schema(name = "taskDueDateBefore", description = "Restrict to tasks that are due before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskDueDateBefore")
+  public OffsetDateTime getTaskDueDateBefore() {
     return taskDueDateBefore;
   }
 
@@ -943,11 +937,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that are due after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return taskDueDateAfter
-   **/
-  @Schema(description = "Restrict to tasks that are due after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getTaskDueDateAfter() {
+  */
+  @Valid 
+  @Schema(name = "taskDueDateAfter", description = "Restrict to tasks that are due after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskDueDateAfter")
+  public OffsetDateTime getTaskDueDateAfter() {
     return taskDueDateAfter;
   }
 
@@ -963,10 +957,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Only include tasks which have no due date. Value may only be `true`, as `false` is the default behavior.
    * @return withoutTaskDueDate
-   **/
-  @Schema(description = "Only include tasks which have no due date. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutTaskDueDate() {
+  @Schema(name = "withoutTaskDueDate", description = "Only include tasks which have no due date. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTaskDueDate")
+  public Boolean getWithoutTaskDueDate() {
     return withoutTaskDueDate;
   }
 
@@ -982,11 +977,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that have a followUp date on the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return taskFollowUpDate
-   **/
-  @Schema(description = "Restrict to tasks that have a followUp date on the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getTaskFollowUpDate() {
+  */
+  @Valid 
+  @Schema(name = "taskFollowUpDate", description = "Restrict to tasks that have a followUp date on the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskFollowUpDate")
+  public OffsetDateTime getTaskFollowUpDate() {
     return taskFollowUpDate;
   }
 
@@ -1002,11 +997,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that have a followUp date before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return taskFollowUpDateBefore
-   **/
-  @Schema(description = "Restrict to tasks that have a followUp date before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getTaskFollowUpDateBefore() {
+  */
+  @Valid 
+  @Schema(name = "taskFollowUpDateBefore", description = "Restrict to tasks that have a followUp date before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskFollowUpDateBefore")
+  public OffsetDateTime getTaskFollowUpDateBefore() {
     return taskFollowUpDateBefore;
   }
 
@@ -1022,11 +1017,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that have a followUp date after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return taskFollowUpDateAfter
-   **/
-  @Schema(description = "Restrict to tasks that have a followUp date after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getTaskFollowUpDateAfter() {
+  */
+  @Valid 
+  @Schema(name = "taskFollowUpDateAfter", description = "Restrict to tasks that have a followUp date after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskFollowUpDateAfter")
+  public OffsetDateTime getTaskFollowUpDateAfter() {
     return taskFollowUpDateAfter;
   }
 
@@ -1042,11 +1037,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that were started before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return startedBefore
-   **/
-  @Schema(description = "Restrict to tasks that were started before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getStartedBefore() {
+  */
+  @Valid 
+  @Schema(name = "startedBefore", description = "Restrict to tasks that were started before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("startedBefore")
+  public OffsetDateTime getStartedBefore() {
     return startedBefore;
   }
 
@@ -1062,11 +1057,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that were started after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return startedAfter
-   **/
-  @Schema(description = "Restrict to tasks that were started after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getStartedAfter() {
+  */
+  @Valid 
+  @Schema(name = "startedAfter", description = "Restrict to tasks that were started after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("startedAfter")
+  public OffsetDateTime getStartedAfter() {
     return startedAfter;
   }
 
@@ -1082,11 +1077,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that were finished before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return finishedBefore
-   **/
-  @Schema(description = "Restrict to tasks that were finished before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getFinishedBefore() {
+  */
+  @Valid 
+  @Schema(name = "finishedBefore", description = "Restrict to tasks that were finished before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("finishedBefore")
+  public OffsetDateTime getFinishedBefore() {
     return finishedBefore;
   }
 
@@ -1102,11 +1097,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks that were finished after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return finishedAfter
-   **/
-  @Schema(description = "Restrict to tasks that were finished after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getFinishedAfter() {
+  */
+  @Valid 
+  @Schema(name = "finishedAfter", description = "Restrict to tasks that were finished after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("finishedAfter")
+  public OffsetDateTime getFinishedAfter() {
     return finishedAfter;
   }
 
@@ -1130,10 +1125,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Filter by a  list of tenant ids. A task instance must have one of the given tenant ids.
    * @return tenantIdIn
-   **/
-  @Schema(description = "Filter by a  list of tenant ids. A task instance must have one of the given tenant ids.")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Filter by a  list of tenant ids. A task instance must have one of the given tenant ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -1149,10 +1145,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Only include historic task instances that belong to no tenant. Value may only be `true`, as `false` is the default behavior.
    * @return withoutTenantId
-   **/
-  @Schema(description = "Only include historic task instances that belong to no tenant. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "Only include historic task instances that belong to no tenant. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
@@ -1160,7 +1157,7 @@ public class HistoricTaskInstanceQueryDto   {
     this.withoutTenantId = withoutTenantId;
   }
 
-  public HistoricTaskInstanceQueryDto taskVariables(List<VariableQueryParameterDto> taskVariables) {
+  public HistoricTaskInstanceQueryDto taskVariables(List<@Valid VariableQueryParameterDto> taskVariables) {
     this.taskVariables = taskVariables;
     return this;
   }
@@ -1176,18 +1173,19 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Only include tasks that have variables with certain values. Variable filtering expressions are comma-separated and are structured as follows:  A valid parameter value has the form `key_operator_value`. `key` is the variable name, `operator` is the comparison operator to be used and `value` the variable value. **Note:** Values are always treated as `String` objects on server side.   Valid operator values are: * `eq` - equal to; * `neq` - not equal to; * `gt` - greater than; * `gteq` - greater than or equal to; * `lt` - lower than; * `lteq` - lower than or equal to; * `like`.  `key` and `value` may not contain underscore or comma characters.
    * @return taskVariables
-   **/
-  @Schema(description = "Only include tasks that have variables with certain values. Variable filtering expressions are comma-separated and are structured as follows:  A valid parameter value has the form `key_operator_value`. `key` is the variable name, `operator` is the comparison operator to be used and `value` the variable value. **Note:** Values are always treated as `String` objects on server side.   Valid operator values are: * `eq` - equal to; * `neq` - not equal to; * `gt` - greater than; * `gteq` - greater than or equal to; * `lt` - lower than; * `lteq` - lower than or equal to; * `like`.  `key` and `value` may not contain underscore or comma characters.")
-      @Valid
-    public List<VariableQueryParameterDto> getTaskVariables() {
+  */
+  @Valid 
+  @Schema(name = "taskVariables", description = "Only include tasks that have variables with certain values. Variable filtering expressions are comma-separated and are structured as follows:  A valid parameter value has the form `key_operator_value`. `key` is the variable name, `operator` is the comparison operator to be used and `value` the variable value. **Note:** Values are always treated as `String` objects on server side.   Valid operator values are: * `eq` - equal to; * `neq` - not equal to; * `gt` - greater than; * `gteq` - greater than or equal to; * `lt` - lower than; * `lteq` - lower than or equal to; * `like`.  `key` and `value` may not contain underscore or comma characters.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskVariables")
+  public List<@Valid VariableQueryParameterDto> getTaskVariables() {
     return taskVariables;
   }
 
-  public void setTaskVariables(List<VariableQueryParameterDto> taskVariables) {
+  public void setTaskVariables(List<@Valid VariableQueryParameterDto> taskVariables) {
     this.taskVariables = taskVariables;
   }
 
-  public HistoricTaskInstanceQueryDto processVariables(List<VariableQueryParameterDto> processVariables) {
+  public HistoricTaskInstanceQueryDto processVariables(List<@Valid VariableQueryParameterDto> processVariables) {
     this.processVariables = processVariables;
     return this;
   }
@@ -1203,14 +1201,15 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Only include tasks that belong to process instances that have variables with certain values. Variable filtering expressions are comma-separated and are structured as follows:  A valid parameter value has the form `key_operator_value`. `key` is the variable name, `operator` is the comparison operator to be used and `value` the variable value. **Note:** Values are always treated as `String` objects on server side.   Valid operator values are: * `eq` - equal to; * `neq` - not equal to; * `gt` - greater than; * `gteq` - greater than or equal to; * `lt` - lower than; * `lteq` - lower than or equal to; * `like`; * `notLike`.  `key` and `value` may not contain underscore or comma characters.
    * @return processVariables
-   **/
-  @Schema(description = "Only include tasks that belong to process instances that have variables with certain values. Variable filtering expressions are comma-separated and are structured as follows:  A valid parameter value has the form `key_operator_value`. `key` is the variable name, `operator` is the comparison operator to be used and `value` the variable value. **Note:** Values are always treated as `String` objects on server side.   Valid operator values are: * `eq` - equal to; * `neq` - not equal to; * `gt` - greater than; * `gteq` - greater than or equal to; * `lt` - lower than; * `lteq` - lower than or equal to; * `like`; * `notLike`.  `key` and `value` may not contain underscore or comma characters.")
-      @Valid
-    public List<VariableQueryParameterDto> getProcessVariables() {
+  */
+  @Valid 
+  @Schema(name = "processVariables", description = "Only include tasks that belong to process instances that have variables with certain values. Variable filtering expressions are comma-separated and are structured as follows:  A valid parameter value has the form `key_operator_value`. `key` is the variable name, `operator` is the comparison operator to be used and `value` the variable value. **Note:** Values are always treated as `String` objects on server side.   Valid operator values are: * `eq` - equal to; * `neq` - not equal to; * `gt` - greater than; * `gteq` - greater than or equal to; * `lt` - lower than; * `lteq` - lower than or equal to; * `like`; * `notLike`.  `key` and `value` may not contain underscore or comma characters.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processVariables")
+  public List<@Valid VariableQueryParameterDto> getProcessVariables() {
     return processVariables;
   }
 
-  public void setProcessVariables(List<VariableQueryParameterDto> processVariables) {
+  public void setProcessVariables(List<@Valid VariableQueryParameterDto> processVariables) {
     this.processVariables = processVariables;
   }
 
@@ -1222,10 +1221,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Match the variable name provided in `taskVariables` and `processVariables` case- insensitively. If set to `true` **variableName** and **variablename** are treated as equal.
    * @return variableNamesIgnoreCase
-   **/
-  @Schema(description = "Match the variable name provided in `taskVariables` and `processVariables` case- insensitively. If set to `true` **variableName** and **variablename** are treated as equal.")
+  */
   
-    public Boolean isVariableNamesIgnoreCase() {
+  @Schema(name = "variableNamesIgnoreCase", description = "Match the variable name provided in `taskVariables` and `processVariables` case- insensitively. If set to `true` **variableName** and **variablename** are treated as equal.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableNamesIgnoreCase")
+  public Boolean getVariableNamesIgnoreCase() {
     return variableNamesIgnoreCase;
   }
 
@@ -1241,10 +1241,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Match the variable value provided in `taskVariables` and `processVariables` case- insensitively. If set to `true` **variableValue** and **variablevalue** are treated as equal.
    * @return variableValuesIgnoreCase
-   **/
-  @Schema(description = "Match the variable value provided in `taskVariables` and `processVariables` case- insensitively. If set to `true` **variableValue** and **variablevalue** are treated as equal.")
+  */
   
-    public Boolean isVariableValuesIgnoreCase() {
+  @Schema(name = "variableValuesIgnoreCase", description = "Match the variable value provided in `taskVariables` and `processVariables` case- insensitively. If set to `true` **variableValue** and **variablevalue** are treated as equal.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableValuesIgnoreCase")
+  public Boolean getVariableValuesIgnoreCase() {
     return variableValuesIgnoreCase;
   }
 
@@ -1260,10 +1261,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks with a historic identity link to the given user.
    * @return taskInvolvedUser
-   **/
-  @Schema(description = "Restrict to tasks with a historic identity link to the given user.")
+  */
   
-    public String getTaskInvolvedUser() {
+  @Schema(name = "taskInvolvedUser", description = "Restrict to tasks with a historic identity link to the given user.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskInvolvedUser")
+  public String getTaskInvolvedUser() {
     return taskInvolvedUser;
   }
 
@@ -1279,10 +1281,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks with a historic identity link to the given group.
    * @return taskInvolvedGroup
-   **/
-  @Schema(description = "Restrict to tasks with a historic identity link to the given group.")
+  */
   
-    public String getTaskInvolvedGroup() {
+  @Schema(name = "taskInvolvedGroup", description = "Restrict to tasks with a historic identity link to the given group.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskInvolvedGroup")
+  public String getTaskInvolvedGroup() {
     return taskInvolvedGroup;
   }
 
@@ -1298,10 +1301,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks with a historic identity link to the given candidate user.
    * @return taskHadCandidateUser
-   **/
-  @Schema(description = "Restrict to tasks with a historic identity link to the given candidate user.")
+  */
   
-    public String getTaskHadCandidateUser() {
+  @Schema(name = "taskHadCandidateUser", description = "Restrict to tasks with a historic identity link to the given candidate user.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskHadCandidateUser")
+  public String getTaskHadCandidateUser() {
     return taskHadCandidateUser;
   }
 
@@ -1317,10 +1321,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Restrict to tasks with a historic identity link to the given candidate group.
    * @return taskHadCandidateGroup
-   **/
-  @Schema(description = "Restrict to tasks with a historic identity link to the given candidate group.")
+  */
   
-    public String getTaskHadCandidateGroup() {
+  @Schema(name = "taskHadCandidateGroup", description = "Restrict to tasks with a historic identity link to the given candidate group.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskHadCandidateGroup")
+  public String getTaskHadCandidateGroup() {
     return taskHadCandidateGroup;
   }
 
@@ -1336,10 +1341,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Only include tasks which have a candidate group. Value may only be `true`, as `false` is the default behavior.
    * @return withCandidateGroups
-   **/
-  @Schema(description = "Only include tasks which have a candidate group. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithCandidateGroups() {
+  @Schema(name = "withCandidateGroups", description = "Only include tasks which have a candidate group. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withCandidateGroups")
+  public Boolean getWithCandidateGroups() {
     return withCandidateGroups;
   }
 
@@ -1355,10 +1361,11 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * Only include tasks which have no candidate group. Value may only be `true`, as `false` is the default behavior.
    * @return withoutCandidateGroups
-   **/
-  @Schema(description = "Only include tasks which have no candidate group. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutCandidateGroups() {
+  @Schema(name = "withoutCandidateGroups", description = "Only include tasks which have no candidate group. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutCandidateGroups")
+  public Boolean getWithoutCandidateGroups() {
     return withoutCandidateGroups;
   }
 
@@ -1366,7 +1373,7 @@ public class HistoricTaskInstanceQueryDto   {
     this.withoutCandidateGroups = withoutCandidateGroups;
   }
 
-  public HistoricTaskInstanceQueryDto orQueries(List<HistoricTaskInstanceQueryDto> orQueries) {
+  public HistoricTaskInstanceQueryDto orQueries(List<@Valid HistoricTaskInstanceQueryDto> orQueries) {
     this.orQueries = orQueries;
     return this;
   }
@@ -1382,23 +1389,24 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * A JSON array of nested historic task instance queries with OR semantics.  A task instance matches a nested query if it fulfills at least one of the query's predicates.  With multiple nested queries, a task instance must fulfill at least one predicate of each query ([Conjunctive Normal Form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)).  All task instance query properties can be used except for: `sorting`, `withCandidateGroups`, ` withoutCandidateGroups`.  See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/process-engine-api/#or-queries) for more information about OR queries.
    * @return orQueries
-   **/
-  @Schema(description = "A JSON array of nested historic task instance queries with OR semantics.  A task instance matches a nested query if it fulfills at least one of the query's predicates.  With multiple nested queries, a task instance must fulfill at least one predicate of each query ([Conjunctive Normal Form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)).  All task instance query properties can be used except for: `sorting`, `withCandidateGroups`, ` withoutCandidateGroups`.  See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/process-engine-api/#or-queries) for more information about OR queries.")
-      @Valid
-    public List<HistoricTaskInstanceQueryDto> getOrQueries() {
+  */
+  @Valid 
+  @Schema(name = "orQueries", description = "A JSON array of nested historic task instance queries with OR semantics.  A task instance matches a nested query if it fulfills at least one of the query's predicates.  With multiple nested queries, a task instance must fulfill at least one predicate of each query ([Conjunctive Normal Form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)).  All task instance query properties can be used except for: `sorting`, `withCandidateGroups`, ` withoutCandidateGroups`.  See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/process-engine-api/#or-queries) for more information about OR queries.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("orQueries")
+  public List<@Valid HistoricTaskInstanceQueryDto> getOrQueries() {
     return orQueries;
   }
 
-  public void setOrQueries(List<HistoricTaskInstanceQueryDto> orQueries) {
+  public void setOrQueries(List<@Valid HistoricTaskInstanceQueryDto> orQueries) {
     this.orQueries = orQueries;
   }
 
-  public HistoricTaskInstanceQueryDto sorting(List<HistoricTaskInstanceQueryDtoSorting> sorting) {
+  public HistoricTaskInstanceQueryDto sorting(List<@Valid HistoricTaskInstanceQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public HistoricTaskInstanceQueryDto addSortingItem(HistoricTaskInstanceQueryDtoSorting sortingItem) {
+  public HistoricTaskInstanceQueryDto addSortingItem(HistoricTaskInstanceQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -1409,17 +1417,17 @@ public class HistoricTaskInstanceQueryDto   {
   /**
    * An array of criteria to sort the result by. Each element of the array is                     an object that specifies one ordering. The position in the array                     identifies the rank of an ordering, i.e., whether it is primary, secondary,                     etc. Sorting has no effect for `count` endpoints
    * @return sorting
-   **/
-  @Schema(description = "An array of criteria to sort the result by. Each element of the array is                     an object that specifies one ordering. The position in the array                     identifies the rank of an ordering, i.e., whether it is primary, secondary,                     etc. Sorting has no effect for `count` endpoints")
-      @Valid
-    public List<HistoricTaskInstanceQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "An array of criteria to sort the result by. Each element of the array is                     an object that specifies one ordering. The position in the array                     identifies the rank of an ordering, i.e., whether it is primary, secondary,                     etc. Sorting has no effect for `count` endpoints", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid HistoricTaskInstanceQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<HistoricTaskInstanceQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid HistoricTaskInstanceQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -1501,7 +1509,6 @@ public class HistoricTaskInstanceQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricTaskInstanceQueryDto {\n");
-    
     sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("    taskParentTaskId: ").append(toIndentedString(taskParentTaskId)).append("\n");
     sb.append("    processInstanceId: ").append(toIndentedString(processInstanceId)).append("\n");
@@ -1577,3 +1584,4 @@ public class HistoricTaskInstanceQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

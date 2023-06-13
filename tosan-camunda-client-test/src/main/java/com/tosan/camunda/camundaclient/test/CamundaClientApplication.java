@@ -30,9 +30,9 @@ import java.util.UUID;
 @SpringBootApplication
 public class CamundaClientApplication implements CommandLineRunner {
 
-    private MessageApi messageApi;
-    private DeploymentApi deploymentApi;
-    private ProcessDefinitionApi processDefinitionApi;
+    private final MessageApi messageApi;
+    private final DeploymentApi deploymentApi;
+    private final ProcessDefinitionApi processDefinitionApi;
 
     public CamundaClientApplication(MessageApi messageApi, DeploymentApi deploymentApi, ProcessDefinitionApi processDefinitionApi) {
         this.messageApi = messageApi;
@@ -70,7 +70,7 @@ public class CamundaClientApplication implements CommandLineRunner {
                 fileName, inputStream.available(), outFile);
         IOUtils.copy(inputStream, fileItem.getOutputStream());
         MultipartFile data = new CommonsMultipartFile(fileItem);
-        deploymentApi.createDeployment("testApplication", true, true,
+        deploymentApi.createDeployment(null, "testApplication", true, true,
                 processName, OffsetDateTime.now(), data);
     }
 
@@ -78,6 +78,8 @@ public class CamundaClientApplication implements CommandLineRunner {
         CorrelationMessageDto correlationMessageDto = new CorrelationMessageDto();
         correlationMessageDto.setBusinessKey(UUID.randomUUID().toString());
         correlationMessageDto.setMessageName("test_message");
+        correlationMessageDto.setResultEnabled(true);
+        correlationMessageDto.setVariablesInResultEnabled(true);
         Map<String, VariableValueDto> processVariables = new HashMap<>();
         VariableValueDto variableValueDto = new VariableValueDto();
         variableValueDto.setValue("testState");

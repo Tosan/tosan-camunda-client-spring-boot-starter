@@ -1,24 +1,29 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.UserProfileDto;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
-import org.springframework.validation.annotation.Validated;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * PasswordPolicyRequestDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class PasswordPolicyRequestDto {
 
-public class PasswordPolicyRequestDto   {
-  @JsonProperty("password")
   private String password = null;
 
-  @JsonProperty("profile")
-  private UserProfileDto profile = null;
+  private UserProfileDto profile;
 
   public PasswordPolicyRequestDto password(String password) {
     this.password = password;
@@ -28,10 +33,11 @@ public class PasswordPolicyRequestDto   {
   /**
    * The candidate password to be check against the password policy.
    * @return password
-   **/
-  @Schema(description = "The candidate password to be check against the password policy.")
+  */
   
-    public String getPassword() {
+  @Schema(name = "password", description = "The candidate password to be check against the password policy.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("password")
+  public String getPassword() {
     return password;
   }
 
@@ -47,18 +53,17 @@ public class PasswordPolicyRequestDto   {
   /**
    * Get profile
    * @return profile
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public UserProfileDto getProfile() {
+  */
+  @Valid 
+  @Schema(name = "profile", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("profile")
+  public UserProfileDto getProfile() {
     return profile;
   }
 
   public void setProfile(UserProfileDto profile) {
     this.profile = profile;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -82,7 +87,6 @@ public class PasswordPolicyRequestDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PasswordPolicyRequestDto {\n");
-    
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
     sb.append("}");
@@ -100,3 +104,4 @@ public class PasswordPolicyRequestDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

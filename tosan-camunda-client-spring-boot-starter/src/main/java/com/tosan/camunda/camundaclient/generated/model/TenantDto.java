@@ -1,22 +1,27 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * TenantDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class TenantDto {
 
-public class TenantDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("name")
   private String name = null;
 
   public TenantDto id(String id) {
@@ -27,10 +32,11 @@ public class TenantDto   {
   /**
    * The id of the tenant.
    * @return id
-   **/
-  @Schema(description = "The id of the tenant.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the tenant.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -46,17 +52,17 @@ public class TenantDto   {
   /**
    * The name of the tenant.
    * @return name
-   **/
-  @Schema(description = "The name of the tenant.")
+  */
   
-    public String getName() {
+  @Schema(name = "name", description = "The name of the tenant.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
     return name;
   }
 
   public void setName(String name) {
     this.name = name;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -80,7 +86,6 @@ public class TenantDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TenantDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
@@ -98,3 +103,4 @@ public class TenantDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

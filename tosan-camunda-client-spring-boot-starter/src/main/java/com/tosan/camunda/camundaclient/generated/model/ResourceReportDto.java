@@ -1,30 +1,35 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.ProblemDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * ResourceReportDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ResourceReportDto {
 
-public class ResourceReportDto   {
-  @JsonProperty("errors")
   @Valid
-  private List<ProblemDto> errors = null;
+  private List<@Valid ProblemDto> errors;
 
-  @JsonProperty("warnings")
   @Valid
-  private List<ProblemDto> warnings = null;
+  private List<@Valid ProblemDto> warnings;
 
-  public ResourceReportDto errors(List<ProblemDto> errors) {
+  public ResourceReportDto errors(List<@Valid ProblemDto> errors) {
     this.errors = errors;
     return this;
   }
@@ -40,18 +45,19 @@ public class ResourceReportDto   {
   /**
    * A list of errors occurred during parsing.
    * @return errors
-   **/
-  @Schema(description = "A list of errors occurred during parsing.")
-      @Valid
-    public List<ProblemDto> getErrors() {
+  */
+  @Valid 
+  @Schema(name = "errors", description = "A list of errors occurred during parsing.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("errors")
+  public List<@Valid ProblemDto> getErrors() {
     return errors;
   }
 
-  public void setErrors(List<ProblemDto> errors) {
+  public void setErrors(List<@Valid ProblemDto> errors) {
     this.errors = errors;
   }
 
-  public ResourceReportDto warnings(List<ProblemDto> warnings) {
+  public ResourceReportDto warnings(List<@Valid ProblemDto> warnings) {
     this.warnings = warnings;
     return this;
   }
@@ -67,17 +73,17 @@ public class ResourceReportDto   {
   /**
    * A list of warnings occurred during parsing.
    * @return warnings
-   **/
-  @Schema(description = "A list of warnings occurred during parsing.")
-      @Valid
-    public List<ProblemDto> getWarnings() {
+  */
+  @Valid 
+  @Schema(name = "warnings", description = "A list of warnings occurred during parsing.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("warnings")
+  public List<@Valid ProblemDto> getWarnings() {
     return warnings;
   }
 
-  public void setWarnings(List<ProblemDto> warnings) {
+  public void setWarnings(List<@Valid ProblemDto> warnings) {
     this.warnings = warnings;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -101,7 +107,6 @@ public class ResourceReportDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResourceReportDto {\n");
-    
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("}");
@@ -119,3 +124,4 @@ public class ResourceReportDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

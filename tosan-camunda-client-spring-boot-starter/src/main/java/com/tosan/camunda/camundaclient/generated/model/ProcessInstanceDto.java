@@ -1,44 +1,57 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.AtomLink;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * ProcessInstanceDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ProcessInstanceDto {
 
-public class ProcessInstanceDto   {
+  private String id = null;
 
-  private String id;
+  private String definitionId = null;
 
-  private String definitionId;
+  private String businessKey = null;
 
-  private String businessKey;
+  private String caseInstanceId = null;
 
-  private String caseInstanceId;
+  private Boolean ended = null;
 
-  private Boolean ended;
+  private Boolean suspended = null;
 
-  private Boolean suspended;
+  private String tenantId = null;
 
-  private String tenantId;
-  @JsonProperty("links")
   @Valid
-  private List<AtomLink> links = null;
+  private List<@Valid AtomLink> links;
 
-  public ProcessInstanceDto links(List<AtomLink> links) {
-    this.links = links;
+  public ProcessInstanceDto id(String id) {
+    this.id = id;
     return this;
   }
 
+  /**
+   * The id of the process instance.
+   * @return id
+  */
+  
+  @Schema(name = "id", description = "The id of the process instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
   public String getId() {
     return id;
   }
@@ -47,6 +60,18 @@ public class ProcessInstanceDto   {
     this.id = id;
   }
 
+  public ProcessInstanceDto definitionId(String definitionId) {
+    this.definitionId = definitionId;
+    return this;
+  }
+
+  /**
+   * The id of the process definition that this process instance belongs to.
+   * @return definitionId
+  */
+  
+  @Schema(name = "definitionId", description = "The id of the process definition that this process instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("definitionId")
   public String getDefinitionId() {
     return definitionId;
   }
@@ -55,6 +80,18 @@ public class ProcessInstanceDto   {
     this.definitionId = definitionId;
   }
 
+  public ProcessInstanceDto businessKey(String businessKey) {
+    this.businessKey = businessKey;
+    return this;
+  }
+
+  /**
+   * The business key of the process instance.
+   * @return businessKey
+  */
+  
+  @Schema(name = "businessKey", description = "The business key of the process instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("businessKey")
   public String getBusinessKey() {
     return businessKey;
   }
@@ -63,6 +100,18 @@ public class ProcessInstanceDto   {
     this.businessKey = businessKey;
   }
 
+  public ProcessInstanceDto caseInstanceId(String caseInstanceId) {
+    this.caseInstanceId = caseInstanceId;
+    return this;
+  }
+
+  /**
+   * The id of the case instance associated with the process instance.
+   * @return caseInstanceId
+  */
+  
+  @Schema(name = "caseInstanceId", description = "The id of the case instance associated with the process instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceId")
   public String getCaseInstanceId() {
     return caseInstanceId;
   }
@@ -71,6 +120,18 @@ public class ProcessInstanceDto   {
     this.caseInstanceId = caseInstanceId;
   }
 
+  public ProcessInstanceDto ended(Boolean ended) {
+    this.ended = ended;
+    return this;
+  }
+
+  /**
+   * A flag indicating whether the process instance has ended or not. Deprecated: will always be false!
+   * @return ended
+  */
+  
+  @Schema(name = "ended", description = "A flag indicating whether the process instance has ended or not. Deprecated: will always be false!", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("ended")
   public Boolean getEnded() {
     return ended;
   }
@@ -79,6 +140,18 @@ public class ProcessInstanceDto   {
     this.ended = ended;
   }
 
+  public ProcessInstanceDto suspended(Boolean suspended) {
+    this.suspended = suspended;
+    return this;
+  }
+
+  /**
+   * A flag indicating whether the process instance is suspended or not.
+   * @return suspended
+  */
+  
+  @Schema(name = "suspended", description = "A flag indicating whether the process instance is suspended or not.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("suspended")
   public Boolean getSuspended() {
     return suspended;
   }
@@ -87,12 +160,29 @@ public class ProcessInstanceDto   {
     this.suspended = suspended;
   }
 
+  public ProcessInstanceDto tenantId(String tenantId) {
+    this.tenantId = tenantId;
+    return this;
+  }
+
+  /**
+   * The tenant id of the process instance.
+   * @return tenantId
+  */
+  
+  @Schema(name = "tenantId", description = "The tenant id of the process instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
   public String getTenantId() {
     return tenantId;
   }
 
   public void setTenantId(String tenantId) {
     this.tenantId = tenantId;
+  }
+
+  public ProcessInstanceDto links(List<@Valid AtomLink> links) {
+    this.links = links;
+    return this;
   }
 
   public ProcessInstanceDto addLinksItem(AtomLink linksItem) {
@@ -106,23 +196,35 @@ public class ProcessInstanceDto   {
   /**
    * The links associated to this resource, with `method`, `href` and `rel`.
    * @return links
-   **/
-  @Schema(description = "The links associated to this resource, with `method`, `href` and `rel`.")
-      @Valid
-    public List<AtomLink> getLinks() {
+  */
+  @Valid 
+  @Schema(name = "links", description = "The links associated to this resource, with `method`, `href` and `rel`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("links")
+  public List<@Valid AtomLink> getLinks() {
     return links;
   }
 
-  public void setLinks(List<AtomLink> links) {
+  public void setLinks(List<@Valid AtomLink> links) {
     this.links = links;
   }
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    ProcessInstanceDto that = (ProcessInstanceDto) o;
-    return Objects.equals(id, that.id) && Objects.equals(definitionId, that.definitionId) && Objects.equals(businessKey, that.businessKey) && Objects.equals(caseInstanceId, that.caseInstanceId) && Objects.equals(ended, that.ended) && Objects.equals(suspended, that.suspended) && Objects.equals(tenantId, that.tenantId) && Objects.equals(links, that.links);
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    ProcessInstanceDto processInstanceDto = (ProcessInstanceDto) o;
+    return Objects.equals(this.id, processInstanceDto.id) &&
+        Objects.equals(this.definitionId, processInstanceDto.definitionId) &&
+        Objects.equals(this.businessKey, processInstanceDto.businessKey) &&
+        Objects.equals(this.caseInstanceId, processInstanceDto.caseInstanceId) &&
+        Objects.equals(this.ended, processInstanceDto.ended) &&
+        Objects.equals(this.suspended, processInstanceDto.suspended) &&
+        Objects.equals(this.tenantId, processInstanceDto.tenantId) &&
+        Objects.equals(this.links, processInstanceDto.links);
   }
 
   @Override
@@ -132,16 +234,18 @@ public class ProcessInstanceDto   {
 
   @Override
   public String toString() {
-    return "ProcessInstanceDto{" +
-            "id='" + id + '\'' +
-            ", definitionId='" + definitionId + '\'' +
-            ", businessKey='" + businessKey + '\'' +
-            ", caseInstanceId='" + caseInstanceId + '\'' +
-            ", ended=" + ended +
-            ", suspended=" + suspended +
-            ", tenantId='" + tenantId + '\'' +
-            ", links=" + links +
-            '}';
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ProcessInstanceDto {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    definitionId: ").append(toIndentedString(definitionId)).append("\n");
+    sb.append("    businessKey: ").append(toIndentedString(businessKey)).append("\n");
+    sb.append("    caseInstanceId: ").append(toIndentedString(caseInstanceId)).append("\n");
+    sb.append("    ended: ").append(toIndentedString(ended)).append("\n");
+    sb.append("    suspended: ").append(toIndentedString(suspended)).append("\n");
+    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
+    sb.append("    links: ").append(toIndentedString(links)).append("\n");
+    sb.append("}");
+    return sb.toString();
   }
 
   /**
@@ -155,3 +259,4 @@ public class ProcessInstanceDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

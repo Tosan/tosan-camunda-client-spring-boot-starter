@@ -1,22 +1,27 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * DecisionDefinitionDiagramDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class DecisionDefinitionDiagramDto {
 
-public class DecisionDefinitionDiagramDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("dmnXml")
   private String dmnXml = null;
 
   public DecisionDefinitionDiagramDto id(String id) {
@@ -27,10 +32,11 @@ public class DecisionDefinitionDiagramDto   {
   /**
    * The id of the decision definition.
    * @return id
-   **/
-  @Schema(description = "The id of the decision definition.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the decision definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -46,17 +52,17 @@ public class DecisionDefinitionDiagramDto   {
   /**
    * An escaped XML string containing the XML that this decision definition was deployed with. Carriage returns, line feeds and quotation marks are escaped.
    * @return dmnXml
-   **/
-  @Schema(description = "An escaped XML string containing the XML that this decision definition was deployed with. Carriage returns, line feeds and quotation marks are escaped.")
+  */
   
-    public String getDmnXml() {
+  @Schema(name = "dmnXml", description = "An escaped XML string containing the XML that this decision definition was deployed with. Carriage returns, line feeds and quotation marks are escaped.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("dmnXml")
+  public String getDmnXml() {
     return dmnXml;
   }
 
   public void setDmnXml(String dmnXml) {
     this.dmnXml = dmnXml;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -80,7 +86,6 @@ public class DecisionDefinitionDiagramDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DecisionDefinitionDiagramDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    dmnXml: ").append(toIndentedString(dmnXml)).append("\n");
     sb.append("}");
@@ -98,3 +103,4 @@ public class DecisionDefinitionDiagramDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

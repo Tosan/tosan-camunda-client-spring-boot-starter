@@ -1,29 +1,33 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.HistoricDecisionInstanceQueryDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * DeleteHistoricDecisionInstancesDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class DeleteHistoricDecisionInstancesDto {
 
-public class DeleteHistoricDecisionInstancesDto   {
-  @JsonProperty("historicDecisionInstanceIds")
   @Valid
-  private List<String> historicDecisionInstanceIds = null;
+  private List<String> historicDecisionInstanceIds;
 
-  @JsonProperty("historicDecisionInstanceQuery")
-  private HistoricDecisionInstanceQueryDto historicDecisionInstanceQuery = null;
+  private HistoricDecisionInstanceQueryDto historicDecisionInstanceQuery;
 
-  @JsonProperty("deleteReason")
   private String deleteReason = null;
 
   public DeleteHistoricDecisionInstancesDto historicDecisionInstanceIds(List<String> historicDecisionInstanceIds) {
@@ -42,10 +46,11 @@ public class DeleteHistoricDecisionInstancesDto   {
   /**
    * A list of historic decision instance ids to delete.
    * @return historicDecisionInstanceIds
-   **/
-  @Schema(description = "A list of historic decision instance ids to delete.")
+  */
   
-    public List<String> getHistoricDecisionInstanceIds() {
+  @Schema(name = "historicDecisionInstanceIds", description = "A list of historic decision instance ids to delete.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historicDecisionInstanceIds")
+  public List<String> getHistoricDecisionInstanceIds() {
     return historicDecisionInstanceIds;
   }
 
@@ -61,11 +66,11 @@ public class DeleteHistoricDecisionInstancesDto   {
   /**
    * Get historicDecisionInstanceQuery
    * @return historicDecisionInstanceQuery
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public HistoricDecisionInstanceQueryDto getHistoricDecisionInstanceQuery() {
+  */
+  @Valid 
+  @Schema(name = "historicDecisionInstanceQuery", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historicDecisionInstanceQuery")
+  public HistoricDecisionInstanceQueryDto getHistoricDecisionInstanceQuery() {
     return historicDecisionInstanceQuery;
   }
 
@@ -81,17 +86,17 @@ public class DeleteHistoricDecisionInstancesDto   {
   /**
    * A string with delete reason.
    * @return deleteReason
-   **/
-  @Schema(description = "A string with delete reason.")
+  */
   
-    public String getDeleteReason() {
+  @Schema(name = "deleteReason", description = "A string with delete reason.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deleteReason")
+  public String getDeleteReason() {
     return deleteReason;
   }
 
   public void setDeleteReason(String deleteReason) {
     this.deleteReason = deleteReason;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -116,7 +121,6 @@ public class DeleteHistoricDecisionInstancesDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteHistoricDecisionInstancesDto {\n");
-    
     sb.append("    historicDecisionInstanceIds: ").append(toIndentedString(historicDecisionInstanceIds)).append("\n");
     sb.append("    historicDecisionInstanceQuery: ").append(toIndentedString(historicDecisionInstanceQuery)).append("\n");
     sb.append("    deleteReason: ").append(toIndentedString(deleteReason)).append("\n");
@@ -135,3 +139,4 @@ public class DeleteHistoricDecisionInstancesDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

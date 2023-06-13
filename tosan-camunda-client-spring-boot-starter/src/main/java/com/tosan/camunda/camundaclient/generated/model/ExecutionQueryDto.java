@@ -1,82 +1,71 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.ExecutionQueryDtoSortingInner;
+import com.tosan.camunda.camundaclient.generated.model.VariableQueryParameterDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A Execution instance query which defines a list of Execution instances
  */
-@Schema(description = "A Execution instance query which defines a list of Execution instances")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "ExecutionQueryDto", description = "A Execution instance query which defines a list of Execution instances")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ExecutionQueryDto {
 
-public class ExecutionQueryDto   {
-  @JsonProperty("businessKey")
   private String businessKey = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("activityId")
   private String activityId = null;
 
-  @JsonProperty("signalEventSubscriptionName")
   private String signalEventSubscriptionName = null;
 
-  @JsonProperty("messageEventSubscriptionName")
   private String messageEventSubscriptionName = null;
 
-  @JsonProperty("active")
   private Boolean active = null;
 
-  @JsonProperty("suspended")
   private Boolean suspended = null;
 
-  @JsonProperty("incidentId")
   private String incidentId = null;
 
-  @JsonProperty("incidentType")
   private String incidentType = null;
 
-  @JsonProperty("incidentMessage")
   private String incidentMessage = null;
 
-  @JsonProperty("incidentMessageLike")
   private String incidentMessageLike = null;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("variables")
   @Valid
-  private List<VariableQueryParameterDto> variables = null;
+  private List<@Valid VariableQueryParameterDto> variables;
 
-  @JsonProperty("processVariables")
   @Valid
-  private List<VariableQueryParameterDto> processVariables = null;
+  private List<@Valid VariableQueryParameterDto> processVariables;
 
-  @JsonProperty("variableNamesIgnoreCase")
   private Boolean variableNamesIgnoreCase = null;
 
-  @JsonProperty("variableValuesIgnoreCase")
   private Boolean variableValuesIgnoreCase = null;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<ExecutionQueryDtoSorting> sorting = null;
+  private List<@Valid ExecutionQueryDtoSortingInner> sorting;
 
   public ExecutionQueryDto businessKey(String businessKey) {
     this.businessKey = businessKey;
@@ -86,10 +75,11 @@ public class ExecutionQueryDto   {
   /**
    * Filter by the business key of the process instances the executions belong to.
    * @return businessKey
-   **/
-  @Schema(description = "Filter by the business key of the process instances the executions belong to.")
+  */
   
-    public String getBusinessKey() {
+  @Schema(name = "businessKey", description = "Filter by the business key of the process instances the executions belong to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("businessKey")
+  public String getBusinessKey() {
     return businessKey;
   }
 
@@ -105,10 +95,11 @@ public class ExecutionQueryDto   {
   /**
    * Filter by the process definition the executions run on.
    * @return processDefinitionId
-   **/
-  @Schema(description = "Filter by the process definition the executions run on.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "Filter by the process definition the executions run on.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -124,10 +115,11 @@ public class ExecutionQueryDto   {
   /**
    * Filter by the key of the process definition the executions run on.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "Filter by the key of the process definition the executions run on.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "Filter by the key of the process definition the executions run on.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -143,10 +135,11 @@ public class ExecutionQueryDto   {
   /**
    * Filter by the id of the process instance the execution belongs to.
    * @return processInstanceId
-   **/
-  @Schema(description = "Filter by the id of the process instance the execution belongs to.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "Filter by the id of the process instance the execution belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -162,10 +155,11 @@ public class ExecutionQueryDto   {
   /**
    * Filter by the id of the activity the execution currently executes.
    * @return activityId
-   **/
-  @Schema(description = "Filter by the id of the activity the execution currently executes.")
+  */
   
-    public String getActivityId() {
+  @Schema(name = "activityId", description = "Filter by the id of the activity the execution currently executes.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityId")
+  public String getActivityId() {
     return activityId;
   }
 
@@ -181,10 +175,11 @@ public class ExecutionQueryDto   {
   /**
    * Select only those executions that expect a signal of the given name.
    * @return signalEventSubscriptionName
-   **/
-  @Schema(description = "Select only those executions that expect a signal of the given name.")
+  */
   
-    public String getSignalEventSubscriptionName() {
+  @Schema(name = "signalEventSubscriptionName", description = "Select only those executions that expect a signal of the given name.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("signalEventSubscriptionName")
+  public String getSignalEventSubscriptionName() {
     return signalEventSubscriptionName;
   }
 
@@ -200,10 +195,11 @@ public class ExecutionQueryDto   {
   /**
    * Select only those executions that expect a message of the given name.
    * @return messageEventSubscriptionName
-   **/
-  @Schema(description = "Select only those executions that expect a message of the given name.")
+  */
   
-    public String getMessageEventSubscriptionName() {
+  @Schema(name = "messageEventSubscriptionName", description = "Select only those executions that expect a message of the given name.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("messageEventSubscriptionName")
+  public String getMessageEventSubscriptionName() {
     return messageEventSubscriptionName;
   }
 
@@ -219,10 +215,11 @@ public class ExecutionQueryDto   {
   /**
    * Only include active executions. Value may only be `true`, as `false` is the default behavior.
    * @return active
-   **/
-  @Schema(description = "Only include active executions. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isActive() {
+  @Schema(name = "active", description = "Only include active executions. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("active")
+  public Boolean getActive() {
     return active;
   }
 
@@ -238,10 +235,11 @@ public class ExecutionQueryDto   {
   /**
    * Only include suspended executions. Value may only be `true`, as `false` is the default behavior.
    * @return suspended
-   **/
-  @Schema(description = "Only include suspended executions. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isSuspended() {
+  @Schema(name = "suspended", description = "Only include suspended executions. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("suspended")
+  public Boolean getSuspended() {
     return suspended;
   }
 
@@ -257,10 +255,11 @@ public class ExecutionQueryDto   {
   /**
    * Filter by the incident id.
    * @return incidentId
-   **/
-  @Schema(description = "Filter by the incident id.")
+  */
   
-    public String getIncidentId() {
+  @Schema(name = "incidentId", description = "Filter by the incident id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentId")
+  public String getIncidentId() {
     return incidentId;
   }
 
@@ -276,10 +275,11 @@ public class ExecutionQueryDto   {
   /**
    * Filter by the incident type. See the [User Guide](/manual/develop/user-guide/process-engine/incidents/#incident-types) for a list of incident types.
    * @return incidentType
-   **/
-  @Schema(description = "Filter by the incident type. See the [User Guide](/manual/develop/user-guide/process-engine/incidents/#incident-types) for a list of incident types.")
+  */
   
-    public String getIncidentType() {
+  @Schema(name = "incidentType", description = "Filter by the incident type. See the [User Guide](/manual/develop/user-guide/process-engine/incidents/#incident-types) for a list of incident types.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentType")
+  public String getIncidentType() {
     return incidentType;
   }
 
@@ -295,10 +295,11 @@ public class ExecutionQueryDto   {
   /**
    * Filter by the incident message. Exact match.
    * @return incidentMessage
-   **/
-  @Schema(description = "Filter by the incident message. Exact match.")
+  */
   
-    public String getIncidentMessage() {
+  @Schema(name = "incidentMessage", description = "Filter by the incident message. Exact match.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentMessage")
+  public String getIncidentMessage() {
     return incidentMessage;
   }
 
@@ -314,10 +315,11 @@ public class ExecutionQueryDto   {
   /**
    * Filter by the incident message that the parameter is a substring of.
    * @return incidentMessageLike
-   **/
-  @Schema(description = "Filter by the incident message that the parameter is a substring of.")
+  */
   
-    public String getIncidentMessageLike() {
+  @Schema(name = "incidentMessageLike", description = "Filter by the incident message that the parameter is a substring of.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentMessageLike")
+  public String getIncidentMessageLike() {
     return incidentMessageLike;
   }
 
@@ -341,10 +343,11 @@ public class ExecutionQueryDto   {
   /**
    * Filter by a  list of tenant ids. An execution must have one of the given tenant ids.
    * @return tenantIdIn
-   **/
-  @Schema(description = "Filter by a  list of tenant ids. An execution must have one of the given tenant ids.")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Filter by a  list of tenant ids. An execution must have one of the given tenant ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -352,7 +355,7 @@ public class ExecutionQueryDto   {
     this.tenantIdIn = tenantIdIn;
   }
 
-  public ExecutionQueryDto variables(List<VariableQueryParameterDto> variables) {
+  public ExecutionQueryDto variables(List<@Valid VariableQueryParameterDto> variables) {
     this.variables = variables;
     return this;
   }
@@ -368,18 +371,19 @@ public class ExecutionQueryDto   {
   /**
    * An array to only include executions that have variables with certain values.  The array consists of objects with the three properties `name`, `operator` and `value`. `name (String)` is the variable name, `operator (String)` is the comparison operator to be used and `value` the variable value. `value` may be `String`, `Number` or `Boolean`.  Valid operator values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`.
    * @return variables
-   **/
-  @Schema(description = "An array to only include executions that have variables with certain values.  The array consists of objects with the three properties `name`, `operator` and `value`. `name (String)` is the variable name, `operator (String)` is the comparison operator to be used and `value` the variable value. `value` may be `String`, `Number` or `Boolean`.  Valid operator values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`.")
-      @Valid
-    public List<VariableQueryParameterDto> getVariables() {
+  */
+  @Valid 
+  @Schema(name = "variables", description = "An array to only include executions that have variables with certain values.  The array consists of objects with the three properties `name`, `operator` and `value`. `name (String)` is the variable name, `operator (String)` is the comparison operator to be used and `value` the variable value. `value` may be `String`, `Number` or `Boolean`.  Valid operator values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variables")
+  public List<@Valid VariableQueryParameterDto> getVariables() {
     return variables;
   }
 
-  public void setVariables(List<VariableQueryParameterDto> variables) {
+  public void setVariables(List<@Valid VariableQueryParameterDto> variables) {
     this.variables = variables;
   }
 
-  public ExecutionQueryDto processVariables(List<VariableQueryParameterDto> processVariables) {
+  public ExecutionQueryDto processVariables(List<@Valid VariableQueryParameterDto> processVariables) {
     this.processVariables = processVariables;
     return this;
   }
@@ -395,14 +399,15 @@ public class ExecutionQueryDto   {
   /**
    * An array to only include executions that belong to a process instance with variables with certain values.  The array consists of objects with the three properties `name`, `operator` and `value`. `name (String)` is the variable name, `operator (String)` is the comparison operator to be used and `value` the variable value. `value` may be `String`, `Number` or `Boolean`.  Valid operator values are: `eq` - equal to; `neq` - not equal to.
    * @return processVariables
-   **/
-  @Schema(description = "An array to only include executions that belong to a process instance with variables with certain values.  The array consists of objects with the three properties `name`, `operator` and `value`. `name (String)` is the variable name, `operator (String)` is the comparison operator to be used and `value` the variable value. `value` may be `String`, `Number` or `Boolean`.  Valid operator values are: `eq` - equal to; `neq` - not equal to.")
-      @Valid
-    public List<VariableQueryParameterDto> getProcessVariables() {
+  */
+  @Valid 
+  @Schema(name = "processVariables", description = "An array to only include executions that belong to a process instance with variables with certain values.  The array consists of objects with the three properties `name`, `operator` and `value`. `name (String)` is the variable name, `operator (String)` is the comparison operator to be used and `value` the variable value. `value` may be `String`, `Number` or `Boolean`.  Valid operator values are: `eq` - equal to; `neq` - not equal to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processVariables")
+  public List<@Valid VariableQueryParameterDto> getProcessVariables() {
     return processVariables;
   }
 
-  public void setProcessVariables(List<VariableQueryParameterDto> processVariables) {
+  public void setProcessVariables(List<@Valid VariableQueryParameterDto> processVariables) {
     this.processVariables = processVariables;
   }
 
@@ -414,10 +419,11 @@ public class ExecutionQueryDto   {
   /**
    * Match all variable names provided in `variables` and `processVariables` case- insensitively. If set to `true` **variableName** and **variablename** are treated as equal.
    * @return variableNamesIgnoreCase
-   **/
-  @Schema(description = "Match all variable names provided in `variables` and `processVariables` case- insensitively. If set to `true` **variableName** and **variablename** are treated as equal.")
+  */
   
-    public Boolean isVariableNamesIgnoreCase() {
+  @Schema(name = "variableNamesIgnoreCase", description = "Match all variable names provided in `variables` and `processVariables` case- insensitively. If set to `true` **variableName** and **variablename** are treated as equal.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableNamesIgnoreCase")
+  public Boolean getVariableNamesIgnoreCase() {
     return variableNamesIgnoreCase;
   }
 
@@ -433,10 +439,11 @@ public class ExecutionQueryDto   {
   /**
    * Match all variable values provided in `variables` and `processVariables` case- insensitively. If set to `true` **variableValue** and **variablevalue** are treated as equal.
    * @return variableValuesIgnoreCase
-   **/
-  @Schema(description = "Match all variable values provided in `variables` and `processVariables` case- insensitively. If set to `true` **variableValue** and **variablevalue** are treated as equal.")
+  */
   
-    public Boolean isVariableValuesIgnoreCase() {
+  @Schema(name = "variableValuesIgnoreCase", description = "Match all variable values provided in `variables` and `processVariables` case- insensitively. If set to `true` **variableValue** and **variablevalue** are treated as equal.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableValuesIgnoreCase")
+  public Boolean getVariableValuesIgnoreCase() {
     return variableValuesIgnoreCase;
   }
 
@@ -444,12 +451,12 @@ public class ExecutionQueryDto   {
     this.variableValuesIgnoreCase = variableValuesIgnoreCase;
   }
 
-  public ExecutionQueryDto sorting(List<ExecutionQueryDtoSorting> sorting) {
+  public ExecutionQueryDto sorting(List<@Valid ExecutionQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public ExecutionQueryDto addSortingItem(ExecutionQueryDtoSorting sortingItem) {
+  public ExecutionQueryDto addSortingItem(ExecutionQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -460,17 +467,17 @@ public class ExecutionQueryDto   {
   /**
    * An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Has no effect for the `/count` endpoint
    * @return sorting
-   **/
-  @Schema(description = "An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Has no effect for the `/count` endpoint")
-      @Valid
-    public List<ExecutionQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Has no effect for the `/count` endpoint", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid ExecutionQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<ExecutionQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid ExecutionQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -511,7 +518,6 @@ public class ExecutionQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExecutionQueryDto {\n");
-    
     sb.append("    businessKey: ").append(toIndentedString(businessKey)).append("\n");
     sb.append("    processDefinitionId: ").append(toIndentedString(processDefinitionId)).append("\n");
     sb.append("    processDefinitionKey: ").append(toIndentedString(processDefinitionKey)).append("\n");
@@ -546,3 +552,4 @@ public class ExecutionQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

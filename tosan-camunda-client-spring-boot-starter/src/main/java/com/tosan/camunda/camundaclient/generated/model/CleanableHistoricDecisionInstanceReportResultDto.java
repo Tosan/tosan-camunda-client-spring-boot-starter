@@ -1,40 +1,39 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * CleanableHistoricDecisionInstanceReportResultDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class CleanableHistoricDecisionInstanceReportResultDto {
 
-public class CleanableHistoricDecisionInstanceReportResultDto   {
-  @JsonProperty("decisionDefinitionId")
   private String decisionDefinitionId = null;
 
-  @JsonProperty("decisionDefinitionKey")
   private String decisionDefinitionKey = null;
 
-  @JsonProperty("decisionDefinitionName")
   private String decisionDefinitionName = null;
 
-  @JsonProperty("decisionDefinitionVersion")
   private Integer decisionDefinitionVersion = null;
 
-  @JsonProperty("historyTimeToLive")
   private Integer historyTimeToLive = null;
 
-  @JsonProperty("finishedDecisionInstanceCount")
   private Long finishedDecisionInstanceCount = null;
 
-  @JsonProperty("cleanableDecisionInstanceCount")
   private Long cleanableDecisionInstanceCount = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
   public CleanableHistoricDecisionInstanceReportResultDto decisionDefinitionId(String decisionDefinitionId) {
@@ -45,10 +44,11 @@ public class CleanableHistoricDecisionInstanceReportResultDto   {
   /**
    * The id of the decision definition.
    * @return decisionDefinitionId
-   **/
-  @Schema(description = "The id of the decision definition.")
+  */
   
-    public String getDecisionDefinitionId() {
+  @Schema(name = "decisionDefinitionId", description = "The id of the decision definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionDefinitionId")
+  public String getDecisionDefinitionId() {
     return decisionDefinitionId;
   }
 
@@ -64,10 +64,11 @@ public class CleanableHistoricDecisionInstanceReportResultDto   {
   /**
    * The key of the decision definition.
    * @return decisionDefinitionKey
-   **/
-  @Schema(description = "The key of the decision definition.")
+  */
   
-    public String getDecisionDefinitionKey() {
+  @Schema(name = "decisionDefinitionKey", description = "The key of the decision definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionDefinitionKey")
+  public String getDecisionDefinitionKey() {
     return decisionDefinitionKey;
   }
 
@@ -83,10 +84,11 @@ public class CleanableHistoricDecisionInstanceReportResultDto   {
   /**
    * The name of the decision definition.
    * @return decisionDefinitionName
-   **/
-  @Schema(description = "The name of the decision definition.")
+  */
   
-    public String getDecisionDefinitionName() {
+  @Schema(name = "decisionDefinitionName", description = "The name of the decision definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionDefinitionName")
+  public String getDecisionDefinitionName() {
     return decisionDefinitionName;
   }
 
@@ -102,10 +104,11 @@ public class CleanableHistoricDecisionInstanceReportResultDto   {
   /**
    * The version of the decision definition.
    * @return decisionDefinitionVersion
-   **/
-  @Schema(description = "The version of the decision definition.")
+  */
   
-    public Integer getDecisionDefinitionVersion() {
+  @Schema(name = "decisionDefinitionVersion", description = "The version of the decision definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionDefinitionVersion")
+  public Integer getDecisionDefinitionVersion() {
     return decisionDefinitionVersion;
   }
 
@@ -121,10 +124,11 @@ public class CleanableHistoricDecisionInstanceReportResultDto   {
   /**
    * The history time to live of the decision definition.
    * @return historyTimeToLive
-   **/
-  @Schema(description = "The history time to live of the decision definition.")
+  */
   
-    public Integer getHistoryTimeToLive() {
+  @Schema(name = "historyTimeToLive", description = "The history time to live of the decision definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historyTimeToLive")
+  public Integer getHistoryTimeToLive() {
     return historyTimeToLive;
   }
 
@@ -140,10 +144,11 @@ public class CleanableHistoricDecisionInstanceReportResultDto   {
   /**
    * The count of the finished historic decision instances.
    * @return finishedDecisionInstanceCount
-   **/
-  @Schema(description = "The count of the finished historic decision instances.")
+  */
   
-    public Long getFinishedDecisionInstanceCount() {
+  @Schema(name = "finishedDecisionInstanceCount", description = "The count of the finished historic decision instances.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("finishedDecisionInstanceCount")
+  public Long getFinishedDecisionInstanceCount() {
     return finishedDecisionInstanceCount;
   }
 
@@ -159,10 +164,11 @@ public class CleanableHistoricDecisionInstanceReportResultDto   {
   /**
    * The count of the cleanable historic decision instances, referring to history time to live.
    * @return cleanableDecisionInstanceCount
-   **/
-  @Schema(description = "The count of the cleanable historic decision instances, referring to history time to live.")
+  */
   
-    public Long getCleanableDecisionInstanceCount() {
+  @Schema(name = "cleanableDecisionInstanceCount", description = "The count of the cleanable historic decision instances, referring to history time to live.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("cleanableDecisionInstanceCount")
+  public Long getCleanableDecisionInstanceCount() {
     return cleanableDecisionInstanceCount;
   }
 
@@ -178,17 +184,17 @@ public class CleanableHistoricDecisionInstanceReportResultDto   {
   /**
    * The tenant id of the decision definition.
    * @return tenantId
-   **/
-  @Schema(description = "The tenant id of the decision definition.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The tenant id of the decision definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
   public void setTenantId(String tenantId) {
     this.tenantId = tenantId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -218,7 +224,6 @@ public class CleanableHistoricDecisionInstanceReportResultDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CleanableHistoricDecisionInstanceReportResultDto {\n");
-    
     sb.append("    decisionDefinitionId: ").append(toIndentedString(decisionDefinitionId)).append("\n");
     sb.append("    decisionDefinitionKey: ").append(toIndentedString(decisionDefinitionKey)).append("\n");
     sb.append("    decisionDefinitionName: ").append(toIndentedString(decisionDefinitionName)).append("\n");
@@ -242,3 +247,4 @@ public class CleanableHistoricDecisionInstanceReportResultDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

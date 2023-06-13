@@ -1,93 +1,81 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.ExternalTaskQueryDtoSortingInner;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A JSON object with the following properties:
  */
-@Schema(description = "A JSON object with the following properties:")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "ExternalTaskQueryDto", description = "A JSON object with the following properties:")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ExternalTaskQueryDto {
 
-public class ExternalTaskQueryDto   {
-  @JsonProperty("externalTaskId")
   private String externalTaskId = null;
 
-  @JsonProperty("externalTaskIdIn")
   @Valid
-  private List<String> externalTaskIdIn = null;
+  private List<String> externalTaskIdIn;
 
-  @JsonProperty("topicName")
   private String topicName = null;
 
-  @JsonProperty("workerId")
   private String workerId = null;
 
-  @JsonProperty("locked")
   private Boolean locked = null;
 
-  @JsonProperty("notLocked")
   private Boolean notLocked = null;
 
-  @JsonProperty("withRetriesLeft")
   private Boolean withRetriesLeft = null;
 
-  @JsonProperty("noRetriesLeft")
   private Boolean noRetriesLeft = null;
 
-  @JsonProperty("lockExpirationAfter")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime lockExpirationAfter = null;
 
-  @JsonProperty("lockExpirationBefore")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime lockExpirationBefore = null;
 
-  @JsonProperty("activityId")
   private String activityId = null;
 
-  @JsonProperty("activityIdIn")
   @Valid
-  private List<String> activityIdIn = null;
+  private List<String> activityIdIn;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("processInstanceIdIn")
   @Valid
-  private List<String> processInstanceIdIn = null;
+  private List<String> processInstanceIdIn;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("active")
   private Boolean active = null;
 
-  @JsonProperty("suspended")
   private Boolean suspended = null;
 
-  @JsonProperty("priorityHigherThanOrEquals")
   private Long priorityHigherThanOrEquals = null;
 
-  @JsonProperty("priorityLowerThanOrEquals")
   private Long priorityLowerThanOrEquals = null;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<ExternalTaskQueryDtoSorting> sorting = null;
+  private List<@Valid ExternalTaskQueryDtoSortingInner> sorting;
 
   public ExternalTaskQueryDto externalTaskId(String externalTaskId) {
     this.externalTaskId = externalTaskId;
@@ -97,10 +85,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Filter by an external task's id.
    * @return externalTaskId
-   **/
-  @Schema(description = "Filter by an external task's id.")
+  */
   
-    public String getExternalTaskId() {
+  @Schema(name = "externalTaskId", description = "Filter by an external task's id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("externalTaskId")
+  public String getExternalTaskId() {
     return externalTaskId;
   }
 
@@ -124,10 +113,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Filter by the comma-separated list of external task ids.
    * @return externalTaskIdIn
-   **/
-  @Schema(description = "Filter by the comma-separated list of external task ids.")
+  */
   
-    public List<String> getExternalTaskIdIn() {
+  @Schema(name = "externalTaskIdIn", description = "Filter by the comma-separated list of external task ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("externalTaskIdIn")
+  public List<String> getExternalTaskIdIn() {
     return externalTaskIdIn;
   }
 
@@ -143,10 +133,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Filter by an external task topic.
    * @return topicName
-   **/
-  @Schema(description = "Filter by an external task topic.")
+  */
   
-    public String getTopicName() {
+  @Schema(name = "topicName", description = "Filter by an external task topic.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("topicName")
+  public String getTopicName() {
     return topicName;
   }
 
@@ -162,10 +153,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Filter by the id of the worker that the task was most recently locked by.
    * @return workerId
-   **/
-  @Schema(description = "Filter by the id of the worker that the task was most recently locked by.")
+  */
   
-    public String getWorkerId() {
+  @Schema(name = "workerId", description = "Filter by the id of the worker that the task was most recently locked by.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("workerId")
+  public String getWorkerId() {
     return workerId;
   }
 
@@ -181,10 +173,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Only include external tasks that are currently locked (i.e., they have a lock time and it has not expired). Value may only be `true`, as `false` matches any external task.
    * @return locked
-   **/
-  @Schema(description = "Only include external tasks that are currently locked (i.e., they have a lock time and it has not expired). Value may only be `true`, as `false` matches any external task.")
+  */
   
-    public Boolean isLocked() {
+  @Schema(name = "locked", description = "Only include external tasks that are currently locked (i.e., they have a lock time and it has not expired). Value may only be `true`, as `false` matches any external task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("locked")
+  public Boolean getLocked() {
     return locked;
   }
 
@@ -200,10 +193,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Only include external tasks that are currently not locked (i.e., they have no lock or it has expired). Value may only be `true`, as `false` matches any external task.
    * @return notLocked
-   **/
-  @Schema(description = "Only include external tasks that are currently not locked (i.e., they have no lock or it has expired). Value may only be `true`, as `false` matches any external task.")
+  */
   
-    public Boolean isNotLocked() {
+  @Schema(name = "notLocked", description = "Only include external tasks that are currently not locked (i.e., they have no lock or it has expired). Value may only be `true`, as `false` matches any external task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("notLocked")
+  public Boolean getNotLocked() {
     return notLocked;
   }
 
@@ -219,10 +213,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Only include external tasks that have a positive (&gt; 0) number of retries (or `null`). Value may only be `true`, as `false` matches any external task.
    * @return withRetriesLeft
-   **/
-  @Schema(description = "Only include external tasks that have a positive (&gt; 0) number of retries (or `null`). Value may only be `true`, as `false` matches any external task.")
+  */
   
-    public Boolean isWithRetriesLeft() {
+  @Schema(name = "withRetriesLeft", description = "Only include external tasks that have a positive (&gt; 0) number of retries (or `null`). Value may only be `true`, as `false` matches any external task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withRetriesLeft")
+  public Boolean getWithRetriesLeft() {
     return withRetriesLeft;
   }
 
@@ -238,10 +233,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Only include external tasks that have 0 retries. Value may only be `true`, as `false` matches any external task.
    * @return noRetriesLeft
-   **/
-  @Schema(description = "Only include external tasks that have 0 retries. Value may only be `true`, as `false` matches any external task.")
+  */
   
-    public Boolean isNoRetriesLeft() {
+  @Schema(name = "noRetriesLeft", description = "Only include external tasks that have 0 retries. Value may only be `true`, as `false` matches any external task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("noRetriesLeft")
+  public Boolean getNoRetriesLeft() {
     return noRetriesLeft;
   }
 
@@ -257,11 +253,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Restrict to external tasks that have a lock that expires after a given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return lockExpirationAfter
-   **/
-  @Schema(description = "Restrict to external tasks that have a lock that expires after a given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getLockExpirationAfter() {
+  */
+  @Valid 
+  @Schema(name = "lockExpirationAfter", description = "Restrict to external tasks that have a lock that expires after a given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("lockExpirationAfter")
+  public OffsetDateTime getLockExpirationAfter() {
     return lockExpirationAfter;
   }
 
@@ -277,11 +273,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Restrict to external tasks that have a lock that expires before a given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return lockExpirationBefore
-   **/
-  @Schema(description = "Restrict to external tasks that have a lock that expires before a given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getLockExpirationBefore() {
+  */
+  @Valid 
+  @Schema(name = "lockExpirationBefore", description = "Restrict to external tasks that have a lock that expires before a given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("lockExpirationBefore")
+  public OffsetDateTime getLockExpirationBefore() {
     return lockExpirationBefore;
   }
 
@@ -297,10 +293,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Filter by the id of the activity that an external task is created for.
    * @return activityId
-   **/
-  @Schema(description = "Filter by the id of the activity that an external task is created for.")
+  */
   
-    public String getActivityId() {
+  @Schema(name = "activityId", description = "Filter by the id of the activity that an external task is created for.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityId")
+  public String getActivityId() {
     return activityId;
   }
 
@@ -324,10 +321,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Filter by the comma-separated list of ids of the activities that an external task is created for.
    * @return activityIdIn
-   **/
-  @Schema(description = "Filter by the comma-separated list of ids of the activities that an external task is created for.")
+  */
   
-    public List<String> getActivityIdIn() {
+  @Schema(name = "activityIdIn", description = "Filter by the comma-separated list of ids of the activities that an external task is created for.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityIdIn")
+  public List<String> getActivityIdIn() {
     return activityIdIn;
   }
 
@@ -343,10 +341,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Filter by the id of the execution that an external task belongs to.
    * @return executionId
-   **/
-  @Schema(description = "Filter by the id of the execution that an external task belongs to.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "Filter by the id of the execution that an external task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -362,10 +361,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Filter by the id of the process instance that an external task belongs to.
    * @return processInstanceId
-   **/
-  @Schema(description = "Filter by the id of the process instance that an external task belongs to.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "Filter by the id of the process instance that an external task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -389,10 +389,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Filter by a comma-separated list of process instance ids that an external task may belong to.
    * @return processInstanceIdIn
-   **/
-  @Schema(description = "Filter by a comma-separated list of process instance ids that an external task may belong to.")
+  */
   
-    public List<String> getProcessInstanceIdIn() {
+  @Schema(name = "processInstanceIdIn", description = "Filter by a comma-separated list of process instance ids that an external task may belong to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceIdIn")
+  public List<String> getProcessInstanceIdIn() {
     return processInstanceIdIn;
   }
 
@@ -408,10 +409,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Filter by the id of the process definition that an external task belongs to.
    * @return processDefinitionId
-   **/
-  @Schema(description = "Filter by the id of the process definition that an external task belongs to.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "Filter by the id of the process definition that an external task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -435,10 +437,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Filter by a comma-separated list of tenant ids. An external task must have one of the given tenant ids.
    * @return tenantIdIn
-   **/
-  @Schema(description = "Filter by a comma-separated list of tenant ids. An external task must have one of the given tenant ids.")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Filter by a comma-separated list of tenant ids. An external task must have one of the given tenant ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -454,10 +457,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Only include active tasks. Value may only be `true`, as `false` matches any external task.
    * @return active
-   **/
-  @Schema(description = "Only include active tasks. Value may only be `true`, as `false` matches any external task.")
+  */
   
-    public Boolean isActive() {
+  @Schema(name = "active", description = "Only include active tasks. Value may only be `true`, as `false` matches any external task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("active")
+  public Boolean getActive() {
     return active;
   }
 
@@ -473,10 +477,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Only include suspended tasks. Value may only be `true`, as `false` matches any external task.
    * @return suspended
-   **/
-  @Schema(description = "Only include suspended tasks. Value may only be `true`, as `false` matches any external task.")
+  */
   
-    public Boolean isSuspended() {
+  @Schema(name = "suspended", description = "Only include suspended tasks. Value may only be `true`, as `false` matches any external task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("suspended")
+  public Boolean getSuspended() {
     return suspended;
   }
 
@@ -492,10 +497,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Only include jobs with a priority higher than or equal to the given value. Value must be a valid `long` value.
    * @return priorityHigherThanOrEquals
-   **/
-  @Schema(description = "Only include jobs with a priority higher than or equal to the given value. Value must be a valid `long` value.")
+  */
   
-    public Long getPriorityHigherThanOrEquals() {
+  @Schema(name = "priorityHigherThanOrEquals", description = "Only include jobs with a priority higher than or equal to the given value. Value must be a valid `long` value.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("priorityHigherThanOrEquals")
+  public Long getPriorityHigherThanOrEquals() {
     return priorityHigherThanOrEquals;
   }
 
@@ -511,10 +517,11 @@ public class ExternalTaskQueryDto   {
   /**
    * Only include jobs with a priority lower than or equal to the given value. Value must be a valid `long` value.
    * @return priorityLowerThanOrEquals
-   **/
-  @Schema(description = "Only include jobs with a priority lower than or equal to the given value. Value must be a valid `long` value.")
+  */
   
-    public Long getPriorityLowerThanOrEquals() {
+  @Schema(name = "priorityLowerThanOrEquals", description = "Only include jobs with a priority lower than or equal to the given value. Value must be a valid `long` value.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("priorityLowerThanOrEquals")
+  public Long getPriorityLowerThanOrEquals() {
     return priorityLowerThanOrEquals;
   }
 
@@ -522,12 +529,12 @@ public class ExternalTaskQueryDto   {
     this.priorityLowerThanOrEquals = priorityLowerThanOrEquals;
   }
 
-  public ExternalTaskQueryDto sorting(List<ExternalTaskQueryDtoSorting> sorting) {
+  public ExternalTaskQueryDto sorting(List<@Valid ExternalTaskQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public ExternalTaskQueryDto addSortingItem(ExternalTaskQueryDtoSorting sortingItem) {
+  public ExternalTaskQueryDto addSortingItem(ExternalTaskQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -538,17 +545,17 @@ public class ExternalTaskQueryDto   {
   /**
    * A JSON array of criteria to sort the result by. Each element of the array is a JSON object that                     specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether                     it is primary, secondary, etc. The ordering objects have the following properties:                      **Note:** The `sorting` properties will not be applied to the External Task count query.
    * @return sorting
-   **/
-  @Schema(description = "A JSON array of criteria to sort the result by. Each element of the array is a JSON object that                     specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether                     it is primary, secondary, etc. The ordering objects have the following properties:                      **Note:** The `sorting` properties will not be applied to the External Task count query.")
-      @Valid
-    public List<ExternalTaskQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "A JSON array of criteria to sort the result by. Each element of the array is a JSON object that                     specifies one ordering. The position in the array identifies the rank of an ordering, i.e., whether                     it is primary, secondary, etc. The ordering objects have the following properties:                      **Note:** The `sorting` properties will not be applied to the External Task count query.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid ExternalTaskQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<ExternalTaskQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid ExternalTaskQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -592,7 +599,6 @@ public class ExternalTaskQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExternalTaskQueryDto {\n");
-    
     sb.append("    externalTaskId: ").append(toIndentedString(externalTaskId)).append("\n");
     sb.append("    externalTaskIdIn: ").append(toIndentedString(externalTaskIdIn)).append("\n");
     sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");
@@ -630,3 +636,4 @@ public class ExternalTaskQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

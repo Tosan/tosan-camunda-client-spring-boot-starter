@@ -1,27 +1,32 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.MigrationInstructionDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * MigrationInstructionValidationReportDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class MigrationInstructionValidationReportDto {
 
-public class MigrationInstructionValidationReportDto   {
-  @JsonProperty("instruction")
-  private MigrationInstructionDto instruction = null;
+  private MigrationInstructionDto instruction;
 
-  @JsonProperty("failures")
   @Valid
-  private List<String> failures = null;
+  private List<String> failures;
 
   public MigrationInstructionValidationReportDto instruction(MigrationInstructionDto instruction) {
     this.instruction = instruction;
@@ -31,11 +36,11 @@ public class MigrationInstructionValidationReportDto   {
   /**
    * Get instruction
    * @return instruction
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public MigrationInstructionDto getInstruction() {
+  */
+  @Valid 
+  @Schema(name = "instruction", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("instruction")
+  public MigrationInstructionDto getInstruction() {
     return instruction;
   }
 
@@ -59,17 +64,17 @@ public class MigrationInstructionValidationReportDto   {
   /**
    * A list of instruction validation report messages.
    * @return failures
-   **/
-  @Schema(description = "A list of instruction validation report messages.")
+  */
   
-    public List<String> getFailures() {
+  @Schema(name = "failures", description = "A list of instruction validation report messages.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("failures")
+  public List<String> getFailures() {
     return failures;
   }
 
   public void setFailures(List<String> failures) {
     this.failures = failures;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -93,7 +98,6 @@ public class MigrationInstructionValidationReportDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MigrationInstructionValidationReportDto {\n");
-    
     sb.append("    instruction: ").append(toIndentedString(instruction)).append("\n");
     sb.append("    failures: ").append(toIndentedString(failures)).append("\n");
     sb.append("}");
@@ -111,3 +115,4 @@ public class MigrationInstructionValidationReportDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

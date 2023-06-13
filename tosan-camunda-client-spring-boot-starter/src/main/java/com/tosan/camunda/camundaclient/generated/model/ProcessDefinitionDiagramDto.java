@@ -1,22 +1,27 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * ProcessDefinitionDiagramDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ProcessDefinitionDiagramDto {
 
-public class ProcessDefinitionDiagramDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("bpmn20Xml")
   private String bpmn20Xml = null;
 
   public ProcessDefinitionDiagramDto id(String id) {
@@ -27,10 +32,11 @@ public class ProcessDefinitionDiagramDto   {
   /**
    * The id of the process definition.
    * @return id
-   **/
-  @Schema(description = "The id of the process definition.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -46,17 +52,17 @@ public class ProcessDefinitionDiagramDto   {
   /**
    * An escaped XML string containing the XML that this definition was deployed with. Carriage returns, line feeds and quotation marks are escaped.
    * @return bpmn20Xml
-   **/
-  @Schema(description = "An escaped XML string containing the XML that this definition was deployed with. Carriage returns, line feeds and quotation marks are escaped.")
+  */
   
-    public String getBpmn20Xml() {
+  @Schema(name = "bpmn20Xml", description = "An escaped XML string containing the XML that this definition was deployed with. Carriage returns, line feeds and quotation marks are escaped.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("bpmn20Xml")
+  public String getBpmn20Xml() {
     return bpmn20Xml;
   }
 
   public void setBpmn20Xml(String bpmn20Xml) {
     this.bpmn20Xml = bpmn20Xml;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -80,7 +86,6 @@ public class ProcessDefinitionDiagramDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessDefinitionDiagramDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    bpmn20Xml: ").append(toIndentedString(bpmn20Xml)).append("\n");
     sb.append("}");
@@ -98,3 +103,4 @@ public class ProcessDefinitionDiagramDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

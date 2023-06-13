@@ -1,93 +1,78 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * HistoricJobLogDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricJobLogDto {
 
-public class HistoricJobLogDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("timestamp")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime timestamp = null;
 
-  @JsonProperty("removalTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime removalTime = null;
 
-  @JsonProperty("jobId")
   private String jobId = null;
 
-  @JsonProperty("jobDueDate")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime jobDueDate = null;
 
-  @JsonProperty("jobRetries")
   private Integer jobRetries = null;
 
-  @JsonProperty("jobPriority")
   private Long jobPriority = null;
 
-  @JsonProperty("jobExceptionMessage")
   private String jobExceptionMessage = null;
 
-  @JsonProperty("failedActivityId")
   private String failedActivityId = null;
 
-  @JsonProperty("jobDefinitionId")
   private String jobDefinitionId = null;
 
-  @JsonProperty("jobDefinitionType")
   private String jobDefinitionType = null;
 
-  @JsonProperty("jobDefinitionConfiguration")
   private String jobDefinitionConfiguration = null;
 
-  @JsonProperty("activityId")
   private String activityId = null;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("deploymentId")
   private String deploymentId = null;
 
-  @JsonProperty("rootProcessInstanceId")
   private String rootProcessInstanceId = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("hostname")
   private String hostname = null;
 
-  @JsonProperty("creationLog")
   private Boolean creationLog = null;
 
-  @JsonProperty("failureLog")
   private Boolean failureLog = null;
 
-  @JsonProperty("successLog")
   private Boolean successLog = null;
 
-  @JsonProperty("deletionLog")
   private Boolean deletionLog = null;
 
   public HistoricJobLogDto id(String id) {
@@ -98,10 +83,11 @@ public class HistoricJobLogDto   {
   /**
    * The id of the log entry.
    * @return id
-   **/
-  @Schema(description = "The id of the log entry.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the log entry.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -117,11 +103,11 @@ public class HistoricJobLogDto   {
   /**
    * The time when the log entry has been written.
    * @return timestamp
-   **/
-  @Schema(description = "The time when the log entry has been written.")
-  
-    @Valid
-    public OffsetDateTime getTimestamp() {
+  */
+  @Valid 
+  @Schema(name = "timestamp", description = "The time when the log entry has been written.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("timestamp")
+  public OffsetDateTime getTimestamp() {
     return timestamp;
   }
 
@@ -137,11 +123,11 @@ public class HistoricJobLogDto   {
   /**
    * The time after which the log entry should be removed by the History Cleanup job. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`. For further info see the [docs](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/)
    * @return removalTime
-   **/
-  @Schema(description = "The time after which the log entry should be removed by the History Cleanup job. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`. For further info see the [docs](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/)")
-  
-    @Valid
-    public OffsetDateTime getRemovalTime() {
+  */
+  @Valid 
+  @Schema(name = "removalTime", description = "The time after which the log entry should be removed by the History Cleanup job. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`. For further info see the [docs](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("removalTime")
+  public OffsetDateTime getRemovalTime() {
     return removalTime;
   }
 
@@ -157,10 +143,11 @@ public class HistoricJobLogDto   {
   /**
    * The id of the associated job.
    * @return jobId
-   **/
-  @Schema(description = "The id of the associated job.")
+  */
   
-    public String getJobId() {
+  @Schema(name = "jobId", description = "The id of the associated job.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobId")
+  public String getJobId() {
     return jobId;
   }
 
@@ -176,11 +163,11 @@ public class HistoricJobLogDto   {
   /**
    * The date on which the associated job is supposed to be processed.
    * @return jobDueDate
-   **/
-  @Schema(description = "The date on which the associated job is supposed to be processed.")
-  
-    @Valid
-    public OffsetDateTime getJobDueDate() {
+  */
+  @Valid 
+  @Schema(name = "jobDueDate", description = "The date on which the associated job is supposed to be processed.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobDueDate")
+  public OffsetDateTime getJobDueDate() {
     return jobDueDate;
   }
 
@@ -196,10 +183,11 @@ public class HistoricJobLogDto   {
   /**
    * The number of retries the associated job has left.
    * @return jobRetries
-   **/
-  @Schema(description = "The number of retries the associated job has left.")
+  */
   
-    public Integer getJobRetries() {
+  @Schema(name = "jobRetries", description = "The number of retries the associated job has left.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobRetries")
+  public Integer getJobRetries() {
     return jobRetries;
   }
 
@@ -215,10 +203,11 @@ public class HistoricJobLogDto   {
   /**
    * The execution priority the job had when the log entry was created.
    * @return jobPriority
-   **/
-  @Schema(description = "The execution priority the job had when the log entry was created.")
+  */
   
-    public Long getJobPriority() {
+  @Schema(name = "jobPriority", description = "The execution priority the job had when the log entry was created.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobPriority")
+  public Long getJobPriority() {
     return jobPriority;
   }
 
@@ -234,10 +223,11 @@ public class HistoricJobLogDto   {
   /**
    * The message of the exception that occurred by executing the associated job.
    * @return jobExceptionMessage
-   **/
-  @Schema(description = "The message of the exception that occurred by executing the associated job.")
+  */
   
-    public String getJobExceptionMessage() {
+  @Schema(name = "jobExceptionMessage", description = "The message of the exception that occurred by executing the associated job.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobExceptionMessage")
+  public String getJobExceptionMessage() {
     return jobExceptionMessage;
   }
 
@@ -253,10 +243,11 @@ public class HistoricJobLogDto   {
   /**
    * The id of the activity on which the last exception occurred by executing the associated job.
    * @return failedActivityId
-   **/
-  @Schema(description = "The id of the activity on which the last exception occurred by executing the associated job.")
+  */
   
-    public String getFailedActivityId() {
+  @Schema(name = "failedActivityId", description = "The id of the activity on which the last exception occurred by executing the associated job.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("failedActivityId")
+  public String getFailedActivityId() {
     return failedActivityId;
   }
 
@@ -272,10 +263,11 @@ public class HistoricJobLogDto   {
   /**
    * The id of the job definition on which the associated job was created.
    * @return jobDefinitionId
-   **/
-  @Schema(description = "The id of the job definition on which the associated job was created.")
+  */
   
-    public String getJobDefinitionId() {
+  @Schema(name = "jobDefinitionId", description = "The id of the job definition on which the associated job was created.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobDefinitionId")
+  public String getJobDefinitionId() {
     return jobDefinitionId;
   }
 
@@ -291,10 +283,11 @@ public class HistoricJobLogDto   {
   /**
    * The job definition type of the associated job. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/the-job-executor/#job-creation) for more information about job definition types.
    * @return jobDefinitionType
-   **/
-  @Schema(description = "The job definition type of the associated job. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/the-job-executor/#job-creation) for more information about job definition types.")
+  */
   
-    public String getJobDefinitionType() {
+  @Schema(name = "jobDefinitionType", description = "The job definition type of the associated job. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/the-job-executor/#job-creation) for more information about job definition types.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobDefinitionType")
+  public String getJobDefinitionType() {
     return jobDefinitionType;
   }
 
@@ -310,10 +303,11 @@ public class HistoricJobLogDto   {
   /**
    * The job definition configuration type of the associated job.
    * @return jobDefinitionConfiguration
-   **/
-  @Schema(description = "The job definition configuration type of the associated job.")
+  */
   
-    public String getJobDefinitionConfiguration() {
+  @Schema(name = "jobDefinitionConfiguration", description = "The job definition configuration type of the associated job.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobDefinitionConfiguration")
+  public String getJobDefinitionConfiguration() {
     return jobDefinitionConfiguration;
   }
 
@@ -329,10 +323,11 @@ public class HistoricJobLogDto   {
   /**
    * The id of the activity on which the associated job was created.
    * @return activityId
-   **/
-  @Schema(description = "The id of the activity on which the associated job was created.")
+  */
   
-    public String getActivityId() {
+  @Schema(name = "activityId", description = "The id of the activity on which the associated job was created.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityId")
+  public String getActivityId() {
     return activityId;
   }
 
@@ -348,10 +343,11 @@ public class HistoricJobLogDto   {
   /**
    * The execution id on which the associated job was created.
    * @return executionId
-   **/
-  @Schema(description = "The execution id on which the associated job was created.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "The execution id on which the associated job was created.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -367,10 +363,11 @@ public class HistoricJobLogDto   {
   /**
    * The id of the process instance on which the associated job was created.
    * @return processInstanceId
-   **/
-  @Schema(description = "The id of the process instance on which the associated job was created.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "The id of the process instance on which the associated job was created.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -386,10 +383,11 @@ public class HistoricJobLogDto   {
   /**
    * The id of the process definition which the associated job belongs to.
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definition which the associated job belongs to.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definition which the associated job belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -405,10 +403,11 @@ public class HistoricJobLogDto   {
   /**
    * The key of the process definition which the associated job belongs to.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "The key of the process definition which the associated job belongs to.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "The key of the process definition which the associated job belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -424,10 +423,11 @@ public class HistoricJobLogDto   {
   /**
    * The id of the deployment which the associated job belongs to.
    * @return deploymentId
-   **/
-  @Schema(description = "The id of the deployment which the associated job belongs to.")
+  */
   
-    public String getDeploymentId() {
+  @Schema(name = "deploymentId", description = "The id of the deployment which the associated job belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deploymentId")
+  public String getDeploymentId() {
     return deploymentId;
   }
 
@@ -443,10 +443,11 @@ public class HistoricJobLogDto   {
   /**
    * The process instance id of the root process instance that initiated the process which the associated job belongs to.
    * @return rootProcessInstanceId
-   **/
-  @Schema(description = "The process instance id of the root process instance that initiated the process which the associated job belongs to.")
+  */
   
-    public String getRootProcessInstanceId() {
+  @Schema(name = "rootProcessInstanceId", description = "The process instance id of the root process instance that initiated the process which the associated job belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("rootProcessInstanceId")
+  public String getRootProcessInstanceId() {
     return rootProcessInstanceId;
   }
 
@@ -462,10 +463,11 @@ public class HistoricJobLogDto   {
   /**
    * The id of the tenant that this historic job log entry belongs to.
    * @return tenantId
-   **/
-  @Schema(description = "The id of the tenant that this historic job log entry belongs to.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The id of the tenant that this historic job log entry belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -481,10 +483,11 @@ public class HistoricJobLogDto   {
   /**
    *  The name of the host of the Process Engine where the job of this historic job log entry was executed.
    * @return hostname
-   **/
-  @Schema(description = " The name of the host of the Process Engine where the job of this historic job log entry was executed.")
+  */
   
-    public String getHostname() {
+  @Schema(name = "hostname", description = " The name of the host of the Process Engine where the job of this historic job log entry was executed.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("hostname")
+  public String getHostname() {
     return hostname;
   }
 
@@ -500,10 +503,11 @@ public class HistoricJobLogDto   {
   /**
    * A flag indicating whether this log represents the creation of the associated job.
    * @return creationLog
-   **/
-  @Schema(description = "A flag indicating whether this log represents the creation of the associated job.")
+  */
   
-    public Boolean isCreationLog() {
+  @Schema(name = "creationLog", description = "A flag indicating whether this log represents the creation of the associated job.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("creationLog")
+  public Boolean getCreationLog() {
     return creationLog;
   }
 
@@ -519,10 +523,11 @@ public class HistoricJobLogDto   {
   /**
    * A flag indicating whether this log represents the failed execution of the associated job.
    * @return failureLog
-   **/
-  @Schema(description = "A flag indicating whether this log represents the failed execution of the associated job.")
+  */
   
-    public Boolean isFailureLog() {
+  @Schema(name = "failureLog", description = "A flag indicating whether this log represents the failed execution of the associated job.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("failureLog")
+  public Boolean getFailureLog() {
     return failureLog;
   }
 
@@ -538,10 +543,11 @@ public class HistoricJobLogDto   {
   /**
    * A flag indicating whether this log represents the successful execution of the associated job.
    * @return successLog
-   **/
-  @Schema(description = "A flag indicating whether this log represents the successful execution of the associated job.")
+  */
   
-    public Boolean isSuccessLog() {
+  @Schema(name = "successLog", description = "A flag indicating whether this log represents the successful execution of the associated job.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("successLog")
+  public Boolean getSuccessLog() {
     return successLog;
   }
 
@@ -557,17 +563,17 @@ public class HistoricJobLogDto   {
   /**
    * A flag indicating whether this log represents the deletion of the associated job.
    * @return deletionLog
-   **/
-  @Schema(description = "A flag indicating whether this log represents the deletion of the associated job.")
+  */
   
-    public Boolean isDeletionLog() {
+  @Schema(name = "deletionLog", description = "A flag indicating whether this log represents the deletion of the associated job.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deletionLog")
+  public Boolean getDeletionLog() {
     return deletionLog;
   }
 
   public void setDeletionLog(Boolean deletionLog) {
     this.deletionLog = deletionLog;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -614,7 +620,6 @@ public class HistoricJobLogDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricJobLogDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    removalTime: ").append(toIndentedString(removalTime)).append("\n");
@@ -655,3 +660,4 @@ public class HistoricJobLogDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

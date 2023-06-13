@@ -1,52 +1,47 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * BatchDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class BatchDto {
 
-public class BatchDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("type")
   private String type = null;
 
-  @JsonProperty("totalJobs")
   private Integer totalJobs = null;
 
-  @JsonProperty("jobsCreated")
   private Integer jobsCreated = null;
 
-  @JsonProperty("batchJobsPerSeed")
   private Integer batchJobsPerSeed = null;
 
-  @JsonProperty("invocationsPerBatchJob")
   private Integer invocationsPerBatchJob = null;
 
-  @JsonProperty("seedJobDefinitionId")
   private String seedJobDefinitionId = null;
 
-  @JsonProperty("monitorJobDefinitionId")
   private String monitorJobDefinitionId = null;
 
-  @JsonProperty("batchJobDefinitionId")
   private String batchJobDefinitionId = null;
 
-  @JsonProperty("suspended")
   private Boolean suspended = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("createUserId")
   private String createUserId = null;
 
   public BatchDto id(String id) {
@@ -57,10 +52,11 @@ public class BatchDto   {
   /**
    * The id of the batch.
    * @return id
-   **/
-  @Schema(description = "The id of the batch.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the batch.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -76,10 +72,11 @@ public class BatchDto   {
   /**
    * The type of the batch. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/batch/#creating-a-batch) for more information about batch types.
    * @return type
-   **/
-  @Schema(description = "The type of the batch. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/batch/#creating-a-batch) for more information about batch types.")
+  */
   
-    public String getType() {
+  @Schema(name = "type", description = "The type of the batch. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/batch/#creating-a-batch) for more information about batch types.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("type")
+  public String getType() {
     return type;
   }
 
@@ -95,10 +92,11 @@ public class BatchDto   {
   /**
    * The total jobs of a batch is the number of batch execution jobs required to complete the batch.
    * @return totalJobs
-   **/
-  @Schema(description = "The total jobs of a batch is the number of batch execution jobs required to complete the batch.")
+  */
   
-    public Integer getTotalJobs() {
+  @Schema(name = "totalJobs", description = "The total jobs of a batch is the number of batch execution jobs required to complete the batch.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("totalJobs")
+  public Integer getTotalJobs() {
     return totalJobs;
   }
 
@@ -114,10 +112,11 @@ public class BatchDto   {
   /**
    * The number of batch execution jobs already created by the seed job.
    * @return jobsCreated
-   **/
-  @Schema(description = "The number of batch execution jobs already created by the seed job.")
+  */
   
-    public Integer getJobsCreated() {
+  @Schema(name = "jobsCreated", description = "The number of batch execution jobs already created by the seed job.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobsCreated")
+  public Integer getJobsCreated() {
     return jobsCreated;
   }
 
@@ -133,10 +132,11 @@ public class BatchDto   {
   /**
    * The number of batch execution jobs created per seed job invocation. The batch seed job is invoked until it has created all batch execution jobs required by the batch (see `totalJobs` property).
    * @return batchJobsPerSeed
-   **/
-  @Schema(description = "The number of batch execution jobs created per seed job invocation. The batch seed job is invoked until it has created all batch execution jobs required by the batch (see `totalJobs` property).")
+  */
   
-    public Integer getBatchJobsPerSeed() {
+  @Schema(name = "batchJobsPerSeed", description = "The number of batch execution jobs created per seed job invocation. The batch seed job is invoked until it has created all batch execution jobs required by the batch (see `totalJobs` property).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("batchJobsPerSeed")
+  public Integer getBatchJobsPerSeed() {
     return batchJobsPerSeed;
   }
 
@@ -152,10 +152,11 @@ public class BatchDto   {
   /**
    * Every batch execution job invokes the command executed by the batch `invocationsPerBatchJob` times. E.g., for a process instance migration batch this specifies the number of process instances which are migrated per batch execution job.
    * @return invocationsPerBatchJob
-   **/
-  @Schema(description = "Every batch execution job invokes the command executed by the batch `invocationsPerBatchJob` times. E.g., for a process instance migration batch this specifies the number of process instances which are migrated per batch execution job.")
+  */
   
-    public Integer getInvocationsPerBatchJob() {
+  @Schema(name = "invocationsPerBatchJob", description = "Every batch execution job invokes the command executed by the batch `invocationsPerBatchJob` times. E.g., for a process instance migration batch this specifies the number of process instances which are migrated per batch execution job.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("invocationsPerBatchJob")
+  public Integer getInvocationsPerBatchJob() {
     return invocationsPerBatchJob;
   }
 
@@ -171,10 +172,11 @@ public class BatchDto   {
   /**
    * The job definition id for the seed jobs of this batch.
    * @return seedJobDefinitionId
-   **/
-  @Schema(description = "The job definition id for the seed jobs of this batch.")
+  */
   
-    public String getSeedJobDefinitionId() {
+  @Schema(name = "seedJobDefinitionId", description = "The job definition id for the seed jobs of this batch.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("seedJobDefinitionId")
+  public String getSeedJobDefinitionId() {
     return seedJobDefinitionId;
   }
 
@@ -190,10 +192,11 @@ public class BatchDto   {
   /**
    * The job definition id for the monitor jobs of this batch.
    * @return monitorJobDefinitionId
-   **/
-  @Schema(description = "The job definition id for the monitor jobs of this batch.")
+  */
   
-    public String getMonitorJobDefinitionId() {
+  @Schema(name = "monitorJobDefinitionId", description = "The job definition id for the monitor jobs of this batch.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("monitorJobDefinitionId")
+  public String getMonitorJobDefinitionId() {
     return monitorJobDefinitionId;
   }
 
@@ -209,10 +212,11 @@ public class BatchDto   {
   /**
    * The job definition id for the batch execution jobs of this batch.
    * @return batchJobDefinitionId
-   **/
-  @Schema(description = "The job definition id for the batch execution jobs of this batch.")
+  */
   
-    public String getBatchJobDefinitionId() {
+  @Schema(name = "batchJobDefinitionId", description = "The job definition id for the batch execution jobs of this batch.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("batchJobDefinitionId")
+  public String getBatchJobDefinitionId() {
     return batchJobDefinitionId;
   }
 
@@ -228,10 +232,11 @@ public class BatchDto   {
   /**
    * Indicates whether this batch is suspended or not.
    * @return suspended
-   **/
-  @Schema(description = "Indicates whether this batch is suspended or not.")
+  */
   
-    public Boolean isSuspended() {
+  @Schema(name = "suspended", description = "Indicates whether this batch is suspended or not.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("suspended")
+  public Boolean getSuspended() {
     return suspended;
   }
 
@@ -247,10 +252,11 @@ public class BatchDto   {
   /**
    * The tenant id of the batch.
    * @return tenantId
-   **/
-  @Schema(description = "The tenant id of the batch.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The tenant id of the batch.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -266,17 +272,17 @@ public class BatchDto   {
   /**
    * The id of the user that created the batch.
    * @return createUserId
-   **/
-  @Schema(description = "The id of the user that created the batch.")
+  */
   
-    public String getCreateUserId() {
+  @Schema(name = "createUserId", description = "The id of the user that created the batch.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("createUserId")
+  public String getCreateUserId() {
     return createUserId;
   }
 
   public void setCreateUserId(String createUserId) {
     this.createUserId = createUserId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -310,7 +316,6 @@ public class BatchDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BatchDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    totalJobs: ").append(toIndentedString(totalJobs)).append("\n");
@@ -338,3 +343,4 @@ public class BatchDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

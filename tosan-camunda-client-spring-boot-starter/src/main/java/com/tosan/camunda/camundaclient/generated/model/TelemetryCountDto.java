@@ -1,19 +1,25 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * TelemetryCountDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class TelemetryCountDto {
 
-public class TelemetryCountDto   {
-  @JsonProperty("count")
   private Long count = null;
 
   public TelemetryCountDto count(Long count) {
@@ -24,17 +30,17 @@ public class TelemetryCountDto   {
   /**
    * An integer value representing the count for this metric.
    * @return count
-   **/
-  @Schema(description = "An integer value representing the count for this metric.")
+  */
   
-    public Long getCount() {
+  @Schema(name = "count", description = "An integer value representing the count for this metric.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("count")
+  public Long getCount() {
     return count;
   }
 
   public void setCount(Long count) {
     this.count = count;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -57,7 +63,6 @@ public class TelemetryCountDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TelemetryCountDto {\n");
-    
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -74,3 +79,4 @@ public class TelemetryCountDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

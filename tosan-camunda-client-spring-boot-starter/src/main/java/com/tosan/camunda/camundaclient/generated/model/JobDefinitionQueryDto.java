@@ -1,63 +1,57 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.JobDefinitionQueryDtoSortingInner;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A Job definition query which defines a list of Job definitions
  */
-@Schema(description = "A Job definition query which defines a list of Job definitions")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "JobDefinitionQueryDto", description = "A Job definition query which defines a list of Job definitions")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class JobDefinitionQueryDto {
 
-public class JobDefinitionQueryDto   {
-  @JsonProperty("jobDefinitionId")
   private String jobDefinitionId = null;
 
-  @JsonProperty("activityIdIn")
   @Valid
-  private List<String> activityIdIn = null;
+  private List<String> activityIdIn;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("jobType")
   private String jobType = null;
 
-  @JsonProperty("jobConfiguration")
   private String jobConfiguration = null;
 
-  @JsonProperty("active")
   private Boolean active = null;
 
-  @JsonProperty("suspended")
   private Boolean suspended = null;
 
-  @JsonProperty("withOverridingJobPriority")
   private Boolean withOverridingJobPriority = null;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("withoutTenantId")
   private Boolean withoutTenantId = null;
 
-  @JsonProperty("includeJobDefinitionsWithoutTenantId")
   private Boolean includeJobDefinitionsWithoutTenantId = null;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<JobDefinitionQueryDtoSorting> sorting = null;
+  private List<@Valid JobDefinitionQueryDtoSortingInner> sorting;
 
   public JobDefinitionQueryDto jobDefinitionId(String jobDefinitionId) {
     this.jobDefinitionId = jobDefinitionId;
@@ -67,10 +61,11 @@ public class JobDefinitionQueryDto   {
   /**
    * Filter by job definition id.
    * @return jobDefinitionId
-   **/
-  @Schema(description = "Filter by job definition id.")
+  */
   
-    public String getJobDefinitionId() {
+  @Schema(name = "jobDefinitionId", description = "Filter by job definition id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobDefinitionId")
+  public String getJobDefinitionId() {
     return jobDefinitionId;
   }
 
@@ -94,10 +89,11 @@ public class JobDefinitionQueryDto   {
   /**
    * Only include job definitions which belong to one of the passed activity ids.
    * @return activityIdIn
-   **/
-  @Schema(description = "Only include job definitions which belong to one of the passed activity ids.")
+  */
   
-    public List<String> getActivityIdIn() {
+  @Schema(name = "activityIdIn", description = "Only include job definitions which belong to one of the passed activity ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityIdIn")
+  public List<String> getActivityIdIn() {
     return activityIdIn;
   }
 
@@ -113,10 +109,11 @@ public class JobDefinitionQueryDto   {
   /**
    * Only include job definitions which exist for the given process definition id.
    * @return processDefinitionId
-   **/
-  @Schema(description = "Only include job definitions which exist for the given process definition id.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "Only include job definitions which exist for the given process definition id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -132,10 +129,11 @@ public class JobDefinitionQueryDto   {
   /**
    * Only include job definitions which exist for the given process definition key.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "Only include job definitions which exist for the given process definition key.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "Only include job definitions which exist for the given process definition key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -151,10 +149,11 @@ public class JobDefinitionQueryDto   {
   /**
    * Only include job definitions which exist for the given job type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/the-job-executor/#job-creation) for more information about job types.
    * @return jobType
-   **/
-  @Schema(description = "Only include job definitions which exist for the given job type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/the-job-executor/#job-creation) for more information about job types.")
+  */
   
-    public String getJobType() {
+  @Schema(name = "jobType", description = "Only include job definitions which exist for the given job type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/the-job-executor/#job-creation) for more information about job types.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobType")
+  public String getJobType() {
     return jobType;
   }
 
@@ -170,10 +169,11 @@ public class JobDefinitionQueryDto   {
   /**
    * Only include job definitions which exist for the given job configuration. For example: for timer jobs it is the timer configuration.
    * @return jobConfiguration
-   **/
-  @Schema(description = "Only include job definitions which exist for the given job configuration. For example: for timer jobs it is the timer configuration.")
+  */
   
-    public String getJobConfiguration() {
+  @Schema(name = "jobConfiguration", description = "Only include job definitions which exist for the given job configuration. For example: for timer jobs it is the timer configuration.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobConfiguration")
+  public String getJobConfiguration() {
     return jobConfiguration;
   }
 
@@ -189,10 +189,11 @@ public class JobDefinitionQueryDto   {
   /**
    * Only include active job definitions. Value may only be `true`, as `false` is the default behavior.
    * @return active
-   **/
-  @Schema(description = "Only include active job definitions. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isActive() {
+  @Schema(name = "active", description = "Only include active job definitions. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("active")
+  public Boolean getActive() {
     return active;
   }
 
@@ -208,10 +209,11 @@ public class JobDefinitionQueryDto   {
   /**
    * Only include suspended job definitions. Value may only be `true`, as `false` is the default behavior.
    * @return suspended
-   **/
-  @Schema(description = "Only include suspended job definitions. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isSuspended() {
+  @Schema(name = "suspended", description = "Only include suspended job definitions. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("suspended")
+  public Boolean getSuspended() {
     return suspended;
   }
 
@@ -227,10 +229,11 @@ public class JobDefinitionQueryDto   {
   /**
    * Only include job definitions that have an overriding job priority defined. The only effective value is `true`. If set to `false`, this filter is not applied.
    * @return withOverridingJobPriority
-   **/
-  @Schema(description = "Only include job definitions that have an overriding job priority defined. The only effective value is `true`. If set to `false`, this filter is not applied.")
+  */
   
-    public Boolean isWithOverridingJobPriority() {
+  @Schema(name = "withOverridingJobPriority", description = "Only include job definitions that have an overriding job priority defined. The only effective value is `true`. If set to `false`, this filter is not applied.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withOverridingJobPriority")
+  public Boolean getWithOverridingJobPriority() {
     return withOverridingJobPriority;
   }
 
@@ -254,10 +257,11 @@ public class JobDefinitionQueryDto   {
   /**
    * Only include job definitions which belong to one of the passed tenant ids.
    * @return tenantIdIn
-   **/
-  @Schema(description = "Only include job definitions which belong to one of the passed tenant ids.")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Only include job definitions which belong to one of the passed tenant ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -273,10 +277,11 @@ public class JobDefinitionQueryDto   {
   /**
    * Only include job definitions which belong to no tenant. Value may only be `true`, as `false` is the default behavior.
    * @return withoutTenantId
-   **/
-  @Schema(description = "Only include job definitions which belong to no tenant. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "Only include job definitions which belong to no tenant. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
@@ -292,10 +297,11 @@ public class JobDefinitionQueryDto   {
   /**
    * Include job definitions which belong to no tenant. Can be used in combination with `tenantIdIn`. Value may only be `true`, as `false` is the default behavior.
    * @return includeJobDefinitionsWithoutTenantId
-   **/
-  @Schema(description = "Include job definitions which belong to no tenant. Can be used in combination with `tenantIdIn`. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isIncludeJobDefinitionsWithoutTenantId() {
+  @Schema(name = "includeJobDefinitionsWithoutTenantId", description = "Include job definitions which belong to no tenant. Can be used in combination with `tenantIdIn`. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("includeJobDefinitionsWithoutTenantId")
+  public Boolean getIncludeJobDefinitionsWithoutTenantId() {
     return includeJobDefinitionsWithoutTenantId;
   }
 
@@ -303,12 +309,12 @@ public class JobDefinitionQueryDto   {
     this.includeJobDefinitionsWithoutTenantId = includeJobDefinitionsWithoutTenantId;
   }
 
-  public JobDefinitionQueryDto sorting(List<JobDefinitionQueryDtoSorting> sorting) {
+  public JobDefinitionQueryDto sorting(List<@Valid JobDefinitionQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public JobDefinitionQueryDto addSortingItem(JobDefinitionQueryDtoSorting sortingItem) {
+  public JobDefinitionQueryDto addSortingItem(JobDefinitionQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -319,17 +325,17 @@ public class JobDefinitionQueryDto   {
   /**
    * An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Sorting has no effect for `count` endpoints.
    * @return sorting
-   **/
-  @Schema(description = "An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Sorting has no effect for `count` endpoints.")
-      @Valid
-    public List<JobDefinitionQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Sorting has no effect for `count` endpoints.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid JobDefinitionQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<JobDefinitionQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid JobDefinitionQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -364,7 +370,6 @@ public class JobDefinitionQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class JobDefinitionQueryDto {\n");
-    
     sb.append("    jobDefinitionId: ").append(toIndentedString(jobDefinitionId)).append("\n");
     sb.append("    activityIdIn: ").append(toIndentedString(activityIdIn)).append("\n");
     sb.append("    processDefinitionId: ").append(toIndentedString(processDefinitionId)).append("\n");
@@ -393,3 +398,4 @@ public class JobDefinitionQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

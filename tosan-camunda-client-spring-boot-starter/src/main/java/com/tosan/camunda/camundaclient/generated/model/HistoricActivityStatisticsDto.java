@@ -1,40 +1,39 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * HistoricActivityStatisticsDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricActivityStatisticsDto {
 
-public class HistoricActivityStatisticsDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("instances")
   private Long instances = null;
 
-  @JsonProperty("canceled")
   private Long canceled = null;
 
-  @JsonProperty("finished")
   private Long finished = null;
 
-  @JsonProperty("completeScope")
   private Long completeScope = null;
 
-  @JsonProperty("openIncidents")
   private Long openIncidents = null;
 
-  @JsonProperty("resolvedIncidents")
   private Long resolvedIncidents = null;
 
-  @JsonProperty("deletedIncidents")
   private Long deletedIncidents = null;
 
   public HistoricActivityStatisticsDto id(String id) {
@@ -45,10 +44,11 @@ public class HistoricActivityStatisticsDto   {
   /**
    * The id of the activity the results are aggregated for.
    * @return id
-   **/
-  @Schema(description = "The id of the activity the results are aggregated for.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the activity the results are aggregated for.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -64,10 +64,11 @@ public class HistoricActivityStatisticsDto   {
   /**
    * The total number of all running instances of the activity.
    * @return instances
-   **/
-  @Schema(description = "The total number of all running instances of the activity.")
+  */
   
-    public Long getInstances() {
+  @Schema(name = "instances", description = "The total number of all running instances of the activity.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("instances")
+  public Long getInstances() {
     return instances;
   }
 
@@ -83,10 +84,11 @@ public class HistoricActivityStatisticsDto   {
   /**
    * The total number of all canceled instances of the activity. **Note:** Will be `0` (not `null`), if canceled activity instances were excluded.
    * @return canceled
-   **/
-  @Schema(description = "The total number of all canceled instances of the activity. **Note:** Will be `0` (not `null`), if canceled activity instances were excluded.")
+  */
   
-    public Long getCanceled() {
+  @Schema(name = "canceled", description = "The total number of all canceled instances of the activity. **Note:** Will be `0` (not `null`), if canceled activity instances were excluded.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("canceled")
+  public Long getCanceled() {
     return canceled;
   }
 
@@ -102,10 +104,11 @@ public class HistoricActivityStatisticsDto   {
   /**
    * The total number of all finished instances of the activity. **Note:** Will be `0` (not `null`), if finished activity instances were excluded.
    * @return finished
-   **/
-  @Schema(description = "The total number of all finished instances of the activity. **Note:** Will be `0` (not `null`), if finished activity instances were excluded.")
+  */
   
-    public Long getFinished() {
+  @Schema(name = "finished", description = "The total number of all finished instances of the activity. **Note:** Will be `0` (not `null`), if finished activity instances were excluded.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("finished")
+  public Long getFinished() {
     return finished;
   }
 
@@ -121,10 +124,11 @@ public class HistoricActivityStatisticsDto   {
   /**
    * The total number of all instances which completed a scope of the activity. **Note:** Will be `0` (not `null`), if activity instances which completed a scope were excluded.
    * @return completeScope
-   **/
-  @Schema(description = "The total number of all instances which completed a scope of the activity. **Note:** Will be `0` (not `null`), if activity instances which completed a scope were excluded.")
+  */
   
-    public Long getCompleteScope() {
+  @Schema(name = "completeScope", description = "The total number of all instances which completed a scope of the activity. **Note:** Will be `0` (not `null`), if activity instances which completed a scope were excluded.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("completeScope")
+  public Long getCompleteScope() {
     return completeScope;
   }
 
@@ -140,10 +144,11 @@ public class HistoricActivityStatisticsDto   {
   /**
    * The total number of open incidents for the activity. **Note:** Will be `0` (not `null`), if `incidents` is set to `false`.
    * @return openIncidents
-   **/
-  @Schema(description = "The total number of open incidents for the activity. **Note:** Will be `0` (not `null`), if `incidents` is set to `false`.")
+  */
   
-    public Long getOpenIncidents() {
+  @Schema(name = "openIncidents", description = "The total number of open incidents for the activity. **Note:** Will be `0` (not `null`), if `incidents` is set to `false`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("openIncidents")
+  public Long getOpenIncidents() {
     return openIncidents;
   }
 
@@ -159,10 +164,11 @@ public class HistoricActivityStatisticsDto   {
   /**
    * The total number of resolved incidents for the activity. **Note:** Will be `0` (not `null`), if `incidents` is set to `false`.
    * @return resolvedIncidents
-   **/
-  @Schema(description = "The total number of resolved incidents for the activity. **Note:** Will be `0` (not `null`), if `incidents` is set to `false`.")
+  */
   
-    public Long getResolvedIncidents() {
+  @Schema(name = "resolvedIncidents", description = "The total number of resolved incidents for the activity. **Note:** Will be `0` (not `null`), if `incidents` is set to `false`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resolvedIncidents")
+  public Long getResolvedIncidents() {
     return resolvedIncidents;
   }
 
@@ -178,17 +184,17 @@ public class HistoricActivityStatisticsDto   {
   /**
    * The total number of deleted incidents for the activity. **Note:** Will be `0` (not `null`), if `incidents` is set to `false`.
    * @return deletedIncidents
-   **/
-  @Schema(description = "The total number of deleted incidents for the activity. **Note:** Will be `0` (not `null`), if `incidents` is set to `false`.")
+  */
   
-    public Long getDeletedIncidents() {
+  @Schema(name = "deletedIncidents", description = "The total number of deleted incidents for the activity. **Note:** Will be `0` (not `null`), if `incidents` is set to `false`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deletedIncidents")
+  public Long getDeletedIncidents() {
     return deletedIncidents;
   }
 
   public void setDeletedIncidents(Long deletedIncidents) {
     this.deletedIncidents = deletedIncidents;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -218,7 +224,6 @@ public class HistoricActivityStatisticsDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricActivityStatisticsDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
     sb.append("    canceled: ").append(toIndentedString(canceled)).append("\n");
@@ -242,3 +247,4 @@ public class HistoricActivityStatisticsDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

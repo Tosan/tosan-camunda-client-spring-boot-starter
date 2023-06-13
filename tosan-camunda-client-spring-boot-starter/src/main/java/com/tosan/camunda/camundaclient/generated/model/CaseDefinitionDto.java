@@ -1,45 +1,41 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * CaseDefinitionDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class CaseDefinitionDto {
 
-public class CaseDefinitionDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("key")
   private String key = null;
 
-  @JsonProperty("category")
   private String category = null;
 
-  @JsonProperty("name")
   private String name = null;
 
-  @JsonProperty("version")
   private Integer version = null;
 
-  @JsonProperty("resource")
   private String resource = null;
 
-  @JsonProperty("deploymentId")
   private String deploymentId = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("historyTimeToLive")
   private Integer historyTimeToLive = null;
 
   public CaseDefinitionDto id(String id) {
@@ -50,10 +46,11 @@ public class CaseDefinitionDto   {
   /**
    * The id of the case definition
    * @return id
-   **/
-  @Schema(description = "The id of the case definition")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the case definition", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -69,10 +66,11 @@ public class CaseDefinitionDto   {
   /**
    * The key of the case definition, i.e., the id of the CMMN 2.0 XML case definition.
    * @return key
-   **/
-  @Schema(description = "The key of the case definition, i.e., the id of the CMMN 2.0 XML case definition.")
+  */
   
-    public String getKey() {
+  @Schema(name = "key", description = "The key of the case definition, i.e., the id of the CMMN 2.0 XML case definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("key")
+  public String getKey() {
     return key;
   }
 
@@ -88,10 +86,11 @@ public class CaseDefinitionDto   {
   /**
    * The category of the case definition.
    * @return category
-   **/
-  @Schema(description = "The category of the case definition.")
+  */
   
-    public String getCategory() {
+  @Schema(name = "category", description = "The category of the case definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("category")
+  public String getCategory() {
     return category;
   }
 
@@ -107,10 +106,11 @@ public class CaseDefinitionDto   {
   /**
    * The name of the case definition.
    * @return name
-   **/
-  @Schema(description = "The name of the case definition.")
+  */
   
-    public String getName() {
+  @Schema(name = "name", description = "The name of the case definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
     return name;
   }
 
@@ -126,10 +126,11 @@ public class CaseDefinitionDto   {
   /**
    * The version of the case definition that the engine assigned to it.
    * @return version
-   **/
-  @Schema(description = "The version of the case definition that the engine assigned to it.")
+  */
   
-    public Integer getVersion() {
+  @Schema(name = "version", description = "The version of the case definition that the engine assigned to it.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("version")
+  public Integer getVersion() {
     return version;
   }
 
@@ -145,10 +146,11 @@ public class CaseDefinitionDto   {
   /**
    * The file name of the case definition.
    * @return resource
-   **/
-  @Schema(description = "The file name of the case definition.")
+  */
   
-    public String getResource() {
+  @Schema(name = "resource", description = "The file name of the case definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resource")
+  public String getResource() {
     return resource;
   }
 
@@ -164,10 +166,11 @@ public class CaseDefinitionDto   {
   /**
    * The deployment id of the case definition.
    * @return deploymentId
-   **/
-  @Schema(description = "The deployment id of the case definition.")
+  */
   
-    public String getDeploymentId() {
+  @Schema(name = "deploymentId", description = "The deployment id of the case definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deploymentId")
+  public String getDeploymentId() {
     return deploymentId;
   }
 
@@ -183,10 +186,11 @@ public class CaseDefinitionDto   {
   /**
    * The tenant id of the case definition.
    * @return tenantId
-   **/
-  @Schema(description = "The tenant id of the case definition.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The tenant id of the case definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -203,17 +207,17 @@ public class CaseDefinitionDto   {
    * History time to live value of the case definition. Is used within [History cleanup](https://docs.camunda.org/manual/7.17/user-guide/process-engine/history/#history-cleanup).
    * minimum: 0
    * @return historyTimeToLive
-   **/
-  @Schema(description = "History time to live value of the case definition. Is used within [History cleanup](https://docs.camunda.org/manual/7.17/user-guide/process-engine/history/#history-cleanup).")
-  
-  @Min(0)  public Integer getHistoryTimeToLive() {
+  */
+  @Min(0) 
+  @Schema(name = "historyTimeToLive", description = "History time to live value of the case definition. Is used within [History cleanup](https://docs.camunda.org/manual/7.17/user-guide/process-engine/history/#history-cleanup).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historyTimeToLive")
+  public Integer getHistoryTimeToLive() {
     return historyTimeToLive;
   }
 
   public void setHistoryTimeToLive(Integer historyTimeToLive) {
     this.historyTimeToLive = historyTimeToLive;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -244,7 +248,6 @@ public class CaseDefinitionDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CaseDefinitionDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
@@ -269,3 +272,4 @@ public class CaseDefinitionDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

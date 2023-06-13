@@ -1,30 +1,33 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * MigrationInstructionDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class MigrationInstructionDto {
 
-public class MigrationInstructionDto   {
-  @JsonProperty("sourceActivityIds")
   @Valid
-  private List<String> sourceActivityIds = null;
+  private List<String> sourceActivityIds;
 
-  @JsonProperty("targetActivityIds")
   @Valid
-  private List<String> targetActivityIds = null;
+  private List<String> targetActivityIds;
 
-  @JsonProperty("updateEventTrigger")
   private Boolean updateEventTrigger = null;
 
   public MigrationInstructionDto sourceActivityIds(List<String> sourceActivityIds) {
@@ -43,10 +46,11 @@ public class MigrationInstructionDto   {
   /**
    * The activity ids from the source process definition being mapped.
    * @return sourceActivityIds
-   **/
-  @Schema(description = "The activity ids from the source process definition being mapped.")
+  */
   
-    public List<String> getSourceActivityIds() {
+  @Schema(name = "sourceActivityIds", description = "The activity ids from the source process definition being mapped.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sourceActivityIds")
+  public List<String> getSourceActivityIds() {
     return sourceActivityIds;
   }
 
@@ -70,10 +74,11 @@ public class MigrationInstructionDto   {
   /**
    * The activity ids from the target process definition being mapped.
    * @return targetActivityIds
-   **/
-  @Schema(description = "The activity ids from the target process definition being mapped.")
+  */
   
-    public List<String> getTargetActivityIds() {
+  @Schema(name = "targetActivityIds", description = "The activity ids from the target process definition being mapped.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("targetActivityIds")
+  public List<String> getTargetActivityIds() {
     return targetActivityIds;
   }
 
@@ -89,17 +94,17 @@ public class MigrationInstructionDto   {
   /**
    * Configuration flag whether event triggers defined are going to be updated during migration.
    * @return updateEventTrigger
-   **/
-  @Schema(description = "Configuration flag whether event triggers defined are going to be updated during migration.")
+  */
   
-    public Boolean isUpdateEventTrigger() {
+  @Schema(name = "updateEventTrigger", description = "Configuration flag whether event triggers defined are going to be updated during migration.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("updateEventTrigger")
+  public Boolean getUpdateEventTrigger() {
     return updateEventTrigger;
   }
 
   public void setUpdateEventTrigger(Boolean updateEventTrigger) {
     this.updateEventTrigger = updateEventTrigger;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -124,7 +129,6 @@ public class MigrationInstructionDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MigrationInstructionDto {\n");
-    
     sb.append("    sourceActivityIds: ").append(toIndentedString(sourceActivityIds)).append("\n");
     sb.append("    targetActivityIds: ").append(toIndentedString(targetActivityIds)).append("\n");
     sb.append("    updateEventTrigger: ").append(toIndentedString(updateEventTrigger)).append("\n");
@@ -143,3 +147,4 @@ public class MigrationInstructionDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

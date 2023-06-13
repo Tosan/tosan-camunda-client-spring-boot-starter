@@ -1,19 +1,25 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * MetricsResultDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class MetricsResultDto {
 
-public class MetricsResultDto   {
-  @JsonProperty("result")
   private Long result = null;
 
   public MetricsResultDto result(Long result) {
@@ -24,17 +30,17 @@ public class MetricsResultDto   {
   /**
    * The current sum (count) for the selected metric.
    * @return result
-   **/
-  @Schema(description = "The current sum (count) for the selected metric.")
+  */
   
-    public Long getResult() {
+  @Schema(name = "result", description = "The current sum (count) for the selected metric.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("result")
+  public Long getResult() {
     return result;
   }
 
   public void setResult(Long result) {
     this.result = result;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -57,7 +63,6 @@ public class MetricsResultDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MetricsResultDto {\n");
-    
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -74,3 +79,4 @@ public class MetricsResultDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

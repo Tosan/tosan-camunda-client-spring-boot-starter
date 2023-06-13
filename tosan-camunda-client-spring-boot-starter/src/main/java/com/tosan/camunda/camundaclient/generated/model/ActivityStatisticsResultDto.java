@@ -1,33 +1,36 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.IncidentStatisticsResultDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * ActivityStatisticsResultDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ActivityStatisticsResultDto {
 
-public class ActivityStatisticsResultDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("instances")
-  private Integer instances = null;
+  private Integer instances;
 
-  @JsonProperty("failedJobs")
-  private Integer failedJobs = null;
+  private Integer failedJobs;
 
-  @JsonProperty("incidents")
   @Valid
-  private List<IncidentStatisticsResultDto> incidents = null;
+  private List<@Valid IncidentStatisticsResultDto> incidents;
 
   public ActivityStatisticsResultDto id(String id) {
     this.id = id;
@@ -37,10 +40,11 @@ public class ActivityStatisticsResultDto   {
   /**
    * The id of the activity the results are aggregated for.
    * @return id
-   **/
-  @Schema(description = "The id of the activity the results are aggregated for.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the activity the results are aggregated for.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -56,10 +60,11 @@ public class ActivityStatisticsResultDto   {
   /**
    * The total number of running process instances of this activity.
    * @return instances
-   **/
-  @Schema(description = "The total number of running process instances of this activity.")
+  */
   
-    public Integer getInstances() {
+  @Schema(name = "instances", description = "The total number of running process instances of this activity.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("instances")
+  public Integer getInstances() {
     return instances;
   }
 
@@ -75,10 +80,11 @@ public class ActivityStatisticsResultDto   {
   /**
    * The total number of failed jobs for the running instances. **Note**: Will be `0` (not `null`), if failed jobs were excluded.
    * @return failedJobs
-   **/
-  @Schema(description = "The total number of failed jobs for the running instances. **Note**: Will be `0` (not `null`), if failed jobs were excluded.")
+  */
   
-    public Integer getFailedJobs() {
+  @Schema(name = "failedJobs", description = "The total number of failed jobs for the running instances. **Note**: Will be `0` (not `null`), if failed jobs were excluded.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("failedJobs")
+  public Integer getFailedJobs() {
     return failedJobs;
   }
 
@@ -86,7 +92,7 @@ public class ActivityStatisticsResultDto   {
     this.failedJobs = failedJobs;
   }
 
-  public ActivityStatisticsResultDto incidents(List<IncidentStatisticsResultDto> incidents) {
+  public ActivityStatisticsResultDto incidents(List<@Valid IncidentStatisticsResultDto> incidents) {
     this.incidents = incidents;
     return this;
   }
@@ -102,17 +108,17 @@ public class ActivityStatisticsResultDto   {
   /**
    * Each item in the resulting array is an object which contains `incidentType` and `incidentCount`. **Note**: Will be an empty array, if `incidents` or `incidentsForType` were excluded. Furthermore, the array will be also empty if no incidents were found.
    * @return incidents
-   **/
-  @Schema(description = "Each item in the resulting array is an object which contains `incidentType` and `incidentCount`. **Note**: Will be an empty array, if `incidents` or `incidentsForType` were excluded. Furthermore, the array will be also empty if no incidents were found.")
-      @Valid
-    public List<IncidentStatisticsResultDto> getIncidents() {
+  */
+  @Valid 
+  @Schema(name = "incidents", description = "Each item in the resulting array is an object which contains `incidentType` and `incidentCount`. **Note**: Will be an empty array, if `incidents` or `incidentsForType` were excluded. Furthermore, the array will be also empty if no incidents were found.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidents")
+  public List<@Valid IncidentStatisticsResultDto> getIncidents() {
     return incidents;
   }
 
-  public void setIncidents(List<IncidentStatisticsResultDto> incidents) {
+  public void setIncidents(List<@Valid IncidentStatisticsResultDto> incidents) {
     this.incidents = incidents;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -138,7 +144,6 @@ public class ActivityStatisticsResultDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ActivityStatisticsResultDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
     sb.append("    failedJobs: ").append(toIndentedString(failedJobs)).append("\n");
@@ -158,3 +163,4 @@ public class ActivityStatisticsResultDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

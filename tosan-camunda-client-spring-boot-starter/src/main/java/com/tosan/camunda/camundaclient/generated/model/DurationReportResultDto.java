@@ -1,21 +1,26 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * DurationReportResultDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class DurationReportResultDto {
 
-public class DurationReportResultDto   {
-  @JsonProperty("period")
   private Integer period = null;
 
   /**
@@ -32,32 +37,33 @@ public class DurationReportResultDto   {
       this.value = value;
     }
 
-    @Override
     @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static PeriodUnitEnum fromValue(String text) {
+    public static PeriodUnitEnum fromValue(String value) {
       for (PeriodUnitEnum b : PeriodUnitEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
       return null;
     }
   }
-  @JsonProperty("periodUnit")
+
   private PeriodUnitEnum periodUnit = null;
 
-  @JsonProperty("minimum")
   private Long minimum = null;
 
-  @JsonProperty("maximum")
   private Long maximum = null;
 
-  @JsonProperty("average")
   private Long average = null;
 
   public DurationReportResultDto period(Integer period) {
@@ -68,10 +74,11 @@ public class DurationReportResultDto   {
   /**
    * Specifies a timespan within a year. **Note:** The period must be interpreted in conjunction with the returned `periodUnit`.
    * @return period
-   **/
-  @Schema(description = "Specifies a timespan within a year. **Note:** The period must be interpreted in conjunction with the returned `periodUnit`.")
+  */
   
-    public Integer getPeriod() {
+  @Schema(name = "period", description = "Specifies a timespan within a year. **Note:** The period must be interpreted in conjunction with the returned `periodUnit`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("period")
+  public Integer getPeriod() {
     return period;
   }
 
@@ -87,10 +94,11 @@ public class DurationReportResultDto   {
   /**
    * The unit of the given period. Possible values are `MONTH` and `QUARTER`.
    * @return periodUnit
-   **/
-  @Schema(description = "The unit of the given period. Possible values are `MONTH` and `QUARTER`.")
+  */
   
-    public PeriodUnitEnum getPeriodUnit() {
+  @Schema(name = "periodUnit", description = "The unit of the given period. Possible values are `MONTH` and `QUARTER`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("periodUnit")
+  public PeriodUnitEnum getPeriodUnit() {
     return periodUnit;
   }
 
@@ -106,10 +114,11 @@ public class DurationReportResultDto   {
   /**
    * The smallest duration in milliseconds of all completed process instances which were started in the given period.
    * @return minimum
-   **/
-  @Schema(description = "The smallest duration in milliseconds of all completed process instances which were started in the given period.")
+  */
   
-    public Long getMinimum() {
+  @Schema(name = "minimum", description = "The smallest duration in milliseconds of all completed process instances which were started in the given period.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("minimum")
+  public Long getMinimum() {
     return minimum;
   }
 
@@ -125,10 +134,11 @@ public class DurationReportResultDto   {
   /**
    * The greatest duration in milliseconds of all completed process instances which were started in the given period.
    * @return maximum
-   **/
-  @Schema(description = "The greatest duration in milliseconds of all completed process instances which were started in the given period.")
+  */
   
-    public Long getMaximum() {
+  @Schema(name = "maximum", description = "The greatest duration in milliseconds of all completed process instances which were started in the given period.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("maximum")
+  public Long getMaximum() {
     return maximum;
   }
 
@@ -144,17 +154,17 @@ public class DurationReportResultDto   {
   /**
    * The average duration in milliseconds of all completed process instances which were started in the given period.
    * @return average
-   **/
-  @Schema(description = "The average duration in milliseconds of all completed process instances which were started in the given period.")
+  */
   
-    public Long getAverage() {
+  @Schema(name = "average", description = "The average duration in milliseconds of all completed process instances which were started in the given period.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("average")
+  public Long getAverage() {
     return average;
   }
 
   public void setAverage(Long average) {
     this.average = average;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -181,7 +191,6 @@ public class DurationReportResultDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DurationReportResultDto {\n");
-    
     sb.append("    period: ").append(toIndentedString(period)).append("\n");
     sb.append("    periodUnit: ").append(toIndentedString(periodUnit)).append("\n");
     sb.append("    minimum: ").append(toIndentedString(minimum)).append("\n");
@@ -202,3 +211,4 @@ public class DurationReportResultDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

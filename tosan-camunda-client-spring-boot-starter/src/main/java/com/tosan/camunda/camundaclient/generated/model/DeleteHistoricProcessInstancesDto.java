@@ -1,32 +1,35 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.HistoricProcessInstanceQueryDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * DeleteHistoricProcessInstancesDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class DeleteHistoricProcessInstancesDto {
 
-public class DeleteHistoricProcessInstancesDto   {
-  @JsonProperty("historicProcessInstanceIds")
   @Valid
-  private List<String> historicProcessInstanceIds = null;
+  private List<String> historicProcessInstanceIds;
 
-  @JsonProperty("historicProcessInstanceQuery")
-  private HistoricProcessInstanceQueryDto historicProcessInstanceQuery = null;
+  private HistoricProcessInstanceQueryDto historicProcessInstanceQuery;
 
-  @JsonProperty("deleteReason")
   private String deleteReason = null;
 
-  @JsonProperty("failIfNotExists")
   private Boolean failIfNotExists = null;
 
   public DeleteHistoricProcessInstancesDto historicProcessInstanceIds(List<String> historicProcessInstanceIds) {
@@ -45,10 +48,11 @@ public class DeleteHistoricProcessInstancesDto   {
   /**
    * A list historic process instance ids to delete.
    * @return historicProcessInstanceIds
-   **/
-  @Schema(description = "A list historic process instance ids to delete.")
+  */
   
-    public List<String> getHistoricProcessInstanceIds() {
+  @Schema(name = "historicProcessInstanceIds", description = "A list historic process instance ids to delete.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historicProcessInstanceIds")
+  public List<String> getHistoricProcessInstanceIds() {
     return historicProcessInstanceIds;
   }
 
@@ -64,11 +68,11 @@ public class DeleteHistoricProcessInstancesDto   {
   /**
    * Get historicProcessInstanceQuery
    * @return historicProcessInstanceQuery
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public HistoricProcessInstanceQueryDto getHistoricProcessInstanceQuery() {
+  */
+  @Valid 
+  @Schema(name = "historicProcessInstanceQuery", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historicProcessInstanceQuery")
+  public HistoricProcessInstanceQueryDto getHistoricProcessInstanceQuery() {
     return historicProcessInstanceQuery;
   }
 
@@ -84,10 +88,11 @@ public class DeleteHistoricProcessInstancesDto   {
   /**
    * A string with delete reason.
    * @return deleteReason
-   **/
-  @Schema(description = "A string with delete reason.")
+  */
   
-    public String getDeleteReason() {
+  @Schema(name = "deleteReason", description = "A string with delete reason.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deleteReason")
+  public String getDeleteReason() {
     return deleteReason;
   }
 
@@ -103,17 +108,17 @@ public class DeleteHistoricProcessInstancesDto   {
   /**
    * If set to `false`, the request will still be successful if one ore more of the process ids are not found.
    * @return failIfNotExists
-   **/
-  @Schema(description = "If set to `false`, the request will still be successful if one ore more of the process ids are not found.")
+  */
   
-    public Boolean isFailIfNotExists() {
+  @Schema(name = "failIfNotExists", description = "If set to `false`, the request will still be successful if one ore more of the process ids are not found.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("failIfNotExists")
+  public Boolean getFailIfNotExists() {
     return failIfNotExists;
   }
 
   public void setFailIfNotExists(Boolean failIfNotExists) {
     this.failIfNotExists = failIfNotExists;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -139,7 +144,6 @@ public class DeleteHistoricProcessInstancesDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteHistoricProcessInstancesDto {\n");
-    
     sb.append("    historicProcessInstanceIds: ").append(toIndentedString(historicProcessInstanceIds)).append("\n");
     sb.append("    historicProcessInstanceQuery: ").append(toIndentedString(historicProcessInstanceQuery)).append("\n");
     sb.append("    deleteReason: ").append(toIndentedString(deleteReason)).append("\n");
@@ -159,3 +163,4 @@ public class DeleteHistoricProcessInstancesDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

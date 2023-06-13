@@ -1,22 +1,26 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
-
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * RestartProcessInstanceModificationInstructionDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class RestartProcessInstanceModificationInstructionDto {
 
-public class RestartProcessInstanceModificationInstructionDto   {
   /**
    * **Mandatory**. One of the following values: `startBeforeActivity`, `startAfterActivity`, `startTransition`.  * A `startBeforeActivity` instruction requests to enter a given activity. * A `startAfterActivity` instruction requests to execute the single outgoing sequence flow of a given activity. * A `startTransition` instruction requests to execute a specific sequence flow.
    */
@@ -33,30 +37,48 @@ public class RestartProcessInstanceModificationInstructionDto   {
       this.value = value;
     }
 
-    @Override
     @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static TypeEnum fromValue(String text) {
+    public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
-      return null;
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
   }
-  @JsonProperty("type")
-  private TypeEnum type = null;
 
-  @JsonProperty("activityId")
+  private TypeEnum type;
+
   private String activityId = null;
 
-  @JsonProperty("transitionId")
   private String transitionId = null;
+
+  /**
+   * Default constructor
+   * @deprecated Use {@link RestartProcessInstanceModificationInstructionDto#RestartProcessInstanceModificationInstructionDto(TypeEnum)}
+   */
+  @Deprecated
+  public RestartProcessInstanceModificationInstructionDto() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public RestartProcessInstanceModificationInstructionDto(TypeEnum type) {
+    this.type = type;
+  }
 
   public RestartProcessInstanceModificationInstructionDto type(TypeEnum type) {
     this.type = type;
@@ -66,11 +88,11 @@ public class RestartProcessInstanceModificationInstructionDto   {
   /**
    * **Mandatory**. One of the following values: `startBeforeActivity`, `startAfterActivity`, `startTransition`.  * A `startBeforeActivity` instruction requests to enter a given activity. * A `startAfterActivity` instruction requests to execute the single outgoing sequence flow of a given activity. * A `startTransition` instruction requests to execute a specific sequence flow.
    * @return type
-   **/
-  @Schema(required = true, description = "**Mandatory**. One of the following values: `startBeforeActivity`, `startAfterActivity`, `startTransition`.  * A `startBeforeActivity` instruction requests to enter a given activity. * A `startAfterActivity` instruction requests to execute the single outgoing sequence flow of a given activity. * A `startTransition` instruction requests to execute a specific sequence flow.")
-      @NotNull
-
-    public TypeEnum getType() {
+  */
+  @NotNull 
+  @Schema(name = "type", description = "**Mandatory**. One of the following values: `startBeforeActivity`, `startAfterActivity`, `startTransition`.  * A `startBeforeActivity` instruction requests to enter a given activity. * A `startAfterActivity` instruction requests to execute the single outgoing sequence flow of a given activity. * A `startTransition` instruction requests to execute a specific sequence flow.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("type")
+  public TypeEnum getType() {
     return type;
   }
 
@@ -86,10 +108,11 @@ public class RestartProcessInstanceModificationInstructionDto   {
   /**
    * **Can be used with instructions of types** `startBeforeActivity` and `startAfterActivity`. Specifies the sequence flow to start.
    * @return activityId
-   **/
-  @Schema(description = "**Can be used with instructions of types** `startBeforeActivity` and `startAfterActivity`. Specifies the sequence flow to start.")
+  */
   
-    public String getActivityId() {
+  @Schema(name = "activityId", description = "**Can be used with instructions of types** `startBeforeActivity` and `startAfterActivity`. Specifies the sequence flow to start.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityId")
+  public String getActivityId() {
     return activityId;
   }
 
@@ -105,17 +128,17 @@ public class RestartProcessInstanceModificationInstructionDto   {
   /**
    * **Can be used with instructions of types** `startTransition`. Specifies the sequence flow to start.
    * @return transitionId
-   **/
-  @Schema(description = "**Can be used with instructions of types** `startTransition`. Specifies the sequence flow to start.")
+  */
   
-    public String getTransitionId() {
+  @Schema(name = "transitionId", description = "**Can be used with instructions of types** `startTransition`. Specifies the sequence flow to start.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("transitionId")
+  public String getTransitionId() {
     return transitionId;
   }
 
   public void setTransitionId(String transitionId) {
     this.transitionId = transitionId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -140,7 +163,6 @@ public class RestartProcessInstanceModificationInstructionDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RestartProcessInstanceModificationInstructionDto {\n");
-    
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    activityId: ").append(toIndentedString(activityId)).append("\n");
     sb.append("    transitionId: ").append(toIndentedString(transitionId)).append("\n");
@@ -159,3 +181,4 @@ public class RestartProcessInstanceModificationInstructionDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

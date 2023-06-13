@@ -1,32 +1,38 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.MigrationInstructionValidationReportDto;
+import com.tosan.camunda.camundaclient.generated.model.MigrationVariableValidationReportDto;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * MigrationPlanReportDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class MigrationPlanReportDto {
 
-public class MigrationPlanReportDto   {
-  @JsonProperty("instructionReports")
   @Valid
-  private List<MigrationInstructionValidationReportDto> instructionReports = null;
+  private List<@Valid MigrationInstructionValidationReportDto> instructionReports;
 
-  @JsonProperty("variableReports")
   @Valid
-  private Map<String, MigrationVariableValidationReportDto> variableReports = null;
+  private Map<String, MigrationVariableValidationReportDto> variableReports;
 
-  public MigrationPlanReportDto instructionReports(List<MigrationInstructionValidationReportDto> instructionReports) {
+  public MigrationPlanReportDto instructionReports(List<@Valid MigrationInstructionValidationReportDto> instructionReports) {
     this.instructionReports = instructionReports;
     return this;
   }
@@ -42,14 +48,15 @@ public class MigrationPlanReportDto   {
   /**
    * The list of instruction validation reports. If no validation errors are detected it is an empty list.
    * @return instructionReports
-   **/
-  @Schema(description = "The list of instruction validation reports. If no validation errors are detected it is an empty list.")
-      @Valid
-    public List<MigrationInstructionValidationReportDto> getInstructionReports() {
+  */
+  @Valid 
+  @Schema(name = "instructionReports", description = "The list of instruction validation reports. If no validation errors are detected it is an empty list.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("instructionReports")
+  public List<@Valid MigrationInstructionValidationReportDto> getInstructionReports() {
     return instructionReports;
   }
 
-  public void setInstructionReports(List<MigrationInstructionValidationReportDto> instructionReports) {
+  public void setInstructionReports(List<@Valid MigrationInstructionValidationReportDto> instructionReports) {
     this.instructionReports = instructionReports;
   }
 
@@ -69,17 +76,17 @@ public class MigrationPlanReportDto   {
   /**
    * A map of variable reports. Each key is a variable name and each value a JSON object consisting of the variable's type, value, value info object and a list of failures.
    * @return variableReports
-   **/
-  @Schema(description = "A map of variable reports. Each key is a variable name and each value a JSON object consisting of the variable's type, value, value info object and a list of failures.")
-      @Valid
-    public Map<String, MigrationVariableValidationReportDto> getVariableReports() {
+  */
+  @Valid 
+  @Schema(name = "variableReports", description = "A map of variable reports. Each key is a variable name and each value a JSON object consisting of the variable's type, value, value info object and a list of failures.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableReports")
+  public Map<String, MigrationVariableValidationReportDto> getVariableReports() {
     return variableReports;
   }
 
   public void setVariableReports(Map<String, MigrationVariableValidationReportDto> variableReports) {
     this.variableReports = variableReports;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -103,7 +110,6 @@ public class MigrationPlanReportDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MigrationPlanReportDto {\n");
-    
     sb.append("    instructionReports: ").append(toIndentedString(instructionReports)).append("\n");
     sb.append("    variableReports: ").append(toIndentedString(variableReports)).append("\n");
     sb.append("}");
@@ -121,3 +127,4 @@ public class MigrationPlanReportDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

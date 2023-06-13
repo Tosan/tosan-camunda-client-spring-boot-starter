@@ -1,42 +1,43 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.MultipleProcessInstanceModificationInstructionDto;
+import com.tosan.camunda.camundaclient.generated.model.ProcessInstanceQueryDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * ModificationDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ModificationDto {
 
-public class ModificationDto   {
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("skipCustomListeners")
   private Boolean skipCustomListeners = null;
 
-  @JsonProperty("skipIoMappings")
   private Boolean skipIoMappings = null;
 
-  @JsonProperty("processInstanceIds")
   @Valid
-  private List<String> processInstanceIds = null;
+  private List<String> processInstanceIds;
 
-  @JsonProperty("processInstanceQuery")
-  private ProcessInstanceQueryDto processInstanceQuery = null;
+  private ProcessInstanceQueryDto processInstanceQuery;
 
-  @JsonProperty("instructions")
   @Valid
-  private List<MultipleProcessInstanceModificationInstructionDto> instructions = null;
+  private List<@Valid MultipleProcessInstanceModificationInstructionDto> instructions;
 
-  @JsonProperty("annotation")
   private String annotation = null;
 
   public ModificationDto processDefinitionId(String processDefinitionId) {
@@ -47,10 +48,11 @@ public class ModificationDto   {
   /**
    * The id of the process definition for the modification
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definition for the modification")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definition for the modification", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -66,10 +68,11 @@ public class ModificationDto   {
   /**
    * Skip execution listener invocation for activities that are started or ended as part of this request.
    * @return skipCustomListeners
-   **/
-  @Schema(description = "Skip execution listener invocation for activities that are started or ended as part of this request.")
+  */
   
-    public Boolean isSkipCustomListeners() {
+  @Schema(name = "skipCustomListeners", description = "Skip execution listener invocation for activities that are started or ended as part of this request.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("skipCustomListeners")
+  public Boolean getSkipCustomListeners() {
     return skipCustomListeners;
   }
 
@@ -85,10 +88,11 @@ public class ModificationDto   {
   /**
    * Skip execution of [input/output variable mappings](https://docs.camunda.org/manual/7.17/user-guide/process-engine/variables/#input-output-variable-mapping) for activities that are started or ended as part of this request.
    * @return skipIoMappings
-   **/
-  @Schema(description = "Skip execution of [input/output variable mappings](https://docs.camunda.org/manual/7.17/user-guide/process-engine/variables/#input-output-variable-mapping) for activities that are started or ended as part of this request.")
+  */
   
-    public Boolean isSkipIoMappings() {
+  @Schema(name = "skipIoMappings", description = "Skip execution of [input/output variable mappings](https://docs.camunda.org/manual/7.17/user-guide/process-engine/variables/#input-output-variable-mapping) for activities that are started or ended as part of this request.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("skipIoMappings")
+  public Boolean getSkipIoMappings() {
     return skipIoMappings;
   }
 
@@ -112,10 +116,11 @@ public class ModificationDto   {
   /**
    * A list of process instance ids to modify.
    * @return processInstanceIds
-   **/
-  @Schema(description = "A list of process instance ids to modify.")
+  */
   
-    public List<String> getProcessInstanceIds() {
+  @Schema(name = "processInstanceIds", description = "A list of process instance ids to modify.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceIds")
+  public List<String> getProcessInstanceIds() {
     return processInstanceIds;
   }
 
@@ -131,11 +136,11 @@ public class ModificationDto   {
   /**
    * Get processInstanceQuery
    * @return processInstanceQuery
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public ProcessInstanceQueryDto getProcessInstanceQuery() {
+  */
+  @Valid 
+  @Schema(name = "processInstanceQuery", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceQuery")
+  public ProcessInstanceQueryDto getProcessInstanceQuery() {
     return processInstanceQuery;
   }
 
@@ -143,7 +148,7 @@ public class ModificationDto   {
     this.processInstanceQuery = processInstanceQuery;
   }
 
-  public ModificationDto instructions(List<MultipleProcessInstanceModificationInstructionDto> instructions) {
+  public ModificationDto instructions(List<@Valid MultipleProcessInstanceModificationInstructionDto> instructions) {
     this.instructions = instructions;
     return this;
   }
@@ -159,14 +164,15 @@ public class ModificationDto   {
   /**
    * An array of modification instructions. The instructions are executed in the order they are in. 
    * @return instructions
-   **/
-  @Schema(description = "An array of modification instructions. The instructions are executed in the order they are in. ")
-      @Valid
-    public List<MultipleProcessInstanceModificationInstructionDto> getInstructions() {
+  */
+  @Valid 
+  @Schema(name = "instructions", description = "An array of modification instructions. The instructions are executed in the order they are in. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("instructions")
+  public List<@Valid MultipleProcessInstanceModificationInstructionDto> getInstructions() {
     return instructions;
   }
 
-  public void setInstructions(List<MultipleProcessInstanceModificationInstructionDto> instructions) {
+  public void setInstructions(List<@Valid MultipleProcessInstanceModificationInstructionDto> instructions) {
     this.instructions = instructions;
   }
 
@@ -178,17 +184,17 @@ public class ModificationDto   {
   /**
    * An arbitrary text annotation set by a user for auditing reasons.
    * @return annotation
-   **/
-  @Schema(description = "An arbitrary text annotation set by a user for auditing reasons.")
+  */
   
-    public String getAnnotation() {
+  @Schema(name = "annotation", description = "An arbitrary text annotation set by a user for auditing reasons.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("annotation")
+  public String getAnnotation() {
     return annotation;
   }
 
   public void setAnnotation(String annotation) {
     this.annotation = annotation;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -217,7 +223,6 @@ public class ModificationDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ModificationDto {\n");
-    
     sb.append("    processDefinitionId: ").append(toIndentedString(processDefinitionId)).append("\n");
     sb.append("    skipCustomListeners: ").append(toIndentedString(skipCustomListeners)).append("\n");
     sb.append("    skipIoMappings: ").append(toIndentedString(skipIoMappings)).append("\n");
@@ -240,3 +245,4 @@ public class ModificationDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

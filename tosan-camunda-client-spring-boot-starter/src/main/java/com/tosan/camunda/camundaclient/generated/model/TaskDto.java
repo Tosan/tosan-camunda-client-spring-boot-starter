@@ -1,43 +1,46 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.tosan.camunda.camundaclient.generated.model.CamundaFormRef;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * TaskDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class TaskDto {
 
-public class TaskDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("name")
   private String name = null;
 
-  @JsonProperty("assignee")
   private String assignee = null;
 
-  @JsonProperty("owner")
   private String owner = null;
 
-  @JsonProperty("created")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime created = null;
 
-  @JsonProperty("due")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime due = null;
 
-  @JsonProperty("followUp")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime followUp = null;
 
   /**
@@ -54,66 +57,56 @@ public class TaskDto   {
       this.value = value;
     }
 
-    @Override
     @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static DelegationStateEnum fromValue(String text) {
+    public static DelegationStateEnum fromValue(String value) {
       for (DelegationStateEnum b : DelegationStateEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
       return null;
     }
   }
-  @JsonProperty("delegationState")
+
   private DelegationStateEnum delegationState = null;
 
-  @JsonProperty("description")
   private String description = null;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("parentTaskId")
   private String parentTaskId = null;
 
-  @JsonProperty("priority")
   private Integer priority = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("caseExecutionId")
   private String caseExecutionId = null;
 
-  @JsonProperty("caseDefinitionId")
   private String caseDefinitionId = null;
 
-  @JsonProperty("caseInstanceId")
   private String caseInstanceId = null;
 
-  @JsonProperty("taskDefinitionKey")
   private String taskDefinitionKey = null;
 
-  @JsonProperty("suspended")
   private Boolean suspended = null;
 
-  @JsonProperty("formKey")
   private String formKey = null;
 
-  @JsonProperty("camundaFormRef")
   @Valid
-  private Map<String, CamundaFormRef> camundaFormRef = null;
+  private Map<String, CamundaFormRef> camundaFormRef;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
   public TaskDto id(String id) {
@@ -124,10 +117,11 @@ public class TaskDto   {
   /**
    * The task id.
    * @return id
-   **/
-  @Schema(description = "The task id.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The task id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -143,10 +137,11 @@ public class TaskDto   {
   /**
    * The task name.
    * @return name
-   **/
-  @Schema(description = "The task name.")
+  */
   
-    public String getName() {
+  @Schema(name = "name", description = "The task name.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
     return name;
   }
 
@@ -162,10 +157,11 @@ public class TaskDto   {
   /**
    * The assignee's id.
    * @return assignee
-   **/
-  @Schema(description = "The assignee's id.")
+  */
   
-    public String getAssignee() {
+  @Schema(name = "assignee", description = "The assignee's id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("assignee")
+  public String getAssignee() {
     return assignee;
   }
 
@@ -181,10 +177,11 @@ public class TaskDto   {
   /**
    * The owner's id.
    * @return owner
-   **/
-  @Schema(description = "The owner's id.")
+  */
   
-    public String getOwner() {
+  @Schema(name = "owner", description = "The owner's id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("owner")
+  public String getOwner() {
     return owner;
   }
 
@@ -200,11 +197,11 @@ public class TaskDto   {
   /**
    * The date the task was created on. [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return created
-   **/
-  @Schema(description = "The date the task was created on. [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getCreated() {
+  */
+  @Valid 
+  @Schema(name = "created", description = "The date the task was created on. [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("created")
+  public OffsetDateTime getCreated() {
     return created;
   }
 
@@ -220,11 +217,11 @@ public class TaskDto   {
   /**
    * The task's due date. [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return due
-   **/
-  @Schema(description = "The task's due date. [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getDue() {
+  */
+  @Valid 
+  @Schema(name = "due", description = "The task's due date. [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("due")
+  public OffsetDateTime getDue() {
     return due;
   }
 
@@ -240,11 +237,11 @@ public class TaskDto   {
   /**
    * The follow-up date for the task. [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return followUp
-   **/
-  @Schema(description = "The follow-up date for the task. [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getFollowUp() {
+  */
+  @Valid 
+  @Schema(name = "followUp", description = "The follow-up date for the task. [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("followUp")
+  public OffsetDateTime getFollowUp() {
     return followUp;
   }
 
@@ -260,10 +257,11 @@ public class TaskDto   {
   /**
    * The task's delegation state. Possible values are `PENDING` and `RESOLVED`.
    * @return delegationState
-   **/
-  @Schema(description = "The task's delegation state. Possible values are `PENDING` and `RESOLVED`.")
+  */
   
-    public DelegationStateEnum getDelegationState() {
+  @Schema(name = "delegationState", description = "The task's delegation state. Possible values are `PENDING` and `RESOLVED`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("delegationState")
+  public DelegationStateEnum getDelegationState() {
     return delegationState;
   }
 
@@ -279,10 +277,11 @@ public class TaskDto   {
   /**
    * The task's description.
    * @return description
-   **/
-  @Schema(description = "The task's description.")
+  */
   
-    public String getDescription() {
+  @Schema(name = "description", description = "The task's description.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("description")
+  public String getDescription() {
     return description;
   }
 
@@ -298,10 +297,11 @@ public class TaskDto   {
   /**
    * The id of the execution the task belongs to.
    * @return executionId
-   **/
-  @Schema(description = "The id of the execution the task belongs to.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "The id of the execution the task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -317,10 +317,11 @@ public class TaskDto   {
   /**
    * The id the parent task, if this task is a subtask.
    * @return parentTaskId
-   **/
-  @Schema(description = "The id the parent task, if this task is a subtask.")
+  */
   
-    public String getParentTaskId() {
+  @Schema(name = "parentTaskId", description = "The id the parent task, if this task is a subtask.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("parentTaskId")
+  public String getParentTaskId() {
     return parentTaskId;
   }
 
@@ -336,10 +337,11 @@ public class TaskDto   {
   /**
    * The task's priority.
    * @return priority
-   **/
-  @Schema(description = "The task's priority.")
+  */
   
-    public Integer getPriority() {
+  @Schema(name = "priority", description = "The task's priority.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("priority")
+  public Integer getPriority() {
     return priority;
   }
 
@@ -355,10 +357,11 @@ public class TaskDto   {
   /**
    * The id of the process definition the task belongs to.
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definition the task belongs to.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definition the task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -374,10 +377,11 @@ public class TaskDto   {
   /**
    * The id of the process instance the task belongs to.
    * @return processInstanceId
-   **/
-  @Schema(description = "The id of the process instance the task belongs to.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "The id of the process instance the task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -393,10 +397,11 @@ public class TaskDto   {
   /**
    * The id of the case execution the task belongs to.
    * @return caseExecutionId
-   **/
-  @Schema(description = "The id of the case execution the task belongs to.")
+  */
   
-    public String getCaseExecutionId() {
+  @Schema(name = "caseExecutionId", description = "The id of the case execution the task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseExecutionId")
+  public String getCaseExecutionId() {
     return caseExecutionId;
   }
 
@@ -412,10 +417,11 @@ public class TaskDto   {
   /**
    * The id of the case definition the task belongs to.
    * @return caseDefinitionId
-   **/
-  @Schema(description = "The id of the case definition the task belongs to.")
+  */
   
-    public String getCaseDefinitionId() {
+  @Schema(name = "caseDefinitionId", description = "The id of the case definition the task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseDefinitionId")
+  public String getCaseDefinitionId() {
     return caseDefinitionId;
   }
 
@@ -431,10 +437,11 @@ public class TaskDto   {
   /**
    * The id of the case instance the task belongs to.
    * @return caseInstanceId
-   **/
-  @Schema(description = "The id of the case instance the task belongs to.")
+  */
   
-    public String getCaseInstanceId() {
+  @Schema(name = "caseInstanceId", description = "The id of the case instance the task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceId")
+  public String getCaseInstanceId() {
     return caseInstanceId;
   }
 
@@ -450,10 +457,11 @@ public class TaskDto   {
   /**
    * The task's key.
    * @return taskDefinitionKey
-   **/
-  @Schema(description = "The task's key.")
+  */
   
-    public String getTaskDefinitionKey() {
+  @Schema(name = "taskDefinitionKey", description = "The task's key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskDefinitionKey")
+  public String getTaskDefinitionKey() {
     return taskDefinitionKey;
   }
 
@@ -469,10 +477,11 @@ public class TaskDto   {
   /**
    * Whether the task belongs to a process instance that is suspended.
    * @return suspended
-   **/
-  @Schema(description = "Whether the task belongs to a process instance that is suspended.")
+  */
   
-    public Boolean isSuspended() {
+  @Schema(name = "suspended", description = "Whether the task belongs to a process instance that is suspended.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("suspended")
+  public Boolean getSuspended() {
     return suspended;
   }
 
@@ -488,10 +497,11 @@ public class TaskDto   {
   /**
    * If not `null`, the form key for the task.
    * @return formKey
-   **/
-  @Schema(description = "If not `null`, the form key for the task.")
+  */
   
-    public String getFormKey() {
+  @Schema(name = "formKey", description = "If not `null`, the form key for the task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("formKey")
+  public String getFormKey() {
     return formKey;
   }
 
@@ -515,10 +525,11 @@ public class TaskDto   {
   /**
    * A reference to a specific version of a Camunda Form.
    * @return camundaFormRef
-   **/
-  @Schema(description = "A reference to a specific version of a Camunda Form.")
-      @Valid
-    public Map<String, CamundaFormRef> getCamundaFormRef() {
+  */
+  @Valid 
+  @Schema(name = "camundaFormRef", description = "A reference to a specific version of a Camunda Form.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("camundaFormRef")
+  public Map<String, CamundaFormRef> getCamundaFormRef() {
     return camundaFormRef;
   }
 
@@ -534,17 +545,17 @@ public class TaskDto   {
   /**
    * If not `null`, the tenant id of the task.
    * @return tenantId
-   **/
-  @Schema(description = "If not `null`, the tenant id of the task.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "If not `null`, the tenant id of the task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
   public void setTenantId(String tenantId) {
     this.tenantId = tenantId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -588,7 +599,6 @@ public class TaskDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TaskDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    assignee: ").append(toIndentedString(assignee)).append("\n");
@@ -626,3 +636,4 @@ public class TaskDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

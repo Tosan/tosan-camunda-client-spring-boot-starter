@@ -1,27 +1,32 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * SchemaLogEntryDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class SchemaLogEntryDto {
 
-public class SchemaLogEntryDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("timestamp")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime timestamp = null;
 
-  @JsonProperty("version")
   private String version = null;
 
   public SchemaLogEntryDto id(String id) {
@@ -32,10 +37,11 @@ public class SchemaLogEntryDto   {
   /**
    * The id of the schema log entry.
    * @return id
-   **/
-  @Schema(description = "The id of the schema log entry.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the schema log entry.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -51,11 +57,11 @@ public class SchemaLogEntryDto   {
   /**
    * The date and time of the schema update.
    * @return timestamp
-   **/
-  @Schema(description = "The date and time of the schema update.")
-  
-    @Valid
-    public OffsetDateTime getTimestamp() {
+  */
+  @Valid 
+  @Schema(name = "timestamp", description = "The date and time of the schema update.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("timestamp")
+  public OffsetDateTime getTimestamp() {
     return timestamp;
   }
 
@@ -71,17 +77,17 @@ public class SchemaLogEntryDto   {
   /**
    * The version of the schema.
    * @return version
-   **/
-  @Schema(description = "The version of the schema.")
+  */
   
-    public String getVersion() {
+  @Schema(name = "version", description = "The version of the schema.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("version")
+  public String getVersion() {
     return version;
   }
 
   public void setVersion(String version) {
     this.version = version;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -106,7 +112,6 @@ public class SchemaLogEntryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SchemaLogEntryDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
@@ -125,3 +130,4 @@ public class SchemaLogEntryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

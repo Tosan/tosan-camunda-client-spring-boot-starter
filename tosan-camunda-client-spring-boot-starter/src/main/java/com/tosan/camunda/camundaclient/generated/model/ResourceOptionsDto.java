@@ -1,26 +1,32 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.AtomLink;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * ResourceOptionsDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ResourceOptionsDto {
 
-public class ResourceOptionsDto   {
-  @JsonProperty("links")
   @Valid
-  private List<AtomLink> links = null;
+  private List<@Valid AtomLink> links;
 
-  public ResourceOptionsDto links(List<AtomLink> links) {
+  public ResourceOptionsDto links(List<@Valid AtomLink> links) {
     this.links = links;
     return this;
   }
@@ -36,17 +42,17 @@ public class ResourceOptionsDto   {
   /**
    * The links associated to this resource, with `method`, `href` and `rel`.
    * @return links
-   **/
-  @Schema(description = "The links associated to this resource, with `method`, `href` and `rel`.")
-      @Valid
-    public List<AtomLink> getLinks() {
+  */
+  @Valid 
+  @Schema(name = "links", description = "The links associated to this resource, with `method`, `href` and `rel`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("links")
+  public List<@Valid AtomLink> getLinks() {
     return links;
   }
 
-  public void setLinks(List<AtomLink> links) {
+  public void setLinks(List<@Valid AtomLink> links) {
     this.links = links;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -69,7 +75,6 @@ public class ResourceOptionsDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResourceOptionsDto {\n");
-    
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -86,3 +91,4 @@ public class ResourceOptionsDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

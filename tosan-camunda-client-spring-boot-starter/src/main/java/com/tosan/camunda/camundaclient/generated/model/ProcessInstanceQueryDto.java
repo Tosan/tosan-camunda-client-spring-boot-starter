@@ -1,122 +1,99 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.ProcessInstanceQueryDtoSortingInner;
+import com.tosan.camunda.camundaclient.generated.model.VariableQueryParameterDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A process instance query which defines a group of process instances
  */
-@Schema(description = "A process instance query which defines a group of process instances")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "ProcessInstanceQueryDto", description = "A process instance query which defines a group of process instances")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ProcessInstanceQueryDto {
 
-public class ProcessInstanceQueryDto   {
-  @JsonProperty("deploymentId")
   private String deploymentId = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("processDefinitionKeyIn")
   @Valid
-  private List<String> processDefinitionKeyIn = null;
+  private List<String> processDefinitionKeyIn;
 
-  @JsonProperty("processDefinitionKeyNotIn")
   @Valid
-  private List<String> processDefinitionKeyNotIn = null;
+  private List<String> processDefinitionKeyNotIn;
 
-  @JsonProperty("businessKey")
   private String businessKey = null;
 
-  @JsonProperty("businessKeyLike")
   private String businessKeyLike = null;
 
-  @JsonProperty("caseInstanceId")
   private String caseInstanceId = null;
 
-  @JsonProperty("superProcessInstance")
   private String superProcessInstance = null;
 
-  @JsonProperty("subProcessInstance")
   private String subProcessInstance = null;
 
-  @JsonProperty("superCaseInstance")
   private String superCaseInstance = null;
 
-  @JsonProperty("subCaseInstance")
   private String subCaseInstance = null;
 
-  @JsonProperty("active")
   private Boolean active = null;
 
-  @JsonProperty("suspended")
   private Boolean suspended = null;
 
-  @JsonProperty("processInstanceIds")
   @Valid
-  private List<String> processInstanceIds = null;
+  private List<String> processInstanceIds;
 
-  @JsonProperty("withIncident")
   private Boolean withIncident = null;
 
-  @JsonProperty("incidentId")
   private String incidentId = null;
 
-  @JsonProperty("incidentType")
   private String incidentType = null;
 
-  @JsonProperty("incidentMessage")
   private String incidentMessage = null;
 
-  @JsonProperty("incidentMessageLike")
   private String incidentMessageLike = null;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("withoutTenantId")
   private Boolean withoutTenantId = null;
 
-  @JsonProperty("processDefinitionWithoutTenantId")
   private Boolean processDefinitionWithoutTenantId = null;
 
-  @JsonProperty("activityIdIn")
   @Valid
-  private List<String> activityIdIn = null;
+  private List<String> activityIdIn;
 
-  @JsonProperty("rootProcessInstances")
   private Boolean rootProcessInstances = null;
 
-  @JsonProperty("leafProcessInstances")
   private Boolean leafProcessInstances = null;
 
-  @JsonProperty("variables")
   @Valid
-  private List<VariableQueryParameterDto> variables = null;
+  private List<@Valid VariableQueryParameterDto> variables;
 
-  @JsonProperty("variableNamesIgnoreCase")
   private Boolean variableNamesIgnoreCase = null;
 
-  @JsonProperty("variableValuesIgnoreCase")
   private Boolean variableValuesIgnoreCase = null;
 
-  @JsonProperty("orQueries")
   @Valid
-  private List<ProcessInstanceQueryDto> orQueries = null;
+  private List<@Valid ProcessInstanceQueryDto> orQueries;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<ProcessInstanceQueryDtoSorting> sorting = null;
+  private List<@Valid ProcessInstanceQueryDtoSortingInner> sorting;
 
   public ProcessInstanceQueryDto deploymentId(String deploymentId) {
     this.deploymentId = deploymentId;
@@ -126,10 +103,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Filter by the deployment the id belongs to.
    * @return deploymentId
-   **/
-  @Schema(description = "Filter by the deployment the id belongs to.")
+  */
   
-    public String getDeploymentId() {
+  @Schema(name = "deploymentId", description = "Filter by the deployment the id belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deploymentId")
+  public String getDeploymentId() {
     return deploymentId;
   }
 
@@ -145,10 +123,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Filter by the process definition the instances run on.
    * @return processDefinitionId
-   **/
-  @Schema(description = "Filter by the process definition the instances run on.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "Filter by the process definition the instances run on.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -164,10 +143,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Filter by the key of the process definition the instances run on.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "Filter by the key of the process definition the instances run on.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "Filter by the key of the process definition the instances run on.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -191,10 +171,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Filter by a list of process definition keys. A process instance must have one of the given process definition keys. Must be a JSON array of Strings.
    * @return processDefinitionKeyIn
-   **/
-  @Schema(description = "Filter by a list of process definition keys. A process instance must have one of the given process definition keys. Must be a JSON array of Strings.")
+  */
   
-    public List<String> getProcessDefinitionKeyIn() {
+  @Schema(name = "processDefinitionKeyIn", description = "Filter by a list of process definition keys. A process instance must have one of the given process definition keys. Must be a JSON array of Strings.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKeyIn")
+  public List<String> getProcessDefinitionKeyIn() {
     return processDefinitionKeyIn;
   }
 
@@ -218,10 +199,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Exclude instances by a list of process definition keys. A process instance must not have one of the given process definition keys. Must be a JSON array of Strings.
    * @return processDefinitionKeyNotIn
-   **/
-  @Schema(description = "Exclude instances by a list of process definition keys. A process instance must not have one of the given process definition keys. Must be a JSON array of Strings.")
+  */
   
-    public List<String> getProcessDefinitionKeyNotIn() {
+  @Schema(name = "processDefinitionKeyNotIn", description = "Exclude instances by a list of process definition keys. A process instance must not have one of the given process definition keys. Must be a JSON array of Strings.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKeyNotIn")
+  public List<String> getProcessDefinitionKeyNotIn() {
     return processDefinitionKeyNotIn;
   }
 
@@ -237,10 +219,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Filter by process instance business key.
    * @return businessKey
-   **/
-  @Schema(description = "Filter by process instance business key.")
+  */
   
-    public String getBusinessKey() {
+  @Schema(name = "businessKey", description = "Filter by process instance business key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("businessKey")
+  public String getBusinessKey() {
     return businessKey;
   }
 
@@ -256,10 +239,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Filter by process instance business key that the parameter is a substring of.
    * @return businessKeyLike
-   **/
-  @Schema(description = "Filter by process instance business key that the parameter is a substring of.")
+  */
   
-    public String getBusinessKeyLike() {
+  @Schema(name = "businessKeyLike", description = "Filter by process instance business key that the parameter is a substring of.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("businessKeyLike")
+  public String getBusinessKeyLike() {
     return businessKeyLike;
   }
 
@@ -275,10 +259,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Filter by case instance id.
    * @return caseInstanceId
-   **/
-  @Schema(description = "Filter by case instance id.")
+  */
   
-    public String getCaseInstanceId() {
+  @Schema(name = "caseInstanceId", description = "Filter by case instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceId")
+  public String getCaseInstanceId() {
     return caseInstanceId;
   }
 
@@ -294,10 +279,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Restrict query to all process instances that are sub process instances of the given process instance. Takes a process instance id.
    * @return superProcessInstance
-   **/
-  @Schema(description = "Restrict query to all process instances that are sub process instances of the given process instance. Takes a process instance id.")
+  */
   
-    public String getSuperProcessInstance() {
+  @Schema(name = "superProcessInstance", description = "Restrict query to all process instances that are sub process instances of the given process instance. Takes a process instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("superProcessInstance")
+  public String getSuperProcessInstance() {
     return superProcessInstance;
   }
 
@@ -313,10 +299,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Restrict query to all process instances that have the given process instance as a sub process instance. Takes a process instance id.
    * @return subProcessInstance
-   **/
-  @Schema(description = "Restrict query to all process instances that have the given process instance as a sub process instance. Takes a process instance id.")
+  */
   
-    public String getSubProcessInstance() {
+  @Schema(name = "subProcessInstance", description = "Restrict query to all process instances that have the given process instance as a sub process instance. Takes a process instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("subProcessInstance")
+  public String getSubProcessInstance() {
     return subProcessInstance;
   }
 
@@ -332,10 +319,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Restrict query to all process instances that are sub process instances of the given case instance. Takes a case instance id.
    * @return superCaseInstance
-   **/
-  @Schema(description = "Restrict query to all process instances that are sub process instances of the given case instance. Takes a case instance id.")
+  */
   
-    public String getSuperCaseInstance() {
+  @Schema(name = "superCaseInstance", description = "Restrict query to all process instances that are sub process instances of the given case instance. Takes a case instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("superCaseInstance")
+  public String getSuperCaseInstance() {
     return superCaseInstance;
   }
 
@@ -351,10 +339,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Restrict query to all process instances that have the given case instance as a sub case instance. Takes a case instance id.
    * @return subCaseInstance
-   **/
-  @Schema(description = "Restrict query to all process instances that have the given case instance as a sub case instance. Takes a case instance id.")
+  */
   
-    public String getSubCaseInstance() {
+  @Schema(name = "subCaseInstance", description = "Restrict query to all process instances that have the given case instance as a sub case instance. Takes a case instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("subCaseInstance")
+  public String getSubCaseInstance() {
     return subCaseInstance;
   }
 
@@ -370,10 +359,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Only include active process instances. Value may only be true, as false is the default behavior.
    * @return active
-   **/
-  @Schema(description = "Only include active process instances. Value may only be true, as false is the default behavior.")
+  */
   
-    public Boolean isActive() {
+  @Schema(name = "active", description = "Only include active process instances. Value may only be true, as false is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("active")
+  public Boolean getActive() {
     return active;
   }
 
@@ -389,10 +379,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Only include suspended process instances. Value may only be true, as false is the default behavior.
    * @return suspended
-   **/
-  @Schema(description = "Only include suspended process instances. Value may only be true, as false is the default behavior.")
+  */
   
-    public Boolean isSuspended() {
+  @Schema(name = "suspended", description = "Only include suspended process instances. Value may only be true, as false is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("suspended")
+  public Boolean getSuspended() {
     return suspended;
   }
 
@@ -416,10 +407,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Filter by a list of process instance ids. Must be a JSON array of Strings.
    * @return processInstanceIds
-   **/
-  @Schema(description = "Filter by a list of process instance ids. Must be a JSON array of Strings.")
+  */
   
-    public List<String> getProcessInstanceIds() {
+  @Schema(name = "processInstanceIds", description = "Filter by a list of process instance ids. Must be a JSON array of Strings.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceIds")
+  public List<String> getProcessInstanceIds() {
     return processInstanceIds;
   }
 
@@ -435,10 +427,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Filter by presence of incidents. Selects only process instances that have an incident.
    * @return withIncident
-   **/
-  @Schema(description = "Filter by presence of incidents. Selects only process instances that have an incident.")
+  */
   
-    public Boolean isWithIncident() {
+  @Schema(name = "withIncident", description = "Filter by presence of incidents. Selects only process instances that have an incident.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withIncident")
+  public Boolean getWithIncident() {
     return withIncident;
   }
 
@@ -454,10 +447,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Filter by the incident id.
    * @return incidentId
-   **/
-  @Schema(description = "Filter by the incident id.")
+  */
   
-    public String getIncidentId() {
+  @Schema(name = "incidentId", description = "Filter by the incident id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentId")
+  public String getIncidentId() {
     return incidentId;
   }
 
@@ -473,10 +467,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Filter by the incident type. See the User Guide for a list of incident types.
    * @return incidentType
-   **/
-  @Schema(description = "Filter by the incident type. See the User Guide for a list of incident types.")
+  */
   
-    public String getIncidentType() {
+  @Schema(name = "incidentType", description = "Filter by the incident type. See the User Guide for a list of incident types.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentType")
+  public String getIncidentType() {
     return incidentType;
   }
 
@@ -492,10 +487,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Filter by the incident message. Exact match.
    * @return incidentMessage
-   **/
-  @Schema(description = "Filter by the incident message. Exact match.")
+  */
   
-    public String getIncidentMessage() {
+  @Schema(name = "incidentMessage", description = "Filter by the incident message. Exact match.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentMessage")
+  public String getIncidentMessage() {
     return incidentMessage;
   }
 
@@ -511,10 +507,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Filter by the incident message that the parameter is a substring of.
    * @return incidentMessageLike
-   **/
-  @Schema(description = "Filter by the incident message that the parameter is a substring of.")
+  */
   
-    public String getIncidentMessageLike() {
+  @Schema(name = "incidentMessageLike", description = "Filter by the incident message that the parameter is a substring of.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentMessageLike")
+  public String getIncidentMessageLike() {
     return incidentMessageLike;
   }
 
@@ -538,10 +535,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Filter by a list of tenant ids. A process instance must have one of the given tenant ids. Must be a JSON array of Strings.
    * @return tenantIdIn
-   **/
-  @Schema(description = "Filter by a list of tenant ids. A process instance must have one of the given tenant ids. Must be a JSON array of Strings.")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Filter by a list of tenant ids. A process instance must have one of the given tenant ids. Must be a JSON array of Strings.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -557,10 +555,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Only include process instances which belong to no tenant. Value may only be true, as false is the default behavior.
    * @return withoutTenantId
-   **/
-  @Schema(description = "Only include process instances which belong to no tenant. Value may only be true, as false is the default behavior.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "Only include process instances which belong to no tenant. Value may only be true, as false is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
@@ -576,10 +575,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Only include process instances which process definition has no tenant id.
    * @return processDefinitionWithoutTenantId
-   **/
-  @Schema(description = "Only include process instances which process definition has no tenant id.")
+  */
   
-    public Boolean isProcessDefinitionWithoutTenantId() {
+  @Schema(name = "processDefinitionWithoutTenantId", description = "Only include process instances which process definition has no tenant id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionWithoutTenantId")
+  public Boolean getProcessDefinitionWithoutTenantId() {
     return processDefinitionWithoutTenantId;
   }
 
@@ -603,10 +603,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Filter by a list of activity ids. A process instance must currently wait in a leaf activity with one of the given activity ids.
    * @return activityIdIn
-   **/
-  @Schema(description = "Filter by a list of activity ids. A process instance must currently wait in a leaf activity with one of the given activity ids.")
+  */
   
-    public List<String> getActivityIdIn() {
+  @Schema(name = "activityIdIn", description = "Filter by a list of activity ids. A process instance must currently wait in a leaf activity with one of the given activity ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityIdIn")
+  public List<String> getActivityIdIn() {
     return activityIdIn;
   }
 
@@ -622,10 +623,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Restrict the query to all process instances that are top level process instances.
    * @return rootProcessInstances
-   **/
-  @Schema(description = "Restrict the query to all process instances that are top level process instances.")
+  */
   
-    public Boolean isRootProcessInstances() {
+  @Schema(name = "rootProcessInstances", description = "Restrict the query to all process instances that are top level process instances.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("rootProcessInstances")
+  public Boolean getRootProcessInstances() {
     return rootProcessInstances;
   }
 
@@ -641,10 +643,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Restrict the query to all process instances that are leaf instances. (i.e. don't have any sub instances)
    * @return leafProcessInstances
-   **/
-  @Schema(description = "Restrict the query to all process instances that are leaf instances. (i.e. don't have any sub instances)")
+  */
   
-    public Boolean isLeafProcessInstances() {
+  @Schema(name = "leafProcessInstances", description = "Restrict the query to all process instances that are leaf instances. (i.e. don't have any sub instances)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("leafProcessInstances")
+  public Boolean getLeafProcessInstances() {
     return leafProcessInstances;
   }
 
@@ -652,7 +655,7 @@ public class ProcessInstanceQueryDto   {
     this.leafProcessInstances = leafProcessInstances;
   }
 
-  public ProcessInstanceQueryDto variables(List<VariableQueryParameterDto> variables) {
+  public ProcessInstanceQueryDto variables(List<@Valid VariableQueryParameterDto> variables) {
     this.variables = variables;
     return this;
   }
@@ -668,14 +671,15 @@ public class ProcessInstanceQueryDto   {
   /**
    * A JSON array to only include process instances that have variables with certain values. The array consists of objects with the three properties `name`, `operator` and `value`. `name` (String) is the variable name, `operator` (String) is the comparison operator to be used and `value` the variable value. The `value` may be String, Number or Boolean.  Valid operator values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`.
    * @return variables
-   **/
-  @Schema(description = "A JSON array to only include process instances that have variables with certain values. The array consists of objects with the three properties `name`, `operator` and `value`. `name` (String) is the variable name, `operator` (String) is the comparison operator to be used and `value` the variable value. The `value` may be String, Number or Boolean.  Valid operator values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`.")
-      @Valid
-    public List<VariableQueryParameterDto> getVariables() {
+  */
+  @Valid 
+  @Schema(name = "variables", description = "A JSON array to only include process instances that have variables with certain values. The array consists of objects with the three properties `name`, `operator` and `value`. `name` (String) is the variable name, `operator` (String) is the comparison operator to be used and `value` the variable value. The `value` may be String, Number or Boolean.  Valid operator values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variables")
+  public List<@Valid VariableQueryParameterDto> getVariables() {
     return variables;
   }
 
-  public void setVariables(List<VariableQueryParameterDto> variables) {
+  public void setVariables(List<@Valid VariableQueryParameterDto> variables) {
     this.variables = variables;
   }
 
@@ -687,10 +691,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Match all variable names in this query case-insensitively. If set to true variableName and variablename are treated as equal.
    * @return variableNamesIgnoreCase
-   **/
-  @Schema(description = "Match all variable names in this query case-insensitively. If set to true variableName and variablename are treated as equal.")
+  */
   
-    public Boolean isVariableNamesIgnoreCase() {
+  @Schema(name = "variableNamesIgnoreCase", description = "Match all variable names in this query case-insensitively. If set to true variableName and variablename are treated as equal.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableNamesIgnoreCase")
+  public Boolean getVariableNamesIgnoreCase() {
     return variableNamesIgnoreCase;
   }
 
@@ -706,10 +711,11 @@ public class ProcessInstanceQueryDto   {
   /**
    * Match all variable values in this query case-insensitively. If set to true variableValue and variablevalue are treated as equal.
    * @return variableValuesIgnoreCase
-   **/
-  @Schema(description = "Match all variable values in this query case-insensitively. If set to true variableValue and variablevalue are treated as equal.")
+  */
   
-    public Boolean isVariableValuesIgnoreCase() {
+  @Schema(name = "variableValuesIgnoreCase", description = "Match all variable values in this query case-insensitively. If set to true variableValue and variablevalue are treated as equal.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableValuesIgnoreCase")
+  public Boolean getVariableValuesIgnoreCase() {
     return variableValuesIgnoreCase;
   }
 
@@ -717,7 +723,7 @@ public class ProcessInstanceQueryDto   {
     this.variableValuesIgnoreCase = variableValuesIgnoreCase;
   }
 
-  public ProcessInstanceQueryDto orQueries(List<ProcessInstanceQueryDto> orQueries) {
+  public ProcessInstanceQueryDto orQueries(List<@Valid ProcessInstanceQueryDto> orQueries) {
     this.orQueries = orQueries;
     return this;
   }
@@ -733,23 +739,24 @@ public class ProcessInstanceQueryDto   {
   /**
    * A JSON array of nested process instance queries with OR semantics. A process instance matches a nested query if it fulfills at least one of the query's predicates. With multiple nested queries, a process instance must fulfill at least one predicate of each query (Conjunctive Normal Form). All process instance query properties can be used except for: `sorting` See the [User guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/process-engine-api/#or-queries) for more information about OR queries.
    * @return orQueries
-   **/
-  @Schema(description = "A JSON array of nested process instance queries with OR semantics. A process instance matches a nested query if it fulfills at least one of the query's predicates. With multiple nested queries, a process instance must fulfill at least one predicate of each query (Conjunctive Normal Form). All process instance query properties can be used except for: `sorting` See the [User guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/process-engine-api/#or-queries) for more information about OR queries.")
-      @Valid
-    public List<ProcessInstanceQueryDto> getOrQueries() {
+  */
+  @Valid 
+  @Schema(name = "orQueries", description = "A JSON array of nested process instance queries with OR semantics. A process instance matches a nested query if it fulfills at least one of the query's predicates. With multiple nested queries, a process instance must fulfill at least one predicate of each query (Conjunctive Normal Form). All process instance query properties can be used except for: `sorting` See the [User guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/process-engine-api/#or-queries) for more information about OR queries.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("orQueries")
+  public List<@Valid ProcessInstanceQueryDto> getOrQueries() {
     return orQueries;
   }
 
-  public void setOrQueries(List<ProcessInstanceQueryDto> orQueries) {
+  public void setOrQueries(List<@Valid ProcessInstanceQueryDto> orQueries) {
     this.orQueries = orQueries;
   }
 
-  public ProcessInstanceQueryDto sorting(List<ProcessInstanceQueryDtoSorting> sorting) {
+  public ProcessInstanceQueryDto sorting(List<@Valid ProcessInstanceQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public ProcessInstanceQueryDto addSortingItem(ProcessInstanceQueryDtoSorting sortingItem) {
+  public ProcessInstanceQueryDto addSortingItem(ProcessInstanceQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -760,17 +767,17 @@ public class ProcessInstanceQueryDto   {
   /**
    * Apply sorting of the result
    * @return sorting
-   **/
-  @Schema(description = "Apply sorting of the result")
-      @Valid
-    public List<ProcessInstanceQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "Apply sorting of the result", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid ProcessInstanceQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<ProcessInstanceQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid ProcessInstanceQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -823,7 +830,6 @@ public class ProcessInstanceQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessInstanceQueryDto {\n");
-    
     sb.append("    deploymentId: ").append(toIndentedString(deploymentId)).append("\n");
     sb.append("    processDefinitionId: ").append(toIndentedString(processDefinitionId)).append("\n");
     sb.append("    processDefinitionKey: ").append(toIndentedString(processDefinitionKey)).append("\n");
@@ -870,3 +876,4 @@ public class ProcessInstanceQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

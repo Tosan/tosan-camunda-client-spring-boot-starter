@@ -1,27 +1,32 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.VariableValueDto;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * TaskEscalationDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class TaskEscalationDto {
 
-public class TaskEscalationDto   {
-  @JsonProperty("escalationCode")
   private String escalationCode = null;
 
-  @JsonProperty("variables")
   @Valid
-  private Map<String, VariableValueDto> variables = null;
+  private Map<String, VariableValueDto> variables;
 
   public TaskEscalationDto escalationCode(String escalationCode) {
     this.escalationCode = escalationCode;
@@ -31,10 +36,11 @@ public class TaskEscalationDto   {
   /**
    * An escalation code that indicates the predefined escalation. It is used to identify the BPMN escalation handler.
    * @return escalationCode
-   **/
-  @Schema(description = "An escalation code that indicates the predefined escalation. It is used to identify the BPMN escalation handler.")
+  */
   
-    public String getEscalationCode() {
+  @Schema(name = "escalationCode", description = "An escalation code that indicates the predefined escalation. It is used to identify the BPMN escalation handler.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("escalationCode")
+  public String getEscalationCode() {
     return escalationCode;
   }
 
@@ -58,17 +64,17 @@ public class TaskEscalationDto   {
   /**
    * A JSON object containing variable key-value pairs.
    * @return variables
-   **/
-  @Schema(description = "A JSON object containing variable key-value pairs.")
-      @Valid
-    public Map<String, VariableValueDto> getVariables() {
+  */
+  @Valid 
+  @Schema(name = "variables", description = "A JSON object containing variable key-value pairs.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variables")
+  public Map<String, VariableValueDto> getVariables() {
     return variables;
   }
 
   public void setVariables(Map<String, VariableValueDto> variables) {
     this.variables = variables;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -92,7 +98,6 @@ public class TaskEscalationDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TaskEscalationDto {\n");
-    
     sb.append("    escalationCode: ").append(toIndentedString(escalationCode)).append("\n");
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
     sb.append("}");
@@ -110,3 +115,4 @@ public class TaskEscalationDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

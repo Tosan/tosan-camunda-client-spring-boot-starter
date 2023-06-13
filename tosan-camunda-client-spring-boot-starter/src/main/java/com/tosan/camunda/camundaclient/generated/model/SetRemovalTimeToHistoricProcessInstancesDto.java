@@ -1,28 +1,111 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.HistoricProcessInstanceQueryDto;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * SetRemovalTimeToHistoricProcessInstancesDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class SetRemovalTimeToHistoricProcessInstancesDto {
 
-public class SetRemovalTimeToHistoricProcessInstancesDto   {
-  @JsonProperty("absoluteRemovalTime")
+  @Valid
+  private List<String> historicProcessInstanceIds;
+
+  private HistoricProcessInstanceQueryDto historicProcessInstanceQuery;
+
+  private Boolean hierarchical = null;
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime absoluteRemovalTime = null;
 
-  @JsonProperty("clearedRemovalTime")
   private Boolean clearedRemovalTime = null;
 
-  @JsonProperty("calculatedRemovalTime")
   private Boolean calculatedRemovalTime = null;
+
+  public SetRemovalTimeToHistoricProcessInstancesDto historicProcessInstanceIds(List<String> historicProcessInstanceIds) {
+    this.historicProcessInstanceIds = historicProcessInstanceIds;
+    return this;
+  }
+
+  public SetRemovalTimeToHistoricProcessInstancesDto addHistoricProcessInstanceIdsItem(String historicProcessInstanceIdsItem) {
+    if (this.historicProcessInstanceIds == null) {
+      this.historicProcessInstanceIds = new ArrayList<>();
+    }
+    this.historicProcessInstanceIds.add(historicProcessInstanceIdsItem);
+    return this;
+  }
+
+  /**
+   * The id of the process instance.
+   * @return historicProcessInstanceIds
+  */
+  
+  @Schema(name = "historicProcessInstanceIds", description = "The id of the process instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historicProcessInstanceIds")
+  public List<String> getHistoricProcessInstanceIds() {
+    return historicProcessInstanceIds;
+  }
+
+  public void setHistoricProcessInstanceIds(List<String> historicProcessInstanceIds) {
+    this.historicProcessInstanceIds = historicProcessInstanceIds;
+  }
+
+  public SetRemovalTimeToHistoricProcessInstancesDto historicProcessInstanceQuery(HistoricProcessInstanceQueryDto historicProcessInstanceQuery) {
+    this.historicProcessInstanceQuery = historicProcessInstanceQuery;
+    return this;
+  }
+
+  /**
+   * Get historicProcessInstanceQuery
+   * @return historicProcessInstanceQuery
+  */
+  @Valid 
+  @Schema(name = "historicProcessInstanceQuery", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historicProcessInstanceQuery")
+  public HistoricProcessInstanceQueryDto getHistoricProcessInstanceQuery() {
+    return historicProcessInstanceQuery;
+  }
+
+  public void setHistoricProcessInstanceQuery(HistoricProcessInstanceQueryDto historicProcessInstanceQuery) {
+    this.historicProcessInstanceQuery = historicProcessInstanceQuery;
+  }
+
+  public SetRemovalTimeToHistoricProcessInstancesDto hierarchical(Boolean hierarchical) {
+    this.hierarchical = hierarchical;
+    return this;
+  }
+
+  /**
+   * Sets the removal time to all historic process instances in the hierarchy. Value may only be `true`, as `false` is the default behavior.
+   * @return hierarchical
+  */
+  
+  @Schema(name = "hierarchical", description = "Sets the removal time to all historic process instances in the hierarchy. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("hierarchical")
+  public Boolean getHierarchical() {
+    return hierarchical;
+  }
+
+  public void setHierarchical(Boolean hierarchical) {
+    this.hierarchical = hierarchical;
+  }
 
   public SetRemovalTimeToHistoricProcessInstancesDto absoluteRemovalTime(OffsetDateTime absoluteRemovalTime) {
     this.absoluteRemovalTime = absoluteRemovalTime;
@@ -32,11 +115,11 @@ public class SetRemovalTimeToHistoricProcessInstancesDto   {
   /**
    * The date for which the instances shall be removed. Value may not be `null`.  **Note:** Cannot be set in conjunction with `clearedRemovalTime` or `calculatedRemovalTime`.
    * @return absoluteRemovalTime
-   **/
-  @Schema(description = "The date for which the instances shall be removed. Value may not be `null`.  **Note:** Cannot be set in conjunction with `clearedRemovalTime` or `calculatedRemovalTime`.")
-  
-    @Valid
-    public OffsetDateTime getAbsoluteRemovalTime() {
+  */
+  @Valid 
+  @Schema(name = "absoluteRemovalTime", description = "The date for which the instances shall be removed. Value may not be `null`.  **Note:** Cannot be set in conjunction with `clearedRemovalTime` or `calculatedRemovalTime`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("absoluteRemovalTime")
+  public OffsetDateTime getAbsoluteRemovalTime() {
     return absoluteRemovalTime;
   }
 
@@ -52,10 +135,11 @@ public class SetRemovalTimeToHistoricProcessInstancesDto   {
   /**
    * Sets the removal time to `null`. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `calculatedRemovalTime`.
    * @return clearedRemovalTime
-   **/
-  @Schema(description = "Sets the removal time to `null`. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `calculatedRemovalTime`.")
+  */
   
-    public Boolean isClearedRemovalTime() {
+  @Schema(name = "clearedRemovalTime", description = "Sets the removal time to `null`. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `calculatedRemovalTime`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("clearedRemovalTime")
+  public Boolean getClearedRemovalTime() {
     return clearedRemovalTime;
   }
 
@@ -71,17 +155,17 @@ public class SetRemovalTimeToHistoricProcessInstancesDto   {
   /**
    * The removal time is calculated based on the engine's configuration settings. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `clearedRemovalTime`.
    * @return calculatedRemovalTime
-   **/
-  @Schema(description = "The removal time is calculated based on the engine's configuration settings. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `clearedRemovalTime`.")
+  */
   
-    public Boolean isCalculatedRemovalTime() {
+  @Schema(name = "calculatedRemovalTime", description = "The removal time is calculated based on the engine's configuration settings. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `clearedRemovalTime`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("calculatedRemovalTime")
+  public Boolean getCalculatedRemovalTime() {
     return calculatedRemovalTime;
   }
 
   public void setCalculatedRemovalTime(Boolean calculatedRemovalTime) {
     this.calculatedRemovalTime = calculatedRemovalTime;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -92,21 +176,26 @@ public class SetRemovalTimeToHistoricProcessInstancesDto   {
       return false;
     }
     SetRemovalTimeToHistoricProcessInstancesDto setRemovalTimeToHistoricProcessInstancesDto = (SetRemovalTimeToHistoricProcessInstancesDto) o;
-    return Objects.equals(this.absoluteRemovalTime, setRemovalTimeToHistoricProcessInstancesDto.absoluteRemovalTime) &&
+    return Objects.equals(this.historicProcessInstanceIds, setRemovalTimeToHistoricProcessInstancesDto.historicProcessInstanceIds) &&
+        Objects.equals(this.historicProcessInstanceQuery, setRemovalTimeToHistoricProcessInstancesDto.historicProcessInstanceQuery) &&
+        Objects.equals(this.hierarchical, setRemovalTimeToHistoricProcessInstancesDto.hierarchical) &&
+        Objects.equals(this.absoluteRemovalTime, setRemovalTimeToHistoricProcessInstancesDto.absoluteRemovalTime) &&
         Objects.equals(this.clearedRemovalTime, setRemovalTimeToHistoricProcessInstancesDto.clearedRemovalTime) &&
         Objects.equals(this.calculatedRemovalTime, setRemovalTimeToHistoricProcessInstancesDto.calculatedRemovalTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(absoluteRemovalTime, clearedRemovalTime, calculatedRemovalTime);
+    return Objects.hash(historicProcessInstanceIds, historicProcessInstanceQuery, hierarchical, absoluteRemovalTime, clearedRemovalTime, calculatedRemovalTime);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SetRemovalTimeToHistoricProcessInstancesDto {\n");
-    
+    sb.append("    historicProcessInstanceIds: ").append(toIndentedString(historicProcessInstanceIds)).append("\n");
+    sb.append("    historicProcessInstanceQuery: ").append(toIndentedString(historicProcessInstanceQuery)).append("\n");
+    sb.append("    hierarchical: ").append(toIndentedString(hierarchical)).append("\n");
     sb.append("    absoluteRemovalTime: ").append(toIndentedString(absoluteRemovalTime)).append("\n");
     sb.append("    clearedRemovalTime: ").append(toIndentedString(clearedRemovalTime)).append("\n");
     sb.append("    calculatedRemovalTime: ").append(toIndentedString(calculatedRemovalTime)).append("\n");
@@ -125,3 +214,4 @@ public class SetRemovalTimeToHistoricProcessInstancesDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

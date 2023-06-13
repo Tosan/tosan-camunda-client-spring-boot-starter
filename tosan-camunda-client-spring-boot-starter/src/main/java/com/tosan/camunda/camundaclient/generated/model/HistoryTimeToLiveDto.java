@@ -1,21 +1,25 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * HistoryTimeToLiveDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoryTimeToLiveDto {
 
-public class HistoryTimeToLiveDto   {
-  @JsonProperty("historyTimeToLive")
   private Integer historyTimeToLive = null;
 
   public HistoryTimeToLiveDto historyTimeToLive(Integer historyTimeToLive) {
@@ -27,17 +31,17 @@ public class HistoryTimeToLiveDto   {
    * New value for historyTimeToLive field of the definition. Can be `null`. Can not be negative.
    * minimum: 0
    * @return historyTimeToLive
-   **/
-  @Schema(description = "New value for historyTimeToLive field of the definition. Can be `null`. Can not be negative.")
-  
-  @Min(0)  public Integer getHistoryTimeToLive() {
+  */
+  @Min(0) 
+  @Schema(name = "historyTimeToLive", description = "New value for historyTimeToLive field of the definition. Can be `null`. Can not be negative.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historyTimeToLive")
+  public Integer getHistoryTimeToLive() {
     return historyTimeToLive;
   }
 
   public void setHistoryTimeToLive(Integer historyTimeToLive) {
     this.historyTimeToLive = historyTimeToLive;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -60,7 +64,6 @@ public class HistoryTimeToLiveDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoryTimeToLiveDto {\n");
-    
     sb.append("    historyTimeToLive: ").append(toIndentedString(historyTimeToLive)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -77,3 +80,4 @@ public class HistoryTimeToLiveDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

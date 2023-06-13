@@ -1,19 +1,25 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * PriorityDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class PriorityDto {
 
-public class PriorityDto   {
-  @JsonProperty("priority")
   private Long priority = null;
 
   public PriorityDto priority(Long priority) {
@@ -24,17 +30,17 @@ public class PriorityDto   {
   /**
    * The priority of the resource.
    * @return priority
-   **/
-  @Schema(description = "The priority of the resource.")
+  */
   
-    public Long getPriority() {
+  @Schema(name = "priority", description = "The priority of the resource.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("priority")
+  public Long getPriority() {
     return priority;
   }
 
   public void setPriority(Long priority) {
     this.priority = priority;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -57,7 +63,6 @@ public class PriorityDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PriorityDto {\n");
-    
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -74,3 +79,4 @@ public class PriorityDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

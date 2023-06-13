@@ -1,27 +1,32 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.TelemetryProductDto;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * TelemetryDataDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class TelemetryDataDto {
 
-public class TelemetryDataDto   {
-  @JsonProperty("installation")
   private String installation = null;
 
-  @JsonProperty("product")
   @Valid
-  private Map<String, TelemetryProductDto> product = null;
+  private Map<String, TelemetryProductDto> product;
 
   public TelemetryDataDto installation(String installation) {
     this.installation = installation;
@@ -31,10 +36,11 @@ public class TelemetryDataDto   {
   /**
    * An id which is unique for each installation of Camunda. It is stored once per database so all engines connected to the same database will have the same installation ID. The ID is used to identify a single installation of Camunda Platform.
    * @return installation
-   **/
-  @Schema(description = "An id which is unique for each installation of Camunda. It is stored once per database so all engines connected to the same database will have the same installation ID. The ID is used to identify a single installation of Camunda Platform.")
+  */
   
-    public String getInstallation() {
+  @Schema(name = "installation", description = "An id which is unique for each installation of Camunda. It is stored once per database so all engines connected to the same database will have the same installation ID. The ID is used to identify a single installation of Camunda Platform.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("installation")
+  public String getInstallation() {
     return installation;
   }
 
@@ -58,17 +64,17 @@ public class TelemetryDataDto   {
   /**
    * Information about the product collection telemetry data.
    * @return product
-   **/
-  @Schema(description = "Information about the product collection telemetry data.")
-      @Valid
-    public Map<String, TelemetryProductDto> getProduct() {
+  */
+  @Valid 
+  @Schema(name = "product", description = "Information about the product collection telemetry data.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("product")
+  public Map<String, TelemetryProductDto> getProduct() {
     return product;
   }
 
   public void setProduct(Map<String, TelemetryProductDto> product) {
     this.product = product;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -92,7 +98,6 @@ public class TelemetryDataDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TelemetryDataDto {\n");
-    
     sb.append("    installation: ").append(toIndentedString(installation)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("}");
@@ -110,3 +115,4 @@ public class TelemetryDataDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

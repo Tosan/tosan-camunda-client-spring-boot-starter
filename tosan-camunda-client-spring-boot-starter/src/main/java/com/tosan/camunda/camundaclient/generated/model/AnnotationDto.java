@@ -1,19 +1,25 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * AnnotationDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class AnnotationDto {
 
-public class AnnotationDto   {
-  @JsonProperty("annotation")
   private String annotation = null;
 
   public AnnotationDto annotation(String annotation) {
@@ -24,17 +30,17 @@ public class AnnotationDto   {
   /**
    * The annotation value to put.
    * @return annotation
-   **/
-  @Schema(description = "The annotation value to put.")
+  */
   
-    public String getAnnotation() {
+  @Schema(name = "annotation", description = "The annotation value to put.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("annotation")
+  public String getAnnotation() {
     return annotation;
   }
 
   public void setAnnotation(String annotation) {
     this.annotation = annotation;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -57,7 +63,6 @@ public class AnnotationDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnnotationDto {\n");
-    
     sb.append("    annotation: ").append(toIndentedString(annotation)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -74,3 +79,4 @@ public class AnnotationDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

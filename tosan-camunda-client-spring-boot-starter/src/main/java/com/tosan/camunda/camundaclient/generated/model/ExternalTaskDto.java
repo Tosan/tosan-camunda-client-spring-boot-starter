@@ -1,70 +1,61 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * An External Task object with the following properties
  */
-@Schema(description = "An External Task object with the following properties")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "ExternalTaskDto", description = "An External Task object with the following properties")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ExternalTaskDto {
 
-public class ExternalTaskDto   {
-  @JsonProperty("activityId")
   private String activityId = null;
 
-  @JsonProperty("activityInstanceId")
   private String activityInstanceId = null;
 
-  @JsonProperty("errorMessage")
   private String errorMessage = null;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("lockExpirationTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime lockExpirationTime = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("processDefinitionVersionTag")
   private String processDefinitionVersionTag = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("retries")
   private Integer retries = null;
 
-  @JsonProperty("suspended")
   private Boolean suspended = null;
 
-  @JsonProperty("workerId")
   private String workerId = null;
 
-  @JsonProperty("topicName")
   private String topicName = null;
 
-  @JsonProperty("priority")
   private Long priority = null;
 
-  @JsonProperty("businessKey")
   private String businessKey = null;
 
   public ExternalTaskDto activityId(String activityId) {
@@ -75,10 +66,11 @@ public class ExternalTaskDto   {
   /**
    * The id of the activity that this external task belongs to.
    * @return activityId
-   **/
-  @Schema(description = "The id of the activity that this external task belongs to.")
+  */
   
-    public String getActivityId() {
+  @Schema(name = "activityId", description = "The id of the activity that this external task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityId")
+  public String getActivityId() {
     return activityId;
   }
 
@@ -94,10 +86,11 @@ public class ExternalTaskDto   {
   /**
    * The id of the activity instance that the external task belongs to.
    * @return activityInstanceId
-   **/
-  @Schema(description = "The id of the activity instance that the external task belongs to.")
+  */
   
-    public String getActivityInstanceId() {
+  @Schema(name = "activityInstanceId", description = "The id of the activity instance that the external task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityInstanceId")
+  public String getActivityInstanceId() {
     return activityInstanceId;
   }
 
@@ -113,10 +106,11 @@ public class ExternalTaskDto   {
   /**
    * The full error message submitted with the latest reported failure executing this task; `null` if no failure was reported previously or if no error message was submitted
    * @return errorMessage
-   **/
-  @Schema(description = "The full error message submitted with the latest reported failure executing this task; `null` if no failure was reported previously or if no error message was submitted")
+  */
   
-    public String getErrorMessage() {
+  @Schema(name = "errorMessage", description = "The full error message submitted with the latest reported failure executing this task; `null` if no failure was reported previously or if no error message was submitted", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("errorMessage")
+  public String getErrorMessage() {
     return errorMessage;
   }
 
@@ -132,10 +126,11 @@ public class ExternalTaskDto   {
   /**
    * The id of the execution that the external task belongs to.
    * @return executionId
-   **/
-  @Schema(description = "The id of the execution that the external task belongs to.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "The id of the execution that the external task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -151,10 +146,11 @@ public class ExternalTaskDto   {
   /**
    * The id of the external task.
    * @return id
-   **/
-  @Schema(description = "The id of the external task.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the external task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -170,11 +166,11 @@ public class ExternalTaskDto   {
   /**
    * The date that the task's most recent lock expires or has expired.
    * @return lockExpirationTime
-   **/
-  @Schema(description = "The date that the task's most recent lock expires or has expired.")
-  
-    @Valid
-    public OffsetDateTime getLockExpirationTime() {
+  */
+  @Valid 
+  @Schema(name = "lockExpirationTime", description = "The date that the task's most recent lock expires or has expired.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("lockExpirationTime")
+  public OffsetDateTime getLockExpirationTime() {
     return lockExpirationTime;
   }
 
@@ -190,10 +186,11 @@ public class ExternalTaskDto   {
   /**
    * The id of the process definition the external task is defined in.
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definition the external task is defined in.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definition the external task is defined in.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -209,10 +206,11 @@ public class ExternalTaskDto   {
   /**
    * The key of the process definition the external task is defined in.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "The key of the process definition the external task is defined in.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "The key of the process definition the external task is defined in.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -228,10 +226,11 @@ public class ExternalTaskDto   {
   /**
    * The version tag of the process definition the external task is defined in.
    * @return processDefinitionVersionTag
-   **/
-  @Schema(description = "The version tag of the process definition the external task is defined in.")
+  */
   
-    public String getProcessDefinitionVersionTag() {
+  @Schema(name = "processDefinitionVersionTag", description = "The version tag of the process definition the external task is defined in.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionVersionTag")
+  public String getProcessDefinitionVersionTag() {
     return processDefinitionVersionTag;
   }
 
@@ -247,10 +246,11 @@ public class ExternalTaskDto   {
   /**
    * The id of the process instance the external task belongs to.
    * @return processInstanceId
-   **/
-  @Schema(description = "The id of the process instance the external task belongs to.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "The id of the process instance the external task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -266,10 +266,11 @@ public class ExternalTaskDto   {
   /**
    * The id of the tenant the external task belongs to.
    * @return tenantId
-   **/
-  @Schema(description = "The id of the tenant the external task belongs to.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The id of the tenant the external task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -285,10 +286,11 @@ public class ExternalTaskDto   {
   /**
    * The number of retries the task currently has left.
    * @return retries
-   **/
-  @Schema(description = "The number of retries the task currently has left.")
+  */
   
-    public Integer getRetries() {
+  @Schema(name = "retries", description = "The number of retries the task currently has left.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("retries")
+  public Integer getRetries() {
     return retries;
   }
 
@@ -304,10 +306,11 @@ public class ExternalTaskDto   {
   /**
    * A flag indicating whether the external task is suspended or not.
    * @return suspended
-   **/
-  @Schema(description = "A flag indicating whether the external task is suspended or not.")
+  */
   
-    public Boolean isSuspended() {
+  @Schema(name = "suspended", description = "A flag indicating whether the external task is suspended or not.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("suspended")
+  public Boolean getSuspended() {
     return suspended;
   }
 
@@ -323,10 +326,11 @@ public class ExternalTaskDto   {
   /**
    * The id of the worker that posesses or posessed the most recent lock.
    * @return workerId
-   **/
-  @Schema(description = "The id of the worker that posesses or posessed the most recent lock.")
+  */
   
-    public String getWorkerId() {
+  @Schema(name = "workerId", description = "The id of the worker that posesses or posessed the most recent lock.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("workerId")
+  public String getWorkerId() {
     return workerId;
   }
 
@@ -342,10 +346,11 @@ public class ExternalTaskDto   {
   /**
    * The topic name of the external task.
    * @return topicName
-   **/
-  @Schema(description = "The topic name of the external task.")
+  */
   
-    public String getTopicName() {
+  @Schema(name = "topicName", description = "The topic name of the external task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("topicName")
+  public String getTopicName() {
     return topicName;
   }
 
@@ -361,10 +366,11 @@ public class ExternalTaskDto   {
   /**
    * The priority of the external task.
    * @return priority
-   **/
-  @Schema(description = "The priority of the external task.")
+  */
   
-    public Long getPriority() {
+  @Schema(name = "priority", description = "The priority of the external task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("priority")
+  public Long getPriority() {
     return priority;
   }
 
@@ -380,17 +386,17 @@ public class ExternalTaskDto   {
   /**
    * The business key of the process instance the external task belongs to.
    * @return businessKey
-   **/
-  @Schema(description = "The business key of the process instance the external task belongs to.")
+  */
   
-    public String getBusinessKey() {
+  @Schema(name = "businessKey", description = "The business key of the process instance the external task belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("businessKey")
+  public String getBusinessKey() {
     return businessKey;
   }
 
   public void setBusinessKey(String businessKey) {
     this.businessKey = businessKey;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -429,7 +435,6 @@ public class ExternalTaskDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExternalTaskDto {\n");
-    
     sb.append("    activityId: ").append(toIndentedString(activityId)).append("\n");
     sb.append("    activityInstanceId: ").append(toIndentedString(activityInstanceId)).append("\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
@@ -462,3 +467,4 @@ public class ExternalTaskDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

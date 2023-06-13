@@ -1,23 +1,28 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * An activity instance, incident pair.
  */
-@Schema(description = "An activity instance, incident pair.")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "ActivityInstanceIncidentDto", description = "An activity instance, incident pair.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ActivityInstanceIncidentDto {
 
-public class ActivityInstanceIncidentDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("activityId")
   private String activityId = null;
 
   public ActivityInstanceIncidentDto id(String id) {
@@ -28,10 +33,11 @@ public class ActivityInstanceIncidentDto   {
   /**
    * The id of the incident.
    * @return id
-   **/
-  @Schema(description = "The id of the incident.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the incident.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -47,17 +53,17 @@ public class ActivityInstanceIncidentDto   {
   /**
    * The activity id in which the incident happened.
    * @return activityId
-   **/
-  @Schema(description = "The activity id in which the incident happened.")
+  */
   
-    public String getActivityId() {
+  @Schema(name = "activityId", description = "The activity id in which the incident happened.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityId")
+  public String getActivityId() {
     return activityId;
   }
 
   public void setActivityId(String activityId) {
     this.activityId = activityId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -81,7 +87,6 @@ public class ActivityInstanceIncidentDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ActivityInstanceIncidentDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    activityId: ").append(toIndentedString(activityId)).append("\n");
     sb.append("}");
@@ -99,3 +104,4 @@ public class ActivityInstanceIncidentDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

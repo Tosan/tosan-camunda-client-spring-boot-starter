@@ -1,46 +1,43 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * JobDefinitionDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class JobDefinitionDto {
 
-public class JobDefinitionDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("activityId")
   private String activityId = null;
 
-  @JsonProperty("jobType")
   private String jobType = null;
 
-  @JsonProperty("jobConfiguration")
   private String jobConfiguration = null;
 
-  @JsonProperty("overridingJobPriority")
   private Long overridingJobPriority = null;
 
-  @JsonProperty("suspended")
   private Boolean suspended = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("deploymentId")
   private String deploymentId = null;
 
   public JobDefinitionDto id(String id) {
@@ -51,10 +48,11 @@ public class JobDefinitionDto   {
   /**
    * The id of the job definition.
    * @return id
-   **/
-  @Schema(description = "The id of the job definition.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the job definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -70,10 +68,11 @@ public class JobDefinitionDto   {
   /**
    * The id of the process definition this job definition is associated with.
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definition this job definition is associated with.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definition this job definition is associated with.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -89,10 +88,11 @@ public class JobDefinitionDto   {
   /**
    * The key of the process definition this job definition is associated with.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "The key of the process definition this job definition is associated with.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "The key of the process definition this job definition is associated with.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -108,10 +108,11 @@ public class JobDefinitionDto   {
   /**
    * The id of the activity this job definition is associated with.
    * @return activityId
-   **/
-  @Schema(description = "The id of the activity this job definition is associated with.")
+  */
   
-    public String getActivityId() {
+  @Schema(name = "activityId", description = "The id of the activity this job definition is associated with.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityId")
+  public String getActivityId() {
     return activityId;
   }
 
@@ -127,10 +128,11 @@ public class JobDefinitionDto   {
   /**
    * The type of the job which is running for this job definition. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/the-job-executor/#job-creation) for more information about job types.
    * @return jobType
-   **/
-  @Schema(description = "The type of the job which is running for this job definition. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/the-job-executor/#job-creation) for more information about job types.")
+  */
   
-    public String getJobType() {
+  @Schema(name = "jobType", description = "The type of the job which is running for this job definition. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/the-job-executor/#job-creation) for more information about job types.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobType")
+  public String getJobType() {
     return jobType;
   }
 
@@ -146,10 +148,11 @@ public class JobDefinitionDto   {
   /**
    * The configuration of a job definition provides details about the jobs which will be created. For example: for timer jobs it is the timer configuration.
    * @return jobConfiguration
-   **/
-  @Schema(description = "The configuration of a job definition provides details about the jobs which will be created. For example: for timer jobs it is the timer configuration.")
+  */
   
-    public String getJobConfiguration() {
+  @Schema(name = "jobConfiguration", description = "The configuration of a job definition provides details about the jobs which will be created. For example: for timer jobs it is the timer configuration.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobConfiguration")
+  public String getJobConfiguration() {
     return jobConfiguration;
   }
 
@@ -165,10 +168,11 @@ public class JobDefinitionDto   {
   /**
    * The execution priority defined for jobs that are created based on this definition. May be `null` when the priority has not been overridden on the job definition level.
    * @return overridingJobPriority
-   **/
-  @Schema(description = "The execution priority defined for jobs that are created based on this definition. May be `null` when the priority has not been overridden on the job definition level.")
+  */
   
-    public Long getOverridingJobPriority() {
+  @Schema(name = "overridingJobPriority", description = "The execution priority defined for jobs that are created based on this definition. May be `null` when the priority has not been overridden on the job definition level.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("overridingJobPriority")
+  public Long getOverridingJobPriority() {
     return overridingJobPriority;
   }
 
@@ -184,10 +188,11 @@ public class JobDefinitionDto   {
   /**
    * Indicates whether this job definition is suspended or not.
    * @return suspended
-   **/
-  @Schema(description = "Indicates whether this job definition is suspended or not.")
+  */
   
-    public Boolean isSuspended() {
+  @Schema(name = "suspended", description = "Indicates whether this job definition is suspended or not.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("suspended")
+  public Boolean getSuspended() {
     return suspended;
   }
 
@@ -203,10 +208,11 @@ public class JobDefinitionDto   {
   /**
    * The id of the tenant this job definition is associated with.
    * @return tenantId
-   **/
-  @Schema(description = "The id of the tenant this job definition is associated with.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The id of the tenant this job definition is associated with.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -222,17 +228,17 @@ public class JobDefinitionDto   {
   /**
    * The id of the deployment this job definition is related to. In a deployment-aware setup, this leads to all jobs of the same definition being executed on the same node.
    * @return deploymentId
-   **/
-  @Schema(description = "The id of the deployment this job definition is related to. In a deployment-aware setup, this leads to all jobs of the same definition being executed on the same node.")
+  */
   
-    public String getDeploymentId() {
+  @Schema(name = "deploymentId", description = "The id of the deployment this job definition is related to. In a deployment-aware setup, this leads to all jobs of the same definition being executed on the same node.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deploymentId")
+  public String getDeploymentId() {
     return deploymentId;
   }
 
   public void setDeploymentId(String deploymentId) {
     this.deploymentId = deploymentId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -264,7 +270,6 @@ public class JobDefinitionDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class JobDefinitionDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    processDefinitionId: ").append(toIndentedString(processDefinitionId)).append("\n");
     sb.append("    processDefinitionKey: ").append(toIndentedString(processDefinitionKey)).append("\n");
@@ -290,3 +295,4 @@ public class JobDefinitionDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

@@ -1,19 +1,25 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * ProcessEngineDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ProcessEngineDto {
 
-public class ProcessEngineDto   {
-  @JsonProperty("name")
   private String name = null;
 
   public ProcessEngineDto name(String name) {
@@ -24,17 +30,17 @@ public class ProcessEngineDto   {
   /**
    * The name of the process engine.
    * @return name
-   **/
-  @Schema(description = "The name of the process engine.")
+  */
   
-    public String getName() {
+  @Schema(name = "name", description = "The name of the process engine.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
     return name;
   }
 
   public void setName(String name) {
     this.name = name;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -57,7 +63,6 @@ public class ProcessEngineDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessEngineDto {\n");
-    
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -74,3 +79,4 @@ public class ProcessEngineDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

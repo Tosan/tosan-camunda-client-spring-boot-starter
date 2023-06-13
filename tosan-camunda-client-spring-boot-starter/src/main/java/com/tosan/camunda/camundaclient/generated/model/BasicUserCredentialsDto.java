@@ -1,22 +1,27 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * BasicUserCredentialsDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class BasicUserCredentialsDto {
 
-public class BasicUserCredentialsDto   {
-  @JsonProperty("username")
   private String username = null;
 
-  @JsonProperty("password")
   private String password = null;
 
   public BasicUserCredentialsDto username(String username) {
@@ -27,10 +32,11 @@ public class BasicUserCredentialsDto   {
   /**
    * The username of a user.
    * @return username
-   **/
-  @Schema(description = "The username of a user.")
+  */
   
-    public String getUsername() {
+  @Schema(name = "username", description = "The username of a user.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("username")
+  public String getUsername() {
     return username;
   }
 
@@ -46,17 +52,17 @@ public class BasicUserCredentialsDto   {
   /**
    * A password of a user.
    * @return password
-   **/
-  @Schema(description = "A password of a user.")
+  */
   
-    public String getPassword() {
+  @Schema(name = "password", description = "A password of a user.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("password")
+  public String getPassword() {
     return password;
   }
 
   public void setPassword(String password) {
     this.password = password;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -80,7 +86,6 @@ public class BasicUserCredentialsDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BasicUserCredentialsDto {\n");
-    
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("}");
@@ -98,3 +103,4 @@ public class BasicUserCredentialsDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

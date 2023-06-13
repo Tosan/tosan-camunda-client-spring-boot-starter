@@ -1,63 +1,56 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * IncidentDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class IncidentDto {
 
-public class IncidentDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("incidentTimestamp")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime incidentTimestamp = null;
 
-  @JsonProperty("incidentType")
   private String incidentType = null;
 
-  @JsonProperty("activityId")
   private String activityId = null;
 
-  @JsonProperty("failedActivityId")
   private String failedActivityId = null;
 
-  @JsonProperty("causeIncidentId")
   private String causeIncidentId = null;
 
-  @JsonProperty("rootCauseIncidentId")
   private String rootCauseIncidentId = null;
 
-  @JsonProperty("configuration")
   private String _configuration = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("incidentMessage")
   private String incidentMessage = null;
 
-  @JsonProperty("jobDefinitionId")
   private String jobDefinitionId = null;
 
-  @JsonProperty("annotation")
   private String annotation = null;
 
   public IncidentDto id(String id) {
@@ -68,10 +61,11 @@ public class IncidentDto   {
   /**
    * The id of the incident.
    * @return id
-   **/
-  @Schema(description = "The id of the incident.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the incident.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -87,10 +81,11 @@ public class IncidentDto   {
   /**
    * The id of the process definition this incident is associated with.
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definition this incident is associated with.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definition this incident is associated with.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -106,10 +101,11 @@ public class IncidentDto   {
   /**
    * The id of the process instance this incident is associated with.
    * @return processInstanceId
-   **/
-  @Schema(description = "The id of the process instance this incident is associated with.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "The id of the process instance this incident is associated with.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -125,10 +121,11 @@ public class IncidentDto   {
   /**
    * The id of the execution this incident is associated with.
    * @return executionId
-   **/
-  @Schema(description = "The id of the execution this incident is associated with.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "The id of the execution this incident is associated with.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -144,11 +141,11 @@ public class IncidentDto   {
   /**
    * The time this incident happened. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return incidentTimestamp
-   **/
-  @Schema(description = "The time this incident happened. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getIncidentTimestamp() {
+  */
+  @Valid 
+  @Schema(name = "incidentTimestamp", description = "The time this incident happened. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentTimestamp")
+  public OffsetDateTime getIncidentTimestamp() {
     return incidentTimestamp;
   }
 
@@ -164,10 +161,11 @@ public class IncidentDto   {
   /**
    * The type of incident, for example: `failedJobs` will be returned in case of an incident which identified a failed job during the execution of a process instance. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/incidents/#incident-types) for a list of incident types.
    * @return incidentType
-   **/
-  @Schema(description = "The type of incident, for example: `failedJobs` will be returned in case of an incident which identified a failed job during the execution of a process instance. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/incidents/#incident-types) for a list of incident types.")
+  */
   
-    public String getIncidentType() {
+  @Schema(name = "incidentType", description = "The type of incident, for example: `failedJobs` will be returned in case of an incident which identified a failed job during the execution of a process instance. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/incidents/#incident-types) for a list of incident types.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentType")
+  public String getIncidentType() {
     return incidentType;
   }
 
@@ -183,10 +181,11 @@ public class IncidentDto   {
   /**
    * The id of the activity this incident is associated with.
    * @return activityId
-   **/
-  @Schema(description = "The id of the activity this incident is associated with.")
+  */
   
-    public String getActivityId() {
+  @Schema(name = "activityId", description = "The id of the activity this incident is associated with.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityId")
+  public String getActivityId() {
     return activityId;
   }
 
@@ -202,10 +201,11 @@ public class IncidentDto   {
   /**
    * The id of the activity on which the last exception occurred.
    * @return failedActivityId
-   **/
-  @Schema(description = "The id of the activity on which the last exception occurred.")
+  */
   
-    public String getFailedActivityId() {
+  @Schema(name = "failedActivityId", description = "The id of the activity on which the last exception occurred.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("failedActivityId")
+  public String getFailedActivityId() {
     return failedActivityId;
   }
 
@@ -221,10 +221,11 @@ public class IncidentDto   {
   /**
    * The id of the associated cause incident which has been triggered.
    * @return causeIncidentId
-   **/
-  @Schema(description = "The id of the associated cause incident which has been triggered.")
+  */
   
-    public String getCauseIncidentId() {
+  @Schema(name = "causeIncidentId", description = "The id of the associated cause incident which has been triggered.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("causeIncidentId")
+  public String getCauseIncidentId() {
     return causeIncidentId;
   }
 
@@ -240,10 +241,11 @@ public class IncidentDto   {
   /**
    * The id of the associated root cause incident which has been triggered.
    * @return rootCauseIncidentId
-   **/
-  @Schema(description = "The id of the associated root cause incident which has been triggered.")
+  */
   
-    public String getRootCauseIncidentId() {
+  @Schema(name = "rootCauseIncidentId", description = "The id of the associated root cause incident which has been triggered.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("rootCauseIncidentId")
+  public String getRootCauseIncidentId() {
     return rootCauseIncidentId;
   }
 
@@ -259,10 +261,11 @@ public class IncidentDto   {
   /**
    * The payload of this incident.
    * @return _configuration
-   **/
-  @Schema(description = "The payload of this incident.")
+  */
   
-    public String getConfiguration() {
+  @Schema(name = "configuration", description = "The payload of this incident.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("configuration")
+  public String getConfiguration() {
     return _configuration;
   }
 
@@ -278,10 +281,11 @@ public class IncidentDto   {
   /**
    * The id of the tenant this incident is associated with.
    * @return tenantId
-   **/
-  @Schema(description = "The id of the tenant this incident is associated with.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The id of the tenant this incident is associated with.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -297,10 +301,11 @@ public class IncidentDto   {
   /**
    * The message of this incident.
    * @return incidentMessage
-   **/
-  @Schema(description = "The message of this incident.")
+  */
   
-    public String getIncidentMessage() {
+  @Schema(name = "incidentMessage", description = "The message of this incident.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentMessage")
+  public String getIncidentMessage() {
     return incidentMessage;
   }
 
@@ -316,10 +321,11 @@ public class IncidentDto   {
   /**
    * The job definition id the incident is associated with.
    * @return jobDefinitionId
-   **/
-  @Schema(description = "The job definition id the incident is associated with.")
+  */
   
-    public String getJobDefinitionId() {
+  @Schema(name = "jobDefinitionId", description = "The job definition id the incident is associated with.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobDefinitionId")
+  public String getJobDefinitionId() {
     return jobDefinitionId;
   }
 
@@ -335,17 +341,17 @@ public class IncidentDto   {
   /**
    * The annotation set to the incident.
    * @return annotation
-   **/
-  @Schema(description = "The annotation set to the incident.")
+  */
   
-    public String getAnnotation() {
+  @Schema(name = "annotation", description = "The annotation set to the incident.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("annotation")
+  public String getAnnotation() {
     return annotation;
   }
 
   public void setAnnotation(String annotation) {
     this.annotation = annotation;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -382,7 +388,6 @@ public class IncidentDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IncidentDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    processDefinitionId: ").append(toIndentedString(processDefinitionId)).append("\n");
     sb.append("    processInstanceId: ").append(toIndentedString(processInstanceId)).append("\n");
@@ -413,3 +418,4 @@ public class IncidentDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

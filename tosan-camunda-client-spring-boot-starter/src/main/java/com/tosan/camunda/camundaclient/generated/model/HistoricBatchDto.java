@@ -1,57 +1,54 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * HistoricBatchDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricBatchDto {
 
-public class HistoricBatchDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("type")
   private String type = null;
 
-  @JsonProperty("totalJobs")
   private Integer totalJobs = null;
 
-  @JsonProperty("batchJobsPerSeed")
   private Integer batchJobsPerSeed = null;
 
-  @JsonProperty("invocationsPerBatchJob")
   private Integer invocationsPerBatchJob = null;
 
-  @JsonProperty("seedJobDefinitionId")
   private String seedJobDefinitionId = null;
 
-  @JsonProperty("monitorJobDefinitionId")
   private String monitorJobDefinitionId = null;
 
-  @JsonProperty("batchJobDefinitionId")
   private String batchJobDefinitionId = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("createUserId")
   private String createUserId = null;
 
-  @JsonProperty("startTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime startTime = null;
 
-  @JsonProperty("endTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime endTime = null;
 
-  @JsonProperty("removalTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime removalTime = null;
 
   public HistoricBatchDto id(String id) {
@@ -62,10 +59,11 @@ public class HistoricBatchDto   {
   /**
    * The id of the batch.
    * @return id
-   **/
-  @Schema(description = "The id of the batch.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the batch.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -81,10 +79,11 @@ public class HistoricBatchDto   {
   /**
    * The type of the batch. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/batch/#creating-a-batch) for more information about batch types.
    * @return type
-   **/
-  @Schema(description = "The type of the batch. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/batch/#creating-a-batch) for more information about batch types.")
+  */
   
-    public String getType() {
+  @Schema(name = "type", description = "The type of the batch. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/batch/#creating-a-batch) for more information about batch types.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("type")
+  public String getType() {
     return type;
   }
 
@@ -100,10 +99,11 @@ public class HistoricBatchDto   {
   /**
    *  The total jobs of a batch is the number of batch execution jobs required to complete the batch. 
    * @return totalJobs
-   **/
-  @Schema(description = " The total jobs of a batch is the number of batch execution jobs required to complete the batch. ")
+  */
   
-    public Integer getTotalJobs() {
+  @Schema(name = "totalJobs", description = " The total jobs of a batch is the number of batch execution jobs required to complete the batch. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("totalJobs")
+  public Integer getTotalJobs() {
     return totalJobs;
   }
 
@@ -119,10 +119,11 @@ public class HistoricBatchDto   {
   /**
    *  The number of batch execution jobs created per seed job invocation. The batch seed job is invoked until it has created all batch execution jobs required by the batch (see `totalJobs` property). 
    * @return batchJobsPerSeed
-   **/
-  @Schema(description = " The number of batch execution jobs created per seed job invocation. The batch seed job is invoked until it has created all batch execution jobs required by the batch (see `totalJobs` property). ")
+  */
   
-    public Integer getBatchJobsPerSeed() {
+  @Schema(name = "batchJobsPerSeed", description = " The number of batch execution jobs created per seed job invocation. The batch seed job is invoked until it has created all batch execution jobs required by the batch (see `totalJobs` property). ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("batchJobsPerSeed")
+  public Integer getBatchJobsPerSeed() {
     return batchJobsPerSeed;
   }
 
@@ -138,10 +139,11 @@ public class HistoricBatchDto   {
   /**
    *  Every batch execution job invokes the command executed by the batch `invocationsPerBatchJob` times. E.g., for a process instance migration batch this specifies the number of process instances which are migrated per batch execution job. 
    * @return invocationsPerBatchJob
-   **/
-  @Schema(description = " Every batch execution job invokes the command executed by the batch `invocationsPerBatchJob` times. E.g., for a process instance migration batch this specifies the number of process instances which are migrated per batch execution job. ")
+  */
   
-    public Integer getInvocationsPerBatchJob() {
+  @Schema(name = "invocationsPerBatchJob", description = " Every batch execution job invokes the command executed by the batch `invocationsPerBatchJob` times. E.g., for a process instance migration batch this specifies the number of process instances which are migrated per batch execution job. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("invocationsPerBatchJob")
+  public Integer getInvocationsPerBatchJob() {
     return invocationsPerBatchJob;
   }
 
@@ -157,10 +159,11 @@ public class HistoricBatchDto   {
   /**
    * The job definition id for the seed jobs of this batch.
    * @return seedJobDefinitionId
-   **/
-  @Schema(description = "The job definition id for the seed jobs of this batch.")
+  */
   
-    public String getSeedJobDefinitionId() {
+  @Schema(name = "seedJobDefinitionId", description = "The job definition id for the seed jobs of this batch.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("seedJobDefinitionId")
+  public String getSeedJobDefinitionId() {
     return seedJobDefinitionId;
   }
 
@@ -176,10 +179,11 @@ public class HistoricBatchDto   {
   /**
    * The job definition id for the monitor jobs of this batch.
    * @return monitorJobDefinitionId
-   **/
-  @Schema(description = "The job definition id for the monitor jobs of this batch.")
+  */
   
-    public String getMonitorJobDefinitionId() {
+  @Schema(name = "monitorJobDefinitionId", description = "The job definition id for the monitor jobs of this batch.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("monitorJobDefinitionId")
+  public String getMonitorJobDefinitionId() {
     return monitorJobDefinitionId;
   }
 
@@ -195,10 +199,11 @@ public class HistoricBatchDto   {
   /**
    * The job definition id for the batch execution jobs of this batch.
    * @return batchJobDefinitionId
-   **/
-  @Schema(description = "The job definition id for the batch execution jobs of this batch.")
+  */
   
-    public String getBatchJobDefinitionId() {
+  @Schema(name = "batchJobDefinitionId", description = "The job definition id for the batch execution jobs of this batch.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("batchJobDefinitionId")
+  public String getBatchJobDefinitionId() {
     return batchJobDefinitionId;
   }
 
@@ -214,10 +219,11 @@ public class HistoricBatchDto   {
   /**
    * The tenant id of the batch.
    * @return tenantId
-   **/
-  @Schema(description = "The tenant id of the batch.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The tenant id of the batch.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -233,10 +239,11 @@ public class HistoricBatchDto   {
   /**
    * The batch creator's user id.
    * @return createUserId
-   **/
-  @Schema(description = "The batch creator's user id.")
+  */
   
-    public String getCreateUserId() {
+  @Schema(name = "createUserId", description = "The batch creator's user id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("createUserId")
+  public String getCreateUserId() {
     return createUserId;
   }
 
@@ -252,11 +259,11 @@ public class HistoricBatchDto   {
   /**
    * The time the batch was started. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`. For further information, please see the [documentation](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/)
    * @return startTime
-   **/
-  @Schema(description = "The time the batch was started. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`. For further information, please see the [documentation](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/)")
-  
-    @Valid
-    public OffsetDateTime getStartTime() {
+  */
+  @Valid 
+  @Schema(name = "startTime", description = "The time the batch was started. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`. For further information, please see the [documentation](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("startTime")
+  public OffsetDateTime getStartTime() {
     return startTime;
   }
 
@@ -272,11 +279,11 @@ public class HistoricBatchDto   {
   /**
    * The time the batch ended. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`. For further information, please see the [documentation](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/)
    * @return endTime
-   **/
-  @Schema(description = "The time the batch ended. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`. For further information, please see the [documentation](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/)")
-  
-    @Valid
-    public OffsetDateTime getEndTime() {
+  */
+  @Valid 
+  @Schema(name = "endTime", description = "The time the batch ended. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`. For further information, please see the [documentation](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("endTime")
+  public OffsetDateTime getEndTime() {
     return endTime;
   }
 
@@ -292,18 +299,17 @@ public class HistoricBatchDto   {
   /**
    * The time after which the historic batch should be removed by the History Cleanup job. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`. For further information, please see the [documentation](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/)
    * @return removalTime
-   **/
-  @Schema(description = "The time after which the historic batch should be removed by the History Cleanup job. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`. For further information, please see the [documentation](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/)")
-  
-    @Valid
-    public OffsetDateTime getRemovalTime() {
+  */
+  @Valid 
+  @Schema(name = "removalTime", description = "The time after which the historic batch should be removed by the History Cleanup job. Default format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`. For further information, please see the [documentation](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("removalTime")
+  public OffsetDateTime getRemovalTime() {
     return removalTime;
   }
 
   public void setRemovalTime(OffsetDateTime removalTime) {
     this.removalTime = removalTime;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -338,7 +344,6 @@ public class HistoricBatchDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricBatchDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    totalJobs: ").append(toIndentedString(totalJobs)).append("\n");
@@ -367,3 +372,4 @@ public class HistoricBatchDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

@@ -1,43 +1,44 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.HistoricProcessInstanceQueryDto;
+import com.tosan.camunda.camundaclient.generated.model.RestartProcessInstanceModificationInstructionDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * RestartProcessInstanceDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class RestartProcessInstanceDto {
 
-public class RestartProcessInstanceDto   {
-  @JsonProperty("processInstanceIds")
   @Valid
-  private List<String> processInstanceIds = null;
+  private List<String> processInstanceIds;
 
-  @JsonProperty("historicProcessInstanceQuery")
-  private HistoricProcessInstanceQueryDto historicProcessInstanceQuery = null;
+  private HistoricProcessInstanceQueryDto historicProcessInstanceQuery;
 
-  @JsonProperty("skipCustomListeners")
   private Boolean skipCustomListeners = null;
 
-  @JsonProperty("skipIoMappings")
   private Boolean skipIoMappings = null;
 
-  @JsonProperty("initialVariables")
   private Boolean initialVariables = null;
 
-  @JsonProperty("withoutBusinessKey")
   private Boolean withoutBusinessKey = null;
 
-  @JsonProperty("instructions")
   @Valid
-  private List<RestartProcessInstanceModificationInstructionDto> instructions = null;
+  private List<@Valid RestartProcessInstanceModificationInstructionDto> instructions;
 
   public RestartProcessInstanceDto processInstanceIds(List<String> processInstanceIds) {
     this.processInstanceIds = processInstanceIds;
@@ -55,10 +56,11 @@ public class RestartProcessInstanceDto   {
   /**
    * A list of process instance ids to restart.
    * @return processInstanceIds
-   **/
-  @Schema(description = "A list of process instance ids to restart.")
+  */
   
-    public List<String> getProcessInstanceIds() {
+  @Schema(name = "processInstanceIds", description = "A list of process instance ids to restart.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceIds")
+  public List<String> getProcessInstanceIds() {
     return processInstanceIds;
   }
 
@@ -74,11 +76,11 @@ public class RestartProcessInstanceDto   {
   /**
    * Get historicProcessInstanceQuery
    * @return historicProcessInstanceQuery
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public HistoricProcessInstanceQueryDto getHistoricProcessInstanceQuery() {
+  */
+  @Valid 
+  @Schema(name = "historicProcessInstanceQuery", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historicProcessInstanceQuery")
+  public HistoricProcessInstanceQueryDto getHistoricProcessInstanceQuery() {
     return historicProcessInstanceQuery;
   }
 
@@ -94,10 +96,11 @@ public class RestartProcessInstanceDto   {
   /**
    * Skip execution listener invocation for activities that are started as part of this request.
    * @return skipCustomListeners
-   **/
-  @Schema(description = "Skip execution listener invocation for activities that are started as part of this request.")
+  */
   
-    public Boolean isSkipCustomListeners() {
+  @Schema(name = "skipCustomListeners", description = "Skip execution listener invocation for activities that are started as part of this request.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("skipCustomListeners")
+  public Boolean getSkipCustomListeners() {
     return skipCustomListeners;
   }
 
@@ -113,10 +116,11 @@ public class RestartProcessInstanceDto   {
   /**
    * Skip execution of [input/output variable mappings](https://docs.camunda.org/manual/7.17/user-guide/process-engine/variables/#input-output-variable-mapping) for activities that are started as part of this request.
    * @return skipIoMappings
-   **/
-  @Schema(description = "Skip execution of [input/output variable mappings](https://docs.camunda.org/manual/7.17/user-guide/process-engine/variables/#input-output-variable-mapping) for activities that are started as part of this request.")
+  */
   
-    public Boolean isSkipIoMappings() {
+  @Schema(name = "skipIoMappings", description = "Skip execution of [input/output variable mappings](https://docs.camunda.org/manual/7.17/user-guide/process-engine/variables/#input-output-variable-mapping) for activities that are started as part of this request.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("skipIoMappings")
+  public Boolean getSkipIoMappings() {
     return skipIoMappings;
   }
 
@@ -132,10 +136,11 @@ public class RestartProcessInstanceDto   {
   /**
    * Set the initial set of variables during restart. By default, the last set of variables is used.
    * @return initialVariables
-   **/
-  @Schema(description = "Set the initial set of variables during restart. By default, the last set of variables is used.")
+  */
   
-    public Boolean isInitialVariables() {
+  @Schema(name = "initialVariables", description = "Set the initial set of variables during restart. By default, the last set of variables is used.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("initialVariables")
+  public Boolean getInitialVariables() {
     return initialVariables;
   }
 
@@ -151,10 +156,11 @@ public class RestartProcessInstanceDto   {
   /**
    * Do not take over the business key of the historic process instance.
    * @return withoutBusinessKey
-   **/
-  @Schema(description = "Do not take over the business key of the historic process instance.")
+  */
   
-    public Boolean isWithoutBusinessKey() {
+  @Schema(name = "withoutBusinessKey", description = "Do not take over the business key of the historic process instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutBusinessKey")
+  public Boolean getWithoutBusinessKey() {
     return withoutBusinessKey;
   }
 
@@ -162,7 +168,7 @@ public class RestartProcessInstanceDto   {
     this.withoutBusinessKey = withoutBusinessKey;
   }
 
-  public RestartProcessInstanceDto instructions(List<RestartProcessInstanceModificationInstructionDto> instructions) {
+  public RestartProcessInstanceDto instructions(List<@Valid RestartProcessInstanceModificationInstructionDto> instructions) {
     this.instructions = instructions;
     return this;
   }
@@ -178,17 +184,17 @@ public class RestartProcessInstanceDto   {
   /**
    * **Optional**. A JSON array of instructions that specify which activities to start the process instance at. If this property is omitted, the process instance starts at its default blank start event.
    * @return instructions
-   **/
-  @Schema(description = "**Optional**. A JSON array of instructions that specify which activities to start the process instance at. If this property is omitted, the process instance starts at its default blank start event.")
-      @Valid
-    public List<RestartProcessInstanceModificationInstructionDto> getInstructions() {
+  */
+  @Valid 
+  @Schema(name = "instructions", description = "**Optional**. A JSON array of instructions that specify which activities to start the process instance at. If this property is omitted, the process instance starts at its default blank start event.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("instructions")
+  public List<@Valid RestartProcessInstanceModificationInstructionDto> getInstructions() {
     return instructions;
   }
 
-  public void setInstructions(List<RestartProcessInstanceModificationInstructionDto> instructions) {
+  public void setInstructions(List<@Valid RestartProcessInstanceModificationInstructionDto> instructions) {
     this.instructions = instructions;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -217,7 +223,6 @@ public class RestartProcessInstanceDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RestartProcessInstanceDto {\n");
-    
     sb.append("    processInstanceIds: ").append(toIndentedString(processInstanceIds)).append("\n");
     sb.append("    historicProcessInstanceQuery: ").append(toIndentedString(historicProcessInstanceQuery)).append("\n");
     sb.append("    skipCustomListeners: ").append(toIndentedString(skipCustomListeners)).append("\n");
@@ -240,3 +245,4 @@ public class RestartProcessInstanceDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

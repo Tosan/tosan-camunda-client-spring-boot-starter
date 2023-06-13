@@ -1,253 +1,196 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.tosan.camunda.camundaclient.generated.model.TaskQueryDtoSortingInner;
+import com.tosan.camunda.camundaclient.generated.model.VariableQueryParameterDto;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A Task query which defines a group of Tasks.
  */
-@Schema(description = "A Task query which defines a group of Tasks.")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "TaskQueryDto", description = "A Task query which defines a group of Tasks.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class TaskQueryDto {
 
-public class TaskQueryDto   {
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("processInstanceIdIn")
   @Valid
-  private List<String> processInstanceIdIn = null;
+  private List<String> processInstanceIdIn;
 
-  @JsonProperty("processInstanceBusinessKey")
   private String processInstanceBusinessKey = null;
 
-  @JsonProperty("processInstanceBusinessKeyExpression")
   private String processInstanceBusinessKeyExpression = null;
 
-  @JsonProperty("processInstanceBusinessKeyIn")
   @Valid
-  private List<String> processInstanceBusinessKeyIn = null;
+  private List<String> processInstanceBusinessKeyIn;
 
-  @JsonProperty("processInstanceBusinessKeyLike")
   private String processInstanceBusinessKeyLike = null;
 
-  @JsonProperty("processInstanceBusinessKeyLikeExpression")
   private String processInstanceBusinessKeyLikeExpression = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("processDefinitionKeyIn")
   @Valid
-  private List<String> processDefinitionKeyIn = null;
+  private List<String> processDefinitionKeyIn;
 
-  @JsonProperty("processDefinitionName")
   private String processDefinitionName = null;
 
-  @JsonProperty("processDefinitionNameLike")
   private String processDefinitionNameLike = null;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("caseInstanceId")
   private String caseInstanceId = null;
 
-  @JsonProperty("caseInstanceBusinessKey")
   private String caseInstanceBusinessKey = null;
 
-  @JsonProperty("caseInstanceBusinessKeyLike")
   private String caseInstanceBusinessKeyLike = null;
 
-  @JsonProperty("caseDefinitionId")
   private String caseDefinitionId = null;
 
-  @JsonProperty("caseDefinitionKey")
   private String caseDefinitionKey = null;
 
-  @JsonProperty("caseDefinitionName")
   private String caseDefinitionName = null;
 
-  @JsonProperty("caseDefinitionNameLike")
   private String caseDefinitionNameLike = null;
 
-  @JsonProperty("caseExecutionId")
   private String caseExecutionId = null;
 
-  @JsonProperty("activityInstanceIdIn")
   @Valid
-  private List<String> activityInstanceIdIn = null;
+  private List<String> activityInstanceIdIn;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("withoutTenantId")
-  private Boolean withoutTenantId = false;
+  private Boolean withoutTenantId = null;
 
-  @JsonProperty("assignee")
   private String assignee = null;
 
-  @JsonProperty("assigneeExpression")
   private String assigneeExpression = null;
 
-  @JsonProperty("assigneeLike")
   private String assigneeLike = null;
 
-  @JsonProperty("assigneeLikeExpression")
   private String assigneeLikeExpression = null;
 
-  @JsonProperty("assigneeIn")
   @Valid
-  private List<String> assigneeIn = null;
+  private List<String> assigneeIn;
 
-  @JsonProperty("assigneeNotIn")
   @Valid
-  private List<String> assigneeNotIn = null;
+  private List<String> assigneeNotIn;
 
-  @JsonProperty("owner")
   private String owner = null;
 
-  @JsonProperty("ownerExpression")
   private String ownerExpression = null;
 
-  @JsonProperty("candidateGroup")
   private String candidateGroup = null;
 
-  @JsonProperty("candidateGroupExpression")
   private String candidateGroupExpression = null;
 
-  @JsonProperty("candidateUser")
   private String candidateUser = null;
 
-  @JsonProperty("candidateUserExpression")
   private String candidateUserExpression = null;
 
-  @JsonProperty("includeAssignedTasks")
-  private Boolean includeAssignedTasks = false;
+  private Boolean includeAssignedTasks = null;
 
-  @JsonProperty("involvedUser")
   private String involvedUser = null;
 
-  @JsonProperty("involvedUserExpression")
   private String involvedUserExpression = null;
 
-  @JsonProperty("assigned")
-  private Boolean assigned = false;
+  private Boolean assigned = null;
 
-  @JsonProperty("unassigned")
-  private Boolean unassigned = false;
+  private Boolean unassigned = null;
 
-  @JsonProperty("taskDefinitionKey")
   private String taskDefinitionKey = null;
 
-  @JsonProperty("taskDefinitionKeyIn")
   @Valid
-  private List<String> taskDefinitionKeyIn = null;
+  private List<String> taskDefinitionKeyIn;
 
-  @JsonProperty("taskDefinitionKeyLike")
   private String taskDefinitionKeyLike = null;
 
-  @JsonProperty("name")
   private String name = null;
 
-  @JsonProperty("nameNotEqual")
   private String nameNotEqual = null;
 
-  @JsonProperty("nameLike")
   private String nameLike = null;
 
-  @JsonProperty("nameNotLike")
   private String nameNotLike = null;
 
-  @JsonProperty("description")
   private String description = null;
 
-  @JsonProperty("descriptionLike")
   private String descriptionLike = null;
 
-  @JsonProperty("priority")
   private Integer priority = null;
 
-  @JsonProperty("maxPriority")
   private Integer maxPriority = null;
 
-  @JsonProperty("minPriority")
   private Integer minPriority = null;
 
-  @JsonProperty("dueDate")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime dueDate = null;
 
-  @JsonProperty("dueDateExpression")
   private String dueDateExpression = null;
 
-  @JsonProperty("dueAfter")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime dueAfter = null;
 
-  @JsonProperty("dueAfterExpression")
   private String dueAfterExpression = null;
 
-  @JsonProperty("dueBefore")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime dueBefore = null;
 
-  @JsonProperty("dueBeforeExpression")
   private String dueBeforeExpression = null;
 
-  @JsonProperty("withoutDueDate")
-  private Boolean withoutDueDate = false;
+  private Boolean withoutDueDate = null;
 
-  @JsonProperty("followUpDate")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime followUpDate = null;
 
-  @JsonProperty("followUpDateExpression")
   private String followUpDateExpression = null;
 
-  @JsonProperty("followUpAfter")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime followUpAfter = null;
 
-  @JsonProperty("followUpAfterExpression")
   private String followUpAfterExpression = null;
 
-  @JsonProperty("followUpBefore")
   private String followUpBefore = null;
 
-  @JsonProperty("followUpBeforeExpression")
   private String followUpBeforeExpression = null;
 
-  @JsonProperty("followUpBeforeOrNotExistent")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime followUpBeforeOrNotExistent = null;
 
-  @JsonProperty("followUpBeforeOrNotExistentExpression")
   private String followUpBeforeOrNotExistentExpression = null;
 
-  @JsonProperty("createdOn")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime createdOn = null;
 
-  @JsonProperty("createdOnExpression")
   private String createdOnExpression = null;
 
-  @JsonProperty("createdAfter")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime createdAfter = null;
 
-  @JsonProperty("createdAfterExpression")
   private String createdAfterExpression = null;
 
-  @JsonProperty("createdBefore")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime createdBefore = null;
 
-  @JsonProperty("createdBeforeExpression")
   private String createdBeforeExpression = null;
 
   /**
@@ -264,78 +207,66 @@ public class TaskQueryDto   {
       this.value = value;
     }
 
-    @Override
     @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static DelegationStateEnum fromValue(String text) {
+    public static DelegationStateEnum fromValue(String value) {
       for (DelegationStateEnum b : DelegationStateEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
       return null;
     }
   }
-  @JsonProperty("delegationState")
+
   private DelegationStateEnum delegationState = null;
 
-  @JsonProperty("candidateGroups")
   @Valid
-  private List<String> candidateGroups = null;
+  private List<String> candidateGroups;
 
-  @JsonProperty("candidateGroupsExpression")
   private String candidateGroupsExpression = null;
 
-  @JsonProperty("withCandidateGroups")
-  private Boolean withCandidateGroups = false;
+  private Boolean withCandidateGroups = null;
 
-  @JsonProperty("withoutCandidateGroups")
-  private Boolean withoutCandidateGroups = false;
+  private Boolean withoutCandidateGroups = null;
 
-  @JsonProperty("withCandidateUsers")
-  private Boolean withCandidateUsers = false;
+  private Boolean withCandidateUsers = null;
 
-  @JsonProperty("withoutCandidateUsers")
-  private Boolean withoutCandidateUsers = false;
+  private Boolean withoutCandidateUsers = null;
 
-  @JsonProperty("active")
-  private Boolean active = false;
+  private Boolean active = null;
 
-  @JsonProperty("suspended")
-  private Boolean suspended = false;
+  private Boolean suspended = null;
 
-  @JsonProperty("taskVariables")
   @Valid
-  private List<VariableQueryParameterDto> taskVariables = null;
+  private List<@Valid VariableQueryParameterDto> taskVariables;
 
-  @JsonProperty("processVariables")
   @Valid
-  private List<VariableQueryParameterDto> processVariables = null;
+  private List<@Valid VariableQueryParameterDto> processVariables;
 
-  @JsonProperty("caseInstanceVariables")
   @Valid
-  private List<VariableQueryParameterDto> caseInstanceVariables = null;
+  private List<@Valid VariableQueryParameterDto> caseInstanceVariables;
 
-  @JsonProperty("variableNamesIgnoreCase")
-  private Boolean variableNamesIgnoreCase = false;
+  private Boolean variableNamesIgnoreCase = null;
 
-  @JsonProperty("variableValuesIgnoreCase")
-  private Boolean variableValuesIgnoreCase = false;
+  private Boolean variableValuesIgnoreCase = null;
 
-  @JsonProperty("parentTaskId")
   private String parentTaskId = null;
 
-  @JsonProperty("orQueries")
   @Valid
-  private List<TaskQueryDto> orQueries = null;
+  private List<@Valid TaskQueryDto> orQueries;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<TaskQueryDtoSorting> sorting = null;
+  private List<@Valid TaskQueryDtoSortingInner> sorting;
 
   public TaskQueryDto processInstanceId(String processInstanceId) {
     this.processInstanceId = processInstanceId;
@@ -345,10 +276,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that belong to process instances with the given id.
    * @return processInstanceId
-   **/
-  @Schema(description = "Restrict to tasks that belong to process instances with the given id.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "Restrict to tasks that belong to process instances with the given id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -372,10 +304,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that belong to process instances with the given ids.
    * @return processInstanceIdIn
-   **/
-  @Schema(description = "Restrict to tasks that belong to process instances with the given ids.")
+  */
   
-    public List<String> getProcessInstanceIdIn() {
+  @Schema(name = "processInstanceIdIn", description = "Restrict to tasks that belong to process instances with the given ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceIdIn")
+  public List<String> getProcessInstanceIdIn() {
     return processInstanceIdIn;
   }
 
@@ -391,10 +324,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that belong to process instances with the given business key.
    * @return processInstanceBusinessKey
-   **/
-  @Schema(description = "Restrict to tasks that belong to process instances with the given business key.")
+  */
   
-    public String getProcessInstanceBusinessKey() {
+  @Schema(name = "processInstanceBusinessKey", description = "Restrict to tasks that belong to process instances with the given business key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceBusinessKey")
+  public String getProcessInstanceBusinessKey() {
     return processInstanceBusinessKey;
   }
 
@@ -410,10 +344,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that belong to process instances with the given business key which  is described by an expression. See the  [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions.
    * @return processInstanceBusinessKeyExpression
-   **/
-  @Schema(description = "Restrict to tasks that belong to process instances with the given business key which  is described by an expression. See the  [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions.")
+  */
   
-    public String getProcessInstanceBusinessKeyExpression() {
+  @Schema(name = "processInstanceBusinessKeyExpression", description = "Restrict to tasks that belong to process instances with the given business key which  is described by an expression. See the  [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceBusinessKeyExpression")
+  public String getProcessInstanceBusinessKeyExpression() {
     return processInstanceBusinessKeyExpression;
   }
 
@@ -437,10 +372,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that belong to process instances with one of the give business keys.  The keys need to be in a comma-separated list.
    * @return processInstanceBusinessKeyIn
-   **/
-  @Schema(description = "Restrict to tasks that belong to process instances with one of the give business keys.  The keys need to be in a comma-separated list.")
+  */
   
-    public List<String> getProcessInstanceBusinessKeyIn() {
+  @Schema(name = "processInstanceBusinessKeyIn", description = "Restrict to tasks that belong to process instances with one of the give business keys.  The keys need to be in a comma-separated list.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceBusinessKeyIn")
+  public List<String> getProcessInstanceBusinessKeyIn() {
     return processInstanceBusinessKeyIn;
   }
 
@@ -456,10 +392,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have a process instance business key that has the parameter  value as a substring.
    * @return processInstanceBusinessKeyLike
-   **/
-  @Schema(description = "Restrict to tasks that have a process instance business key that has the parameter  value as a substring.")
+  */
   
-    public String getProcessInstanceBusinessKeyLike() {
+  @Schema(name = "processInstanceBusinessKeyLike", description = "Restrict to tasks that have a process instance business key that has the parameter  value as a substring.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceBusinessKeyLike")
+  public String getProcessInstanceBusinessKeyLike() {
     return processInstanceBusinessKeyLike;
   }
 
@@ -475,10 +412,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have a process instance business key that has the parameter  value as a substring and is described by an expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.
    * @return processInstanceBusinessKeyLikeExpression
-   **/
-  @Schema(description = "Restrict to tasks that have a process instance business key that has the parameter  value as a substring and is described by an expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.")
+  */
   
-    public String getProcessInstanceBusinessKeyLikeExpression() {
+  @Schema(name = "processInstanceBusinessKeyLikeExpression", description = "Restrict to tasks that have a process instance business key that has the parameter  value as a substring and is described by an expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceBusinessKeyLikeExpression")
+  public String getProcessInstanceBusinessKeyLikeExpression() {
     return processInstanceBusinessKeyLikeExpression;
   }
 
@@ -494,10 +432,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that belong to a process definition with the given id.
    * @return processDefinitionId
-   **/
-  @Schema(description = "Restrict to tasks that belong to a process definition with the given id.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "Restrict to tasks that belong to a process definition with the given id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -513,10 +452,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that belong to a process definition with the given key.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "Restrict to tasks that belong to a process definition with the given key.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "Restrict to tasks that belong to a process definition with the given key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -540,10 +480,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that belong to a process definition with one of the given keys. The  keys need to be in a comma-separated list.
    * @return processDefinitionKeyIn
-   **/
-  @Schema(description = "Restrict to tasks that belong to a process definition with one of the given keys. The  keys need to be in a comma-separated list.")
+  */
   
-    public List<String> getProcessDefinitionKeyIn() {
+  @Schema(name = "processDefinitionKeyIn", description = "Restrict to tasks that belong to a process definition with one of the given keys. The  keys need to be in a comma-separated list.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKeyIn")
+  public List<String> getProcessDefinitionKeyIn() {
     return processDefinitionKeyIn;
   }
 
@@ -559,10 +500,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that belong to a process definition with the given name.
    * @return processDefinitionName
-   **/
-  @Schema(description = "Restrict to tasks that belong to a process definition with the given name.")
+  */
   
-    public String getProcessDefinitionName() {
+  @Schema(name = "processDefinitionName", description = "Restrict to tasks that belong to a process definition with the given name.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionName")
+  public String getProcessDefinitionName() {
     return processDefinitionName;
   }
 
@@ -578,10 +520,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have a process definition name that has the parameter value as  a substring.
    * @return processDefinitionNameLike
-   **/
-  @Schema(description = "Restrict to tasks that have a process definition name that has the parameter value as  a substring.")
+  */
   
-    public String getProcessDefinitionNameLike() {
+  @Schema(name = "processDefinitionNameLike", description = "Restrict to tasks that have a process definition name that has the parameter value as  a substring.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionNameLike")
+  public String getProcessDefinitionNameLike() {
     return processDefinitionNameLike;
   }
 
@@ -597,10 +540,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that belong to an execution with the given id.
    * @return executionId
-   **/
-  @Schema(description = "Restrict to tasks that belong to an execution with the given id.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "Restrict to tasks that belong to an execution with the given id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -616,10 +560,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that belong to case instances with the given id.
    * @return caseInstanceId
-   **/
-  @Schema(description = "Restrict to tasks that belong to case instances with the given id.")
+  */
   
-    public String getCaseInstanceId() {
+  @Schema(name = "caseInstanceId", description = "Restrict to tasks that belong to case instances with the given id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceId")
+  public String getCaseInstanceId() {
     return caseInstanceId;
   }
 
@@ -635,10 +580,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that belong to case instances with the given business key.
    * @return caseInstanceBusinessKey
-   **/
-  @Schema(description = "Restrict to tasks that belong to case instances with the given business key.")
+  */
   
-    public String getCaseInstanceBusinessKey() {
+  @Schema(name = "caseInstanceBusinessKey", description = "Restrict to tasks that belong to case instances with the given business key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceBusinessKey")
+  public String getCaseInstanceBusinessKey() {
     return caseInstanceBusinessKey;
   }
 
@@ -654,10 +600,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have a case instance business key that has the parameter value  as a substring.
    * @return caseInstanceBusinessKeyLike
-   **/
-  @Schema(description = "Restrict to tasks that have a case instance business key that has the parameter value  as a substring.")
+  */
   
-    public String getCaseInstanceBusinessKeyLike() {
+  @Schema(name = "caseInstanceBusinessKeyLike", description = "Restrict to tasks that have a case instance business key that has the parameter value  as a substring.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceBusinessKeyLike")
+  public String getCaseInstanceBusinessKeyLike() {
     return caseInstanceBusinessKeyLike;
   }
 
@@ -673,10 +620,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that belong to a case definition with the given id.
    * @return caseDefinitionId
-   **/
-  @Schema(description = "Restrict to tasks that belong to a case definition with the given id.")
+  */
   
-    public String getCaseDefinitionId() {
+  @Schema(name = "caseDefinitionId", description = "Restrict to tasks that belong to a case definition with the given id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseDefinitionId")
+  public String getCaseDefinitionId() {
     return caseDefinitionId;
   }
 
@@ -692,10 +640,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that belong to a case definition with the given key.
    * @return caseDefinitionKey
-   **/
-  @Schema(description = "Restrict to tasks that belong to a case definition with the given key.")
+  */
   
-    public String getCaseDefinitionKey() {
+  @Schema(name = "caseDefinitionKey", description = "Restrict to tasks that belong to a case definition with the given key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseDefinitionKey")
+  public String getCaseDefinitionKey() {
     return caseDefinitionKey;
   }
 
@@ -711,10 +660,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that belong to a case definition with the given name.
    * @return caseDefinitionName
-   **/
-  @Schema(description = "Restrict to tasks that belong to a case definition with the given name.")
+  */
   
-    public String getCaseDefinitionName() {
+  @Schema(name = "caseDefinitionName", description = "Restrict to tasks that belong to a case definition with the given name.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseDefinitionName")
+  public String getCaseDefinitionName() {
     return caseDefinitionName;
   }
 
@@ -730,10 +680,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have a case definition name that has the parameter value as a  substring.
    * @return caseDefinitionNameLike
-   **/
-  @Schema(description = "Restrict to tasks that have a case definition name that has the parameter value as a  substring.")
+  */
   
-    public String getCaseDefinitionNameLike() {
+  @Schema(name = "caseDefinitionNameLike", description = "Restrict to tasks that have a case definition name that has the parameter value as a  substring.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseDefinitionNameLike")
+  public String getCaseDefinitionNameLike() {
     return caseDefinitionNameLike;
   }
 
@@ -749,10 +700,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that belong to a case execution with the given id.
    * @return caseExecutionId
-   **/
-  @Schema(description = "Restrict to tasks that belong to a case execution with the given id.")
+  */
   
-    public String getCaseExecutionId() {
+  @Schema(name = "caseExecutionId", description = "Restrict to tasks that belong to a case execution with the given id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseExecutionId")
+  public String getCaseExecutionId() {
     return caseExecutionId;
   }
 
@@ -776,10 +728,11 @@ public class TaskQueryDto   {
   /**
    * Only include tasks which belong to one of the passed and comma-separated activity  instance ids.
    * @return activityInstanceIdIn
-   **/
-  @Schema(description = "Only include tasks which belong to one of the passed and comma-separated activity  instance ids.")
+  */
   
-    public List<String> getActivityInstanceIdIn() {
+  @Schema(name = "activityInstanceIdIn", description = "Only include tasks which belong to one of the passed and comma-separated activity  instance ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityInstanceIdIn")
+  public List<String> getActivityInstanceIdIn() {
     return activityInstanceIdIn;
   }
 
@@ -803,10 +756,11 @@ public class TaskQueryDto   {
   /**
    * Only include tasks which belong to one of the passed and comma-separated  tenant ids.
    * @return tenantIdIn
-   **/
-  @Schema(description = "Only include tasks which belong to one of the passed and comma-separated  tenant ids.")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Only include tasks which belong to one of the passed and comma-separated  tenant ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -822,10 +776,11 @@ public class TaskQueryDto   {
   /**
    * Only include tasks which belong to no tenant. Value may only be `true`,  as `false` is the default behavior.
    * @return withoutTenantId
-   **/
-  @Schema(description = "Only include tasks which belong to no tenant. Value may only be `true`,  as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "Only include tasks which belong to no tenant. Value may only be `true`,  as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
@@ -841,10 +796,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that the given user is assigned to.
    * @return assignee
-   **/
-  @Schema(description = "Restrict to tasks that the given user is assigned to.")
+  */
   
-    public String getAssignee() {
+  @Schema(name = "assignee", description = "Restrict to tasks that the given user is assigned to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("assignee")
+  public String getAssignee() {
     return assignee;
   }
 
@@ -860,10 +816,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that the user described by the given expression is assigned to. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.
    * @return assigneeExpression
-   **/
-  @Schema(description = "Restrict to tasks that the user described by the given expression is assigned to. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.")
+  */
   
-    public String getAssigneeExpression() {
+  @Schema(name = "assigneeExpression", description = "Restrict to tasks that the user described by the given expression is assigned to. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("assigneeExpression")
+  public String getAssigneeExpression() {
     return assigneeExpression;
   }
 
@@ -879,10 +836,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have an assignee that has the parameter  value as a substring.
    * @return assigneeLike
-   **/
-  @Schema(description = "Restrict to tasks that have an assignee that has the parameter  value as a substring.")
+  */
   
-    public String getAssigneeLike() {
+  @Schema(name = "assigneeLike", description = "Restrict to tasks that have an assignee that has the parameter  value as a substring.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("assigneeLike")
+  public String getAssigneeLike() {
     return assigneeLike;
   }
 
@@ -898,10 +856,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have an assignee that has the parameter value described by the  given expression as a substring. See the  [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.
    * @return assigneeLikeExpression
-   **/
-  @Schema(description = "Restrict to tasks that have an assignee that has the parameter value described by the  given expression as a substring. See the  [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.")
+  */
   
-    public String getAssigneeLikeExpression() {
+  @Schema(name = "assigneeLikeExpression", description = "Restrict to tasks that have an assignee that has the parameter value described by the  given expression as a substring. See the  [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("assigneeLikeExpression")
+  public String getAssigneeLikeExpression() {
     return assigneeLikeExpression;
   }
 
@@ -925,10 +884,11 @@ public class TaskQueryDto   {
   /**
    * Only include tasks which are assigned to one of the passed and comma-separated user ids.
    * @return assigneeIn
-   **/
-  @Schema(description = "Only include tasks which are assigned to one of the passed and comma-separated user ids.")
+  */
   
-    public List<String> getAssigneeIn() {
+  @Schema(name = "assigneeIn", description = "Only include tasks which are assigned to one of the passed and comma-separated user ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("assigneeIn")
+  public List<String> getAssigneeIn() {
     return assigneeIn;
   }
 
@@ -952,10 +912,11 @@ public class TaskQueryDto   {
   /**
    * Only include tasks which are not assigned to one of the passed and comma-separated user ids.
    * @return assigneeNotIn
-   **/
-  @Schema(description = "Only include tasks which are not assigned to one of the passed and comma-separated user ids.")
+  */
   
-    public List<String> getAssigneeNotIn() {
+  @Schema(name = "assigneeNotIn", description = "Only include tasks which are not assigned to one of the passed and comma-separated user ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("assigneeNotIn")
+  public List<String> getAssigneeNotIn() {
     return assigneeNotIn;
   }
 
@@ -971,10 +932,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that the given user owns.
    * @return owner
-   **/
-  @Schema(description = "Restrict to tasks that the given user owns.")
+  */
   
-    public String getOwner() {
+  @Schema(name = "owner", description = "Restrict to tasks that the given user owns.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("owner")
+  public String getOwner() {
     return owner;
   }
 
@@ -990,10 +952,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that the user described by the given expression owns. See the  [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.
    * @return ownerExpression
-   **/
-  @Schema(description = "Restrict to tasks that the user described by the given expression owns. See the  [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.")
+  */
   
-    public String getOwnerExpression() {
+  @Schema(name = "ownerExpression", description = "Restrict to tasks that the user described by the given expression owns. See the  [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("ownerExpression")
+  public String getOwnerExpression() {
     return ownerExpression;
   }
 
@@ -1009,10 +972,11 @@ public class TaskQueryDto   {
   /**
    * Only include tasks that are offered to the given group.
    * @return candidateGroup
-   **/
-  @Schema(description = "Only include tasks that are offered to the given group.")
+  */
   
-    public String getCandidateGroup() {
+  @Schema(name = "candidateGroup", description = "Only include tasks that are offered to the given group.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("candidateGroup")
+  public String getCandidateGroup() {
     return candidateGroup;
   }
 
@@ -1028,10 +992,11 @@ public class TaskQueryDto   {
   /**
    * Only include tasks that are offered to the group described by the given expression.  See the  [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.
    * @return candidateGroupExpression
-   **/
-  @Schema(description = "Only include tasks that are offered to the group described by the given expression.  See the  [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.")
+  */
   
-    public String getCandidateGroupExpression() {
+  @Schema(name = "candidateGroupExpression", description = "Only include tasks that are offered to the group described by the given expression.  See the  [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("candidateGroupExpression")
+  public String getCandidateGroupExpression() {
     return candidateGroupExpression;
   }
 
@@ -1047,10 +1012,11 @@ public class TaskQueryDto   {
   /**
    * Only include tasks that are offered to the given user or to one of his groups.
    * @return candidateUser
-   **/
-  @Schema(description = "Only include tasks that are offered to the given user or to one of his groups.")
+  */
   
-    public String getCandidateUser() {
+  @Schema(name = "candidateUser", description = "Only include tasks that are offered to the given user or to one of his groups.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("candidateUser")
+  public String getCandidateUser() {
     return candidateUser;
   }
 
@@ -1066,10 +1032,11 @@ public class TaskQueryDto   {
   /**
    * Only include tasks that are offered to the user described by the given expression.  See the  [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.
    * @return candidateUserExpression
-   **/
-  @Schema(description = "Only include tasks that are offered to the user described by the given expression.  See the  [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.")
+  */
   
-    public String getCandidateUserExpression() {
+  @Schema(name = "candidateUserExpression", description = "Only include tasks that are offered to the user described by the given expression.  See the  [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions)  for more information on available functions.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("candidateUserExpression")
+  public String getCandidateUserExpression() {
     return candidateUserExpression;
   }
 
@@ -1085,10 +1052,11 @@ public class TaskQueryDto   {
   /**
    * Also include tasks that are assigned to users in candidate queries. Default is to only  include tasks that are not assigned to any user if you query by candidate user or group(s).
    * @return includeAssignedTasks
-   **/
-  @Schema(description = "Also include tasks that are assigned to users in candidate queries. Default is to only  include tasks that are not assigned to any user if you query by candidate user or group(s).")
+  */
   
-    public Boolean isIncludeAssignedTasks() {
+  @Schema(name = "includeAssignedTasks", description = "Also include tasks that are assigned to users in candidate queries. Default is to only  include tasks that are not assigned to any user if you query by candidate user or group(s).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("includeAssignedTasks")
+  public Boolean getIncludeAssignedTasks() {
     return includeAssignedTasks;
   }
 
@@ -1104,10 +1072,11 @@ public class TaskQueryDto   {
   /**
    * Only include tasks that the given user is involved in. A user is involved in a task if  an identity link exists between task and user (e.g., the user is the assignee).
    * @return involvedUser
-   **/
-  @Schema(description = "Only include tasks that the given user is involved in. A user is involved in a task if  an identity link exists between task and user (e.g., the user is the assignee).")
+  */
   
-    public String getInvolvedUser() {
+  @Schema(name = "involvedUser", description = "Only include tasks that the given user is involved in. A user is involved in a task if  an identity link exists between task and user (e.g., the user is the assignee).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("involvedUser")
+  public String getInvolvedUser() {
     return involvedUser;
   }
 
@@ -1123,10 +1092,11 @@ public class TaskQueryDto   {
   /**
    * Only include tasks that the user described by the given expression is involved in. A user is involved in a task if an identity link exists between task and user (e.g., the user is the assignee). See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions.
    * @return involvedUserExpression
-   **/
-  @Schema(description = "Only include tasks that the user described by the given expression is involved in. A user is involved in a task if an identity link exists between task and user (e.g., the user is the assignee). See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions.")
+  */
   
-    public String getInvolvedUserExpression() {
+  @Schema(name = "involvedUserExpression", description = "Only include tasks that the user described by the given expression is involved in. A user is involved in a task if an identity link exists between task and user (e.g., the user is the assignee). See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("involvedUserExpression")
+  public String getInvolvedUserExpression() {
     return involvedUserExpression;
   }
 
@@ -1142,10 +1112,11 @@ public class TaskQueryDto   {
   /**
    * If set to `true`, restricts the query to all tasks that are assigned.
    * @return assigned
-   **/
-  @Schema(description = "If set to `true`, restricts the query to all tasks that are assigned.")
+  */
   
-    public Boolean isAssigned() {
+  @Schema(name = "assigned", description = "If set to `true`, restricts the query to all tasks that are assigned.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("assigned")
+  public Boolean getAssigned() {
     return assigned;
   }
 
@@ -1161,10 +1132,11 @@ public class TaskQueryDto   {
   /**
    * If set to `true`, restricts the query to all tasks that are unassigned.
    * @return unassigned
-   **/
-  @Schema(description = "If set to `true`, restricts the query to all tasks that are unassigned.")
+  */
   
-    public Boolean isUnassigned() {
+  @Schema(name = "unassigned", description = "If set to `true`, restricts the query to all tasks that are unassigned.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("unassigned")
+  public Boolean getUnassigned() {
     return unassigned;
   }
 
@@ -1180,10 +1152,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have the given key.
    * @return taskDefinitionKey
-   **/
-  @Schema(description = "Restrict to tasks that have the given key.")
+  */
   
-    public String getTaskDefinitionKey() {
+  @Schema(name = "taskDefinitionKey", description = "Restrict to tasks that have the given key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskDefinitionKey")
+  public String getTaskDefinitionKey() {
     return taskDefinitionKey;
   }
 
@@ -1207,10 +1180,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have one of the given keys. The keys need to be in a comma-separated list.
    * @return taskDefinitionKeyIn
-   **/
-  @Schema(description = "Restrict to tasks that have one of the given keys. The keys need to be in a comma-separated list.")
+  */
   
-    public List<String> getTaskDefinitionKeyIn() {
+  @Schema(name = "taskDefinitionKeyIn", description = "Restrict to tasks that have one of the given keys. The keys need to be in a comma-separated list.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskDefinitionKeyIn")
+  public List<String> getTaskDefinitionKeyIn() {
     return taskDefinitionKeyIn;
   }
 
@@ -1226,10 +1200,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have a key that has the parameter value as a substring.
    * @return taskDefinitionKeyLike
-   **/
-  @Schema(description = "Restrict to tasks that have a key that has the parameter value as a substring.")
+  */
   
-    public String getTaskDefinitionKeyLike() {
+  @Schema(name = "taskDefinitionKeyLike", description = "Restrict to tasks that have a key that has the parameter value as a substring.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskDefinitionKeyLike")
+  public String getTaskDefinitionKeyLike() {
     return taskDefinitionKeyLike;
   }
 
@@ -1245,10 +1220,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have the given name.
    * @return name
-   **/
-  @Schema(description = "Restrict to tasks that have the given name.")
+  */
   
-    public String getName() {
+  @Schema(name = "name", description = "Restrict to tasks that have the given name.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
     return name;
   }
 
@@ -1264,10 +1240,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that do not have the given name.
    * @return nameNotEqual
-   **/
-  @Schema(description = "Restrict to tasks that do not have the given name.")
+  */
   
-    public String getNameNotEqual() {
+  @Schema(name = "nameNotEqual", description = "Restrict to tasks that do not have the given name.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("nameNotEqual")
+  public String getNameNotEqual() {
     return nameNotEqual;
   }
 
@@ -1283,10 +1260,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have a name with the given parameter value as substring.
    * @return nameLike
-   **/
-  @Schema(description = "Restrict to tasks that have a name with the given parameter value as substring.")
+  */
   
-    public String getNameLike() {
+  @Schema(name = "nameLike", description = "Restrict to tasks that have a name with the given parameter value as substring.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("nameLike")
+  public String getNameLike() {
     return nameLike;
   }
 
@@ -1302,10 +1280,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that do not have a name with the given parameter value as substring.
    * @return nameNotLike
-   **/
-  @Schema(description = "Restrict to tasks that do not have a name with the given parameter value as substring.")
+  */
   
-    public String getNameNotLike() {
+  @Schema(name = "nameNotLike", description = "Restrict to tasks that do not have a name with the given parameter value as substring.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("nameNotLike")
+  public String getNameNotLike() {
     return nameNotLike;
   }
 
@@ -1321,10 +1300,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have the given description.
    * @return description
-   **/
-  @Schema(description = "Restrict to tasks that have the given description.")
+  */
   
-    public String getDescription() {
+  @Schema(name = "description", description = "Restrict to tasks that have the given description.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("description")
+  public String getDescription() {
     return description;
   }
 
@@ -1340,10 +1320,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have a description that has the parameter value as a substring.
    * @return descriptionLike
-   **/
-  @Schema(description = "Restrict to tasks that have a description that has the parameter value as a substring.")
+  */
   
-    public String getDescriptionLike() {
+  @Schema(name = "descriptionLike", description = "Restrict to tasks that have a description that has the parameter value as a substring.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("descriptionLike")
+  public String getDescriptionLike() {
     return descriptionLike;
   }
 
@@ -1359,10 +1340,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have the given priority.
    * @return priority
-   **/
-  @Schema(description = "Restrict to tasks that have the given priority.")
+  */
   
-    public Integer getPriority() {
+  @Schema(name = "priority", description = "Restrict to tasks that have the given priority.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("priority")
+  public Integer getPriority() {
     return priority;
   }
 
@@ -1378,10 +1360,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have a lower or equal priority.
    * @return maxPriority
-   **/
-  @Schema(description = "Restrict to tasks that have a lower or equal priority.")
+  */
   
-    public Integer getMaxPriority() {
+  @Schema(name = "maxPriority", description = "Restrict to tasks that have a lower or equal priority.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("maxPriority")
+  public Integer getMaxPriority() {
     return maxPriority;
   }
 
@@ -1397,10 +1380,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have a higher or equal priority.
    * @return minPriority
-   **/
-  @Schema(description = "Restrict to tasks that have a higher or equal priority.")
+  */
   
-    public Integer getMinPriority() {
+  @Schema(name = "minPriority", description = "Restrict to tasks that have a higher or equal priority.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("minPriority")
+  public Integer getMinPriority() {
     return minPriority;
   }
 
@@ -1416,11 +1400,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that are due on the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.546+0200`.
    * @return dueDate
-   **/
-  @Schema(description = "Restrict to tasks that are due on the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.546+0200`.")
-  
-    @Valid
-    public OffsetDateTime getDueDate() {
+  */
+  @Valid 
+  @Schema(name = "dueDate", description = "Restrict to tasks that are due on the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.546+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("dueDate")
+  public OffsetDateTime getDueDate() {
     return dueDate;
   }
 
@@ -1436,10 +1420,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that are due on the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.
    * @return dueDateExpression
-   **/
-  @Schema(description = "Restrict to tasks that are due on the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.")
+  */
   
-    public String getDueDateExpression() {
+  @Schema(name = "dueDateExpression", description = "Restrict to tasks that are due on the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("dueDateExpression")
+  public String getDueDateExpression() {
     return dueDateExpression;
   }
 
@@ -1455,11 +1440,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that are due after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.435+0200`.
    * @return dueAfter
-   **/
-  @Schema(description = "Restrict to tasks that are due after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.435+0200`.")
-  
-    @Valid
-    public OffsetDateTime getDueAfter() {
+  */
+  @Valid 
+  @Schema(name = "dueAfter", description = "Restrict to tasks that are due after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.435+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("dueAfter")
+  public OffsetDateTime getDueAfter() {
     return dueAfter;
   }
 
@@ -1475,10 +1460,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that are due after the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.
    * @return dueAfterExpression
-   **/
-  @Schema(description = "Restrict to tasks that are due after the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.")
+  */
   
-    public String getDueAfterExpression() {
+  @Schema(name = "dueAfterExpression", description = "Restrict to tasks that are due after the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("dueAfterExpression")
+  public String getDueAfterExpression() {
     return dueAfterExpression;
   }
 
@@ -1494,11 +1480,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that are due before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.243+0200`.
    * @return dueBefore
-   **/
-  @Schema(description = "Restrict to tasks that are due before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.243+0200`.")
-  
-    @Valid
-    public OffsetDateTime getDueBefore() {
+  */
+  @Valid 
+  @Schema(name = "dueBefore", description = "Restrict to tasks that are due before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.243+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("dueBefore")
+  public OffsetDateTime getDueBefore() {
     return dueBefore;
   }
 
@@ -1514,10 +1500,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that are due before the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.
    * @return dueBeforeExpression
-   **/
-  @Schema(description = "Restrict to tasks that are due before the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.")
+  */
   
-    public String getDueBeforeExpression() {
+  @Schema(name = "dueBeforeExpression", description = "Restrict to tasks that are due before the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("dueBeforeExpression")
+  public String getDueBeforeExpression() {
     return dueBeforeExpression;
   }
 
@@ -1533,10 +1520,11 @@ public class TaskQueryDto   {
   /**
    * Only include tasks which have no due date. Value may only be `true`,  as `false` is the default behavior.
    * @return withoutDueDate
-   **/
-  @Schema(description = "Only include tasks which have no due date. Value may only be `true`,  as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutDueDate() {
+  @Schema(name = "withoutDueDate", description = "Only include tasks which have no due date. Value may only be `true`,  as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutDueDate")
+  public Boolean getWithoutDueDate() {
     return withoutDueDate;
   }
 
@@ -1552,11 +1540,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have a followUp date on the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.342+0200`.
    * @return followUpDate
-   **/
-  @Schema(description = "Restrict to tasks that have a followUp date on the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.342+0200`.")
-  
-    @Valid
-    public OffsetDateTime getFollowUpDate() {
+  */
+  @Valid 
+  @Schema(name = "followUpDate", description = "Restrict to tasks that have a followUp date on the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.342+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("followUpDate")
+  public OffsetDateTime getFollowUpDate() {
     return followUpDate;
   }
 
@@ -1572,10 +1560,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have a followUp date on the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.
    * @return followUpDateExpression
-   **/
-  @Schema(description = "Restrict to tasks that have a followUp date on the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.")
+  */
   
-    public String getFollowUpDateExpression() {
+  @Schema(name = "followUpDateExpression", description = "Restrict to tasks that have a followUp date on the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("followUpDateExpression")
+  public String getFollowUpDateExpression() {
     return followUpDateExpression;
   }
 
@@ -1591,11 +1580,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have a followUp date after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.542+0200`.
    * @return followUpAfter
-   **/
-  @Schema(description = "Restrict to tasks that have a followUp date after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.542+0200`.")
-  
-    @Valid
-    public OffsetDateTime getFollowUpAfter() {
+  */
+  @Valid 
+  @Schema(name = "followUpAfter", description = "Restrict to tasks that have a followUp date after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.542+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("followUpAfter")
+  public OffsetDateTime getFollowUpAfter() {
     return followUpAfter;
   }
 
@@ -1611,10 +1600,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have a followUp date after the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.
    * @return followUpAfterExpression
-   **/
-  @Schema(description = "Restrict to tasks that have a followUp date after the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.")
+  */
   
-    public String getFollowUpAfterExpression() {
+  @Schema(name = "followUpAfterExpression", description = "Restrict to tasks that have a followUp date after the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("followUpAfterExpression")
+  public String getFollowUpAfterExpression() {
     return followUpAfterExpression;
   }
 
@@ -1630,10 +1620,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have a followUp date before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.234+0200`.
    * @return followUpBefore
-   **/
-  @Schema(description = "Restrict to tasks that have a followUp date before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.234+0200`.")
+  */
   
-    public String getFollowUpBefore() {
+  @Schema(name = "followUpBefore", description = "Restrict to tasks that have a followUp date before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.234+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("followUpBefore")
+  public String getFollowUpBefore() {
     return followUpBefore;
   }
 
@@ -1649,10 +1640,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have a followUp date before the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.
    * @return followUpBeforeExpression
-   **/
-  @Schema(description = "Restrict to tasks that have a followUp date before the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.")
+  */
   
-    public String getFollowUpBeforeExpression() {
+  @Schema(name = "followUpBeforeExpression", description = "Restrict to tasks that have a followUp date before the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("followUpBeforeExpression")
+  public String getFollowUpBeforeExpression() {
     return followUpBeforeExpression;
   }
 
@@ -1668,11 +1660,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have no followUp date or a followUp date before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.432+0200`. The typical use case is to query all `active` tasks for a user for a given date.
    * @return followUpBeforeOrNotExistent
-   **/
-  @Schema(description = "Restrict to tasks that have no followUp date or a followUp date before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.432+0200`. The typical use case is to query all `active` tasks for a user for a given date.")
-  
-    @Valid
-    public OffsetDateTime getFollowUpBeforeOrNotExistent() {
+  */
+  @Valid 
+  @Schema(name = "followUpBeforeOrNotExistent", description = "Restrict to tasks that have no followUp date or a followUp date before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.432+0200`. The typical use case is to query all `active` tasks for a user for a given date.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("followUpBeforeOrNotExistent")
+  public OffsetDateTime getFollowUpBeforeOrNotExistent() {
     return followUpBeforeOrNotExistent;
   }
 
@@ -1688,10 +1680,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that have no followUp date or a followUp date before the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.
    * @return followUpBeforeOrNotExistentExpression
-   **/
-  @Schema(description = "Restrict to tasks that have no followUp date or a followUp date before the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.")
+  */
   
-    public String getFollowUpBeforeOrNotExistentExpression() {
+  @Schema(name = "followUpBeforeOrNotExistentExpression", description = "Restrict to tasks that have no followUp date or a followUp date before the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("followUpBeforeOrNotExistentExpression")
+  public String getFollowUpBeforeOrNotExistentExpression() {
     return followUpBeforeOrNotExistentExpression;
   }
 
@@ -1707,11 +1700,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that were created on the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.324+0200`.
    * @return createdOn
-   **/
-  @Schema(description = "Restrict to tasks that were created on the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.324+0200`.")
-  
-    @Valid
-    public OffsetDateTime getCreatedOn() {
+  */
+  @Valid 
+  @Schema(name = "createdOn", description = "Restrict to tasks that were created on the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.324+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("createdOn")
+  public OffsetDateTime getCreatedOn() {
     return createdOn;
   }
 
@@ -1727,10 +1720,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that were created on the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.
    * @return createdOnExpression
-   **/
-  @Schema(description = "Restrict to tasks that were created on the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.")
+  */
   
-    public String getCreatedOnExpression() {
+  @Schema(name = "createdOnExpression", description = "Restrict to tasks that were created on the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("createdOnExpression")
+  public String getCreatedOnExpression() {
     return createdOnExpression;
   }
 
@@ -1746,11 +1740,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that were created after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.342+0200`.
    * @return createdAfter
-   **/
-  @Schema(description = "Restrict to tasks that were created after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.342+0200`.")
-  
-    @Valid
-    public OffsetDateTime getCreatedAfter() {
+  */
+  @Valid 
+  @Schema(name = "createdAfter", description = "Restrict to tasks that were created after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.342+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("createdAfter")
+  public OffsetDateTime getCreatedAfter() {
     return createdAfter;
   }
 
@@ -1766,10 +1760,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that were created after the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.
    * @return createdAfterExpression
-   **/
-  @Schema(description = "Restrict to tasks that were created after the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.")
+  */
   
-    public String getCreatedAfterExpression() {
+  @Schema(name = "createdAfterExpression", description = "Restrict to tasks that were created after the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("createdAfterExpression")
+  public String getCreatedAfterExpression() {
     return createdAfterExpression;
   }
 
@@ -1785,11 +1780,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that were created before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.332+0200`.
    * @return createdBefore
-   **/
-  @Schema(description = "Restrict to tasks that were created before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.332+0200`.")
-  
-    @Valid
-    public OffsetDateTime getCreatedBefore() {
+  */
+  @Valid 
+  @Schema(name = "createdBefore", description = "Restrict to tasks that were created before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.332+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("createdBefore")
+  public OffsetDateTime getCreatedBefore() {
     return createdBefore;
   }
 
@@ -1805,10 +1800,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that were created before the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.
    * @return createdBeforeExpression
-   **/
-  @Schema(description = "Restrict to tasks that were created before the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.")
+  */
   
-    public String getCreatedBeforeExpression() {
+  @Schema(name = "createdBeforeExpression", description = "Restrict to tasks that were created before the date described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to a `java.util.Date` or `org.joda.time.DateTime` object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("createdBeforeExpression")
+  public String getCreatedBeforeExpression() {
     return createdBeforeExpression;
   }
 
@@ -1824,10 +1820,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that are in the given delegation state. Valid values are `PENDING` and `RESOLVED`.
    * @return delegationState
-   **/
-  @Schema(description = "Restrict to tasks that are in the given delegation state. Valid values are `PENDING` and `RESOLVED`.")
+  */
   
-    public DelegationStateEnum getDelegationState() {
+  @Schema(name = "delegationState", description = "Restrict to tasks that are in the given delegation state. Valid values are `PENDING` and `RESOLVED`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("delegationState")
+  public DelegationStateEnum getDelegationState() {
     return delegationState;
   }
 
@@ -1851,10 +1848,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that are offered to any of the given candidate groups. Takes a comma-separated list of group names, so for example `developers,support,sales`.
    * @return candidateGroups
-   **/
-  @Schema(description = "Restrict to tasks that are offered to any of the given candidate groups. Takes a comma-separated list of group names, so for example `developers,support,sales`.")
+  */
   
-    public List<String> getCandidateGroups() {
+  @Schema(name = "candidateGroups", description = "Restrict to tasks that are offered to any of the given candidate groups. Takes a comma-separated list of group names, so for example `developers,support,sales`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("candidateGroups")
+  public List<String> getCandidateGroups() {
     return candidateGroups;
   }
 
@@ -1870,10 +1868,11 @@ public class TaskQueryDto   {
   /**
    * Restrict to tasks that are offered to any of the candidate groups described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to `java.util.List` of Strings.
    * @return candidateGroupsExpression
-   **/
-  @Schema(description = "Restrict to tasks that are offered to any of the candidate groups described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to `java.util.List` of Strings.")
+  */
   
-    public String getCandidateGroupsExpression() {
+  @Schema(name = "candidateGroupsExpression", description = "Restrict to tasks that are offered to any of the candidate groups described by the given expression. See the [user guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#internal-context-functions) for more information on available functions. The expression must evaluate to `java.util.List` of Strings.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("candidateGroupsExpression")
+  public String getCandidateGroupsExpression() {
     return candidateGroupsExpression;
   }
 
@@ -1889,10 +1888,11 @@ public class TaskQueryDto   {
   /**
    * Only include tasks which have a candidate group. Value may only be `true`, as `false` is the default behavior.
    * @return withCandidateGroups
-   **/
-  @Schema(description = "Only include tasks which have a candidate group. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithCandidateGroups() {
+  @Schema(name = "withCandidateGroups", description = "Only include tasks which have a candidate group. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withCandidateGroups")
+  public Boolean getWithCandidateGroups() {
     return withCandidateGroups;
   }
 
@@ -1908,10 +1908,11 @@ public class TaskQueryDto   {
   /**
    * Only include tasks which have no candidate group. Value may only be `true`, as `false` is the default behavior.
    * @return withoutCandidateGroups
-   **/
-  @Schema(description = "Only include tasks which have no candidate group. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutCandidateGroups() {
+  @Schema(name = "withoutCandidateGroups", description = "Only include tasks which have no candidate group. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutCandidateGroups")
+  public Boolean getWithoutCandidateGroups() {
     return withoutCandidateGroups;
   }
 
@@ -1927,10 +1928,11 @@ public class TaskQueryDto   {
   /**
    * Only include tasks which have a candidate user. Value may only be `true`, as `false` is the default behavior.
    * @return withCandidateUsers
-   **/
-  @Schema(description = "Only include tasks which have a candidate user. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithCandidateUsers() {
+  @Schema(name = "withCandidateUsers", description = "Only include tasks which have a candidate user. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withCandidateUsers")
+  public Boolean getWithCandidateUsers() {
     return withCandidateUsers;
   }
 
@@ -1946,10 +1948,11 @@ public class TaskQueryDto   {
   /**
    * Only include tasks which have no candidate users. Value may only be `true`, as `false` is the default behavior.
    * @return withoutCandidateUsers
-   **/
-  @Schema(description = "Only include tasks which have no candidate users. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutCandidateUsers() {
+  @Schema(name = "withoutCandidateUsers", description = "Only include tasks which have no candidate users. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutCandidateUsers")
+  public Boolean getWithoutCandidateUsers() {
     return withoutCandidateUsers;
   }
 
@@ -1965,10 +1968,11 @@ public class TaskQueryDto   {
   /**
    * Only include active tasks. Value may only be `true`, as `false` is the default behavior.
    * @return active
-   **/
-  @Schema(description = "Only include active tasks. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isActive() {
+  @Schema(name = "active", description = "Only include active tasks. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("active")
+  public Boolean getActive() {
     return active;
   }
 
@@ -1984,10 +1988,11 @@ public class TaskQueryDto   {
   /**
    * Only include suspended tasks. Value may only be `true`, as `false` is the default behavior.
    * @return suspended
-   **/
-  @Schema(description = "Only include suspended tasks. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isSuspended() {
+  @Schema(name = "suspended", description = "Only include suspended tasks. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("suspended")
+  public Boolean getSuspended() {
     return suspended;
   }
 
@@ -1995,7 +2000,7 @@ public class TaskQueryDto   {
     this.suspended = suspended;
   }
 
-  public TaskQueryDto taskVariables(List<VariableQueryParameterDto> taskVariables) {
+  public TaskQueryDto taskVariables(List<@Valid VariableQueryParameterDto> taskVariables) {
     this.taskVariables = taskVariables;
     return this;
   }
@@ -2011,18 +2016,19 @@ public class TaskQueryDto   {
   /**
    * A JSON array to only include tasks that have variables with certain values. The array consists of JSON objects with three properties `name`, `operator` and `value`. `name` is the variable name, `operator` is the comparison operator to be used and `value` the variable value. `value` may be of type `String`, `Number` or `Boolean`.  Valid `operator` values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`. `key` and `value` may not contain underscore or comma characters.
    * @return taskVariables
-   **/
-  @Schema(description = "A JSON array to only include tasks that have variables with certain values. The array consists of JSON objects with three properties `name`, `operator` and `value`. `name` is the variable name, `operator` is the comparison operator to be used and `value` the variable value. `value` may be of type `String`, `Number` or `Boolean`.  Valid `operator` values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`. `key` and `value` may not contain underscore or comma characters.")
-      @Valid
-    public List<VariableQueryParameterDto> getTaskVariables() {
+  */
+  @Valid 
+  @Schema(name = "taskVariables", description = "A JSON array to only include tasks that have variables with certain values. The array consists of JSON objects with three properties `name`, `operator` and `value`. `name` is the variable name, `operator` is the comparison operator to be used and `value` the variable value. `value` may be of type `String`, `Number` or `Boolean`.  Valid `operator` values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`. `key` and `value` may not contain underscore or comma characters.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskVariables")
+  public List<@Valid VariableQueryParameterDto> getTaskVariables() {
     return taskVariables;
   }
 
-  public void setTaskVariables(List<VariableQueryParameterDto> taskVariables) {
+  public void setTaskVariables(List<@Valid VariableQueryParameterDto> taskVariables) {
     this.taskVariables = taskVariables;
   }
 
-  public TaskQueryDto processVariables(List<VariableQueryParameterDto> processVariables) {
+  public TaskQueryDto processVariables(List<@Valid VariableQueryParameterDto> processVariables) {
     this.processVariables = processVariables;
     return this;
   }
@@ -2038,18 +2044,19 @@ public class TaskQueryDto   {
   /**
    * A JSON array to only include tasks that belong to a process instance with variables with certain values. The array consists of JSON objects with three properties `name`, `operator` and `value`. `name` is the variable name, `operator` is the comparison operator to be used and `value` the variable value. `value` may be of type `String`, `Number` or `Boolean`.  Valid `operator` values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`; `notLike`. `key` and `value` may not contain underscore or comma characters.
    * @return processVariables
-   **/
-  @Schema(description = "A JSON array to only include tasks that belong to a process instance with variables with certain values. The array consists of JSON objects with three properties `name`, `operator` and `value`. `name` is the variable name, `operator` is the comparison operator to be used and `value` the variable value. `value` may be of type `String`, `Number` or `Boolean`.  Valid `operator` values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`; `notLike`. `key` and `value` may not contain underscore or comma characters.")
-      @Valid
-    public List<VariableQueryParameterDto> getProcessVariables() {
+  */
+  @Valid 
+  @Schema(name = "processVariables", description = "A JSON array to only include tasks that belong to a process instance with variables with certain values. The array consists of JSON objects with three properties `name`, `operator` and `value`. `name` is the variable name, `operator` is the comparison operator to be used and `value` the variable value. `value` may be of type `String`, `Number` or `Boolean`.  Valid `operator` values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`; `notLike`. `key` and `value` may not contain underscore or comma characters.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processVariables")
+  public List<@Valid VariableQueryParameterDto> getProcessVariables() {
     return processVariables;
   }
 
-  public void setProcessVariables(List<VariableQueryParameterDto> processVariables) {
+  public void setProcessVariables(List<@Valid VariableQueryParameterDto> processVariables) {
     this.processVariables = processVariables;
   }
 
-  public TaskQueryDto caseInstanceVariables(List<VariableQueryParameterDto> caseInstanceVariables) {
+  public TaskQueryDto caseInstanceVariables(List<@Valid VariableQueryParameterDto> caseInstanceVariables) {
     this.caseInstanceVariables = caseInstanceVariables;
     return this;
   }
@@ -2065,14 +2072,15 @@ public class TaskQueryDto   {
   /**
    * A JSON array to only include tasks that belong to a case instance with variables with certain values. The array consists of JSON objects with three properties `name`, `operator` and `value`. `name` is the variable name, `operator` is the comparison operator to be used and `value` the variable value. `value` may be of type `String`, `Number` or `Boolean`.  Valid `operator` values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`. `key` and `value` may not contain underscore or comma characters.
    * @return caseInstanceVariables
-   **/
-  @Schema(description = "A JSON array to only include tasks that belong to a case instance with variables with certain values. The array consists of JSON objects with three properties `name`, `operator` and `value`. `name` is the variable name, `operator` is the comparison operator to be used and `value` the variable value. `value` may be of type `String`, `Number` or `Boolean`.  Valid `operator` values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`. `key` and `value` may not contain underscore or comma characters.")
-      @Valid
-    public List<VariableQueryParameterDto> getCaseInstanceVariables() {
+  */
+  @Valid 
+  @Schema(name = "caseInstanceVariables", description = "A JSON array to only include tasks that belong to a case instance with variables with certain values. The array consists of JSON objects with three properties `name`, `operator` and `value`. `name` is the variable name, `operator` is the comparison operator to be used and `value` the variable value. `value` may be of type `String`, `Number` or `Boolean`.  Valid `operator` values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`. `key` and `value` may not contain underscore or comma characters.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceVariables")
+  public List<@Valid VariableQueryParameterDto> getCaseInstanceVariables() {
     return caseInstanceVariables;
   }
 
-  public void setCaseInstanceVariables(List<VariableQueryParameterDto> caseInstanceVariables) {
+  public void setCaseInstanceVariables(List<@Valid VariableQueryParameterDto> caseInstanceVariables) {
     this.caseInstanceVariables = caseInstanceVariables;
   }
 
@@ -2084,10 +2092,11 @@ public class TaskQueryDto   {
   /**
    * Match all variable names in this query case-insensitively. If set `variableName` and `variablename` are treated as equal.
    * @return variableNamesIgnoreCase
-   **/
-  @Schema(description = "Match all variable names in this query case-insensitively. If set `variableName` and `variablename` are treated as equal.")
+  */
   
-    public Boolean isVariableNamesIgnoreCase() {
+  @Schema(name = "variableNamesIgnoreCase", description = "Match all variable names in this query case-insensitively. If set `variableName` and `variablename` are treated as equal.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableNamesIgnoreCase")
+  public Boolean getVariableNamesIgnoreCase() {
     return variableNamesIgnoreCase;
   }
 
@@ -2103,10 +2112,11 @@ public class TaskQueryDto   {
   /**
    * Match all variable values in this query case-insensitively. If set `variableValue` and `variablevalue` are treated as equal.
    * @return variableValuesIgnoreCase
-   **/
-  @Schema(description = "Match all variable values in this query case-insensitively. If set `variableValue` and `variablevalue` are treated as equal.")
+  */
   
-    public Boolean isVariableValuesIgnoreCase() {
+  @Schema(name = "variableValuesIgnoreCase", description = "Match all variable values in this query case-insensitively. If set `variableValue` and `variablevalue` are treated as equal.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableValuesIgnoreCase")
+  public Boolean getVariableValuesIgnoreCase() {
     return variableValuesIgnoreCase;
   }
 
@@ -2122,10 +2132,11 @@ public class TaskQueryDto   {
   /**
    * Restrict query to all tasks that are sub tasks of the given task. Takes a task id.
    * @return parentTaskId
-   **/
-  @Schema(description = "Restrict query to all tasks that are sub tasks of the given task. Takes a task id.")
+  */
   
-    public String getParentTaskId() {
+  @Schema(name = "parentTaskId", description = "Restrict query to all tasks that are sub tasks of the given task. Takes a task id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("parentTaskId")
+  public String getParentTaskId() {
     return parentTaskId;
   }
 
@@ -2133,7 +2144,7 @@ public class TaskQueryDto   {
     this.parentTaskId = parentTaskId;
   }
 
-  public TaskQueryDto orQueries(List<TaskQueryDto> orQueries) {
+  public TaskQueryDto orQueries(List<@Valid TaskQueryDto> orQueries) {
     this.orQueries = orQueries;
     return this;
   }
@@ -2149,23 +2160,24 @@ public class TaskQueryDto   {
   /**
    * A JSON array of nested task queries with OR semantics. A task matches a nested query if it fulfills *at least one* of the query's predicates. With multiple nested queries, a task must fulfill at least one predicate of *each* query ([Conjunctive Normal Form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)).  All task query properties can be used except for: `sorting`, `withCandidateGroups`, `withoutCandidateGroups`, `withCandidateUsers`, `withoutCandidateUsers`  See the [User guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/process-engine-api/#or-queries) for more information about OR queries.
    * @return orQueries
-   **/
-  @Schema(description = "A JSON array of nested task queries with OR semantics. A task matches a nested query if it fulfills *at least one* of the query's predicates. With multiple nested queries, a task must fulfill at least one predicate of *each* query ([Conjunctive Normal Form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)).  All task query properties can be used except for: `sorting`, `withCandidateGroups`, `withoutCandidateGroups`, `withCandidateUsers`, `withoutCandidateUsers`  See the [User guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/process-engine-api/#or-queries) for more information about OR queries.")
-      @Valid
-    public List<TaskQueryDto> getOrQueries() {
+  */
+  @Valid 
+  @Schema(name = "orQueries", description = "A JSON array of nested task queries with OR semantics. A task matches a nested query if it fulfills *at least one* of the query's predicates. With multiple nested queries, a task must fulfill at least one predicate of *each* query ([Conjunctive Normal Form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)).  All task query properties can be used except for: `sorting`, `withCandidateGroups`, `withoutCandidateGroups`, `withCandidateUsers`, `withoutCandidateUsers`  See the [User guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/process-engine-api/#or-queries) for more information about OR queries.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("orQueries")
+  public List<@Valid TaskQueryDto> getOrQueries() {
     return orQueries;
   }
 
-  public void setOrQueries(List<TaskQueryDto> orQueries) {
+  public void setOrQueries(List<@Valid TaskQueryDto> orQueries) {
     this.orQueries = orQueries;
   }
 
-  public TaskQueryDto sorting(List<TaskQueryDtoSorting> sorting) {
+  public TaskQueryDto sorting(List<@Valid TaskQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public TaskQueryDto addSortingItem(TaskQueryDtoSorting sortingItem) {
+  public TaskQueryDto addSortingItem(TaskQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -2176,17 +2188,17 @@ public class TaskQueryDto   {
   /**
    * Apply sorting of the result
    * @return sorting
-   **/
-  @Schema(description = "Apply sorting of the result")
-      @Valid
-    public List<TaskQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "Apply sorting of the result", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid TaskQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<TaskQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid TaskQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -2299,7 +2311,6 @@ public class TaskQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TaskQueryDto {\n");
-    
     sb.append("    processInstanceId: ").append(toIndentedString(processInstanceId)).append("\n");
     sb.append("    processInstanceIdIn: ").append(toIndentedString(processInstanceIdIn)).append("\n");
     sb.append("    processInstanceBusinessKey: ").append(toIndentedString(processInstanceBusinessKey)).append("\n");
@@ -2406,3 +2417,4 @@ public class TaskQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

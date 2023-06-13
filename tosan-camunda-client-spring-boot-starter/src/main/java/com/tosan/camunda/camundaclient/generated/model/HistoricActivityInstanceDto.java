@@ -1,81 +1,70 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * HistoricActivityInstanceDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricActivityInstanceDto {
 
-public class HistoricActivityInstanceDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("parentActivityInstanceId")
   private String parentActivityInstanceId = null;
 
-  @JsonProperty("activityId")
   private String activityId = null;
 
-  @JsonProperty("activityName")
   private String activityName = null;
 
-  @JsonProperty("activityType")
   private String activityType = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("taskId")
   private String taskId = null;
 
-  @JsonProperty("assignee")
   private String assignee = null;
 
-  @JsonProperty("calledProcessInstanceId")
   private String calledProcessInstanceId = null;
 
-  @JsonProperty("calledCaseInstanceId")
   private String calledCaseInstanceId = null;
 
-  @JsonProperty("startTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime startTime = null;
 
-  @JsonProperty("endTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime endTime = null;
 
-  @JsonProperty("durationInMillis")
   private Long durationInMillis = null;
 
-  @JsonProperty("canceled")
   private Boolean canceled = null;
 
-  @JsonProperty("completeScope")
   private Boolean completeScope = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("removalTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime removalTime = null;
 
-  @JsonProperty("rootProcessInstanceId")
   private String rootProcessInstanceId = null;
 
   public HistoricActivityInstanceDto id(String id) {
@@ -86,10 +75,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The id of the activity instance.
    * @return id
-   **/
-  @Schema(description = "The id of the activity instance.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the activity instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -105,10 +95,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The id of the parent activity instance, for example a sub process instance.
    * @return parentActivityInstanceId
-   **/
-  @Schema(description = "The id of the parent activity instance, for example a sub process instance.")
+  */
   
-    public String getParentActivityInstanceId() {
+  @Schema(name = "parentActivityInstanceId", description = "The id of the parent activity instance, for example a sub process instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("parentActivityInstanceId")
+  public String getParentActivityInstanceId() {
     return parentActivityInstanceId;
   }
 
@@ -124,10 +115,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The id of the activity that this object is an instance of.
    * @return activityId
-   **/
-  @Schema(description = "The id of the activity that this object is an instance of.")
+  */
   
-    public String getActivityId() {
+  @Schema(name = "activityId", description = "The id of the activity that this object is an instance of.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityId")
+  public String getActivityId() {
     return activityId;
   }
 
@@ -143,10 +135,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The name of the activity that this object is an instance of.
    * @return activityName
-   **/
-  @Schema(description = "The name of the activity that this object is an instance of.")
+  */
   
-    public String getActivityName() {
+  @Schema(name = "activityName", description = "The name of the activity that this object is an instance of.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityName")
+  public String getActivityName() {
     return activityName;
   }
 
@@ -162,10 +155,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The type of the activity that this object is an instance of.
    * @return activityType
-   **/
-  @Schema(description = "The type of the activity that this object is an instance of.")
+  */
   
-    public String getActivityType() {
+  @Schema(name = "activityType", description = "The type of the activity that this object is an instance of.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityType")
+  public String getActivityType() {
     return activityType;
   }
 
@@ -181,10 +175,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The key of the process definition that this activity instance belongs to.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "The key of the process definition that this activity instance belongs to.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "The key of the process definition that this activity instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -200,10 +195,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The id of the process definition that this activity instance belongs to.
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definition that this activity instance belongs to.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definition that this activity instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -219,10 +215,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The id of the process instance that this activity instance belongs to.
    * @return processInstanceId
-   **/
-  @Schema(description = "The id of the process instance that this activity instance belongs to.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "The id of the process instance that this activity instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -238,10 +235,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The id of the execution that executed this activity instance.
    * @return executionId
-   **/
-  @Schema(description = "The id of the execution that executed this activity instance.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "The id of the execution that executed this activity instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -257,10 +255,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The id of the task that is associated to this activity instance. Is only set if the activity is a user task.
    * @return taskId
-   **/
-  @Schema(description = "The id of the task that is associated to this activity instance. Is only set if the activity is a user task.")
+  */
   
-    public String getTaskId() {
+  @Schema(name = "taskId", description = "The id of the task that is associated to this activity instance. Is only set if the activity is a user task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskId")
+  public String getTaskId() {
     return taskId;
   }
 
@@ -276,10 +275,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The assignee of the task that is associated to this activity instance. Is only set if the activity is a user task.
    * @return assignee
-   **/
-  @Schema(description = "The assignee of the task that is associated to this activity instance. Is only set if the activity is a user task.")
+  */
   
-    public String getAssignee() {
+  @Schema(name = "assignee", description = "The assignee of the task that is associated to this activity instance. Is only set if the activity is a user task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("assignee")
+  public String getAssignee() {
     return assignee;
   }
 
@@ -295,10 +295,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The id of the called process instance. Is only set if the activity is a call activity and the called instance a process instance.
    * @return calledProcessInstanceId
-   **/
-  @Schema(description = "The id of the called process instance. Is only set if the activity is a call activity and the called instance a process instance.")
+  */
   
-    public String getCalledProcessInstanceId() {
+  @Schema(name = "calledProcessInstanceId", description = "The id of the called process instance. Is only set if the activity is a call activity and the called instance a process instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("calledProcessInstanceId")
+  public String getCalledProcessInstanceId() {
     return calledProcessInstanceId;
   }
 
@@ -314,10 +315,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The id of the called case instance. Is only set if the activity is a call activity and the called instance a case instance.
    * @return calledCaseInstanceId
-   **/
-  @Schema(description = "The id of the called case instance. Is only set if the activity is a call activity and the called instance a case instance.")
+  */
   
-    public String getCalledCaseInstanceId() {
+  @Schema(name = "calledCaseInstanceId", description = "The id of the called case instance. Is only set if the activity is a call activity and the called instance a case instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("calledCaseInstanceId")
+  public String getCalledCaseInstanceId() {
     return calledCaseInstanceId;
   }
 
@@ -333,11 +335,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The time the instance was started. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return startTime
-   **/
-  @Schema(description = "The time the instance was started. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getStartTime() {
+  */
+  @Valid 
+  @Schema(name = "startTime", description = "The time the instance was started. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("startTime")
+  public OffsetDateTime getStartTime() {
     return startTime;
   }
 
@@ -353,11 +355,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The time the instance ended. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return endTime
-   **/
-  @Schema(description = "The time the instance ended. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getEndTime() {
+  */
+  @Valid 
+  @Schema(name = "endTime", description = "The time the instance ended. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("endTime")
+  public OffsetDateTime getEndTime() {
     return endTime;
   }
 
@@ -373,10 +375,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The time the instance took to finish (in milliseconds).
    * @return durationInMillis
-   **/
-  @Schema(description = "The time the instance took to finish (in milliseconds).")
+  */
   
-    public Long getDurationInMillis() {
+  @Schema(name = "durationInMillis", description = "The time the instance took to finish (in milliseconds).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("durationInMillis")
+  public Long getDurationInMillis() {
     return durationInMillis;
   }
 
@@ -392,10 +395,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * If `true`, this activity instance is canceled.
    * @return canceled
-   **/
-  @Schema(description = "If `true`, this activity instance is canceled.")
+  */
   
-    public Boolean isCanceled() {
+  @Schema(name = "canceled", description = "If `true`, this activity instance is canceled.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("canceled")
+  public Boolean getCanceled() {
     return canceled;
   }
 
@@ -411,10 +415,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * If `true`, this activity instance did complete a BPMN 2.0 scope.
    * @return completeScope
-   **/
-  @Schema(description = "If `true`, this activity instance did complete a BPMN 2.0 scope.")
+  */
   
-    public Boolean isCompleteScope() {
+  @Schema(name = "completeScope", description = "If `true`, this activity instance did complete a BPMN 2.0 scope.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("completeScope")
+  public Boolean getCompleteScope() {
     return completeScope;
   }
 
@@ -430,10 +435,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The tenant id of the activity instance.
    * @return tenantId
-   **/
-  @Schema(description = "The tenant id of the activity instance.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The tenant id of the activity instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -449,11 +455,11 @@ public class HistoricActivityInstanceDto   {
   /**
    * The time after which the activity instance should be removed by the History Cleanup job. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return removalTime
-   **/
-  @Schema(description = "The time after which the activity instance should be removed by the History Cleanup job. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getRemovalTime() {
+  */
+  @Valid 
+  @Schema(name = "removalTime", description = "The time after which the activity instance should be removed by the History Cleanup job. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("removalTime")
+  public OffsetDateTime getRemovalTime() {
     return removalTime;
   }
 
@@ -469,17 +475,17 @@ public class HistoricActivityInstanceDto   {
   /**
    * The process instance id of the root process instance that initiated the process containing this activity instance.
    * @return rootProcessInstanceId
-   **/
-  @Schema(description = "The process instance id of the root process instance that initiated the process containing this activity instance.")
+  */
   
-    public String getRootProcessInstanceId() {
+  @Schema(name = "rootProcessInstanceId", description = "The process instance id of the root process instance that initiated the process containing this activity instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("rootProcessInstanceId")
+  public String getRootProcessInstanceId() {
     return rootProcessInstanceId;
   }
 
   public void setRootProcessInstanceId(String rootProcessInstanceId) {
     this.rootProcessInstanceId = rootProcessInstanceId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -522,7 +528,6 @@ public class HistoricActivityInstanceDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricActivityInstanceDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    parentActivityInstanceId: ").append(toIndentedString(parentActivityInstanceId)).append("\n");
     sb.append("    activityId: ").append(toIndentedString(activityId)).append("\n");
@@ -559,3 +564,4 @@ public class HistoricActivityInstanceDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

@@ -1,28 +1,111 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.HistoricDecisionInstanceQueryDto;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * SetRemovalTimeToHistoricDecisionInstancesDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class SetRemovalTimeToHistoricDecisionInstancesDto {
 
-public class SetRemovalTimeToHistoricDecisionInstancesDto   {
-  @JsonProperty("absoluteRemovalTime")
+  private Boolean hierarchical = null;
+
+  private HistoricDecisionInstanceQueryDto historicDecisionInstanceQuery;
+
+  @Valid
+  private List<String> historicDecisionInstanceIds;
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime absoluteRemovalTime = null;
 
-  @JsonProperty("clearedRemovalTime")
   private Boolean clearedRemovalTime = null;
 
-  @JsonProperty("calculatedRemovalTime")
   private Boolean calculatedRemovalTime = null;
+
+  public SetRemovalTimeToHistoricDecisionInstancesDto hierarchical(Boolean hierarchical) {
+    this.hierarchical = hierarchical;
+    return this;
+  }
+
+  /**
+   * Sets the removal time to all historic decision instances in the hierarchy. Value may only be `true`, as `false` is the default behavior.
+   * @return hierarchical
+  */
+  
+  @Schema(name = "hierarchical", description = "Sets the removal time to all historic decision instances in the hierarchy. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("hierarchical")
+  public Boolean getHierarchical() {
+    return hierarchical;
+  }
+
+  public void setHierarchical(Boolean hierarchical) {
+    this.hierarchical = hierarchical;
+  }
+
+  public SetRemovalTimeToHistoricDecisionInstancesDto historicDecisionInstanceQuery(HistoricDecisionInstanceQueryDto historicDecisionInstanceQuery) {
+    this.historicDecisionInstanceQuery = historicDecisionInstanceQuery;
+    return this;
+  }
+
+  /**
+   * Get historicDecisionInstanceQuery
+   * @return historicDecisionInstanceQuery
+  */
+  @Valid 
+  @Schema(name = "historicDecisionInstanceQuery", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historicDecisionInstanceQuery")
+  public HistoricDecisionInstanceQueryDto getHistoricDecisionInstanceQuery() {
+    return historicDecisionInstanceQuery;
+  }
+
+  public void setHistoricDecisionInstanceQuery(HistoricDecisionInstanceQueryDto historicDecisionInstanceQuery) {
+    this.historicDecisionInstanceQuery = historicDecisionInstanceQuery;
+  }
+
+  public SetRemovalTimeToHistoricDecisionInstancesDto historicDecisionInstanceIds(List<String> historicDecisionInstanceIds) {
+    this.historicDecisionInstanceIds = historicDecisionInstanceIds;
+    return this;
+  }
+
+  public SetRemovalTimeToHistoricDecisionInstancesDto addHistoricDecisionInstanceIdsItem(String historicDecisionInstanceIdsItem) {
+    if (this.historicDecisionInstanceIds == null) {
+      this.historicDecisionInstanceIds = new ArrayList<>();
+    }
+    this.historicDecisionInstanceIds.add(historicDecisionInstanceIdsItem);
+    return this;
+  }
+
+  /**
+   * The ids of the historic decision instances to set the removal time for.
+   * @return historicDecisionInstanceIds
+  */
+  
+  @Schema(name = "historicDecisionInstanceIds", description = "The ids of the historic decision instances to set the removal time for.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historicDecisionInstanceIds")
+  public List<String> getHistoricDecisionInstanceIds() {
+    return historicDecisionInstanceIds;
+  }
+
+  public void setHistoricDecisionInstanceIds(List<String> historicDecisionInstanceIds) {
+    this.historicDecisionInstanceIds = historicDecisionInstanceIds;
+  }
 
   public SetRemovalTimeToHistoricDecisionInstancesDto absoluteRemovalTime(OffsetDateTime absoluteRemovalTime) {
     this.absoluteRemovalTime = absoluteRemovalTime;
@@ -32,11 +115,11 @@ public class SetRemovalTimeToHistoricDecisionInstancesDto   {
   /**
    * The date for which the instances shall be removed. Value may not be `null`.  **Note:** Cannot be set in conjunction with `clearedRemovalTime` or `calculatedRemovalTime`.
    * @return absoluteRemovalTime
-   **/
-  @Schema(description = "The date for which the instances shall be removed. Value may not be `null`.  **Note:** Cannot be set in conjunction with `clearedRemovalTime` or `calculatedRemovalTime`.")
-  
-    @Valid
-    public OffsetDateTime getAbsoluteRemovalTime() {
+  */
+  @Valid 
+  @Schema(name = "absoluteRemovalTime", description = "The date for which the instances shall be removed. Value may not be `null`.  **Note:** Cannot be set in conjunction with `clearedRemovalTime` or `calculatedRemovalTime`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("absoluteRemovalTime")
+  public OffsetDateTime getAbsoluteRemovalTime() {
     return absoluteRemovalTime;
   }
 
@@ -52,10 +135,11 @@ public class SetRemovalTimeToHistoricDecisionInstancesDto   {
   /**
    * Sets the removal time to `null`. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `calculatedRemovalTime`.
    * @return clearedRemovalTime
-   **/
-  @Schema(description = "Sets the removal time to `null`. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `calculatedRemovalTime`.")
+  */
   
-    public Boolean isClearedRemovalTime() {
+  @Schema(name = "clearedRemovalTime", description = "Sets the removal time to `null`. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `calculatedRemovalTime`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("clearedRemovalTime")
+  public Boolean getClearedRemovalTime() {
     return clearedRemovalTime;
   }
 
@@ -71,17 +155,17 @@ public class SetRemovalTimeToHistoricDecisionInstancesDto   {
   /**
    * The removal time is calculated based on the engine's configuration settings. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `clearedRemovalTime`.
    * @return calculatedRemovalTime
-   **/
-  @Schema(description = "The removal time is calculated based on the engine's configuration settings. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `clearedRemovalTime`.")
+  */
   
-    public Boolean isCalculatedRemovalTime() {
+  @Schema(name = "calculatedRemovalTime", description = "The removal time is calculated based on the engine's configuration settings. Value may only be `true`, as `false` is the default behavior.  **Note:** Cannot be set in conjunction with `absoluteRemovalTime` or `clearedRemovalTime`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("calculatedRemovalTime")
+  public Boolean getCalculatedRemovalTime() {
     return calculatedRemovalTime;
   }
 
   public void setCalculatedRemovalTime(Boolean calculatedRemovalTime) {
     this.calculatedRemovalTime = calculatedRemovalTime;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -92,21 +176,26 @@ public class SetRemovalTimeToHistoricDecisionInstancesDto   {
       return false;
     }
     SetRemovalTimeToHistoricDecisionInstancesDto setRemovalTimeToHistoricDecisionInstancesDto = (SetRemovalTimeToHistoricDecisionInstancesDto) o;
-    return Objects.equals(this.absoluteRemovalTime, setRemovalTimeToHistoricDecisionInstancesDto.absoluteRemovalTime) &&
+    return Objects.equals(this.hierarchical, setRemovalTimeToHistoricDecisionInstancesDto.hierarchical) &&
+        Objects.equals(this.historicDecisionInstanceQuery, setRemovalTimeToHistoricDecisionInstancesDto.historicDecisionInstanceQuery) &&
+        Objects.equals(this.historicDecisionInstanceIds, setRemovalTimeToHistoricDecisionInstancesDto.historicDecisionInstanceIds) &&
+        Objects.equals(this.absoluteRemovalTime, setRemovalTimeToHistoricDecisionInstancesDto.absoluteRemovalTime) &&
         Objects.equals(this.clearedRemovalTime, setRemovalTimeToHistoricDecisionInstancesDto.clearedRemovalTime) &&
         Objects.equals(this.calculatedRemovalTime, setRemovalTimeToHistoricDecisionInstancesDto.calculatedRemovalTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(absoluteRemovalTime, clearedRemovalTime, calculatedRemovalTime);
+    return Objects.hash(hierarchical, historicDecisionInstanceQuery, historicDecisionInstanceIds, absoluteRemovalTime, clearedRemovalTime, calculatedRemovalTime);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SetRemovalTimeToHistoricDecisionInstancesDto {\n");
-    
+    sb.append("    hierarchical: ").append(toIndentedString(hierarchical)).append("\n");
+    sb.append("    historicDecisionInstanceQuery: ").append(toIndentedString(historicDecisionInstanceQuery)).append("\n");
+    sb.append("    historicDecisionInstanceIds: ").append(toIndentedString(historicDecisionInstanceIds)).append("\n");
     sb.append("    absoluteRemovalTime: ").append(toIndentedString(absoluteRemovalTime)).append("\n");
     sb.append("    clearedRemovalTime: ").append(toIndentedString(clearedRemovalTime)).append("\n");
     sb.append("    calculatedRemovalTime: ").append(toIndentedString(calculatedRemovalTime)).append("\n");
@@ -125,3 +214,4 @@ public class SetRemovalTimeToHistoricDecisionInstancesDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

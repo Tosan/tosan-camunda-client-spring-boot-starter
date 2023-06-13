@@ -1,35 +1,37 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.VariableValueDto;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * SignalDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class SignalDto {
 
-public class SignalDto   {
-  @JsonProperty("name")
-  private String name = null;
+  private String name;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("variables")
   @Valid
-  private Map<String, VariableValueDto> variables = null;
+  private Map<String, VariableValueDto> variables;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("withoutTenantId")
   private Boolean withoutTenantId = null;
 
   public SignalDto name(String name) {
@@ -40,10 +42,11 @@ public class SignalDto   {
   /**
    * The name of the signal to deliver.  **Note**: This property is mandatory.
    * @return name
-   **/
-  @Schema(description = "The name of the signal to deliver.  **Note**: This property is mandatory.")
+  */
   
-    public String getName() {
+  @Schema(name = "name", description = "The name of the signal to deliver.  **Note**: This property is mandatory.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
     return name;
   }
 
@@ -59,10 +62,11 @@ public class SignalDto   {
   /**
    * Optionally specifies a single execution which is notified by the signal.  **Note**: If no execution id is defined the signal is broadcasted to all subscribed handlers. 
    * @return executionId
-   **/
-  @Schema(description = "Optionally specifies a single execution which is notified by the signal.  **Note**: If no execution id is defined the signal is broadcasted to all subscribed handlers. ")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "Optionally specifies a single execution which is notified by the signal.  **Note**: If no execution id is defined the signal is broadcasted to all subscribed handlers. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -86,10 +90,11 @@ public class SignalDto   {
   /**
    * A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.
    * @return variables
-   **/
-  @Schema(description = "A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.")
-      @Valid
-    public Map<String, VariableValueDto> getVariables() {
+  */
+  @Valid 
+  @Schema(name = "variables", description = "A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variables")
+  public Map<String, VariableValueDto> getVariables() {
     return variables;
   }
 
@@ -105,10 +110,11 @@ public class SignalDto   {
   /**
    * Specifies a tenant to deliver the signal. The signal can only be received on executions or process definitions which belongs to the given tenant.  **Note**: Cannot be used in combination with executionId.
    * @return tenantId
-   **/
-  @Schema(description = "Specifies a tenant to deliver the signal. The signal can only be received on executions or process definitions which belongs to the given tenant.  **Note**: Cannot be used in combination with executionId.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "Specifies a tenant to deliver the signal. The signal can only be received on executions or process definitions which belongs to the given tenant.  **Note**: Cannot be used in combination with executionId.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -124,17 +130,17 @@ public class SignalDto   {
   /**
    * If true the signal can only be received on executions or process definitions which belongs to no tenant. Value may not be false as this is the default behavior.  **Note**: Cannot be used in combination with `executionId`.
    * @return withoutTenantId
-   **/
-  @Schema(description = "If true the signal can only be received on executions or process definitions which belongs to no tenant. Value may not be false as this is the default behavior.  **Note**: Cannot be used in combination with `executionId`.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "If true the signal can only be received on executions or process definitions which belongs to no tenant. Value may not be false as this is the default behavior.  **Note**: Cannot be used in combination with `executionId`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
   public void setWithoutTenantId(Boolean withoutTenantId) {
     this.withoutTenantId = withoutTenantId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -161,7 +167,6 @@ public class SignalDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SignalDto {\n");
-    
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    executionId: ").append(toIndentedString(executionId)).append("\n");
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
@@ -182,3 +187,4 @@ public class SignalDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

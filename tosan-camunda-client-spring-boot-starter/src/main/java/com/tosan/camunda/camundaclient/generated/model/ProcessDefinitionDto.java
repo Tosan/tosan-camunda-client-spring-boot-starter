@@ -1,60 +1,51 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * ProcessDefinitionDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ProcessDefinitionDto {
 
-public class ProcessDefinitionDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("key")
   private String key = null;
 
-  @JsonProperty("category")
   private String category = null;
 
-  @JsonProperty("description")
   private String description = null;
 
-  @JsonProperty("name")
   private String name = null;
 
-  @JsonProperty("version")
   private Integer version = null;
 
-  @JsonProperty("resource")
   private String resource = null;
 
-  @JsonProperty("deploymentId")
   private String deploymentId = null;
 
-  @JsonProperty("diagram")
   private String diagram = null;
 
-  @JsonProperty("suspended")
   private Boolean suspended = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("versionTag")
   private String versionTag = null;
 
-  @JsonProperty("historyTimeToLive")
   private Integer historyTimeToLive = null;
 
-  @JsonProperty("startableInTasklist")
   private Boolean startableInTasklist = null;
 
   public ProcessDefinitionDto id(String id) {
@@ -65,10 +56,11 @@ public class ProcessDefinitionDto   {
   /**
    * The id of the process definition
    * @return id
-   **/
-  @Schema(description = "The id of the process definition")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the process definition", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -84,10 +76,11 @@ public class ProcessDefinitionDto   {
   /**
    * The key of the process definition, i.e., the id of the BPMN 2.0 XML process definition.
    * @return key
-   **/
-  @Schema(description = "The key of the process definition, i.e., the id of the BPMN 2.0 XML process definition.")
+  */
   
-    public String getKey() {
+  @Schema(name = "key", description = "The key of the process definition, i.e., the id of the BPMN 2.0 XML process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("key")
+  public String getKey() {
     return key;
   }
 
@@ -103,10 +96,11 @@ public class ProcessDefinitionDto   {
   /**
    * The category of the process definition.
    * @return category
-   **/
-  @Schema(description = "The category of the process definition.")
+  */
   
-    public String getCategory() {
+  @Schema(name = "category", description = "The category of the process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("category")
+  public String getCategory() {
     return category;
   }
 
@@ -122,10 +116,11 @@ public class ProcessDefinitionDto   {
   /**
    * The description of the process definition.
    * @return description
-   **/
-  @Schema(description = "The description of the process definition.")
+  */
   
-    public String getDescription() {
+  @Schema(name = "description", description = "The description of the process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("description")
+  public String getDescription() {
     return description;
   }
 
@@ -141,10 +136,11 @@ public class ProcessDefinitionDto   {
   /**
    * The name of the process definition.
    * @return name
-   **/
-  @Schema(description = "The name of the process definition.")
+  */
   
-    public String getName() {
+  @Schema(name = "name", description = "The name of the process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
     return name;
   }
 
@@ -160,10 +156,11 @@ public class ProcessDefinitionDto   {
   /**
    * The version of the process definition that the engine assigned to it.
    * @return version
-   **/
-  @Schema(description = "The version of the process definition that the engine assigned to it.")
+  */
   
-    public Integer getVersion() {
+  @Schema(name = "version", description = "The version of the process definition that the engine assigned to it.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("version")
+  public Integer getVersion() {
     return version;
   }
 
@@ -179,10 +176,11 @@ public class ProcessDefinitionDto   {
   /**
    * The file name of the process definition.
    * @return resource
-   **/
-  @Schema(description = "The file name of the process definition.")
+  */
   
-    public String getResource() {
+  @Schema(name = "resource", description = "The file name of the process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resource")
+  public String getResource() {
     return resource;
   }
 
@@ -198,10 +196,11 @@ public class ProcessDefinitionDto   {
   /**
    * The deployment id of the process definition.
    * @return deploymentId
-   **/
-  @Schema(description = "The deployment id of the process definition.")
+  */
   
-    public String getDeploymentId() {
+  @Schema(name = "deploymentId", description = "The deployment id of the process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deploymentId")
+  public String getDeploymentId() {
     return deploymentId;
   }
 
@@ -217,10 +216,11 @@ public class ProcessDefinitionDto   {
   /**
    * The file name of the process definition diagram, if it exists.
    * @return diagram
-   **/
-  @Schema(description = "The file name of the process definition diagram, if it exists.")
+  */
   
-    public String getDiagram() {
+  @Schema(name = "diagram", description = "The file name of the process definition diagram, if it exists.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("diagram")
+  public String getDiagram() {
     return diagram;
   }
 
@@ -236,10 +236,11 @@ public class ProcessDefinitionDto   {
   /**
    * A flag indicating whether the definition is suspended or not.
    * @return suspended
-   **/
-  @Schema(description = "A flag indicating whether the definition is suspended or not.")
+  */
   
-    public Boolean isSuspended() {
+  @Schema(name = "suspended", description = "A flag indicating whether the definition is suspended or not.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("suspended")
+  public Boolean getSuspended() {
     return suspended;
   }
 
@@ -255,10 +256,11 @@ public class ProcessDefinitionDto   {
   /**
    * The tenant id of the process definition.
    * @return tenantId
-   **/
-  @Schema(description = "The tenant id of the process definition.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The tenant id of the process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -274,10 +276,11 @@ public class ProcessDefinitionDto   {
   /**
    * The version tag of the process definition.
    * @return versionTag
-   **/
-  @Schema(description = "The version tag of the process definition.")
+  */
   
-    public String getVersionTag() {
+  @Schema(name = "versionTag", description = "The version tag of the process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("versionTag")
+  public String getVersionTag() {
     return versionTag;
   }
 
@@ -294,10 +297,11 @@ public class ProcessDefinitionDto   {
    * History time to live value of the process definition. Is used within [History cleanup](https://docs.camunda.org/manual/7.17/user-guide/process-engine/history/#history-cleanup).
    * minimum: 0
    * @return historyTimeToLive
-   **/
-  @Schema(description = "History time to live value of the process definition. Is used within [History cleanup](https://docs.camunda.org/manual/7.17/user-guide/process-engine/history/#history-cleanup).")
-  
-  @Min(0)  public Integer getHistoryTimeToLive() {
+  */
+  @Min(0) 
+  @Schema(name = "historyTimeToLive", description = "History time to live value of the process definition. Is used within [History cleanup](https://docs.camunda.org/manual/7.17/user-guide/process-engine/history/#history-cleanup).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historyTimeToLive")
+  public Integer getHistoryTimeToLive() {
     return historyTimeToLive;
   }
 
@@ -313,17 +317,17 @@ public class ProcessDefinitionDto   {
   /**
    * A flag indicating whether the process definition is startable in Tasklist or not.
    * @return startableInTasklist
-   **/
-  @Schema(description = "A flag indicating whether the process definition is startable in Tasklist or not.")
+  */
   
-    public Boolean isStartableInTasklist() {
+  @Schema(name = "startableInTasklist", description = "A flag indicating whether the process definition is startable in Tasklist or not.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("startableInTasklist")
+  public Boolean getStartableInTasklist() {
     return startableInTasklist;
   }
 
   public void setStartableInTasklist(Boolean startableInTasklist) {
     this.startableInTasklist = startableInTasklist;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -359,7 +363,6 @@ public class ProcessDefinitionDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessDefinitionDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
@@ -389,3 +392,4 @@ public class ProcessDefinitionDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

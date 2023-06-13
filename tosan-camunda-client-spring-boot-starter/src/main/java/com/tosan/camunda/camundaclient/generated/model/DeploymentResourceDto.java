@@ -1,26 +1,30 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A JSON object corresponding to the &#x60;Resource&#x60; interface in the engine. Its properties are as follows:
  */
-@Schema(description = "A JSON object corresponding to the `Resource` interface in the engine. Its properties are as follows:")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "DeploymentResourceDto", description = "A JSON object corresponding to the `Resource` interface in the engine. Its properties are as follows:")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class DeploymentResourceDto {
 
-public class DeploymentResourceDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("name")
   private String name = null;
 
-  @JsonProperty("deploymentId")
   private String deploymentId = null;
 
   public DeploymentResourceDto id(String id) {
@@ -31,10 +35,11 @@ public class DeploymentResourceDto   {
   /**
    * The id of the deployment resource.
    * @return id
-   **/
-  @Schema(description = "The id of the deployment resource.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the deployment resource.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -50,10 +55,11 @@ public class DeploymentResourceDto   {
   /**
    * The name of the deployment resource
    * @return name
-   **/
-  @Schema(description = "The name of the deployment resource")
+  */
   
-    public String getName() {
+  @Schema(name = "name", description = "The name of the deployment resource", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
     return name;
   }
 
@@ -69,17 +75,17 @@ public class DeploymentResourceDto   {
   /**
    * The id of the deployment.
    * @return deploymentId
-   **/
-  @Schema(description = "The id of the deployment.")
+  */
   
-    public String getDeploymentId() {
+  @Schema(name = "deploymentId", description = "The id of the deployment.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deploymentId")
+  public String getDeploymentId() {
     return deploymentId;
   }
 
   public void setDeploymentId(String deploymentId) {
     this.deploymentId = deploymentId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -104,7 +110,6 @@ public class DeploymentResourceDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeploymentResourceDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    deploymentId: ").append(toIndentedString(deploymentId)).append("\n");
@@ -123,3 +128,4 @@ public class DeploymentResourceDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

@@ -1,27 +1,32 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.VariableValueDto;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * CompleteTaskDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class CompleteTaskDto {
 
-public class CompleteTaskDto   {
-  @JsonProperty("variables")
   @Valid
-  private Map<String, VariableValueDto> variables = null;
+  private Map<String, VariableValueDto> variables;
 
-  @JsonProperty("withVariablesInReturn")
-  private Boolean withVariablesInReturn = false;
+  private Boolean withVariablesInReturn = null;
 
   public CompleteTaskDto variables(Map<String, VariableValueDto> variables) {
     this.variables = variables;
@@ -39,10 +44,11 @@ public class CompleteTaskDto   {
   /**
    * A JSON object containing variable key-value pairs.
    * @return variables
-   **/
-  @Schema(description = "A JSON object containing variable key-value pairs.")
-      @Valid
-    public Map<String, VariableValueDto> getVariables() {
+  */
+  @Valid 
+  @Schema(name = "variables", description = "A JSON object containing variable key-value pairs.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variables")
+  public Map<String, VariableValueDto> getVariables() {
     return variables;
   }
 
@@ -58,17 +64,17 @@ public class CompleteTaskDto   {
   /**
    * Indicates whether the response should contain the process variables or not. The default is `false` with a response code of `204`. If set to `true` the response contains the process variables and has a response code of `200`. If the task is not associated with a process instance (e.g. if it's part of a case instance) no variables will be returned.
    * @return withVariablesInReturn
-   **/
-  @Schema(description = "Indicates whether the response should contain the process variables or not. The default is `false` with a response code of `204`. If set to `true` the response contains the process variables and has a response code of `200`. If the task is not associated with a process instance (e.g. if it's part of a case instance) no variables will be returned.")
+  */
   
-    public Boolean isWithVariablesInReturn() {
+  @Schema(name = "withVariablesInReturn", description = "Indicates whether the response should contain the process variables or not. The default is `false` with a response code of `204`. If set to `true` the response contains the process variables and has a response code of `200`. If the task is not associated with a process instance (e.g. if it's part of a case instance) no variables will be returned.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withVariablesInReturn")
+  public Boolean getWithVariablesInReturn() {
     return withVariablesInReturn;
   }
 
   public void setWithVariablesInReturn(Boolean withVariablesInReturn) {
     this.withVariablesInReturn = withVariablesInReturn;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -92,7 +98,6 @@ public class CompleteTaskDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CompleteTaskDto {\n");
-    
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
     sb.append("    withVariablesInReturn: ").append(toIndentedString(withVariablesInReturn)).append("\n");
     sb.append("}");
@@ -110,3 +115,4 @@ public class CompleteTaskDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

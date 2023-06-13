@@ -1,27 +1,32 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.SchemaLogQueryDtoSortingInner;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * SchemaLogQueryDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class SchemaLogQueryDto {
 
-public class SchemaLogQueryDto   {
-  @JsonProperty("version")
   private String version = null;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<SchemaLogQueryDtoSorting> sorting = null;
+  private List<@Valid SchemaLogQueryDtoSortingInner> sorting;
 
   public SchemaLogQueryDto version(String version) {
     this.version = version;
@@ -31,10 +36,11 @@ public class SchemaLogQueryDto   {
   /**
    * The version of the schema.
    * @return version
-   **/
-  @Schema(description = "The version of the schema.")
+  */
   
-    public String getVersion() {
+  @Schema(name = "version", description = "The version of the schema.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("version")
+  public String getVersion() {
     return version;
   }
 
@@ -42,12 +48,12 @@ public class SchemaLogQueryDto   {
     this.version = version;
   }
 
-  public SchemaLogQueryDto sorting(List<SchemaLogQueryDtoSorting> sorting) {
+  public SchemaLogQueryDto sorting(List<@Valid SchemaLogQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public SchemaLogQueryDto addSortingItem(SchemaLogQueryDtoSorting sortingItem) {
+  public SchemaLogQueryDto addSortingItem(SchemaLogQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -58,17 +64,17 @@ public class SchemaLogQueryDto   {
   /**
    * A JSON array of criteria to sort the result by. Each element of the array is                       a JSON object that specifies one ordering. The position in the array                       identifies the rank of an ordering, i.e., whether it is primary, secondary,                       etc. 
    * @return sorting
-   **/
-  @Schema(description = "A JSON array of criteria to sort the result by. Each element of the array is                       a JSON object that specifies one ordering. The position in the array                       identifies the rank of an ordering, i.e., whether it is primary, secondary,                       etc. ")
-      @Valid
-    public List<SchemaLogQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "A JSON array of criteria to sort the result by. Each element of the array is                       a JSON object that specifies one ordering. The position in the array                       identifies the rank of an ordering, i.e., whether it is primary, secondary,                       etc. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid SchemaLogQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<SchemaLogQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid SchemaLogQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -92,7 +98,6 @@ public class SchemaLogQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SchemaLogQueryDto {\n");
-    
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    sorting: ").append(toIndentedString(sorting)).append("\n");
     sb.append("}");
@@ -110,3 +115,4 @@ public class SchemaLogQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

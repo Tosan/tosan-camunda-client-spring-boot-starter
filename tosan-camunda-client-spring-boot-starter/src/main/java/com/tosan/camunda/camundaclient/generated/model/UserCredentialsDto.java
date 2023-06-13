@@ -1,22 +1,27 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * UserCredentialsDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class UserCredentialsDto {
 
-public class UserCredentialsDto   {
-  @JsonProperty("password")
   private String password = null;
 
-  @JsonProperty("authenticatedUserPassword")
   private String authenticatedUserPassword = null;
 
   public UserCredentialsDto password(String password) {
@@ -27,10 +32,11 @@ public class UserCredentialsDto   {
   /**
    * The users new password.
    * @return password
-   **/
-  @Schema(description = "The users new password.")
+  */
   
-    public String getPassword() {
+  @Schema(name = "password", description = "The users new password.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("password")
+  public String getPassword() {
     return password;
   }
 
@@ -46,17 +52,17 @@ public class UserCredentialsDto   {
   /**
    * The password of the authenticated user who changes the password of the user (i.e., the user with passed id as path parameter).
    * @return authenticatedUserPassword
-   **/
-  @Schema(description = "The password of the authenticated user who changes the password of the user (i.e., the user with passed id as path parameter).")
+  */
   
-    public String getAuthenticatedUserPassword() {
+  @Schema(name = "authenticatedUserPassword", description = "The password of the authenticated user who changes the password of the user (i.e., the user with passed id as path parameter).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("authenticatedUserPassword")
+  public String getAuthenticatedUserPassword() {
     return authenticatedUserPassword;
   }
 
   public void setAuthenticatedUserPassword(String authenticatedUserPassword) {
     this.authenticatedUserPassword = authenticatedUserPassword;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -80,7 +86,6 @@ public class UserCredentialsDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserCredentialsDto {\n");
-    
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    authenticatedUserPassword: ").append(toIndentedString(authenticatedUserPassword)).append("\n");
     sb.append("}");
@@ -98,3 +103,4 @@ public class UserCredentialsDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

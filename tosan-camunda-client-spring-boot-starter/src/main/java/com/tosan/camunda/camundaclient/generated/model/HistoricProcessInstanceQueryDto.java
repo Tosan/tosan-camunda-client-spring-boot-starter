@@ -1,78 +1,69 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.tosan.camunda.camundaclient.generated.model.HistoricProcessInstanceQueryDtoSortingInner;
+import com.tosan.camunda.camundaclient.generated.model.VariableQueryParameterDto;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A historic process instance query which defines a group of historic process instances
  */
-@Schema(description = "A historic process instance query which defines a group of historic process instances")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "HistoricProcessInstanceQueryDto", description = "A historic process instance query which defines a group of historic process instances")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricProcessInstanceQueryDto {
 
-public class HistoricProcessInstanceQueryDto   {
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("processInstanceIds")
   @Valid
-  private List<String> processInstanceIds = null;
+  private List<String> processInstanceIds;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("processDefinitionKeyIn")
   @Valid
-  private List<String> processDefinitionKeyIn = null;
+  private List<String> processDefinitionKeyIn;
 
-  @JsonProperty("processDefinitionName")
   private String processDefinitionName = null;
 
-  @JsonProperty("processDefinitionNameLike")
   private String processDefinitionNameLike = null;
 
-  @JsonProperty("processDefinitionKeyNotIn")
   @Valid
-  private List<String> processDefinitionKeyNotIn = null;
+  private List<String> processDefinitionKeyNotIn;
 
-  @JsonProperty("processInstanceBusinessKey")
   private String processInstanceBusinessKey = null;
 
-  @JsonProperty("processInstanceBusinessKeyIn")
   @Valid
-  private List<String> processInstanceBusinessKeyIn = null;
+  private List<String> processInstanceBusinessKeyIn;
 
-  @JsonProperty("processInstanceBusinessKeyLike")
   private String processInstanceBusinessKeyLike = null;
 
-  @JsonProperty("rootProcessInstances")
   private Boolean rootProcessInstances = null;
 
-  @JsonProperty("finished")
   private Boolean finished = null;
 
-  @JsonProperty("unfinished")
   private Boolean unfinished = null;
 
-  @JsonProperty("withIncidents")
   private Boolean withIncidents = null;
 
-  @JsonProperty("withRootIncidents")
   private Boolean withRootIncidents = null;
 
-  @JsonProperty("incidentType")
   private String incidentType = null;
 
   /**
@@ -89,120 +80,102 @@ public class HistoricProcessInstanceQueryDto   {
       this.value = value;
     }
 
-    @Override
     @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static IncidentStatusEnum fromValue(String text) {
+    public static IncidentStatusEnum fromValue(String value) {
       for (IncidentStatusEnum b : IncidentStatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
       return null;
     }
   }
-  @JsonProperty("incidentStatus")
+
   private IncidentStatusEnum incidentStatus = null;
 
-  @JsonProperty("incidentMessage")
   private String incidentMessage = null;
 
-  @JsonProperty("incidentMessageLike")
   private String incidentMessageLike = null;
 
-  @JsonProperty("startedBefore")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime startedBefore = null;
 
-  @JsonProperty("startedAfter")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime startedAfter = null;
 
-  @JsonProperty("finishedBefore")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime finishedBefore = null;
 
-  @JsonProperty("finishedAfter")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime finishedAfter = null;
 
-  @JsonProperty("executedActivityAfter")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime executedActivityAfter = null;
 
-  @JsonProperty("executedActivityBefore")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime executedActivityBefore = null;
 
-  @JsonProperty("executedJobAfter")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime executedJobAfter = null;
 
-  @JsonProperty("executedJobBefore")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime executedJobBefore = null;
 
-  @JsonProperty("startedBy")
   private String startedBy = null;
 
-  @JsonProperty("superProcessInstanceId")
   private String superProcessInstanceId = null;
 
-  @JsonProperty("subProcessInstanceId")
   private String subProcessInstanceId = null;
 
-  @JsonProperty("superCaseInstanceId")
   private String superCaseInstanceId = null;
 
-  @JsonProperty("subCaseInstanceId")
   private String subCaseInstanceId = null;
 
-  @JsonProperty("caseInstanceId")
   private String caseInstanceId = null;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("withoutTenantId")
   private Boolean withoutTenantId = null;
 
-  @JsonProperty("executedActivityIdIn")
   @Valid
-  private List<String> executedActivityIdIn = null;
+  private List<String> executedActivityIdIn;
 
-  @JsonProperty("activeActivityIdIn")
   @Valid
-  private List<String> activeActivityIdIn = null;
+  private List<String> activeActivityIdIn;
 
-  @JsonProperty("active")
   private Boolean active = null;
 
-  @JsonProperty("suspended")
   private Boolean suspended = null;
 
-  @JsonProperty("completed")
   private Boolean completed = null;
 
-  @JsonProperty("externallyTerminated")
   private Boolean externallyTerminated = null;
 
-  @JsonProperty("internallyTerminated")
   private Boolean internallyTerminated = null;
 
-  @JsonProperty("variables")
   @Valid
-  private List<VariableQueryParameterDto> variables = null;
+  private List<@Valid VariableQueryParameterDto> variables;
 
-  @JsonProperty("variableNamesIgnoreCase")
   private Boolean variableNamesIgnoreCase = null;
 
-  @JsonProperty("variableValuesIgnoreCase")
   private Boolean variableValuesIgnoreCase = null;
 
-  @JsonProperty("orQueries")
   @Valid
-  private List<HistoricProcessInstanceQueryDto> orQueries = null;
+  private List<@Valid HistoricProcessInstanceQueryDto> orQueries;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<HistoricProcessInstanceQueryDtoSorting> sorting = null;
+  private List<@Valid HistoricProcessInstanceQueryDtoSortingInner> sorting;
 
   public HistoricProcessInstanceQueryDto processInstanceId(String processInstanceId) {
     this.processInstanceId = processInstanceId;
@@ -212,10 +185,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Filter by process instance id.
    * @return processInstanceId
-   **/
-  @Schema(description = "Filter by process instance id.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "Filter by process instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -239,10 +213,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Filter by process instance ids. Must be a JSON array of `Strings`.
    * @return processInstanceIds
-   **/
-  @Schema(description = "Filter by process instance ids. Must be a JSON array of `Strings`.")
+  */
   
-    public List<String> getProcessInstanceIds() {
+  @Schema(name = "processInstanceIds", description = "Filter by process instance ids. Must be a JSON array of `Strings`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceIds")
+  public List<String> getProcessInstanceIds() {
     return processInstanceIds;
   }
 
@@ -258,10 +233,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Filter by the process definition the instances run on.
    * @return processDefinitionId
-   **/
-  @Schema(description = "Filter by the process definition the instances run on.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "Filter by the process definition the instances run on.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -277,10 +253,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Filter by the key of the process definition the instances run on.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "Filter by the key of the process definition the instances run on.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "Filter by the key of the process definition the instances run on.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -304,10 +281,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Filter by a list of process definition keys. A process instance must have one of the given process definition keys. Must be a JSON array of `Strings`.
    * @return processDefinitionKeyIn
-   **/
-  @Schema(description = "Filter by a list of process definition keys. A process instance must have one of the given process definition keys. Must be a JSON array of `Strings`.")
+  */
   
-    public List<String> getProcessDefinitionKeyIn() {
+  @Schema(name = "processDefinitionKeyIn", description = "Filter by a list of process definition keys. A process instance must have one of the given process definition keys. Must be a JSON array of `Strings`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKeyIn")
+  public List<String> getProcessDefinitionKeyIn() {
     return processDefinitionKeyIn;
   }
 
@@ -323,10 +301,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Filter by the name of the process definition the instances run on.
    * @return processDefinitionName
-   **/
-  @Schema(description = "Filter by the name of the process definition the instances run on.")
+  */
   
-    public String getProcessDefinitionName() {
+  @Schema(name = "processDefinitionName", description = "Filter by the name of the process definition the instances run on.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionName")
+  public String getProcessDefinitionName() {
     return processDefinitionName;
   }
 
@@ -342,10 +321,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Filter by process definition names that the parameter is a substring of.
    * @return processDefinitionNameLike
-   **/
-  @Schema(description = "Filter by process definition names that the parameter is a substring of.")
+  */
   
-    public String getProcessDefinitionNameLike() {
+  @Schema(name = "processDefinitionNameLike", description = "Filter by process definition names that the parameter is a substring of.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionNameLike")
+  public String getProcessDefinitionNameLike() {
     return processDefinitionNameLike;
   }
 
@@ -369,10 +349,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Exclude instances that belong to a set of process definitions. Must be a JSON array of `Strings`.
    * @return processDefinitionKeyNotIn
-   **/
-  @Schema(description = "Exclude instances that belong to a set of process definitions. Must be a JSON array of `Strings`.")
+  */
   
-    public List<String> getProcessDefinitionKeyNotIn() {
+  @Schema(name = "processDefinitionKeyNotIn", description = "Exclude instances that belong to a set of process definitions. Must be a JSON array of `Strings`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKeyNotIn")
+  public List<String> getProcessDefinitionKeyNotIn() {
     return processDefinitionKeyNotIn;
   }
 
@@ -388,10 +369,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Filter by process instance business key.
    * @return processInstanceBusinessKey
-   **/
-  @Schema(description = "Filter by process instance business key.")
+  */
   
-    public String getProcessInstanceBusinessKey() {
+  @Schema(name = "processInstanceBusinessKey", description = "Filter by process instance business key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceBusinessKey")
+  public String getProcessInstanceBusinessKey() {
     return processInstanceBusinessKey;
   }
 
@@ -415,10 +397,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Filter by a list of business keys. A process instance must have one of the given business keys. Must be a JSON array of `Strings`
    * @return processInstanceBusinessKeyIn
-   **/
-  @Schema(description = "Filter by a list of business keys. A process instance must have one of the given business keys. Must be a JSON array of `Strings`")
+  */
   
-    public List<String> getProcessInstanceBusinessKeyIn() {
+  @Schema(name = "processInstanceBusinessKeyIn", description = "Filter by a list of business keys. A process instance must have one of the given business keys. Must be a JSON array of `Strings`", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceBusinessKeyIn")
+  public List<String> getProcessInstanceBusinessKeyIn() {
     return processInstanceBusinessKeyIn;
   }
 
@@ -434,10 +417,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Filter by process instance business key that the parameter is a substring of.
    * @return processInstanceBusinessKeyLike
-   **/
-  @Schema(description = "Filter by process instance business key that the parameter is a substring of.")
+  */
   
-    public String getProcessInstanceBusinessKeyLike() {
+  @Schema(name = "processInstanceBusinessKeyLike", description = "Filter by process instance business key that the parameter is a substring of.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceBusinessKeyLike")
+  public String getProcessInstanceBusinessKeyLike() {
     return processInstanceBusinessKeyLike;
   }
 
@@ -453,10 +437,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict the query to all process instances that are top level process instances.
    * @return rootProcessInstances
-   **/
-  @Schema(description = "Restrict the query to all process instances that are top level process instances.")
+  */
   
-    public Boolean isRootProcessInstances() {
+  @Schema(name = "rootProcessInstances", description = "Restrict the query to all process instances that are top level process instances.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("rootProcessInstances")
+  public Boolean getRootProcessInstances() {
     return rootProcessInstances;
   }
 
@@ -472,10 +457,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Only include finished process instances. This flag includes all process instances that are completed or terminated. Value may only be `true`, as `false` is the default behavior.
    * @return finished
-   **/
-  @Schema(description = "Only include finished process instances. This flag includes all process instances that are completed or terminated. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isFinished() {
+  @Schema(name = "finished", description = "Only include finished process instances. This flag includes all process instances that are completed or terminated. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("finished")
+  public Boolean getFinished() {
     return finished;
   }
 
@@ -491,10 +477,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Only include unfinished process instances. Value may only be `true`, as `false` is the default behavior.
    * @return unfinished
-   **/
-  @Schema(description = "Only include unfinished process instances. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isUnfinished() {
+  @Schema(name = "unfinished", description = "Only include unfinished process instances. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("unfinished")
+  public Boolean getUnfinished() {
     return unfinished;
   }
 
@@ -510,10 +497,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Only include process instances which have an incident. Value may only be `true`, as `false` is the default behavior.
    * @return withIncidents
-   **/
-  @Schema(description = "Only include process instances which have an incident. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithIncidents() {
+  @Schema(name = "withIncidents", description = "Only include process instances which have an incident. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withIncidents")
+  public Boolean getWithIncidents() {
     return withIncidents;
   }
 
@@ -529,10 +517,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Only include process instances which have a root incident. Value may only be `true`, as `false` is the default behavior.
    * @return withRootIncidents
-   **/
-  @Schema(description = "Only include process instances which have a root incident. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithRootIncidents() {
+  @Schema(name = "withRootIncidents", description = "Only include process instances which have a root incident. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withRootIncidents")
+  public Boolean getWithRootIncidents() {
     return withRootIncidents;
   }
 
@@ -548,10 +537,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Filter by the incident type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/incidents/#incident-types) for a list of incident types.
    * @return incidentType
-   **/
-  @Schema(description = "Filter by the incident type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/incidents/#incident-types) for a list of incident types.")
+  */
   
-    public String getIncidentType() {
+  @Schema(name = "incidentType", description = "Filter by the incident type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/incidents/#incident-types) for a list of incident types.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentType")
+  public String getIncidentType() {
     return incidentType;
   }
 
@@ -567,10 +557,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Only include process instances which have an incident in status either open or resolved. To get all process instances, use the query parameter withIncidents.
    * @return incidentStatus
-   **/
-  @Schema(description = "Only include process instances which have an incident in status either open or resolved. To get all process instances, use the query parameter withIncidents.")
+  */
   
-    public IncidentStatusEnum getIncidentStatus() {
+  @Schema(name = "incidentStatus", description = "Only include process instances which have an incident in status either open or resolved. To get all process instances, use the query parameter withIncidents.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentStatus")
+  public IncidentStatusEnum getIncidentStatus() {
     return incidentStatus;
   }
 
@@ -586,10 +577,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Filter by the incident message. Exact match.
    * @return incidentMessage
-   **/
-  @Schema(description = "Filter by the incident message. Exact match.")
+  */
   
-    public String getIncidentMessage() {
+  @Schema(name = "incidentMessage", description = "Filter by the incident message. Exact match.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentMessage")
+  public String getIncidentMessage() {
     return incidentMessage;
   }
 
@@ -605,10 +597,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Filter by the incident message that the parameter is a substring of.
    * @return incidentMessageLike
-   **/
-  @Schema(description = "Filter by the incident message that the parameter is a substring of.")
+  */
   
-    public String getIncidentMessageLike() {
+  @Schema(name = "incidentMessageLike", description = "Filter by the incident message that the parameter is a substring of.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentMessageLike")
+  public String getIncidentMessageLike() {
     return incidentMessageLike;
   }
 
@@ -624,11 +617,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict to instances that were started before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return startedBefore
-   **/
-  @Schema(description = "Restrict to instances that were started before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getStartedBefore() {
+  */
+  @Valid 
+  @Schema(name = "startedBefore", description = "Restrict to instances that were started before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("startedBefore")
+  public OffsetDateTime getStartedBefore() {
     return startedBefore;
   }
 
@@ -644,11 +637,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict to instances that were started after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return startedAfter
-   **/
-  @Schema(description = "Restrict to instances that were started after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getStartedAfter() {
+  */
+  @Valid 
+  @Schema(name = "startedAfter", description = "Restrict to instances that were started after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("startedAfter")
+  public OffsetDateTime getStartedAfter() {
     return startedAfter;
   }
 
@@ -664,11 +657,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict to instances that were finished before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return finishedBefore
-   **/
-  @Schema(description = "Restrict to instances that were finished before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getFinishedBefore() {
+  */
+  @Valid 
+  @Schema(name = "finishedBefore", description = "Restrict to instances that were finished before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("finishedBefore")
+  public OffsetDateTime getFinishedBefore() {
     return finishedBefore;
   }
 
@@ -684,11 +677,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict to instances that were finished after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return finishedAfter
-   **/
-  @Schema(description = "Restrict to instances that were finished after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getFinishedAfter() {
+  */
+  @Valid 
+  @Schema(name = "finishedAfter", description = "Restrict to instances that were finished after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("finishedAfter")
+  public OffsetDateTime getFinishedAfter() {
     return finishedAfter;
   }
 
@@ -704,11 +697,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict to instances that executed an activity after the given date (inclusive). By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return executedActivityAfter
-   **/
-  @Schema(description = "Restrict to instances that executed an activity after the given date (inclusive). By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getExecutedActivityAfter() {
+  */
+  @Valid 
+  @Schema(name = "executedActivityAfter", description = "Restrict to instances that executed an activity after the given date (inclusive). By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executedActivityAfter")
+  public OffsetDateTime getExecutedActivityAfter() {
     return executedActivityAfter;
   }
 
@@ -724,11 +717,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict to instances that executed an activity before the given date (inclusive). By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return executedActivityBefore
-   **/
-  @Schema(description = "Restrict to instances that executed an activity before the given date (inclusive). By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getExecutedActivityBefore() {
+  */
+  @Valid 
+  @Schema(name = "executedActivityBefore", description = "Restrict to instances that executed an activity before the given date (inclusive). By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executedActivityBefore")
+  public OffsetDateTime getExecutedActivityBefore() {
     return executedActivityBefore;
   }
 
@@ -744,11 +737,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict to instances that executed an job after the given date (inclusive). By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return executedJobAfter
-   **/
-  @Schema(description = "Restrict to instances that executed an job after the given date (inclusive). By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getExecutedJobAfter() {
+  */
+  @Valid 
+  @Schema(name = "executedJobAfter", description = "Restrict to instances that executed an job after the given date (inclusive). By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executedJobAfter")
+  public OffsetDateTime getExecutedJobAfter() {
     return executedJobAfter;
   }
 
@@ -764,11 +757,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict to instances that executed an job before the given date (inclusive). By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return executedJobBefore
-   **/
-  @Schema(description = "Restrict to instances that executed an job before the given date (inclusive). By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getExecutedJobBefore() {
+  */
+  @Valid 
+  @Schema(name = "executedJobBefore", description = "Restrict to instances that executed an job before the given date (inclusive). By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executedJobBefore")
+  public OffsetDateTime getExecutedJobBefore() {
     return executedJobBefore;
   }
 
@@ -784,10 +777,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Only include process instances that were started by the given user.
    * @return startedBy
-   **/
-  @Schema(description = "Only include process instances that were started by the given user.")
+  */
   
-    public String getStartedBy() {
+  @Schema(name = "startedBy", description = "Only include process instances that were started by the given user.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("startedBy")
+  public String getStartedBy() {
     return startedBy;
   }
 
@@ -803,10 +797,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict query to all process instances that are sub process instances of the given process instance. Takes a process instance id.
    * @return superProcessInstanceId
-   **/
-  @Schema(description = "Restrict query to all process instances that are sub process instances of the given process instance. Takes a process instance id.")
+  */
   
-    public String getSuperProcessInstanceId() {
+  @Schema(name = "superProcessInstanceId", description = "Restrict query to all process instances that are sub process instances of the given process instance. Takes a process instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("superProcessInstanceId")
+  public String getSuperProcessInstanceId() {
     return superProcessInstanceId;
   }
 
@@ -822,10 +817,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict query to one process instance that has a sub process instance with the given id.
    * @return subProcessInstanceId
-   **/
-  @Schema(description = "Restrict query to one process instance that has a sub process instance with the given id.")
+  */
   
-    public String getSubProcessInstanceId() {
+  @Schema(name = "subProcessInstanceId", description = "Restrict query to one process instance that has a sub process instance with the given id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("subProcessInstanceId")
+  public String getSubProcessInstanceId() {
     return subProcessInstanceId;
   }
 
@@ -841,10 +837,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict query to all process instances that are sub process instances of the given case instance. Takes a case instance id.
    * @return superCaseInstanceId
-   **/
-  @Schema(description = "Restrict query to all process instances that are sub process instances of the given case instance. Takes a case instance id.")
+  */
   
-    public String getSuperCaseInstanceId() {
+  @Schema(name = "superCaseInstanceId", description = "Restrict query to all process instances that are sub process instances of the given case instance. Takes a case instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("superCaseInstanceId")
+  public String getSuperCaseInstanceId() {
     return superCaseInstanceId;
   }
 
@@ -860,10 +857,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict query to one process instance that has a sub case instance with the given id.
    * @return subCaseInstanceId
-   **/
-  @Schema(description = "Restrict query to one process instance that has a sub case instance with the given id.")
+  */
   
-    public String getSubCaseInstanceId() {
+  @Schema(name = "subCaseInstanceId", description = "Restrict query to one process instance that has a sub case instance with the given id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("subCaseInstanceId")
+  public String getSubCaseInstanceId() {
     return subCaseInstanceId;
   }
 
@@ -879,10 +877,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict query to all process instances that are sub process instances of the given case instance. Takes a case instance id.
    * @return caseInstanceId
-   **/
-  @Schema(description = "Restrict query to all process instances that are sub process instances of the given case instance. Takes a case instance id.")
+  */
   
-    public String getCaseInstanceId() {
+  @Schema(name = "caseInstanceId", description = "Restrict query to all process instances that are sub process instances of the given case instance. Takes a case instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceId")
+  public String getCaseInstanceId() {
     return caseInstanceId;
   }
 
@@ -906,10 +905,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Filter by a list of tenant ids. A process instance must have one of the given tenant ids. Must be a JSON array of `Strings`
    * @return tenantIdIn
-   **/
-  @Schema(description = "Filter by a list of tenant ids. A process instance must have one of the given tenant ids. Must be a JSON array of `Strings`")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Filter by a list of tenant ids. A process instance must have one of the given tenant ids. Must be a JSON array of `Strings`", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -925,10 +925,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Only include historic process instances which belong to no tenant. Value may only be `true`, as `false` is the default behavior.
    * @return withoutTenantId
-   **/
-  @Schema(description = "Only include historic process instances which belong to no tenant. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "Only include historic process instances which belong to no tenant. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
@@ -952,10 +953,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict to instances that executed an activity with one of given ids. Must be a JSON array of `Strings`
    * @return executedActivityIdIn
-   **/
-  @Schema(description = "Restrict to instances that executed an activity with one of given ids. Must be a JSON array of `Strings`")
+  */
   
-    public List<String> getExecutedActivityIdIn() {
+  @Schema(name = "executedActivityIdIn", description = "Restrict to instances that executed an activity with one of given ids. Must be a JSON array of `Strings`", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executedActivityIdIn")
+  public List<String> getExecutedActivityIdIn() {
     return executedActivityIdIn;
   }
 
@@ -979,10 +981,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict to instances that have an active activity with one of given ids. Must be a JSON array of `Strings`
    * @return activeActivityIdIn
-   **/
-  @Schema(description = "Restrict to instances that have an active activity with one of given ids. Must be a JSON array of `Strings`")
+  */
   
-    public List<String> getActiveActivityIdIn() {
+  @Schema(name = "activeActivityIdIn", description = "Restrict to instances that have an active activity with one of given ids. Must be a JSON array of `Strings`", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activeActivityIdIn")
+  public List<String> getActiveActivityIdIn() {
     return activeActivityIdIn;
   }
 
@@ -998,10 +1001,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict to instances that are active.
    * @return active
-   **/
-  @Schema(description = "Restrict to instances that are active.")
+  */
   
-    public Boolean isActive() {
+  @Schema(name = "active", description = "Restrict to instances that are active.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("active")
+  public Boolean getActive() {
     return active;
   }
 
@@ -1017,10 +1021,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict to instances that are suspended.
    * @return suspended
-   **/
-  @Schema(description = "Restrict to instances that are suspended.")
+  */
   
-    public Boolean isSuspended() {
+  @Schema(name = "suspended", description = "Restrict to instances that are suspended.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("suspended")
+  public Boolean getSuspended() {
     return suspended;
   }
 
@@ -1036,10 +1041,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict to instances that are completed.
    * @return completed
-   **/
-  @Schema(description = "Restrict to instances that are completed.")
+  */
   
-    public Boolean isCompleted() {
+  @Schema(name = "completed", description = "Restrict to instances that are completed.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("completed")
+  public Boolean getCompleted() {
     return completed;
   }
 
@@ -1055,10 +1061,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict to instances that are externallyTerminated.
    * @return externallyTerminated
-   **/
-  @Schema(description = "Restrict to instances that are externallyTerminated.")
+  */
   
-    public Boolean isExternallyTerminated() {
+  @Schema(name = "externallyTerminated", description = "Restrict to instances that are externallyTerminated.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("externallyTerminated")
+  public Boolean getExternallyTerminated() {
     return externallyTerminated;
   }
 
@@ -1074,10 +1081,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Restrict to instances that are internallyTerminated.
    * @return internallyTerminated
-   **/
-  @Schema(description = "Restrict to instances that are internallyTerminated.")
+  */
   
-    public Boolean isInternallyTerminated() {
+  @Schema(name = "internallyTerminated", description = "Restrict to instances that are internallyTerminated.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("internallyTerminated")
+  public Boolean getInternallyTerminated() {
     return internallyTerminated;
   }
 
@@ -1085,7 +1093,7 @@ public class HistoricProcessInstanceQueryDto   {
     this.internallyTerminated = internallyTerminated;
   }
 
-  public HistoricProcessInstanceQueryDto variables(List<VariableQueryParameterDto> variables) {
+  public HistoricProcessInstanceQueryDto variables(List<@Valid VariableQueryParameterDto> variables) {
     this.variables = variables;
     return this;
   }
@@ -1101,14 +1109,15 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * A JSON array to only include process instances that have/had variables with certain values. The array consists of objects with the three properties `name`, `operator` and `value`. `name` (`String`) is the variable name, `operator` (`String`) is the comparison operator to be used and `value` the variable value.  Value may be `String`, `Number` or `Boolean`.  Valid operator values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`. 
    * @return variables
-   **/
-  @Schema(description = "A JSON array to only include process instances that have/had variables with certain values. The array consists of objects with the three properties `name`, `operator` and `value`. `name` (`String`) is the variable name, `operator` (`String`) is the comparison operator to be used and `value` the variable value.  Value may be `String`, `Number` or `Boolean`.  Valid operator values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`. ")
-      @Valid
-    public List<VariableQueryParameterDto> getVariables() {
+  */
+  @Valid 
+  @Schema(name = "variables", description = "A JSON array to only include process instances that have/had variables with certain values. The array consists of objects with the three properties `name`, `operator` and `value`. `name` (`String`) is the variable name, `operator` (`String`) is the comparison operator to be used and `value` the variable value.  Value may be `String`, `Number` or `Boolean`.  Valid operator values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`. ", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variables")
+  public List<@Valid VariableQueryParameterDto> getVariables() {
     return variables;
   }
 
-  public void setVariables(List<VariableQueryParameterDto> variables) {
+  public void setVariables(List<@Valid VariableQueryParameterDto> variables) {
     this.variables = variables;
   }
 
@@ -1120,10 +1129,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Match all variable names provided in variables case-insensitively. If set to `true` variableName and variablename are treated as equal.
    * @return variableNamesIgnoreCase
-   **/
-  @Schema(description = "Match all variable names provided in variables case-insensitively. If set to `true` variableName and variablename are treated as equal.")
+  */
   
-    public Boolean isVariableNamesIgnoreCase() {
+  @Schema(name = "variableNamesIgnoreCase", description = "Match all variable names provided in variables case-insensitively. If set to `true` variableName and variablename are treated as equal.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableNamesIgnoreCase")
+  public Boolean getVariableNamesIgnoreCase() {
     return variableNamesIgnoreCase;
   }
 
@@ -1139,10 +1149,11 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Match all variable values provided in variables case-insensitively. If set to `true` variableValue and variablevalue are treated as equal.
    * @return variableValuesIgnoreCase
-   **/
-  @Schema(description = "Match all variable values provided in variables case-insensitively. If set to `true` variableValue and variablevalue are treated as equal.")
+  */
   
-    public Boolean isVariableValuesIgnoreCase() {
+  @Schema(name = "variableValuesIgnoreCase", description = "Match all variable values provided in variables case-insensitively. If set to `true` variableValue and variablevalue are treated as equal.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableValuesIgnoreCase")
+  public Boolean getVariableValuesIgnoreCase() {
     return variableValuesIgnoreCase;
   }
 
@@ -1150,7 +1161,7 @@ public class HistoricProcessInstanceQueryDto   {
     this.variableValuesIgnoreCase = variableValuesIgnoreCase;
   }
 
-  public HistoricProcessInstanceQueryDto orQueries(List<HistoricProcessInstanceQueryDto> orQueries) {
+  public HistoricProcessInstanceQueryDto orQueries(List<@Valid HistoricProcessInstanceQueryDto> orQueries) {
     this.orQueries = orQueries;
     return this;
   }
@@ -1166,23 +1177,24 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * A JSON array of nested historic process instance queries with OR semantics.  A process instance matches a nested query if it fulfills at least one of the query's predicates.  With multiple nested queries, a process instance must fulfill at least one predicate of each query ([Conjunctive Normal Form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)).  All process instance query properties can be used except for: `sorting`  See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/process-engine-api/#or-queries) for more information about OR queries.
    * @return orQueries
-   **/
-  @Schema(description = "A JSON array of nested historic process instance queries with OR semantics.  A process instance matches a nested query if it fulfills at least one of the query's predicates.  With multiple nested queries, a process instance must fulfill at least one predicate of each query ([Conjunctive Normal Form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)).  All process instance query properties can be used except for: `sorting`  See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/process-engine-api/#or-queries) for more information about OR queries.")
-      @Valid
-    public List<HistoricProcessInstanceQueryDto> getOrQueries() {
+  */
+  @Valid 
+  @Schema(name = "orQueries", description = "A JSON array of nested historic process instance queries with OR semantics.  A process instance matches a nested query if it fulfills at least one of the query's predicates.  With multiple nested queries, a process instance must fulfill at least one predicate of each query ([Conjunctive Normal Form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)).  All process instance query properties can be used except for: `sorting`  See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/process-engine-api/#or-queries) for more information about OR queries.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("orQueries")
+  public List<@Valid HistoricProcessInstanceQueryDto> getOrQueries() {
     return orQueries;
   }
 
-  public void setOrQueries(List<HistoricProcessInstanceQueryDto> orQueries) {
+  public void setOrQueries(List<@Valid HistoricProcessInstanceQueryDto> orQueries) {
     this.orQueries = orQueries;
   }
 
-  public HistoricProcessInstanceQueryDto sorting(List<HistoricProcessInstanceQueryDtoSorting> sorting) {
+  public HistoricProcessInstanceQueryDto sorting(List<@Valid HistoricProcessInstanceQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public HistoricProcessInstanceQueryDto addSortingItem(HistoricProcessInstanceQueryDtoSorting sortingItem) {
+  public HistoricProcessInstanceQueryDto addSortingItem(HistoricProcessInstanceQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -1193,17 +1205,17 @@ public class HistoricProcessInstanceQueryDto   {
   /**
    * Apply sorting of the result
    * @return sorting
-   **/
-  @Schema(description = "Apply sorting of the result")
-      @Valid
-    public List<HistoricProcessInstanceQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "Apply sorting of the result", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid HistoricProcessInstanceQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<HistoricProcessInstanceQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid HistoricProcessInstanceQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -1273,7 +1285,6 @@ public class HistoricProcessInstanceQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricProcessInstanceQueryDto {\n");
-    
     sb.append("    processInstanceId: ").append(toIndentedString(processInstanceId)).append("\n");
     sb.append("    processInstanceIds: ").append(toIndentedString(processInstanceIds)).append("\n");
     sb.append("    processDefinitionId: ").append(toIndentedString(processDefinitionId)).append("\n");
@@ -1337,3 +1348,4 @@ public class HistoricProcessInstanceQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

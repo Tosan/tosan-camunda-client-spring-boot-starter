@@ -1,28 +1,31 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * UserProfileDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class UserProfileDto {
 
-public class UserProfileDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("firstName")
   private String firstName = null;
 
-  @JsonProperty("lastName")
   private String lastName = null;
 
-  @JsonProperty("email")
   private String email = null;
 
   public UserProfileDto id(String id) {
@@ -33,10 +36,11 @@ public class UserProfileDto   {
   /**
    * The id of the user.
    * @return id
-   **/
-  @Schema(description = "The id of the user.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the user.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -52,10 +56,11 @@ public class UserProfileDto   {
   /**
    * The first name of the user.
    * @return firstName
-   **/
-  @Schema(description = "The first name of the user.")
+  */
   
-    public String getFirstName() {
+  @Schema(name = "firstName", description = "The first name of the user.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("firstName")
+  public String getFirstName() {
     return firstName;
   }
 
@@ -71,10 +76,11 @@ public class UserProfileDto   {
   /**
    * The first name of the user.
    * @return lastName
-   **/
-  @Schema(description = "The first name of the user.")
+  */
   
-    public String getLastName() {
+  @Schema(name = "lastName", description = "The first name of the user.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("lastName")
+  public String getLastName() {
     return lastName;
   }
 
@@ -90,17 +96,17 @@ public class UserProfileDto   {
   /**
    * The email of the user.
    * @return email
-   **/
-  @Schema(description = "The email of the user.")
+  */
   
-    public String getEmail() {
+  @Schema(name = "email", description = "The email of the user.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("email")
+  public String getEmail() {
     return email;
   }
 
   public void setEmail(String email) {
     this.email = email;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -126,7 +132,6 @@ public class UserProfileDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserProfileDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
@@ -146,3 +151,4 @@ public class UserProfileDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

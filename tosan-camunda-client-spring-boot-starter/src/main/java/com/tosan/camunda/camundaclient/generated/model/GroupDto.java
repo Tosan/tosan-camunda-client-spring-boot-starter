@@ -1,25 +1,29 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * GroupDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class GroupDto {
 
-public class GroupDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("name")
   private String name = null;
 
-  @JsonProperty("type")
   private String type = null;
 
   public GroupDto id(String id) {
@@ -30,10 +34,11 @@ public class GroupDto   {
   /**
    * The id of the group.
    * @return id
-   **/
-  @Schema(description = "The id of the group.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the group.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -49,10 +54,11 @@ public class GroupDto   {
   /**
    * The name of the group.
    * @return name
-   **/
-  @Schema(description = "The name of the group.")
+  */
   
-    public String getName() {
+  @Schema(name = "name", description = "The name of the group.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
     return name;
   }
 
@@ -68,17 +74,17 @@ public class GroupDto   {
   /**
    * The type of the group.
    * @return type
-   **/
-  @Schema(description = "The type of the group.")
+  */
   
-    public String getType() {
+  @Schema(name = "type", description = "The type of the group.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("type")
+  public String getType() {
     return type;
   }
 
   public void setType(String type) {
     this.type = type;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -103,7 +109,6 @@ public class GroupDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GroupDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -122,3 +127,4 @@ public class GroupDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

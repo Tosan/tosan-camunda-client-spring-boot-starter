@@ -1,34 +1,36 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * AuthenticationResult
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class AuthenticationResult {
 
-public class AuthenticationResult   {
-  @JsonProperty("authenticatedUser")
   private String authenticatedUser = null;
 
-  @JsonProperty("isAuthenticated")
   private Boolean isAuthenticated = null;
 
-  @JsonProperty("tenants")
   @Valid
-  private List<String> tenants = null;
+  private List<String> tenants;
 
-  @JsonProperty("groups")
   @Valid
-  private List<String> groups = null;
+  private List<String> groups;
 
   public AuthenticationResult authenticatedUser(String authenticatedUser) {
     this.authenticatedUser = authenticatedUser;
@@ -38,10 +40,11 @@ public class AuthenticationResult   {
   /**
    * An id of authenticated user.
    * @return authenticatedUser
-   **/
-  @Schema(description = "An id of authenticated user.")
+  */
   
-    public String getAuthenticatedUser() {
+  @Schema(name = "authenticatedUser", description = "An id of authenticated user.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("authenticatedUser")
+  public String getAuthenticatedUser() {
     return authenticatedUser;
   }
 
@@ -57,10 +60,11 @@ public class AuthenticationResult   {
   /**
    * A flag indicating if user is authenticated.
    * @return isAuthenticated
-   **/
-  @Schema(description = "A flag indicating if user is authenticated.")
+  */
   
-    public Boolean isIsAuthenticated() {
+  @Schema(name = "isAuthenticated", description = "A flag indicating if user is authenticated.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("isAuthenticated")
+  public Boolean getIsAuthenticated() {
     return isAuthenticated;
   }
 
@@ -84,10 +88,11 @@ public class AuthenticationResult   {
   /**
    * Will be null.
    * @return tenants
-   **/
-  @Schema(description = "Will be null.")
+  */
   
-    public List<String> getTenants() {
+  @Schema(name = "tenants", description = "Will be null.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenants")
+  public List<String> getTenants() {
     return tenants;
   }
 
@@ -111,17 +116,17 @@ public class AuthenticationResult   {
   /**
    * Will be null.
    * @return groups
-   **/
-  @Schema(description = "Will be null.")
+  */
   
-    public List<String> getGroups() {
+  @Schema(name = "groups", description = "Will be null.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("groups")
+  public List<String> getGroups() {
     return groups;
   }
 
   public void setGroups(List<String> groups) {
     this.groups = groups;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -147,7 +152,6 @@ public class AuthenticationResult   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthenticationResult {\n");
-    
     sb.append("    authenticatedUser: ").append(toIndentedString(authenticatedUser)).append("\n");
     sb.append("    isAuthenticated: ").append(toIndentedString(isAuthenticated)).append("\n");
     sb.append("    tenants: ").append(toIndentedString(tenants)).append("\n");
@@ -167,3 +171,4 @@ public class AuthenticationResult   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

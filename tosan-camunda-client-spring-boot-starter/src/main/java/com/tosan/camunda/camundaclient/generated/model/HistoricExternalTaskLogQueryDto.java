@@ -1,86 +1,73 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.HistoricExternalTaskLogQueryDtoSortingInner;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A Historic External Task Log instance query which defines a list of Historic External Task Log instances
  */
-@Schema(description = "A Historic External Task Log instance query which defines a list of Historic External Task Log instances")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "HistoricExternalTaskLogQueryDto", description = "A Historic External Task Log instance query which defines a list of Historic External Task Log instances")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricExternalTaskLogQueryDto {
 
-public class HistoricExternalTaskLogQueryDto   {
-  @JsonProperty("logId")
   private String logId = null;
 
-  @JsonProperty("externalTaskId")
   private String externalTaskId = null;
 
-  @JsonProperty("topicName")
   private String topicName = null;
 
-  @JsonProperty("workerId")
   private String workerId = null;
 
-  @JsonProperty("errorMessage")
   private String errorMessage = null;
 
-  @JsonProperty("activityIdIn")
   @Valid
-  private List<String> activityIdIn = null;
+  private List<String> activityIdIn;
 
-  @JsonProperty("activityInstanceIdIn")
   @Valid
-  private List<String> activityInstanceIdIn = null;
+  private List<String> activityInstanceIdIn;
 
-  @JsonProperty("executionIdIn")
   @Valid
-  private List<String> executionIdIn = null;
+  private List<String> executionIdIn;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("withoutTenantId")
   private Boolean withoutTenantId = null;
 
-  @JsonProperty("priorityLowerThanOrEquals")
   private Long priorityLowerThanOrEquals = null;
 
-  @JsonProperty("priorityHigherThanOrEquals")
   private Long priorityHigherThanOrEquals = null;
 
-  @JsonProperty("creationLog")
   private Boolean creationLog = null;
 
-  @JsonProperty("failureLog")
   private Boolean failureLog = null;
 
-  @JsonProperty("successLog")
   private Boolean successLog = null;
 
-  @JsonProperty("deletionLog")
   private Boolean deletionLog = null;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<HistoricExternalTaskLogQueryDtoSorting> sorting = null;
+  private List<@Valid HistoricExternalTaskLogQueryDtoSortingInner> sorting;
 
   public HistoricExternalTaskLogQueryDto logId(String logId) {
     this.logId = logId;
@@ -90,10 +77,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Filter by historic external task log id.
    * @return logId
-   **/
-  @Schema(description = "Filter by historic external task log id.")
+  */
   
-    public String getLogId() {
+  @Schema(name = "logId", description = "Filter by historic external task log id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("logId")
+  public String getLogId() {
     return logId;
   }
 
@@ -109,10 +97,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Filter by external task id.
    * @return externalTaskId
-   **/
-  @Schema(description = "Filter by external task id.")
+  */
   
-    public String getExternalTaskId() {
+  @Schema(name = "externalTaskId", description = "Filter by external task id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("externalTaskId")
+  public String getExternalTaskId() {
     return externalTaskId;
   }
 
@@ -128,10 +117,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Filter by an external task topic.
    * @return topicName
-   **/
-  @Schema(description = "Filter by an external task topic.")
+  */
   
-    public String getTopicName() {
+  @Schema(name = "topicName", description = "Filter by an external task topic.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("topicName")
+  public String getTopicName() {
     return topicName;
   }
 
@@ -147,10 +137,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Filter by the id of the worker that the task was most recently locked by.
    * @return workerId
-   **/
-  @Schema(description = "Filter by the id of the worker that the task was most recently locked by.")
+  */
   
-    public String getWorkerId() {
+  @Schema(name = "workerId", description = "Filter by the id of the worker that the task was most recently locked by.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("workerId")
+  public String getWorkerId() {
     return workerId;
   }
 
@@ -166,10 +157,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Filter by external task exception message.
    * @return errorMessage
-   **/
-  @Schema(description = "Filter by external task exception message.")
+  */
   
-    public String getErrorMessage() {
+  @Schema(name = "errorMessage", description = "Filter by external task exception message.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("errorMessage")
+  public String getErrorMessage() {
     return errorMessage;
   }
 
@@ -193,10 +185,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Only include historic external task logs which belong to one of the passed activity ids.
    * @return activityIdIn
-   **/
-  @Schema(description = "Only include historic external task logs which belong to one of the passed activity ids.")
+  */
   
-    public List<String> getActivityIdIn() {
+  @Schema(name = "activityIdIn", description = "Only include historic external task logs which belong to one of the passed activity ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityIdIn")
+  public List<String> getActivityIdIn() {
     return activityIdIn;
   }
 
@@ -220,10 +213,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Only include historic external task logs which belong to one of the passed activity instance ids.
    * @return activityInstanceIdIn
-   **/
-  @Schema(description = "Only include historic external task logs which belong to one of the passed activity instance ids.")
+  */
   
-    public List<String> getActivityInstanceIdIn() {
+  @Schema(name = "activityInstanceIdIn", description = "Only include historic external task logs which belong to one of the passed activity instance ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityInstanceIdIn")
+  public List<String> getActivityInstanceIdIn() {
     return activityInstanceIdIn;
   }
 
@@ -247,10 +241,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Only include historic external task logs which belong to one of the passed execution ids.
    * @return executionIdIn
-   **/
-  @Schema(description = "Only include historic external task logs which belong to one of the passed execution ids.")
+  */
   
-    public List<String> getExecutionIdIn() {
+  @Schema(name = "executionIdIn", description = "Only include historic external task logs which belong to one of the passed execution ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionIdIn")
+  public List<String> getExecutionIdIn() {
     return executionIdIn;
   }
 
@@ -266,10 +261,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Filter by process instance id.
    * @return processInstanceId
-   **/
-  @Schema(description = "Filter by process instance id.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "Filter by process instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -285,10 +281,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Filter by process definition id.
    * @return processDefinitionId
-   **/
-  @Schema(description = "Filter by process definition id.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "Filter by process definition id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -304,10 +301,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Filter by process definition key.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "Filter by process definition key.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "Filter by process definition key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -331,10 +329,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Only include historic external task log entries which belong to one of the passed and comma-separated tenant ids.
    * @return tenantIdIn
-   **/
-  @Schema(description = "Only include historic external task log entries which belong to one of the passed and comma-separated tenant ids.")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Only include historic external task log entries which belong to one of the passed and comma-separated tenant ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -350,10 +349,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Only include historic external task log entries that belong to no tenant. Value may only be `true`, as `false` is the default behavior.
    * @return withoutTenantId
-   **/
-  @Schema(description = "Only include historic external task log entries that belong to no tenant. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "Only include historic external task log entries that belong to no tenant. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
@@ -369,10 +369,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Only include logs for which the associated external task had a priority lower than or equal to the given value. Value must be a valid `long` value.
    * @return priorityLowerThanOrEquals
-   **/
-  @Schema(description = "Only include logs for which the associated external task had a priority lower than or equal to the given value. Value must be a valid `long` value.")
+  */
   
-    public Long getPriorityLowerThanOrEquals() {
+  @Schema(name = "priorityLowerThanOrEquals", description = "Only include logs for which the associated external task had a priority lower than or equal to the given value. Value must be a valid `long` value.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("priorityLowerThanOrEquals")
+  public Long getPriorityLowerThanOrEquals() {
     return priorityLowerThanOrEquals;
   }
 
@@ -388,10 +389,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Only include logs for which the associated external task had a priority higher than or equal to the given value. Value must be a valid `long` value.
    * @return priorityHigherThanOrEquals
-   **/
-  @Schema(description = "Only include logs for which the associated external task had a priority higher than or equal to the given value. Value must be a valid `long` value.")
+  */
   
-    public Long getPriorityHigherThanOrEquals() {
+  @Schema(name = "priorityHigherThanOrEquals", description = "Only include logs for which the associated external task had a priority higher than or equal to the given value. Value must be a valid `long` value.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("priorityHigherThanOrEquals")
+  public Long getPriorityHigherThanOrEquals() {
     return priorityHigherThanOrEquals;
   }
 
@@ -407,10 +409,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Only include creation logs. Value may only be `true`, as `false` is the default behavior.
    * @return creationLog
-   **/
-  @Schema(description = "Only include creation logs. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isCreationLog() {
+  @Schema(name = "creationLog", description = "Only include creation logs. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("creationLog")
+  public Boolean getCreationLog() {
     return creationLog;
   }
 
@@ -426,10 +429,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Only include failure logs. Value may only be `true`, as `false` is the default behavior.
    * @return failureLog
-   **/
-  @Schema(description = "Only include failure logs. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isFailureLog() {
+  @Schema(name = "failureLog", description = "Only include failure logs. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("failureLog")
+  public Boolean getFailureLog() {
     return failureLog;
   }
 
@@ -445,10 +449,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Only include success logs. Value may only be `true`, as `false` is the default behavior.
    * @return successLog
-   **/
-  @Schema(description = "Only include success logs. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isSuccessLog() {
+  @Schema(name = "successLog", description = "Only include success logs. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("successLog")
+  public Boolean getSuccessLog() {
     return successLog;
   }
 
@@ -464,10 +469,11 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * Only include deletion logs. Value may only be `true`, as `false` is the default behavior.
    * @return deletionLog
-   **/
-  @Schema(description = "Only include deletion logs. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isDeletionLog() {
+  @Schema(name = "deletionLog", description = "Only include deletion logs. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deletionLog")
+  public Boolean getDeletionLog() {
     return deletionLog;
   }
 
@@ -475,12 +481,12 @@ public class HistoricExternalTaskLogQueryDto   {
     this.deletionLog = deletionLog;
   }
 
-  public HistoricExternalTaskLogQueryDto sorting(List<HistoricExternalTaskLogQueryDtoSorting> sorting) {
+  public HistoricExternalTaskLogQueryDto sorting(List<@Valid HistoricExternalTaskLogQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public HistoricExternalTaskLogQueryDto addSortingItem(HistoricExternalTaskLogQueryDtoSorting sortingItem) {
+  public HistoricExternalTaskLogQueryDto addSortingItem(HistoricExternalTaskLogQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -491,17 +497,17 @@ public class HistoricExternalTaskLogQueryDto   {
   /**
    * An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Sorting has no effect for `count` endpoints.
    * @return sorting
-   **/
-  @Schema(description = "An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Sorting has no effect for `count` endpoints.")
-      @Valid
-    public List<HistoricExternalTaskLogQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Sorting has no effect for `count` endpoints.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid HistoricExternalTaskLogQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<HistoricExternalTaskLogQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid HistoricExternalTaskLogQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -543,7 +549,6 @@ public class HistoricExternalTaskLogQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricExternalTaskLogQueryDto {\n");
-    
     sb.append("    logId: ").append(toIndentedString(logId)).append("\n");
     sb.append("    externalTaskId: ").append(toIndentedString(externalTaskId)).append("\n");
     sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");
@@ -579,3 +584,4 @@ public class HistoricExternalTaskLogQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

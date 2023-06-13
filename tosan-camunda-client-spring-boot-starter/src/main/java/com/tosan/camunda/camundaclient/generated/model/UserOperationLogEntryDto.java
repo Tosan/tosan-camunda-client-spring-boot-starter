@@ -1,96 +1,79 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * UserOperationLogEntryDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class UserOperationLogEntryDto {
 
-public class UserOperationLogEntryDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("userId")
   private String userId = null;
 
-  @JsonProperty("timestamp")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime timestamp = null;
 
-  @JsonProperty("operationId")
   private String operationId = null;
 
-  @JsonProperty("operationType")
   private String operationType = null;
 
-  @JsonProperty("entityType")
   private String entityType = null;
 
-  @JsonProperty("category")
   private String category = null;
 
-  @JsonProperty("annotation")
   private String annotation = null;
 
-  @JsonProperty("property")
   private String property = null;
 
-  @JsonProperty("orgValue")
   private String orgValue = null;
 
-  @JsonProperty("newValue")
   private String newValue = null;
 
-  @JsonProperty("deploymentId")
   private String deploymentId = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("caseDefinitionId")
   private String caseDefinitionId = null;
 
-  @JsonProperty("caseInstanceId")
   private String caseInstanceId = null;
 
-  @JsonProperty("caseExecutionId")
   private String caseExecutionId = null;
 
-  @JsonProperty("taskId")
   private String taskId = null;
 
-  @JsonProperty("externalTaskId")
   private String externalTaskId = null;
 
-  @JsonProperty("batchId")
   private String batchId = null;
 
-  @JsonProperty("jobId")
   private String jobId = null;
 
-  @JsonProperty("jobDefinitionId")
   private String jobDefinitionId = null;
 
-  @JsonProperty("removalTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime removalTime = null;
 
-  @JsonProperty("rootProcessInstanceId")
   private String rootProcessInstanceId = null;
 
   public UserOperationLogEntryDto id(String id) {
@@ -101,10 +84,11 @@ public class UserOperationLogEntryDto   {
   /**
    * The unique identifier of this log entry.
    * @return id
-   **/
-  @Schema(description = "The unique identifier of this log entry.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The unique identifier of this log entry.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -120,10 +104,11 @@ public class UserOperationLogEntryDto   {
   /**
    * The user who performed this operation.
    * @return userId
-   **/
-  @Schema(description = "The user who performed this operation.")
+  */
   
-    public String getUserId() {
+  @Schema(name = "userId", description = "The user who performed this operation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("userId")
+  public String getUserId() {
     return userId;
   }
 
@@ -139,11 +124,11 @@ public class UserOperationLogEntryDto   {
   /**
    * Timestamp of this operation.
    * @return timestamp
-   **/
-  @Schema(description = "Timestamp of this operation.")
-  
-    @Valid
-    public OffsetDateTime getTimestamp() {
+  */
+  @Valid 
+  @Schema(name = "timestamp", description = "Timestamp of this operation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("timestamp")
+  public OffsetDateTime getTimestamp() {
     return timestamp;
   }
 
@@ -159,10 +144,11 @@ public class UserOperationLogEntryDto   {
   /**
    * The unique identifier of this operation. A composite operation that changes multiple properties has a common `operationId`.
    * @return operationId
-   **/
-  @Schema(description = "The unique identifier of this operation. A composite operation that changes multiple properties has a common `operationId`.")
+  */
   
-    public String getOperationId() {
+  @Schema(name = "operationId", description = "The unique identifier of this operation. A composite operation that changes multiple properties has a common `operationId`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("operationId")
+  public String getOperationId() {
     return operationId;
   }
 
@@ -178,10 +164,11 @@ public class UserOperationLogEntryDto   {
   /**
    * The type of this operation, e.g., `Assign`, `Claim` and so on.
    * @return operationType
-   **/
-  @Schema(description = "The type of this operation, e.g., `Assign`, `Claim` and so on.")
+  */
   
-    public String getOperationType() {
+  @Schema(name = "operationType", description = "The type of this operation, e.g., `Assign`, `Claim` and so on.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("operationType")
+  public String getOperationType() {
     return operationType;
   }
 
@@ -197,10 +184,11 @@ public class UserOperationLogEntryDto   {
   /**
    * The type of the entity on which this operation was executed, e.g., `Task` or `Attachment`.
    * @return entityType
-   **/
-  @Schema(description = "The type of the entity on which this operation was executed, e.g., `Task` or `Attachment`.")
+  */
   
-    public String getEntityType() {
+  @Schema(name = "entityType", description = "The type of the entity on which this operation was executed, e.g., `Task` or `Attachment`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("entityType")
+  public String getEntityType() {
     return entityType;
   }
 
@@ -216,10 +204,11 @@ public class UserOperationLogEntryDto   {
   /**
    * The name of the category this operation was associated with, e.g., `TaskWorker` or `Admin`.
    * @return category
-   **/
-  @Schema(description = "The name of the category this operation was associated with, e.g., `TaskWorker` or `Admin`.")
+  */
   
-    public String getCategory() {
+  @Schema(name = "category", description = "The name of the category this operation was associated with, e.g., `TaskWorker` or `Admin`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("category")
+  public String getCategory() {
     return category;
   }
 
@@ -235,10 +224,11 @@ public class UserOperationLogEntryDto   {
   /**
    * An arbitrary annotation set by a user for auditing reasons.
    * @return annotation
-   **/
-  @Schema(description = "An arbitrary annotation set by a user for auditing reasons.")
+  */
   
-    public String getAnnotation() {
+  @Schema(name = "annotation", description = "An arbitrary annotation set by a user for auditing reasons.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("annotation")
+  public String getAnnotation() {
     return annotation;
   }
 
@@ -254,10 +244,11 @@ public class UserOperationLogEntryDto   {
   /**
    * The property changed by this operation.
    * @return property
-   **/
-  @Schema(description = "The property changed by this operation.")
+  */
   
-    public String getProperty() {
+  @Schema(name = "property", description = "The property changed by this operation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("property")
+  public String getProperty() {
     return property;
   }
 
@@ -273,10 +264,11 @@ public class UserOperationLogEntryDto   {
   /**
    * The original value of the changed property.
    * @return orgValue
-   **/
-  @Schema(description = "The original value of the changed property.")
+  */
   
-    public String getOrgValue() {
+  @Schema(name = "orgValue", description = "The original value of the changed property.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("orgValue")
+  public String getOrgValue() {
     return orgValue;
   }
 
@@ -292,10 +284,11 @@ public class UserOperationLogEntryDto   {
   /**
    * The new value of the changed property.
    * @return newValue
-   **/
-  @Schema(description = "The new value of the changed property.")
+  */
   
-    public String getNewValue() {
+  @Schema(name = "newValue", description = "The new value of the changed property.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("newValue")
+  public String getNewValue() {
     return newValue;
   }
 
@@ -311,10 +304,11 @@ public class UserOperationLogEntryDto   {
   /**
    * If not `null`, the operation is restricted to entities in relation to this deployment.
    * @return deploymentId
-   **/
-  @Schema(description = "If not `null`, the operation is restricted to entities in relation to this deployment.")
+  */
   
-    public String getDeploymentId() {
+  @Schema(name = "deploymentId", description = "If not `null`, the operation is restricted to entities in relation to this deployment.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deploymentId")
+  public String getDeploymentId() {
     return deploymentId;
   }
 
@@ -330,10 +324,11 @@ public class UserOperationLogEntryDto   {
   /**
    * If not `null`, the operation is restricted to entities in relation to this process definition.
    * @return processDefinitionId
-   **/
-  @Schema(description = "If not `null`, the operation is restricted to entities in relation to this process definition.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "If not `null`, the operation is restricted to entities in relation to this process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -349,10 +344,11 @@ public class UserOperationLogEntryDto   {
   /**
    * If not `null`, the operation is restricted to entities in relation to process definitions with this key.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "If not `null`, the operation is restricted to entities in relation to process definitions with this key.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "If not `null`, the operation is restricted to entities in relation to process definitions with this key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -368,10 +364,11 @@ public class UserOperationLogEntryDto   {
   /**
    * If not `null`, the operation is restricted to entities in relation to this process instance.
    * @return processInstanceId
-   **/
-  @Schema(description = "If not `null`, the operation is restricted to entities in relation to this process instance.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "If not `null`, the operation is restricted to entities in relation to this process instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -387,10 +384,11 @@ public class UserOperationLogEntryDto   {
   /**
    * If not `null`, the operation is restricted to entities in relation to this execution.
    * @return executionId
-   **/
-  @Schema(description = "If not `null`, the operation is restricted to entities in relation to this execution.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "If not `null`, the operation is restricted to entities in relation to this execution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -406,10 +404,11 @@ public class UserOperationLogEntryDto   {
   /**
    * If not `null`, the operation is restricted to entities in relation to this case definition.
    * @return caseDefinitionId
-   **/
-  @Schema(description = "If not `null`, the operation is restricted to entities in relation to this case definition.")
+  */
   
-    public String getCaseDefinitionId() {
+  @Schema(name = "caseDefinitionId", description = "If not `null`, the operation is restricted to entities in relation to this case definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseDefinitionId")
+  public String getCaseDefinitionId() {
     return caseDefinitionId;
   }
 
@@ -425,10 +424,11 @@ public class UserOperationLogEntryDto   {
   /**
    * If not `null`, the operation is restricted to entities in relation to this case instance.
    * @return caseInstanceId
-   **/
-  @Schema(description = "If not `null`, the operation is restricted to entities in relation to this case instance.")
+  */
   
-    public String getCaseInstanceId() {
+  @Schema(name = "caseInstanceId", description = "If not `null`, the operation is restricted to entities in relation to this case instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceId")
+  public String getCaseInstanceId() {
     return caseInstanceId;
   }
 
@@ -444,10 +444,11 @@ public class UserOperationLogEntryDto   {
   /**
    * If not `null`, the operation is restricted to entities in relation to this case execution.
    * @return caseExecutionId
-   **/
-  @Schema(description = "If not `null`, the operation is restricted to entities in relation to this case execution.")
+  */
   
-    public String getCaseExecutionId() {
+  @Schema(name = "caseExecutionId", description = "If not `null`, the operation is restricted to entities in relation to this case execution.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseExecutionId")
+  public String getCaseExecutionId() {
     return caseExecutionId;
   }
 
@@ -463,10 +464,11 @@ public class UserOperationLogEntryDto   {
   /**
    * If not `null`, the operation is restricted to entities in relation to this task.
    * @return taskId
-   **/
-  @Schema(description = "If not `null`, the operation is restricted to entities in relation to this task.")
+  */
   
-    public String getTaskId() {
+  @Schema(name = "taskId", description = "If not `null`, the operation is restricted to entities in relation to this task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskId")
+  public String getTaskId() {
     return taskId;
   }
 
@@ -482,10 +484,11 @@ public class UserOperationLogEntryDto   {
   /**
    * If not `null`, the operation is restricted to entities in relation to this external task.
    * @return externalTaskId
-   **/
-  @Schema(description = "If not `null`, the operation is restricted to entities in relation to this external task.")
+  */
   
-    public String getExternalTaskId() {
+  @Schema(name = "externalTaskId", description = "If not `null`, the operation is restricted to entities in relation to this external task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("externalTaskId")
+  public String getExternalTaskId() {
     return externalTaskId;
   }
 
@@ -501,10 +504,11 @@ public class UserOperationLogEntryDto   {
   /**
    * If not `null`, the operation is restricted to entities in relation to this batch.
    * @return batchId
-   **/
-  @Schema(description = "If not `null`, the operation is restricted to entities in relation to this batch.")
+  */
   
-    public String getBatchId() {
+  @Schema(name = "batchId", description = "If not `null`, the operation is restricted to entities in relation to this batch.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("batchId")
+  public String getBatchId() {
     return batchId;
   }
 
@@ -520,10 +524,11 @@ public class UserOperationLogEntryDto   {
   /**
    * If not `null`, the operation is restricted to entities in relation to this job.
    * @return jobId
-   **/
-  @Schema(description = "If not `null`, the operation is restricted to entities in relation to this job.")
+  */
   
-    public String getJobId() {
+  @Schema(name = "jobId", description = "If not `null`, the operation is restricted to entities in relation to this job.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobId")
+  public String getJobId() {
     return jobId;
   }
 
@@ -539,10 +544,11 @@ public class UserOperationLogEntryDto   {
   /**
    * If not `null`, the operation is restricted to entities in relation to this job definition.
    * @return jobDefinitionId
-   **/
-  @Schema(description = "If not `null`, the operation is restricted to entities in relation to this job definition.")
+  */
   
-    public String getJobDefinitionId() {
+  @Schema(name = "jobDefinitionId", description = "If not `null`, the operation is restricted to entities in relation to this job definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobDefinitionId")
+  public String getJobDefinitionId() {
     return jobDefinitionId;
   }
 
@@ -558,11 +564,11 @@ public class UserOperationLogEntryDto   {
   /**
    * The time after which the entry should be removed by the History Cleanup job. [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return removalTime
-   **/
-  @Schema(description = "The time after which the entry should be removed by the History Cleanup job. [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getRemovalTime() {
+  */
+  @Valid 
+  @Schema(name = "removalTime", description = "The time after which the entry should be removed by the History Cleanup job. [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("removalTime")
+  public OffsetDateTime getRemovalTime() {
     return removalTime;
   }
 
@@ -578,17 +584,17 @@ public class UserOperationLogEntryDto   {
   /**
    * The process instance id of the root process instance that initiated the process containing this entry.
    * @return rootProcessInstanceId
-   **/
-  @Schema(description = "The process instance id of the root process instance that initiated the process containing this entry.")
+  */
   
-    public String getRootProcessInstanceId() {
+  @Schema(name = "rootProcessInstanceId", description = "The process instance id of the root process instance that initiated the process containing this entry.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("rootProcessInstanceId")
+  public String getRootProcessInstanceId() {
     return rootProcessInstanceId;
   }
 
   public void setRootProcessInstanceId(String rootProcessInstanceId) {
     this.rootProcessInstanceId = rootProcessInstanceId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -636,7 +642,6 @@ public class UserOperationLogEntryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserOperationLogEntryDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
@@ -678,3 +683,4 @@ public class UserOperationLogEntryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

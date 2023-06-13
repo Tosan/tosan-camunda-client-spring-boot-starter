@@ -1,39 +1,41 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.HistoricProcessInstanceQueryDto;
+import com.tosan.camunda.camundaclient.generated.model.ProcessInstanceQueryDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * DeleteProcessInstancesDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class DeleteProcessInstancesDto {
 
-public class DeleteProcessInstancesDto   {
-  @JsonProperty("processInstanceIds")
   @Valid
-  private List<String> processInstanceIds = null;
+  private List<String> processInstanceIds;
 
-  @JsonProperty("deleteReason")
   private String deleteReason = null;
 
-  @JsonProperty("skipCustomListeners")
   private Boolean skipCustomListeners = null;
 
-  @JsonProperty("skipSubprocesses")
   private Boolean skipSubprocesses = null;
 
-  @JsonProperty("processInstanceQuery")
-  private ProcessInstanceQueryDto processInstanceQuery = null;
+  private ProcessInstanceQueryDto processInstanceQuery;
 
-  @JsonProperty("historicProcessInstanceQuery")
-  private HistoricProcessInstanceQueryDto historicProcessInstanceQuery = null;
+  private HistoricProcessInstanceQueryDto historicProcessInstanceQuery;
 
   public DeleteProcessInstancesDto processInstanceIds(List<String> processInstanceIds) {
     this.processInstanceIds = processInstanceIds;
@@ -51,10 +53,11 @@ public class DeleteProcessInstancesDto   {
   /**
    * A list process instance ids to delete.
    * @return processInstanceIds
-   **/
-  @Schema(description = "A list process instance ids to delete.")
+  */
   
-    public List<String> getProcessInstanceIds() {
+  @Schema(name = "processInstanceIds", description = "A list process instance ids to delete.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceIds")
+  public List<String> getProcessInstanceIds() {
     return processInstanceIds;
   }
 
@@ -70,10 +73,11 @@ public class DeleteProcessInstancesDto   {
   /**
    * A string with delete reason.
    * @return deleteReason
-   **/
-  @Schema(description = "A string with delete reason.")
+  */
   
-    public String getDeleteReason() {
+  @Schema(name = "deleteReason", description = "A string with delete reason.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deleteReason")
+  public String getDeleteReason() {
     return deleteReason;
   }
 
@@ -89,10 +93,11 @@ public class DeleteProcessInstancesDto   {
   /**
    * Skip execution listener invocation for activities that are started or ended as part of this request.
    * @return skipCustomListeners
-   **/
-  @Schema(description = "Skip execution listener invocation for activities that are started or ended as part of this request.")
+  */
   
-    public Boolean isSkipCustomListeners() {
+  @Schema(name = "skipCustomListeners", description = "Skip execution listener invocation for activities that are started or ended as part of this request.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("skipCustomListeners")
+  public Boolean getSkipCustomListeners() {
     return skipCustomListeners;
   }
 
@@ -108,10 +113,11 @@ public class DeleteProcessInstancesDto   {
   /**
    * Skip deletion of the subprocesses related to deleted processes as part of this request.
    * @return skipSubprocesses
-   **/
-  @Schema(description = "Skip deletion of the subprocesses related to deleted processes as part of this request.")
+  */
   
-    public Boolean isSkipSubprocesses() {
+  @Schema(name = "skipSubprocesses", description = "Skip deletion of the subprocesses related to deleted processes as part of this request.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("skipSubprocesses")
+  public Boolean getSkipSubprocesses() {
     return skipSubprocesses;
   }
 
@@ -127,11 +133,11 @@ public class DeleteProcessInstancesDto   {
   /**
    * Get processInstanceQuery
    * @return processInstanceQuery
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public ProcessInstanceQueryDto getProcessInstanceQuery() {
+  */
+  @Valid 
+  @Schema(name = "processInstanceQuery", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceQuery")
+  public ProcessInstanceQueryDto getProcessInstanceQuery() {
     return processInstanceQuery;
   }
 
@@ -147,18 +153,17 @@ public class DeleteProcessInstancesDto   {
   /**
    * Get historicProcessInstanceQuery
    * @return historicProcessInstanceQuery
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public HistoricProcessInstanceQueryDto getHistoricProcessInstanceQuery() {
+  */
+  @Valid 
+  @Schema(name = "historicProcessInstanceQuery", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historicProcessInstanceQuery")
+  public HistoricProcessInstanceQueryDto getHistoricProcessInstanceQuery() {
     return historicProcessInstanceQuery;
   }
 
   public void setHistoricProcessInstanceQuery(HistoricProcessInstanceQueryDto historicProcessInstanceQuery) {
     this.historicProcessInstanceQuery = historicProcessInstanceQuery;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -186,7 +191,6 @@ public class DeleteProcessInstancesDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteProcessInstancesDto {\n");
-    
     sb.append("    processInstanceIds: ").append(toIndentedString(processInstanceIds)).append("\n");
     sb.append("    deleteReason: ").append(toIndentedString(deleteReason)).append("\n");
     sb.append("    skipCustomListeners: ").append(toIndentedString(skipCustomListeners)).append("\n");
@@ -208,3 +212,4 @@ public class DeleteProcessInstancesDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

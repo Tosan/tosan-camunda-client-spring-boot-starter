@@ -1,28 +1,31 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * AuthorizationCheckResultDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class AuthorizationCheckResultDto {
 
-public class AuthorizationCheckResultDto   {
-  @JsonProperty("permissionName")
   private String permissionName = null;
 
-  @JsonProperty("resourceName")
   private String resourceName = null;
 
-  @JsonProperty("resourceId")
   private String resourceId = null;
 
-  @JsonProperty("isAuthorized")
   private Boolean isAuthorized = null;
 
   public AuthorizationCheckResultDto permissionName(String permissionName) {
@@ -33,10 +36,11 @@ public class AuthorizationCheckResultDto   {
   /**
    * Name of the permission which was checked.
    * @return permissionName
-   **/
-  @Schema(description = "Name of the permission which was checked.")
+  */
   
-    public String getPermissionName() {
+  @Schema(name = "permissionName", description = "Name of the permission which was checked.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("permissionName")
+  public String getPermissionName() {
     return permissionName;
   }
 
@@ -52,10 +56,11 @@ public class AuthorizationCheckResultDto   {
   /**
    * The name of the resource for which the permission check was performed.
    * @return resourceName
-   **/
-  @Schema(description = "The name of the resource for which the permission check was performed.")
+  */
   
-    public String getResourceName() {
+  @Schema(name = "resourceName", description = "The name of the resource for which the permission check was performed.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resourceName")
+  public String getResourceName() {
     return resourceName;
   }
 
@@ -71,10 +76,11 @@ public class AuthorizationCheckResultDto   {
   /**
    * The id of the resource for which the permission check was performed.
    * @return resourceId
-   **/
-  @Schema(description = "The id of the resource for which the permission check was performed.")
+  */
   
-    public String getResourceId() {
+  @Schema(name = "resourceId", description = "The id of the resource for which the permission check was performed.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resourceId")
+  public String getResourceId() {
     return resourceId;
   }
 
@@ -90,17 +96,17 @@ public class AuthorizationCheckResultDto   {
   /**
    * True / false for isAuthorized.
    * @return isAuthorized
-   **/
-  @Schema(description = "True / false for isAuthorized.")
+  */
   
-    public Boolean isIsAuthorized() {
+  @Schema(name = "isAuthorized", description = "True / false for isAuthorized.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("isAuthorized")
+  public Boolean getIsAuthorized() {
     return isAuthorized;
   }
 
   public void setIsAuthorized(Boolean isAuthorized) {
     this.isAuthorized = isAuthorized;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -126,7 +132,6 @@ public class AuthorizationCheckResultDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthorizationCheckResultDto {\n");
-    
     sb.append("    permissionName: ").append(toIndentedString(permissionName)).append("\n");
     sb.append("    resourceName: ").append(toIndentedString(resourceName)).append("\n");
     sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
@@ -146,3 +151,4 @@ public class AuthorizationCheckResultDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

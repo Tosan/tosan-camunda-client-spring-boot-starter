@@ -1,28 +1,31 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * CleanableHistoricBatchReportResultDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class CleanableHistoricBatchReportResultDto {
 
-public class CleanableHistoricBatchReportResultDto   {
-  @JsonProperty("batchType")
   private String batchType = null;
 
-  @JsonProperty("historyTimeToLive")
   private Integer historyTimeToLive = null;
 
-  @JsonProperty("finishedBatchesCount")
   private Long finishedBatchesCount = null;
 
-  @JsonProperty("cleanableBatchesCount")
   private Long cleanableBatchesCount = null;
 
   public CleanableHistoricBatchReportResultDto batchType(String batchType) {
@@ -33,10 +36,11 @@ public class CleanableHistoricBatchReportResultDto   {
   /**
    * The type of the batch operation.
    * @return batchType
-   **/
-  @Schema(description = "The type of the batch operation.")
+  */
   
-    public String getBatchType() {
+  @Schema(name = "batchType", description = "The type of the batch operation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("batchType")
+  public String getBatchType() {
     return batchType;
   }
 
@@ -52,10 +56,11 @@ public class CleanableHistoricBatchReportResultDto   {
   /**
    * The history time to live of the batch operation.
    * @return historyTimeToLive
-   **/
-  @Schema(description = "The history time to live of the batch operation.")
+  */
   
-    public Integer getHistoryTimeToLive() {
+  @Schema(name = "historyTimeToLive", description = "The history time to live of the batch operation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historyTimeToLive")
+  public Integer getHistoryTimeToLive() {
     return historyTimeToLive;
   }
 
@@ -71,10 +76,11 @@ public class CleanableHistoricBatchReportResultDto   {
   /**
    * The count of the finished batch operations.
    * @return finishedBatchesCount
-   **/
-  @Schema(description = "The count of the finished batch operations.")
+  */
   
-    public Long getFinishedBatchesCount() {
+  @Schema(name = "finishedBatchesCount", description = "The count of the finished batch operations.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("finishedBatchesCount")
+  public Long getFinishedBatchesCount() {
     return finishedBatchesCount;
   }
 
@@ -90,17 +96,17 @@ public class CleanableHistoricBatchReportResultDto   {
   /**
    * The count of the cleanable historic batch operations, referring to history time to live.
    * @return cleanableBatchesCount
-   **/
-  @Schema(description = "The count of the cleanable historic batch operations, referring to history time to live.")
+  */
   
-    public Long getCleanableBatchesCount() {
+  @Schema(name = "cleanableBatchesCount", description = "The count of the cleanable historic batch operations, referring to history time to live.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("cleanableBatchesCount")
+  public Long getCleanableBatchesCount() {
     return cleanableBatchesCount;
   }
 
   public void setCleanableBatchesCount(Long cleanableBatchesCount) {
     this.cleanableBatchesCount = cleanableBatchesCount;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -126,7 +132,6 @@ public class CleanableHistoricBatchReportResultDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CleanableHistoricBatchReportResultDto {\n");
-    
     sb.append("    batchType: ").append(toIndentedString(batchType)).append("\n");
     sb.append("    historyTimeToLive: ").append(toIndentedString(historyTimeToLive)).append("\n");
     sb.append("    finishedBatchesCount: ").append(toIndentedString(finishedBatchesCount)).append("\n");
@@ -146,3 +151,4 @@ public class CleanableHistoricBatchReportResultDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

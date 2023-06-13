@@ -1,24 +1,30 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.VariableValueDto;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * ExecutionTriggerDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ExecutionTriggerDto {
 
-public class ExecutionTriggerDto   {
-  @JsonProperty("variables")
   @Valid
-  private Map<String, VariableValueDto> variables = null;
+  private Map<String, VariableValueDto> variables;
 
   public ExecutionTriggerDto variables(Map<String, VariableValueDto> variables) {
     this.variables = variables;
@@ -36,17 +42,17 @@ public class ExecutionTriggerDto   {
   /**
    * A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.
    * @return variables
-   **/
-  @Schema(description = "A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.")
-      @Valid
-    public Map<String, VariableValueDto> getVariables() {
+  */
+  @Valid 
+  @Schema(name = "variables", description = "A JSON object containing variable key-value pairs. Each key is a variable name and each value a JSON variable value object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variables")
+  public Map<String, VariableValueDto> getVariables() {
     return variables;
   }
 
   public void setVariables(Map<String, VariableValueDto> variables) {
     this.variables = variables;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -69,7 +75,6 @@ public class ExecutionTriggerDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExecutionTriggerDto {\n");
-    
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -86,3 +91,4 @@ public class ExecutionTriggerDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

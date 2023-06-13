@@ -1,33 +1,36 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.TelemetryInternalsDto;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * TelemetryProductDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class TelemetryProductDto {
 
-public class TelemetryProductDto   {
-  @JsonProperty("name")
   private String name = null;
 
-  @JsonProperty("version")
   private String version = null;
 
-  @JsonProperty("edition")
   private String edition = null;
 
-  @JsonProperty("internals")
   @Valid
-  private Map<String, TelemetryInternalsDto> internals = null;
+  private Map<String, TelemetryInternalsDto> internals;
 
   public TelemetryProductDto name(String name) {
     this.name = name;
@@ -37,10 +40,11 @@ public class TelemetryProductDto   {
   /**
    * The name of the product (i.e., Camunda BPM Runtime).
    * @return name
-   **/
-  @Schema(description = "The name of the product (i.e., Camunda BPM Runtime).")
+  */
   
-    public String getName() {
+  @Schema(name = "name", description = "The name of the product (i.e., Camunda BPM Runtime).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
     return name;
   }
 
@@ -56,10 +60,11 @@ public class TelemetryProductDto   {
   /**
    * The version of the process engine (i.e., 7.X.Y).
    * @return version
-   **/
-  @Schema(description = "The version of the process engine (i.e., 7.X.Y).")
+  */
   
-    public String getVersion() {
+  @Schema(name = "version", description = "The version of the process engine (i.e., 7.X.Y).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("version")
+  public String getVersion() {
     return version;
   }
 
@@ -75,10 +80,11 @@ public class TelemetryProductDto   {
   /**
    * The edition of the product (i.e., either community or enterprise).
    * @return edition
-   **/
-  @Schema(description = "The edition of the product (i.e., either community or enterprise).")
+  */
   
-    public String getEdition() {
+  @Schema(name = "edition", description = "The edition of the product (i.e., either community or enterprise).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("edition")
+  public String getEdition() {
     return edition;
   }
 
@@ -102,17 +108,17 @@ public class TelemetryProductDto   {
   /**
    * Internal data and metrics collected by the product.
    * @return internals
-   **/
-  @Schema(description = "Internal data and metrics collected by the product.")
-      @Valid
-    public Map<String, TelemetryInternalsDto> getInternals() {
+  */
+  @Valid 
+  @Schema(name = "internals", description = "Internal data and metrics collected by the product.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("internals")
+  public Map<String, TelemetryInternalsDto> getInternals() {
     return internals;
   }
 
   public void setInternals(Map<String, TelemetryInternalsDto> internals) {
     this.internals = internals;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -138,7 +144,6 @@ public class TelemetryProductDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TelemetryProductDto {\n");
-    
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    edition: ").append(toIndentedString(edition)).append("\n");
@@ -158,3 +163,4 @@ public class TelemetryProductDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

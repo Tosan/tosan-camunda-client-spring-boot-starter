@@ -1,95 +1,79 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.HistoricJobLogQueryDtoSortingInner;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A Historic Job Log instance query which defines a list of Historic Job Log instances
  */
-@Schema(description = "A Historic Job Log instance query which defines a list of Historic Job Log instances")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "HistoricJobLogQueryDto", description = "A Historic Job Log instance query which defines a list of Historic Job Log instances")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricJobLogQueryDto {
 
-public class HistoricJobLogQueryDto   {
-  @JsonProperty("logId")
   private String logId = null;
 
-  @JsonProperty("jobId")
   private String jobId = null;
 
-  @JsonProperty("jobExceptionMessage")
   private String jobExceptionMessage = null;
 
-  @JsonProperty("jobDefinitionId")
   private String jobDefinitionId = null;
 
-  @JsonProperty("jobDefinitionType")
   private String jobDefinitionType = null;
 
-  @JsonProperty("jobDefinitionConfiguration")
   private String jobDefinitionConfiguration = null;
 
-  @JsonProperty("activityIdIn")
   @Valid
-  private List<String> activityIdIn = null;
+  private List<String> activityIdIn;
 
-  @JsonProperty("failedActivityIdIn")
   @Valid
-  private List<String> failedActivityIdIn = null;
+  private List<String> failedActivityIdIn;
 
-  @JsonProperty("executionIdIn")
   @Valid
-  private List<String> executionIdIn = null;
+  private List<String> executionIdIn;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("deploymentId")
   private String deploymentId = null;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("withoutTenantId")
   private Boolean withoutTenantId = null;
 
-  @JsonProperty("hostname")
   private String hostname = null;
 
-  @JsonProperty("jobPriorityLowerThanOrEquals")
   private Long jobPriorityLowerThanOrEquals = null;
 
-  @JsonProperty("jobPriorityHigherThanOrEquals")
   private Long jobPriorityHigherThanOrEquals = null;
 
-  @JsonProperty("creationLog")
   private Boolean creationLog = null;
 
-  @JsonProperty("failureLog")
   private Boolean failureLog = null;
 
-  @JsonProperty("successLog")
   private Boolean successLog = null;
 
-  @JsonProperty("deletionLog")
   private Boolean deletionLog = null;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<HistoricJobLogQueryDtoSorting> sorting = null;
+  private List<@Valid HistoricJobLogQueryDtoSortingInner> sorting;
 
   public HistoricJobLogQueryDto logId(String logId) {
     this.logId = logId;
@@ -99,10 +83,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Filter by historic job log id.
    * @return logId
-   **/
-  @Schema(description = "Filter by historic job log id.")
+  */
   
-    public String getLogId() {
+  @Schema(name = "logId", description = "Filter by historic job log id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("logId")
+  public String getLogId() {
     return logId;
   }
 
@@ -118,10 +103,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Filter by job id.
    * @return jobId
-   **/
-  @Schema(description = "Filter by job id.")
+  */
   
-    public String getJobId() {
+  @Schema(name = "jobId", description = "Filter by job id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobId")
+  public String getJobId() {
     return jobId;
   }
 
@@ -137,10 +123,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Filter by job exception message.
    * @return jobExceptionMessage
-   **/
-  @Schema(description = "Filter by job exception message.")
+  */
   
-    public String getJobExceptionMessage() {
+  @Schema(name = "jobExceptionMessage", description = "Filter by job exception message.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobExceptionMessage")
+  public String getJobExceptionMessage() {
     return jobExceptionMessage;
   }
 
@@ -156,10 +143,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Filter by job definition id.
    * @return jobDefinitionId
-   **/
-  @Schema(description = "Filter by job definition id.")
+  */
   
-    public String getJobDefinitionId() {
+  @Schema(name = "jobDefinitionId", description = "Filter by job definition id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobDefinitionId")
+  public String getJobDefinitionId() {
     return jobDefinitionId;
   }
 
@@ -175,10 +163,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Filter by job definition type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/the-job-executor/#job-creation) for more information about job definition types.
    * @return jobDefinitionType
-   **/
-  @Schema(description = "Filter by job definition type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/the-job-executor/#job-creation) for more information about job definition types.")
+  */
   
-    public String getJobDefinitionType() {
+  @Schema(name = "jobDefinitionType", description = "Filter by job definition type. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/the-job-executor/#job-creation) for more information about job definition types.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobDefinitionType")
+  public String getJobDefinitionType() {
     return jobDefinitionType;
   }
 
@@ -194,10 +183,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Filter by job definition configuration.
    * @return jobDefinitionConfiguration
-   **/
-  @Schema(description = "Filter by job definition configuration.")
+  */
   
-    public String getJobDefinitionConfiguration() {
+  @Schema(name = "jobDefinitionConfiguration", description = "Filter by job definition configuration.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobDefinitionConfiguration")
+  public String getJobDefinitionConfiguration() {
     return jobDefinitionConfiguration;
   }
 
@@ -221,10 +211,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Only include historic job logs which belong to one of the passed activity ids.
    * @return activityIdIn
-   **/
-  @Schema(description = "Only include historic job logs which belong to one of the passed activity ids.")
+  */
   
-    public List<String> getActivityIdIn() {
+  @Schema(name = "activityIdIn", description = "Only include historic job logs which belong to one of the passed activity ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityIdIn")
+  public List<String> getActivityIdIn() {
     return activityIdIn;
   }
 
@@ -248,10 +239,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Only include historic job logs which belong to failures of one of the passed activity ids.
    * @return failedActivityIdIn
-   **/
-  @Schema(description = "Only include historic job logs which belong to failures of one of the passed activity ids.")
+  */
   
-    public List<String> getFailedActivityIdIn() {
+  @Schema(name = "failedActivityIdIn", description = "Only include historic job logs which belong to failures of one of the passed activity ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("failedActivityIdIn")
+  public List<String> getFailedActivityIdIn() {
     return failedActivityIdIn;
   }
 
@@ -275,10 +267,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Only include historic job logs which belong to one of the passed execution ids.
    * @return executionIdIn
-   **/
-  @Schema(description = "Only include historic job logs which belong to one of the passed execution ids.")
+  */
   
-    public List<String> getExecutionIdIn() {
+  @Schema(name = "executionIdIn", description = "Only include historic job logs which belong to one of the passed execution ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionIdIn")
+  public List<String> getExecutionIdIn() {
     return executionIdIn;
   }
 
@@ -294,10 +287,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Filter by process instance id.
    * @return processInstanceId
-   **/
-  @Schema(description = "Filter by process instance id.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "Filter by process instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -313,10 +307,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Filter by process definition id.
    * @return processDefinitionId
-   **/
-  @Schema(description = "Filter by process definition id.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "Filter by process definition id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -332,10 +327,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Filter by process definition key.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "Filter by process definition key.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "Filter by process definition key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -351,10 +347,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Filter by deployment id.
    * @return deploymentId
-   **/
-  @Schema(description = "Filter by deployment id.")
+  */
   
-    public String getDeploymentId() {
+  @Schema(name = "deploymentId", description = "Filter by deployment id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deploymentId")
+  public String getDeploymentId() {
     return deploymentId;
   }
 
@@ -378,10 +375,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Only include historic job log entries which belong to one of the passed and comma- separated tenant ids.
    * @return tenantIdIn
-   **/
-  @Schema(description = "Only include historic job log entries which belong to one of the passed and comma- separated tenant ids.")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Only include historic job log entries which belong to one of the passed and comma- separated tenant ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -397,10 +395,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Only include historic job log entries that belong to no tenant. Value may only be `true`, as `false` is the default behavior.
    * @return withoutTenantId
-   **/
-  @Schema(description = "Only include historic job log entries that belong to no tenant. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "Only include historic job log entries that belong to no tenant. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
@@ -416,10 +415,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Filter by hostname.
    * @return hostname
-   **/
-  @Schema(description = "Filter by hostname.")
+  */
   
-    public String getHostname() {
+  @Schema(name = "hostname", description = "Filter by hostname.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("hostname")
+  public String getHostname() {
     return hostname;
   }
 
@@ -435,10 +435,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Only include logs for which the associated job had a priority lower than or equal to the given value. Value must be a valid `long` value.
    * @return jobPriorityLowerThanOrEquals
-   **/
-  @Schema(description = "Only include logs for which the associated job had a priority lower than or equal to the given value. Value must be a valid `long` value.")
+  */
   
-    public Long getJobPriorityLowerThanOrEquals() {
+  @Schema(name = "jobPriorityLowerThanOrEquals", description = "Only include logs for which the associated job had a priority lower than or equal to the given value. Value must be a valid `long` value.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobPriorityLowerThanOrEquals")
+  public Long getJobPriorityLowerThanOrEquals() {
     return jobPriorityLowerThanOrEquals;
   }
 
@@ -454,10 +455,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Only include logs for which the associated job had a priority higher than or equal to the given value. Value must be a valid `long` value.
    * @return jobPriorityHigherThanOrEquals
-   **/
-  @Schema(description = "Only include logs for which the associated job had a priority higher than or equal to the given value. Value must be a valid `long` value.")
+  */
   
-    public Long getJobPriorityHigherThanOrEquals() {
+  @Schema(name = "jobPriorityHigherThanOrEquals", description = "Only include logs for which the associated job had a priority higher than or equal to the given value. Value must be a valid `long` value.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("jobPriorityHigherThanOrEquals")
+  public Long getJobPriorityHigherThanOrEquals() {
     return jobPriorityHigherThanOrEquals;
   }
 
@@ -473,10 +475,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Only include creation logs. Value may only be `true`, as `false` is the default behavior.
    * @return creationLog
-   **/
-  @Schema(description = "Only include creation logs. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isCreationLog() {
+  @Schema(name = "creationLog", description = "Only include creation logs. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("creationLog")
+  public Boolean getCreationLog() {
     return creationLog;
   }
 
@@ -492,10 +495,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Only include failure logs. Value may only be `true`, as `false` is the default behavior.
    * @return failureLog
-   **/
-  @Schema(description = "Only include failure logs. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isFailureLog() {
+  @Schema(name = "failureLog", description = "Only include failure logs. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("failureLog")
+  public Boolean getFailureLog() {
     return failureLog;
   }
 
@@ -511,10 +515,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Only include success logs. Value may only be `true`, as `false` is the default behavior.
    * @return successLog
-   **/
-  @Schema(description = "Only include success logs. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isSuccessLog() {
+  @Schema(name = "successLog", description = "Only include success logs. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("successLog")
+  public Boolean getSuccessLog() {
     return successLog;
   }
 
@@ -530,10 +535,11 @@ public class HistoricJobLogQueryDto   {
   /**
    * Only include deletion logs. Value may only be `true`, as `false` is the default behavior.
    * @return deletionLog
-   **/
-  @Schema(description = "Only include deletion logs. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isDeletionLog() {
+  @Schema(name = "deletionLog", description = "Only include deletion logs. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deletionLog")
+  public Boolean getDeletionLog() {
     return deletionLog;
   }
 
@@ -541,12 +547,12 @@ public class HistoricJobLogQueryDto   {
     this.deletionLog = deletionLog;
   }
 
-  public HistoricJobLogQueryDto sorting(List<HistoricJobLogQueryDtoSorting> sorting) {
+  public HistoricJobLogQueryDto sorting(List<@Valid HistoricJobLogQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public HistoricJobLogQueryDto addSortingItem(HistoricJobLogQueryDtoSorting sortingItem) {
+  public HistoricJobLogQueryDto addSortingItem(HistoricJobLogQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -557,17 +563,17 @@ public class HistoricJobLogQueryDto   {
   /**
    * An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Sorting has no effect for `count` endpoints
    * @return sorting
-   **/
-  @Schema(description = "An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Sorting has no effect for `count` endpoints")
-      @Valid
-    public List<HistoricJobLogQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "An array of criteria to sort the result by. Each element of the array is                        an object that specifies one ordering. The position in the array                        identifies the rank of an ordering, i.e., whether it is primary, secondary,                        etc. Sorting has no effect for `count` endpoints", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid HistoricJobLogQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<HistoricJobLogQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid HistoricJobLogQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -612,7 +618,6 @@ public class HistoricJobLogQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricJobLogQueryDto {\n");
-    
     sb.append("    logId: ").append(toIndentedString(logId)).append("\n");
     sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
     sb.append("    jobExceptionMessage: ").append(toIndentedString(jobExceptionMessage)).append("\n");
@@ -651,3 +656,4 @@ public class HistoricJobLogQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

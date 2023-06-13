@@ -1,27 +1,33 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * HistoryCleanupConfigurationDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoryCleanupConfigurationDto {
 
-public class HistoryCleanupConfigurationDto   {
-  @JsonProperty("batchWindowStartTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime batchWindowStartTime = null;
 
-  @JsonProperty("batchWindowEndTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime batchWindowEndTime = null;
 
-  @JsonProperty("enabled")
   private Boolean enabled = null;
 
   public HistoryCleanupConfigurationDto batchWindowStartTime(OffsetDateTime batchWindowStartTime) {
@@ -32,11 +38,11 @@ public class HistoryCleanupConfigurationDto   {
   /**
    * Start time of the current or next batch window. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return batchWindowStartTime
-   **/
-  @Schema(description = "Start time of the current or next batch window. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getBatchWindowStartTime() {
+  */
+  @Valid 
+  @Schema(name = "batchWindowStartTime", description = "Start time of the current or next batch window. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("batchWindowStartTime")
+  public OffsetDateTime getBatchWindowStartTime() {
     return batchWindowStartTime;
   }
 
@@ -52,11 +58,11 @@ public class HistoryCleanupConfigurationDto   {
   /**
    * End time of the current or next batch window. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return batchWindowEndTime
-   **/
-  @Schema(description = "End time of the current or next batch window. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getBatchWindowEndTime() {
+  */
+  @Valid 
+  @Schema(name = "batchWindowEndTime", description = "End time of the current or next batch window. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("batchWindowEndTime")
+  public OffsetDateTime getBatchWindowEndTime() {
     return batchWindowEndTime;
   }
 
@@ -72,17 +78,17 @@ public class HistoryCleanupConfigurationDto   {
   /**
    * Indicates whether the engine node participates in history cleanup or not. The default is `true`. Participation can be disabled via [Process Engine Configuration](https://docs.camunda.org/manual/7.17/reference/deployment-descriptors/tags/process-engine/#history-cleanup-enabled).  For more details, see [Cleanup Execution Participation per Node](https://docs.camunda.org/manual/7.17/user-guide/process-engine/history/#cleanup-execution-participation-per-node).
    * @return enabled
-   **/
-  @Schema(description = "Indicates whether the engine node participates in history cleanup or not. The default is `true`. Participation can be disabled via [Process Engine Configuration](https://docs.camunda.org/manual/7.17/reference/deployment-descriptors/tags/process-engine/#history-cleanup-enabled).  For more details, see [Cleanup Execution Participation per Node](https://docs.camunda.org/manual/7.17/user-guide/process-engine/history/#cleanup-execution-participation-per-node).")
+  */
   
-    public Boolean isEnabled() {
+  @Schema(name = "enabled", description = "Indicates whether the engine node participates in history cleanup or not. The default is `true`. Participation can be disabled via [Process Engine Configuration](https://docs.camunda.org/manual/7.17/reference/deployment-descriptors/tags/process-engine/#history-cleanup-enabled).  For more details, see [Cleanup Execution Participation per Node](https://docs.camunda.org/manual/7.17/user-guide/process-engine/history/#cleanup-execution-participation-per-node).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("enabled")
+  public Boolean getEnabled() {
     return enabled;
   }
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -107,7 +113,6 @@ public class HistoryCleanupConfigurationDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoryCleanupConfigurationDto {\n");
-    
     sb.append("    batchWindowStartTime: ").append(toIndentedString(batchWindowStartTime)).append("\n");
     sb.append("    batchWindowEndTime: ").append(toIndentedString(batchWindowEndTime)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
@@ -126,3 +131,4 @@ public class HistoryCleanupConfigurationDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

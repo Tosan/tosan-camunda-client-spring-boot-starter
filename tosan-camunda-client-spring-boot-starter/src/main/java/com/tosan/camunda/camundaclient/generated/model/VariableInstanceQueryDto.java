@@ -1,77 +1,70 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.VariableInstanceQueryDtoSortingInner;
+import com.tosan.camunda.camundaclient.generated.model.VariableQueryParameterDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A variable instance query which defines a list of variable instances
  */
-@Schema(description = "A variable instance query which defines a list of variable instances")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "VariableInstanceQueryDto", description = "A variable instance query which defines a list of variable instances")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class VariableInstanceQueryDto {
 
-public class VariableInstanceQueryDto   {
-  @JsonProperty("variableName")
   private String variableName = null;
 
-  @JsonProperty("variableNameLike")
   private String variableNameLike = null;
 
-  @JsonProperty("processInstanceIdIn")
   @Valid
-  private List<String> processInstanceIdIn = null;
+  private List<String> processInstanceIdIn;
 
-  @JsonProperty("executionIdIn")
   @Valid
-  private List<String> executionIdIn = null;
+  private List<String> executionIdIn;
 
-  @JsonProperty("caseInstanceIdIn")
   @Valid
-  private List<String> caseInstanceIdIn = null;
+  private List<String> caseInstanceIdIn;
 
-  @JsonProperty("caseExecutionIdIn")
   @Valid
-  private List<String> caseExecutionIdIn = null;
+  private List<String> caseExecutionIdIn;
 
-  @JsonProperty("taskIdIn")
   @Valid
-  private List<String> taskIdIn = null;
+  private List<String> taskIdIn;
 
-  @JsonProperty("batchIdIn")
   @Valid
-  private List<String> batchIdIn = null;
+  private List<String> batchIdIn;
 
-  @JsonProperty("activityInstanceIdIn")
   @Valid
-  private List<String> activityInstanceIdIn = null;
+  private List<String> activityInstanceIdIn;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("variableValues")
   @Valid
-  private List<VariableQueryParameterDto> variableValues = null;
+  private List<@Valid VariableQueryParameterDto> variableValues;
 
-  @JsonProperty("variableNamesIgnoreCase")
   private Boolean variableNamesIgnoreCase = null;
 
-  @JsonProperty("variableValuesIgnoreCase")
   private Boolean variableValuesIgnoreCase = null;
 
-  @JsonProperty("variableScopeIdIn")
   @Valid
-  private List<String> variableScopeIdIn = null;
+  private List<String> variableScopeIdIn;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<VariableInstanceQueryDtoSorting> sorting = null;
+  private List<@Valid VariableInstanceQueryDtoSortingInner> sorting;
 
   public VariableInstanceQueryDto variableName(String variableName) {
     this.variableName = variableName;
@@ -81,10 +74,11 @@ public class VariableInstanceQueryDto   {
   /**
    * Filter by variable instance name.
    * @return variableName
-   **/
-  @Schema(description = "Filter by variable instance name.")
+  */
   
-    public String getVariableName() {
+  @Schema(name = "variableName", description = "Filter by variable instance name.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableName")
+  public String getVariableName() {
     return variableName;
   }
 
@@ -100,10 +94,11 @@ public class VariableInstanceQueryDto   {
   /**
    * Filter by the variable instance name. The parameter can include the wildcard `%` to express like-strategy such as: starts with (`%`name), ends with (name`%`) or contains (`%`name`%`).
    * @return variableNameLike
-   **/
-  @Schema(description = "Filter by the variable instance name. The parameter can include the wildcard `%` to express like-strategy such as: starts with (`%`name), ends with (name`%`) or contains (`%`name`%`).")
+  */
   
-    public String getVariableNameLike() {
+  @Schema(name = "variableNameLike", description = "Filter by the variable instance name. The parameter can include the wildcard `%` to express like-strategy such as: starts with (`%`name), ends with (name`%`) or contains (`%`name`%`).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableNameLike")
+  public String getVariableNameLike() {
     return variableNameLike;
   }
 
@@ -127,10 +122,11 @@ public class VariableInstanceQueryDto   {
   /**
    * Only include variable instances which belong to one of the passed  process instance ids.
    * @return processInstanceIdIn
-   **/
-  @Schema(description = "Only include variable instances which belong to one of the passed  process instance ids.")
+  */
   
-    public List<String> getProcessInstanceIdIn() {
+  @Schema(name = "processInstanceIdIn", description = "Only include variable instances which belong to one of the passed  process instance ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceIdIn")
+  public List<String> getProcessInstanceIdIn() {
     return processInstanceIdIn;
   }
 
@@ -154,10 +150,11 @@ public class VariableInstanceQueryDto   {
   /**
    * Only include variable instances which belong to one of the passed  execution ids.
    * @return executionIdIn
-   **/
-  @Schema(description = "Only include variable instances which belong to one of the passed  execution ids.")
+  */
   
-    public List<String> getExecutionIdIn() {
+  @Schema(name = "executionIdIn", description = "Only include variable instances which belong to one of the passed  execution ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionIdIn")
+  public List<String> getExecutionIdIn() {
     return executionIdIn;
   }
 
@@ -181,10 +178,11 @@ public class VariableInstanceQueryDto   {
   /**
    * Only include variable instances which belong to one of the passed  case instance ids.
    * @return caseInstanceIdIn
-   **/
-  @Schema(description = "Only include variable instances which belong to one of the passed  case instance ids.")
+  */
   
-    public List<String> getCaseInstanceIdIn() {
+  @Schema(name = "caseInstanceIdIn", description = "Only include variable instances which belong to one of the passed  case instance ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceIdIn")
+  public List<String> getCaseInstanceIdIn() {
     return caseInstanceIdIn;
   }
 
@@ -208,10 +206,11 @@ public class VariableInstanceQueryDto   {
   /**
    * Only include variable instances which belong to one of the passed  case execution ids.
    * @return caseExecutionIdIn
-   **/
-  @Schema(description = "Only include variable instances which belong to one of the passed  case execution ids.")
+  */
   
-    public List<String> getCaseExecutionIdIn() {
+  @Schema(name = "caseExecutionIdIn", description = "Only include variable instances which belong to one of the passed  case execution ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseExecutionIdIn")
+  public List<String> getCaseExecutionIdIn() {
     return caseExecutionIdIn;
   }
 
@@ -235,10 +234,11 @@ public class VariableInstanceQueryDto   {
   /**
    * Only include variable instances which belong to one of the passed  task ids.
    * @return taskIdIn
-   **/
-  @Schema(description = "Only include variable instances which belong to one of the passed  task ids.")
+  */
   
-    public List<String> getTaskIdIn() {
+  @Schema(name = "taskIdIn", description = "Only include variable instances which belong to one of the passed  task ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskIdIn")
+  public List<String> getTaskIdIn() {
     return taskIdIn;
   }
 
@@ -262,10 +262,11 @@ public class VariableInstanceQueryDto   {
   /**
    * Only include variable instances which belong to one of the passed  batch ids.
    * @return batchIdIn
-   **/
-  @Schema(description = "Only include variable instances which belong to one of the passed  batch ids.")
+  */
   
-    public List<String> getBatchIdIn() {
+  @Schema(name = "batchIdIn", description = "Only include variable instances which belong to one of the passed  batch ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("batchIdIn")
+  public List<String> getBatchIdIn() {
     return batchIdIn;
   }
 
@@ -289,10 +290,11 @@ public class VariableInstanceQueryDto   {
   /**
    * Only include variable instances which belong to one of the passed  activity instance ids.
    * @return activityInstanceIdIn
-   **/
-  @Schema(description = "Only include variable instances which belong to one of the passed  activity instance ids.")
+  */
   
-    public List<String> getActivityInstanceIdIn() {
+  @Schema(name = "activityInstanceIdIn", description = "Only include variable instances which belong to one of the passed  activity instance ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityInstanceIdIn")
+  public List<String> getActivityInstanceIdIn() {
     return activityInstanceIdIn;
   }
 
@@ -316,10 +318,11 @@ public class VariableInstanceQueryDto   {
   /**
    * Only include variable instances which belong to one of the passed  tenant ids.
    * @return tenantIdIn
-   **/
-  @Schema(description = "Only include variable instances which belong to one of the passed  tenant ids.")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Only include variable instances which belong to one of the passed  tenant ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -327,7 +330,7 @@ public class VariableInstanceQueryDto   {
     this.tenantIdIn = tenantIdIn;
   }
 
-  public VariableInstanceQueryDto variableValues(List<VariableQueryParameterDto> variableValues) {
+  public VariableInstanceQueryDto variableValues(List<@Valid VariableQueryParameterDto> variableValues) {
     this.variableValues = variableValues;
     return this;
   }
@@ -343,14 +346,15 @@ public class VariableInstanceQueryDto   {
   /**
    * An array to only include variable instances that have the certain values. The array consists of objects with the three properties `name`, `operator` and `value`. `name (String)` is the variable name, `operator (String)` is the comparison operator to be used and `value` the variable value. `value` may be `String`, `Number` or `Boolean`.  Valid operator values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`
    * @return variableValues
-   **/
-  @Schema(description = "An array to only include variable instances that have the certain values. The array consists of objects with the three properties `name`, `operator` and `value`. `name (String)` is the variable name, `operator (String)` is the comparison operator to be used and `value` the variable value. `value` may be `String`, `Number` or `Boolean`.  Valid operator values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`")
-      @Valid
-    public List<VariableQueryParameterDto> getVariableValues() {
+  */
+  @Valid 
+  @Schema(name = "variableValues", description = "An array to only include variable instances that have the certain values. The array consists of objects with the three properties `name`, `operator` and `value`. `name (String)` is the variable name, `operator (String)` is the comparison operator to be used and `value` the variable value. `value` may be `String`, `Number` or `Boolean`.  Valid operator values are: `eq` - equal to; `neq` - not equal to; `gt` - greater than; `gteq` - greater than or equal to; `lt` - lower than; `lteq` - lower than or equal to; `like`", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableValues")
+  public List<@Valid VariableQueryParameterDto> getVariableValues() {
     return variableValues;
   }
 
-  public void setVariableValues(List<VariableQueryParameterDto> variableValues) {
+  public void setVariableValues(List<@Valid VariableQueryParameterDto> variableValues) {
     this.variableValues = variableValues;
   }
 
@@ -362,10 +366,11 @@ public class VariableInstanceQueryDto   {
   /**
    * Match all variable names provided in `variableValues` case-insensitively. If set to `true` **variableName** and **variablename** are treated as equal.
    * @return variableNamesIgnoreCase
-   **/
-  @Schema(description = "Match all variable names provided in `variableValues` case-insensitively. If set to `true` **variableName** and **variablename** are treated as equal.")
+  */
   
-    public Boolean isVariableNamesIgnoreCase() {
+  @Schema(name = "variableNamesIgnoreCase", description = "Match all variable names provided in `variableValues` case-insensitively. If set to `true` **variableName** and **variablename** are treated as equal.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableNamesIgnoreCase")
+  public Boolean getVariableNamesIgnoreCase() {
     return variableNamesIgnoreCase;
   }
 
@@ -381,10 +386,11 @@ public class VariableInstanceQueryDto   {
   /**
    * Match all variable values provided in `variableValues` case-insensitively. If set to `true` **variableValue** and **variablevalue** are treated as equal.
    * @return variableValuesIgnoreCase
-   **/
-  @Schema(description = "Match all variable values provided in `variableValues` case-insensitively. If set to `true` **variableValue** and **variablevalue** are treated as equal.")
+  */
   
-    public Boolean isVariableValuesIgnoreCase() {
+  @Schema(name = "variableValuesIgnoreCase", description = "Match all variable values provided in `variableValues` case-insensitively. If set to `true` **variableValue** and **variablevalue** are treated as equal.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableValuesIgnoreCase")
+  public Boolean getVariableValuesIgnoreCase() {
     return variableValuesIgnoreCase;
   }
 
@@ -408,10 +414,11 @@ public class VariableInstanceQueryDto   {
   /**
    * Only include variable instances which belong to one of passed scope ids.
    * @return variableScopeIdIn
-   **/
-  @Schema(description = "Only include variable instances which belong to one of passed scope ids.")
+  */
   
-    public List<String> getVariableScopeIdIn() {
+  @Schema(name = "variableScopeIdIn", description = "Only include variable instances which belong to one of passed scope ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableScopeIdIn")
+  public List<String> getVariableScopeIdIn() {
     return variableScopeIdIn;
   }
 
@@ -419,12 +426,12 @@ public class VariableInstanceQueryDto   {
     this.variableScopeIdIn = variableScopeIdIn;
   }
 
-  public VariableInstanceQueryDto sorting(List<VariableInstanceQueryDtoSorting> sorting) {
+  public VariableInstanceQueryDto sorting(List<@Valid VariableInstanceQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public VariableInstanceQueryDto addSortingItem(VariableInstanceQueryDtoSorting sortingItem) {
+  public VariableInstanceQueryDto addSortingItem(VariableInstanceQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -435,17 +442,17 @@ public class VariableInstanceQueryDto   {
   /**
    * An array of criteria to sort the result by. Each element of the array is an object that specifies one ordering.                       The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc.                       Sorting has no effect for `count` endpoints
    * @return sorting
-   **/
-  @Schema(description = "An array of criteria to sort the result by. Each element of the array is an object that specifies one ordering.                       The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc.                       Sorting has no effect for `count` endpoints")
-      @Valid
-    public List<VariableInstanceQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "An array of criteria to sort the result by. Each element of the array is an object that specifies one ordering.                       The position in the array identifies the rank of an ordering, i.e., whether it is primary, secondary, etc.                       Sorting has no effect for `count` endpoints", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid VariableInstanceQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<VariableInstanceQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid VariableInstanceQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -482,7 +489,6 @@ public class VariableInstanceQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class VariableInstanceQueryDto {\n");
-    
     sb.append("    variableName: ").append(toIndentedString(variableName)).append("\n");
     sb.append("    variableNameLike: ").append(toIndentedString(variableNameLike)).append("\n");
     sb.append("    processInstanceIdIn: ").append(toIndentedString(processInstanceIdIn)).append("\n");
@@ -513,3 +519,4 @@ public class VariableInstanceQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

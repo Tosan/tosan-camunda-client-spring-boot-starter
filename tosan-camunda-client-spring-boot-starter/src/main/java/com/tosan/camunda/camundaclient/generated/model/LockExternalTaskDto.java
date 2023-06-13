@@ -1,20 +1,48 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * LockExternalTaskDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class LockExternalTaskDto {
 
-public class LockExternalTaskDto   {
-  @JsonProperty("workerId")
-  private String workerId = null;
+  private Long lockDuration;
+
+  private String workerId;
+
+  public LockExternalTaskDto lockDuration(Long lockDuration) {
+    this.lockDuration = lockDuration;
+    return this;
+  }
+
+  /**
+   * The duration to lock the external task for in milliseconds. **Note:** Attempting to lock an already locked external task with the same `workerId` will succeed and a new lock duration will be set, starting from the current moment.
+   * @return lockDuration
+  */
+  
+  @Schema(name = "lockDuration", description = "The duration to lock the external task for in milliseconds. **Note:** Attempting to lock an already locked external task with the same `workerId` will succeed and a new lock duration will be set, starting from the current moment.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("lockDuration")
+  public Long getLockDuration() {
+    return lockDuration;
+  }
+
+  public void setLockDuration(Long lockDuration) {
+    this.lockDuration = lockDuration;
+  }
 
   public LockExternalTaskDto workerId(String workerId) {
     this.workerId = workerId;
@@ -24,17 +52,17 @@ public class LockExternalTaskDto   {
   /**
    * **Mandatory.** The ID of the worker who is performing the operation on the external task. If the task is already locked, must match the id of the worker who has most recently locked the task.
    * @return workerId
-   **/
-  @Schema(description = "**Mandatory.** The ID of the worker who is performing the operation on the external task. If the task is already locked, must match the id of the worker who has most recently locked the task.")
+  */
   
-    public String getWorkerId() {
+  @Schema(name = "workerId", description = "**Mandatory.** The ID of the worker who is performing the operation on the external task. If the task is already locked, must match the id of the worker who has most recently locked the task.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("workerId")
+  public String getWorkerId() {
     return workerId;
   }
 
   public void setWorkerId(String workerId) {
     this.workerId = workerId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -45,19 +73,20 @@ public class LockExternalTaskDto   {
       return false;
     }
     LockExternalTaskDto lockExternalTaskDto = (LockExternalTaskDto) o;
-    return Objects.equals(this.workerId, lockExternalTaskDto.workerId);
+    return Objects.equals(this.lockDuration, lockExternalTaskDto.lockDuration) &&
+        Objects.equals(this.workerId, lockExternalTaskDto.workerId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(workerId);
+    return Objects.hash(lockDuration, workerId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LockExternalTaskDto {\n");
-    
+    sb.append("    lockDuration: ").append(toIndentedString(lockDuration)).append("\n");
     sb.append("    workerId: ").append(toIndentedString(workerId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -74,3 +103,4 @@ public class LockExternalTaskDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

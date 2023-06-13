@@ -1,60 +1,55 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.VariableValueDto;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * CorrelationMessageDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class CorrelationMessageDto {
 
-public class CorrelationMessageDto   {
-  @JsonProperty("messageName")
   private String messageName = null;
 
-  @JsonProperty("businessKey")
   private String businessKey = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("withoutTenantId")
-  private Boolean withoutTenantId = false;
+  private Boolean withoutTenantId = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("correlationKeys")
   @Valid
-  private Map<String, VariableValueDto> correlationKeys = null;
+  private Map<String, VariableValueDto> correlationKeys;
 
-  @JsonProperty("localCorrelationKeys")
   @Valid
-  private Map<String, VariableValueDto> localCorrelationKeys = null;
+  private Map<String, VariableValueDto> localCorrelationKeys;
 
-  @JsonProperty("processVariables")
   @Valid
-  private Map<String, VariableValueDto> processVariables = null;
+  private Map<String, VariableValueDto> processVariables;
 
-  @JsonProperty("processVariablesLocal")
   @Valid
-  private Map<String, VariableValueDto> processVariablesLocal = null;
+  private Map<String, VariableValueDto> processVariablesLocal;
 
-  @JsonProperty("all")
-  private Boolean all = false;
+  private Boolean all = null;
 
-  @JsonProperty("resultEnabled")
-  private Boolean resultEnabled = false;
+  private Boolean resultEnabled = null;
 
-  @JsonProperty("variablesInResultEnabled")
-  private Boolean variablesInResultEnabled = false;
+  private Boolean variablesInResultEnabled = null;
 
   public CorrelationMessageDto messageName(String messageName) {
     this.messageName = messageName;
@@ -64,10 +59,11 @@ public class CorrelationMessageDto   {
   /**
    * The name of the message to deliver.
    * @return messageName
-   **/
-  @Schema(description = "The name of the message to deliver.")
+  */
   
-    public String getMessageName() {
+  @Schema(name = "messageName", description = "The name of the message to deliver.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("messageName")
+  public String getMessageName() {
     return messageName;
   }
 
@@ -83,10 +79,11 @@ public class CorrelationMessageDto   {
   /**
    * Used for correlation of process instances that wait for incoming messages. Will only correlate to executions that belong to a process instance with the provided business key.
    * @return businessKey
-   **/
-  @Schema(description = "Used for correlation of process instances that wait for incoming messages. Will only correlate to executions that belong to a process instance with the provided business key.")
+  */
   
-    public String getBusinessKey() {
+  @Schema(name = "businessKey", description = "Used for correlation of process instances that wait for incoming messages. Will only correlate to executions that belong to a process instance with the provided business key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("businessKey")
+  public String getBusinessKey() {
     return businessKey;
   }
 
@@ -102,10 +99,11 @@ public class CorrelationMessageDto   {
   /**
    * Used to correlate the message for a tenant with the given id. Will only correlate to executions and process definitions which belong to the tenant. Must not be supplied in conjunction with a `withoutTenantId`.
    * @return tenantId
-   **/
-  @Schema(description = "Used to correlate the message for a tenant with the given id. Will only correlate to executions and process definitions which belong to the tenant. Must not be supplied in conjunction with a `withoutTenantId`.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "Used to correlate the message for a tenant with the given id. Will only correlate to executions and process definitions which belong to the tenant. Must not be supplied in conjunction with a `withoutTenantId`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -121,10 +119,11 @@ public class CorrelationMessageDto   {
   /**
    * A Boolean value that indicates whether the message should only be correlated to executions and process definitions which belong to no tenant or not. Value may only be `true`, as `false` is the default behavior. Must not be supplied in conjunction with a `tenantId`.
    * @return withoutTenantId
-   **/
-  @Schema(description = "A Boolean value that indicates whether the message should only be correlated to executions and process definitions which belong to no tenant or not. Value may only be `true`, as `false` is the default behavior. Must not be supplied in conjunction with a `tenantId`.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "A Boolean value that indicates whether the message should only be correlated to executions and process definitions which belong to no tenant or not. Value may only be `true`, as `false` is the default behavior. Must not be supplied in conjunction with a `tenantId`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
@@ -140,10 +139,11 @@ public class CorrelationMessageDto   {
   /**
    * Used to correlate the message to the process instance with the given id.
    * @return processInstanceId
-   **/
-  @Schema(description = "Used to correlate the message to the process instance with the given id.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "Used to correlate the message to the process instance with the given id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -167,10 +167,11 @@ public class CorrelationMessageDto   {
   /**
    * Used for correlation of process instances that wait for incoming messages. Has to be a JSON object containing key-value pairs that are matched against process instance variables during correlation. Each key is a variable name and each value a JSON variable value object with the following properties.
    * @return correlationKeys
-   **/
-  @Schema(description = "Used for correlation of process instances that wait for incoming messages. Has to be a JSON object containing key-value pairs that are matched against process instance variables during correlation. Each key is a variable name and each value a JSON variable value object with the following properties.")
-      @Valid
-    public Map<String, VariableValueDto> getCorrelationKeys() {
+  */
+  @Valid 
+  @Schema(name = "correlationKeys", description = "Used for correlation of process instances that wait for incoming messages. Has to be a JSON object containing key-value pairs that are matched against process instance variables during correlation. Each key is a variable name and each value a JSON variable value object with the following properties.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("correlationKeys")
+  public Map<String, VariableValueDto> getCorrelationKeys() {
     return correlationKeys;
   }
 
@@ -194,10 +195,11 @@ public class CorrelationMessageDto   {
   /**
    * Local variables used for correlation of executions (process instances) that wait for incoming messages. Has to be a JSON object containing key-value pairs that are matched against local variables during correlation. Each key is a variable name and each value a JSON variable value object with the following properties.
    * @return localCorrelationKeys
-   **/
-  @Schema(description = "Local variables used for correlation of executions (process instances) that wait for incoming messages. Has to be a JSON object containing key-value pairs that are matched against local variables during correlation. Each key is a variable name and each value a JSON variable value object with the following properties.")
-      @Valid
-    public Map<String, VariableValueDto> getLocalCorrelationKeys() {
+  */
+  @Valid 
+  @Schema(name = "localCorrelationKeys", description = "Local variables used for correlation of executions (process instances) that wait for incoming messages. Has to be a JSON object containing key-value pairs that are matched against local variables during correlation. Each key is a variable name and each value a JSON variable value object with the following properties.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("localCorrelationKeys")
+  public Map<String, VariableValueDto> getLocalCorrelationKeys() {
     return localCorrelationKeys;
   }
 
@@ -221,10 +223,11 @@ public class CorrelationMessageDto   {
   /**
    * A map of variables that is injected into the triggered execution or process instance after the message has been delivered. Each key is a variable name and each value a JSON variable value object with the following properties.
    * @return processVariables
-   **/
-  @Schema(description = "A map of variables that is injected into the triggered execution or process instance after the message has been delivered. Each key is a variable name and each value a JSON variable value object with the following properties.")
-      @Valid
-    public Map<String, VariableValueDto> getProcessVariables() {
+  */
+  @Valid 
+  @Schema(name = "processVariables", description = "A map of variables that is injected into the triggered execution or process instance after the message has been delivered. Each key is a variable name and each value a JSON variable value object with the following properties.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processVariables")
+  public Map<String, VariableValueDto> getProcessVariables() {
     return processVariables;
   }
 
@@ -248,10 +251,11 @@ public class CorrelationMessageDto   {
   /**
    * A map of local variables that is injected into the triggered execution or process instance after the message has been delivered. Each key is a variable name and each value a JSON variable value object with the following properties.
    * @return processVariablesLocal
-   **/
-  @Schema(description = "A map of local variables that is injected into the triggered execution or process instance after the message has been delivered. Each key is a variable name and each value a JSON variable value object with the following properties.")
-      @Valid
-    public Map<String, VariableValueDto> getProcessVariablesLocal() {
+  */
+  @Valid 
+  @Schema(name = "processVariablesLocal", description = "A map of local variables that is injected into the triggered execution or process instance after the message has been delivered. Each key is a variable name and each value a JSON variable value object with the following properties.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processVariablesLocal")
+  public Map<String, VariableValueDto> getProcessVariablesLocal() {
     return processVariablesLocal;
   }
 
@@ -267,10 +271,11 @@ public class CorrelationMessageDto   {
   /**
    * A Boolean value that indicates whether the message should be correlated to exactly one entity or multiple entities. If the value is set to `false`, the message will be correlated to exactly one entity (execution or process definition). If the value is set to `true`, the message will be correlated to multiple executions and a process definition that can be instantiated by this message in one go.
    * @return all
-   **/
-  @Schema(description = "A Boolean value that indicates whether the message should be correlated to exactly one entity or multiple entities. If the value is set to `false`, the message will be correlated to exactly one entity (execution or process definition). If the value is set to `true`, the message will be correlated to multiple executions and a process definition that can be instantiated by this message in one go.")
+  */
   
-    public Boolean isAll() {
+  @Schema(name = "all", description = "A Boolean value that indicates whether the message should be correlated to exactly one entity or multiple entities. If the value is set to `false`, the message will be correlated to exactly one entity (execution or process definition). If the value is set to `true`, the message will be correlated to multiple executions and a process definition that can be instantiated by this message in one go.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("all")
+  public Boolean getAll() {
     return all;
   }
 
@@ -286,10 +291,11 @@ public class CorrelationMessageDto   {
   /**
    * A Boolean value that indicates whether the result of the correlation should be returned or not. If this property is set to `true`, there will be returned a list of message correlation result objects. Depending on the all property, there will be either one ore more returned results in the list.  The default value is `false`, which means no result will be returned.
    * @return resultEnabled
-   **/
-  @Schema(description = "A Boolean value that indicates whether the result of the correlation should be returned or not. If this property is set to `true`, there will be returned a list of message correlation result objects. Depending on the all property, there will be either one ore more returned results in the list.  The default value is `false`, which means no result will be returned.")
+  */
   
-    public Boolean isResultEnabled() {
+  @Schema(name = "resultEnabled", description = "A Boolean value that indicates whether the result of the correlation should be returned or not. If this property is set to `true`, there will be returned a list of message correlation result objects. Depending on the all property, there will be either one ore more returned results in the list.  The default value is `false`, which means no result will be returned.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resultEnabled")
+  public Boolean getResultEnabled() {
     return resultEnabled;
   }
 
@@ -305,17 +311,17 @@ public class CorrelationMessageDto   {
   /**
    * A Boolean value that indicates whether the result of the correlation should contain process variables or not. The parameter resultEnabled should be set to `true` in order to use this it.  The default value is `false`, which means the variables will not be returned.
    * @return variablesInResultEnabled
-   **/
-  @Schema(description = "A Boolean value that indicates whether the result of the correlation should contain process variables or not. The parameter resultEnabled should be set to `true` in order to use this it.  The default value is `false`, which means the variables will not be returned.")
+  */
   
-    public Boolean isVariablesInResultEnabled() {
+  @Schema(name = "variablesInResultEnabled", description = "A Boolean value that indicates whether the result of the correlation should contain process variables or not. The parameter resultEnabled should be set to `true` in order to use this it.  The default value is `false`, which means the variables will not be returned.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variablesInResultEnabled")
+  public Boolean getVariablesInResultEnabled() {
     return variablesInResultEnabled;
   }
 
   public void setVariablesInResultEnabled(Boolean variablesInResultEnabled) {
     this.variablesInResultEnabled = variablesInResultEnabled;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -349,7 +355,6 @@ public class CorrelationMessageDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CorrelationMessageDto {\n");
-    
     sb.append("    messageName: ").append(toIndentedString(messageName)).append("\n");
     sb.append("    businessKey: ").append(toIndentedString(businessKey)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
@@ -377,3 +382,4 @@ public class CorrelationMessageDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

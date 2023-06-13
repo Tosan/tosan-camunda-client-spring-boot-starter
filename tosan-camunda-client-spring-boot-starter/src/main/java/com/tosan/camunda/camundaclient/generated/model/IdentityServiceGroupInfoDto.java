@@ -1,30 +1,36 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.IdentityServiceGroupDto;
+import com.tosan.camunda.camundaclient.generated.model.IdentityServiceUserDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * IdentityServiceGroupInfoDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class IdentityServiceGroupInfoDto {
 
-public class IdentityServiceGroupInfoDto   {
-  @JsonProperty("groups")
   @Valid
-  private List<IdentityServiceGroupDto> groups = null;
+  private List<@Valid IdentityServiceGroupDto> groups;
 
-  @JsonProperty("groupUsers")
   @Valid
-  private List<IdentityServiceUserDto> groupUsers = null;
+  private List<@Valid IdentityServiceUserDto> groupUsers;
 
-  public IdentityServiceGroupInfoDto groups(List<IdentityServiceGroupDto> groups) {
+  public IdentityServiceGroupInfoDto groups(List<@Valid IdentityServiceGroupDto> groups) {
     this.groups = groups;
     return this;
   }
@@ -40,18 +46,19 @@ public class IdentityServiceGroupInfoDto   {
   /**
    * An array of group objects.
    * @return groups
-   **/
-  @Schema(description = "An array of group objects.")
-      @Valid
-    public List<IdentityServiceGroupDto> getGroups() {
+  */
+  @Valid 
+  @Schema(name = "groups", description = "An array of group objects.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("groups")
+  public List<@Valid IdentityServiceGroupDto> getGroups() {
     return groups;
   }
 
-  public void setGroups(List<IdentityServiceGroupDto> groups) {
+  public void setGroups(List<@Valid IdentityServiceGroupDto> groups) {
     this.groups = groups;
   }
 
-  public IdentityServiceGroupInfoDto groupUsers(List<IdentityServiceUserDto> groupUsers) {
+  public IdentityServiceGroupInfoDto groupUsers(List<@Valid IdentityServiceUserDto> groupUsers) {
     this.groupUsers = groupUsers;
     return this;
   }
@@ -67,17 +74,17 @@ public class IdentityServiceGroupInfoDto   {
   /**
    * An array that contains all users that are member in one of the groups.
    * @return groupUsers
-   **/
-  @Schema(description = "An array that contains all users that are member in one of the groups.")
-      @Valid
-    public List<IdentityServiceUserDto> getGroupUsers() {
+  */
+  @Valid 
+  @Schema(name = "groupUsers", description = "An array that contains all users that are member in one of the groups.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("groupUsers")
+  public List<@Valid IdentityServiceUserDto> getGroupUsers() {
     return groupUsers;
   }
 
-  public void setGroupUsers(List<IdentityServiceUserDto> groupUsers) {
+  public void setGroupUsers(List<@Valid IdentityServiceUserDto> groupUsers) {
     this.groupUsers = groupUsers;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -101,7 +108,6 @@ public class IdentityServiceGroupInfoDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IdentityServiceGroupInfoDto {\n");
-    
     sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("    groupUsers: ").append(toIndentedString(groupUsers)).append("\n");
     sb.append("}");
@@ -119,3 +125,4 @@ public class IdentityServiceGroupInfoDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

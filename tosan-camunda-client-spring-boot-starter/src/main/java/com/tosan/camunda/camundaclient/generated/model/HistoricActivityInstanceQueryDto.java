@@ -1,81 +1,74 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.HistoricActivityInstanceQueryDtoSortingInner;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A historic activity instance query which defines a group of historic activity instances
  */
-@Schema(description = "A historic activity instance query which defines a group of historic activity instances")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "HistoricActivityInstanceQueryDto", description = "A historic activity instance query which defines a group of historic activity instances")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricActivityInstanceQueryDto {
 
-public class HistoricActivityInstanceQueryDto   {
-  @JsonProperty("activityInstanceId")
   private String activityInstanceId = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("activityId")
   private String activityId = null;
 
-  @JsonProperty("activityName")
   private String activityName = null;
 
-  @JsonProperty("activityType")
   private String activityType = null;
 
-  @JsonProperty("taskAssignee")
   private String taskAssignee = null;
 
-  @JsonProperty("finished")
   private Boolean finished = null;
 
-  @JsonProperty("unfinished")
   private Boolean unfinished = null;
 
-  @JsonProperty("canceled")
   private Boolean canceled = null;
 
-  @JsonProperty("completeScope")
   private Boolean completeScope = null;
 
-  @JsonProperty("startedBefore")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime startedBefore = null;
 
-  @JsonProperty("startedAfter")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime startedAfter = null;
 
-  @JsonProperty("finishedBefore")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime finishedBefore = null;
 
-  @JsonProperty("finishedAfter")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime finishedAfter = null;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("withoutTenantId")
   private Boolean withoutTenantId = null;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<HistoricActivityInstanceQueryDtoSorting> sorting = null;
+  private List<@Valid HistoricActivityInstanceQueryDtoSortingInner> sorting;
 
   public HistoricActivityInstanceQueryDto activityInstanceId(String activityInstanceId) {
     this.activityInstanceId = activityInstanceId;
@@ -85,10 +78,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Filter by activity instance id.
    * @return activityInstanceId
-   **/
-  @Schema(description = "Filter by activity instance id.")
+  */
   
-    public String getActivityInstanceId() {
+  @Schema(name = "activityInstanceId", description = "Filter by activity instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityInstanceId")
+  public String getActivityInstanceId() {
     return activityInstanceId;
   }
 
@@ -104,10 +98,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Filter by process instance id.
    * @return processInstanceId
-   **/
-  @Schema(description = "Filter by process instance id.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "Filter by process instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -123,10 +118,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Filter by process definition id.
    * @return processDefinitionId
-   **/
-  @Schema(description = "Filter by process definition id.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "Filter by process definition id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -142,10 +138,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Filter by the id of the execution that executed the activity instance.
    * @return executionId
-   **/
-  @Schema(description = "Filter by the id of the execution that executed the activity instance.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "Filter by the id of the execution that executed the activity instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -161,10 +158,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Filter by the activity id (according to BPMN 2.0 XML).
    * @return activityId
-   **/
-  @Schema(description = "Filter by the activity id (according to BPMN 2.0 XML).")
+  */
   
-    public String getActivityId() {
+  @Schema(name = "activityId", description = "Filter by the activity id (according to BPMN 2.0 XML).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityId")
+  public String getActivityId() {
     return activityId;
   }
 
@@ -180,10 +178,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Filter by the activity name (according to BPMN 2.0 XML).
    * @return activityName
-   **/
-  @Schema(description = "Filter by the activity name (according to BPMN 2.0 XML).")
+  */
   
-    public String getActivityName() {
+  @Schema(name = "activityName", description = "Filter by the activity name (according to BPMN 2.0 XML).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityName")
+  public String getActivityName() {
     return activityName;
   }
 
@@ -199,10 +198,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Filter by activity type.
    * @return activityType
-   **/
-  @Schema(description = "Filter by activity type.")
+  */
   
-    public String getActivityType() {
+  @Schema(name = "activityType", description = "Filter by activity type.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityType")
+  public String getActivityType() {
     return activityType;
   }
 
@@ -218,10 +218,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Only include activity instances that are user tasks and assigned to a given user.
    * @return taskAssignee
-   **/
-  @Schema(description = "Only include activity instances that are user tasks and assigned to a given user.")
+  */
   
-    public String getTaskAssignee() {
+  @Schema(name = "taskAssignee", description = "Only include activity instances that are user tasks and assigned to a given user.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskAssignee")
+  public String getTaskAssignee() {
     return taskAssignee;
   }
 
@@ -237,10 +238,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Only include finished activity instances. Value may only be `true`, as `false` behaves the same as when the property is not set.
    * @return finished
-   **/
-  @Schema(description = "Only include finished activity instances. Value may only be `true`, as `false` behaves the same as when the property is not set.")
+  */
   
-    public Boolean isFinished() {
+  @Schema(name = "finished", description = "Only include finished activity instances. Value may only be `true`, as `false` behaves the same as when the property is not set.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("finished")
+  public Boolean getFinished() {
     return finished;
   }
 
@@ -256,10 +258,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Only include unfinished activity instances. Value may only be `true`, as `false` behaves the same as when the property is not set.
    * @return unfinished
-   **/
-  @Schema(description = "Only include unfinished activity instances. Value may only be `true`, as `false` behaves the same as when the property is not set.")
+  */
   
-    public Boolean isUnfinished() {
+  @Schema(name = "unfinished", description = "Only include unfinished activity instances. Value may only be `true`, as `false` behaves the same as when the property is not set.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("unfinished")
+  public Boolean getUnfinished() {
     return unfinished;
   }
 
@@ -275,10 +278,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Only include canceled activity instances. Value may only be `true`, as `false` behaves the same as when the property is not set.
    * @return canceled
-   **/
-  @Schema(description = "Only include canceled activity instances. Value may only be `true`, as `false` behaves the same as when the property is not set.")
+  */
   
-    public Boolean isCanceled() {
+  @Schema(name = "canceled", description = "Only include canceled activity instances. Value may only be `true`, as `false` behaves the same as when the property is not set.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("canceled")
+  public Boolean getCanceled() {
     return canceled;
   }
 
@@ -294,10 +298,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Only include activity instances which completed a scope. Value may only be `true`, as `false` behaves the same as when the property is not set.
    * @return completeScope
-   **/
-  @Schema(description = "Only include activity instances which completed a scope. Value may only be `true`, as `false` behaves the same as when the property is not set.")
+  */
   
-    public Boolean isCompleteScope() {
+  @Schema(name = "completeScope", description = "Only include activity instances which completed a scope. Value may only be `true`, as `false` behaves the same as when the property is not set.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("completeScope")
+  public Boolean getCompleteScope() {
     return completeScope;
   }
 
@@ -313,11 +318,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Restrict to instances that were started before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return startedBefore
-   **/
-  @Schema(description = "Restrict to instances that were started before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getStartedBefore() {
+  */
+  @Valid 
+  @Schema(name = "startedBefore", description = "Restrict to instances that were started before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("startedBefore")
+  public OffsetDateTime getStartedBefore() {
     return startedBefore;
   }
 
@@ -333,11 +338,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Restrict to instances that were started after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return startedAfter
-   **/
-  @Schema(description = "Restrict to instances that were started after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getStartedAfter() {
+  */
+  @Valid 
+  @Schema(name = "startedAfter", description = "Restrict to instances that were started after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("startedAfter")
+  public OffsetDateTime getStartedAfter() {
     return startedAfter;
   }
 
@@ -353,11 +358,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Restrict to instances that were finished before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return finishedBefore
-   **/
-  @Schema(description = "Restrict to instances that were finished before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getFinishedBefore() {
+  */
+  @Valid 
+  @Schema(name = "finishedBefore", description = "Restrict to instances that were finished before the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("finishedBefore")
+  public OffsetDateTime getFinishedBefore() {
     return finishedBefore;
   }
 
@@ -373,11 +378,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Restrict to instances that were finished after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.
    * @return finishedAfter
-   **/
-  @Schema(description = "Restrict to instances that were finished after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.")
-  
-    @Valid
-    public OffsetDateTime getFinishedAfter() {
+  */
+  @Valid 
+  @Schema(name = "finishedAfter", description = "Restrict to instances that were finished after the given date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("finishedAfter")
+  public OffsetDateTime getFinishedAfter() {
     return finishedAfter;
   }
 
@@ -401,10 +406,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Must be a JSON array of Strings. An activity instance must have one of the given tenant ids.
    * @return tenantIdIn
-   **/
-  @Schema(description = "Must be a JSON array of Strings. An activity instance must have one of the given tenant ids.")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Must be a JSON array of Strings. An activity instance must have one of the given tenant ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -420,10 +426,11 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Only include historic activity instances that belong to no tenant. Value may only be `true`, as `false` is the default behavior.
    * @return withoutTenantId
-   **/
-  @Schema(description = "Only include historic activity instances that belong to no tenant. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "Only include historic activity instances that belong to no tenant. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
@@ -431,12 +438,12 @@ public class HistoricActivityInstanceQueryDto   {
     this.withoutTenantId = withoutTenantId;
   }
 
-  public HistoricActivityInstanceQueryDto sorting(List<HistoricActivityInstanceQueryDtoSorting> sorting) {
+  public HistoricActivityInstanceQueryDto sorting(List<@Valid HistoricActivityInstanceQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public HistoricActivityInstanceQueryDto addSortingItem(HistoricActivityInstanceQueryDtoSorting sortingItem) {
+  public HistoricActivityInstanceQueryDto addSortingItem(HistoricActivityInstanceQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -447,17 +454,17 @@ public class HistoricActivityInstanceQueryDto   {
   /**
    * Apply sorting of the result
    * @return sorting
-   **/
-  @Schema(description = "Apply sorting of the result")
-      @Valid
-    public List<HistoricActivityInstanceQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "Apply sorting of the result", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid HistoricActivityInstanceQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<HistoricActivityInstanceQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid HistoricActivityInstanceQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -498,7 +505,6 @@ public class HistoricActivityInstanceQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricActivityInstanceQueryDto {\n");
-    
     sb.append("    activityInstanceId: ").append(toIndentedString(activityInstanceId)).append("\n");
     sb.append("    processInstanceId: ").append(toIndentedString(processInstanceId)).append("\n");
     sb.append("    processDefinitionId: ").append(toIndentedString(processDefinitionId)).append("\n");
@@ -533,3 +539,4 @@ public class HistoricActivityInstanceQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

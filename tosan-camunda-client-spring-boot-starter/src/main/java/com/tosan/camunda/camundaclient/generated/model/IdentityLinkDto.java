@@ -1,28 +1,46 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
-
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * IdentityLinkDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class IdentityLinkDto {
 
-public class IdentityLinkDto   {
-  @JsonProperty("userId")
   private String userId = null;
 
-  @JsonProperty("groupId")
   private String groupId = null;
 
-  @JsonProperty("type")
   private String type = null;
+
+  /**
+   * Default constructor
+   * @deprecated Use {@link IdentityLinkDto#IdentityLinkDto(String)}
+   */
+  @Deprecated
+  public IdentityLinkDto() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public IdentityLinkDto(String type) {
+    this.type = type;
+  }
 
   public IdentityLinkDto userId(String userId) {
     this.userId = userId;
@@ -32,10 +50,11 @@ public class IdentityLinkDto   {
   /**
    * The id of the user participating in this link. Either `userId` or `groupId` is set.
    * @return userId
-   **/
-  @Schema(description = "The id of the user participating in this link. Either `userId` or `groupId` is set.")
+  */
   
-    public String getUserId() {
+  @Schema(name = "userId", description = "The id of the user participating in this link. Either `userId` or `groupId` is set.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("userId")
+  public String getUserId() {
     return userId;
   }
 
@@ -51,10 +70,11 @@ public class IdentityLinkDto   {
   /**
    * The id of the group participating in this link. Either `groupId` or `userId` is set.
    * @return groupId
-   **/
-  @Schema(description = "The id of the group participating in this link. Either `groupId` or `userId` is set.")
+  */
   
-    public String getGroupId() {
+  @Schema(name = "groupId", description = "The id of the group participating in this link. Either `groupId` or `userId` is set.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("groupId")
+  public String getGroupId() {
     return groupId;
   }
 
@@ -70,18 +90,17 @@ public class IdentityLinkDto   {
   /**
    * The type of the identity link. The value of the this property can be user-defined. The Process Engine provides three pre-defined Identity Link `type`s:  * `candidate` * `assignee` - reserved for the task assignee * `owner` - reserved for the task owner  **Note**: When adding or removing an Identity Link, the `type` property must be defined.
    * @return type
-   **/
-  @Schema(required = true, description = "The type of the identity link. The value of the this property can be user-defined. The Process Engine provides three pre-defined Identity Link `type`s:  * `candidate` * `assignee` - reserved for the task assignee * `owner` - reserved for the task owner  **Note**: When adding or removing an Identity Link, the `type` property must be defined.")
-      @NotNull
-
-    public String getType() {
+  */
+  @NotNull 
+  @Schema(name = "type", description = "The type of the identity link. The value of the this property can be user-defined. The Process Engine provides three pre-defined Identity Link `type`s:  * `candidate` * `assignee` - reserved for the task assignee * `owner` - reserved for the task owner  **Note**: When adding or removing an Identity Link, the `type` property must be defined.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("type")
+  public String getType() {
     return type;
   }
 
   public void setType(String type) {
     this.type = type;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -106,7 +125,6 @@ public class IdentityLinkDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IdentityLinkDto {\n");
-    
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -125,3 +143,4 @@ public class IdentityLinkDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

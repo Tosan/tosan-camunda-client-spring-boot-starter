@@ -1,36 +1,40 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.MigrationInstructionDto;
+import com.tosan.camunda.camundaclient.generated.model.VariableValueDto;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * MigrationPlanDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class MigrationPlanDto {
 
-public class MigrationPlanDto   {
-  @JsonProperty("sourceProcessDefinitionId")
   private String sourceProcessDefinitionId = null;
 
-  @JsonProperty("targetProcessDefinitionId")
   private String targetProcessDefinitionId = null;
 
-  @JsonProperty("instructions")
   @Valid
-  private List<MigrationInstructionDto> instructions = null;
+  private List<@Valid MigrationInstructionDto> instructions;
 
-  @JsonProperty("variables")
   @Valid
-  private Map<String, VariableValueDto> variables = null;
+  private Map<String, VariableValueDto> variables;
 
   public MigrationPlanDto sourceProcessDefinitionId(String sourceProcessDefinitionId) {
     this.sourceProcessDefinitionId = sourceProcessDefinitionId;
@@ -40,10 +44,11 @@ public class MigrationPlanDto   {
   /**
    * The id of the source process definition for the migration.
    * @return sourceProcessDefinitionId
-   **/
-  @Schema(description = "The id of the source process definition for the migration.")
+  */
   
-    public String getSourceProcessDefinitionId() {
+  @Schema(name = "sourceProcessDefinitionId", description = "The id of the source process definition for the migration.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sourceProcessDefinitionId")
+  public String getSourceProcessDefinitionId() {
     return sourceProcessDefinitionId;
   }
 
@@ -59,10 +64,11 @@ public class MigrationPlanDto   {
   /**
    * The id of the target process definition for the migration.
    * @return targetProcessDefinitionId
-   **/
-  @Schema(description = "The id of the target process definition for the migration.")
+  */
   
-    public String getTargetProcessDefinitionId() {
+  @Schema(name = "targetProcessDefinitionId", description = "The id of the target process definition for the migration.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("targetProcessDefinitionId")
+  public String getTargetProcessDefinitionId() {
     return targetProcessDefinitionId;
   }
 
@@ -70,7 +76,7 @@ public class MigrationPlanDto   {
     this.targetProcessDefinitionId = targetProcessDefinitionId;
   }
 
-  public MigrationPlanDto instructions(List<MigrationInstructionDto> instructions) {
+  public MigrationPlanDto instructions(List<@Valid MigrationInstructionDto> instructions) {
     this.instructions = instructions;
     return this;
   }
@@ -86,14 +92,15 @@ public class MigrationPlanDto   {
   /**
    * A list of migration instructions which map equal activities. Each migration instruction is a JSON object with the following properties:
    * @return instructions
-   **/
-  @Schema(description = "A list of migration instructions which map equal activities. Each migration instruction is a JSON object with the following properties:")
-      @Valid
-    public List<MigrationInstructionDto> getInstructions() {
+  */
+  @Valid 
+  @Schema(name = "instructions", description = "A list of migration instructions which map equal activities. Each migration instruction is a JSON object with the following properties:", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("instructions")
+  public List<@Valid MigrationInstructionDto> getInstructions() {
     return instructions;
   }
 
-  public void setInstructions(List<MigrationInstructionDto> instructions) {
+  public void setInstructions(List<@Valid MigrationInstructionDto> instructions) {
     this.instructions = instructions;
   }
 
@@ -113,17 +120,17 @@ public class MigrationPlanDto   {
   /**
    * A map of variables which will be set into the process instances' scope. Each key is a variable name and each value a JSON variable value object.
    * @return variables
-   **/
-  @Schema(description = "A map of variables which will be set into the process instances' scope. Each key is a variable name and each value a JSON variable value object.")
-      @Valid
-    public Map<String, VariableValueDto> getVariables() {
+  */
+  @Valid 
+  @Schema(name = "variables", description = "A map of variables which will be set into the process instances' scope. Each key is a variable name and each value a JSON variable value object.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variables")
+  public Map<String, VariableValueDto> getVariables() {
     return variables;
   }
 
   public void setVariables(Map<String, VariableValueDto> variables) {
     this.variables = variables;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -149,7 +156,6 @@ public class MigrationPlanDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MigrationPlanDto {\n");
-    
     sb.append("    sourceProcessDefinitionId: ").append(toIndentedString(sourceProcessDefinitionId)).append("\n");
     sb.append("    targetProcessDefinitionId: ").append(toIndentedString(targetProcessDefinitionId)).append("\n");
     sb.append("    instructions: ").append(toIndentedString(instructions)).append("\n");
@@ -169,3 +175,4 @@ public class MigrationPlanDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

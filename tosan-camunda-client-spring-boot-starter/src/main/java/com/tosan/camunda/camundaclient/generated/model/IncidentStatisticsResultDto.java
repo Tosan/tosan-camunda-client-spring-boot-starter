@@ -1,22 +1,27 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * IncidentStatisticsResultDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class IncidentStatisticsResultDto {
 
-public class IncidentStatisticsResultDto   {
-  @JsonProperty("incidentType")
   private String incidentType = null;
 
-  @JsonProperty("incidentCount")
   private Integer incidentCount = null;
 
   public IncidentStatisticsResultDto incidentType(String incidentType) {
@@ -27,10 +32,11 @@ public class IncidentStatisticsResultDto   {
   /**
    * The type of the incident the number of incidents is aggregated for. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/incidents/#incident-types) for a list of incident types.
    * @return incidentType
-   **/
-  @Schema(description = "The type of the incident the number of incidents is aggregated for. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/incidents/#incident-types) for a list of incident types.")
+  */
   
-    public String getIncidentType() {
+  @Schema(name = "incidentType", description = "The type of the incident the number of incidents is aggregated for. See the [User Guide](https://docs.camunda.org/manual/7.17/user-guide/process-engine/incidents/#incident-types) for a list of incident types.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentType")
+  public String getIncidentType() {
     return incidentType;
   }
 
@@ -46,17 +52,17 @@ public class IncidentStatisticsResultDto   {
   /**
    * The total number of incidents for the corresponding incident type.
    * @return incidentCount
-   **/
-  @Schema(description = "The total number of incidents for the corresponding incident type.")
+  */
   
-    public Integer getIncidentCount() {
+  @Schema(name = "incidentCount", description = "The total number of incidents for the corresponding incident type.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidentCount")
+  public Integer getIncidentCount() {
     return incidentCount;
   }
 
   public void setIncidentCount(Integer incidentCount) {
     this.incidentCount = incidentCount;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -80,7 +86,6 @@ public class IncidentStatisticsResultDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IncidentStatisticsResultDto {\n");
-    
     sb.append("    incidentType: ").append(toIndentedString(incidentType)).append("\n");
     sb.append("    incidentCount: ").append(toIndentedString(incidentCount)).append("\n");
     sb.append("}");
@@ -98,3 +103,4 @@ public class IncidentStatisticsResultDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

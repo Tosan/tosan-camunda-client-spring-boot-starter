@@ -1,91 +1,79 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.HistoricDecisionInputInstanceDto;
+import com.tosan.camunda.camundaclient.generated.model.HistoricDecisionOutputInstanceDto;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * HistoricDecisionInstanceDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricDecisionInstanceDto {
 
-public class HistoricDecisionInstanceDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("decisionDefinitionId")
   private String decisionDefinitionId = null;
 
-  @JsonProperty("decisionDefinitionKey")
   private String decisionDefinitionKey = null;
 
-  @JsonProperty("decisionDefinitionName")
   private String decisionDefinitionName = null;
 
-  @JsonProperty("evaluationTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime evaluationTime = null;
 
-  @JsonProperty("removalTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime removalTime = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("caseDefinitionId")
   private String caseDefinitionId = null;
 
-  @JsonProperty("caseDefinitionKey")
   private String caseDefinitionKey = null;
 
-  @JsonProperty("caseInstanceId")
   private String caseInstanceId = null;
 
-  @JsonProperty("activityId")
   private String activityId = null;
 
-  @JsonProperty("activityInstanceId")
   private String activityInstanceId = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("userId")
   private String userId = null;
 
-  @JsonProperty("inputs")
   @Valid
-  private List<HistoricDecisionInputInstanceDto> inputs = null;
+  private List<@Valid HistoricDecisionInputInstanceDto> inputs;
 
-  @JsonProperty("ouputs")
   @Valid
-  private List<HistoricDecisionOutputInstanceDto> ouputs = null;
+  private List<@Valid HistoricDecisionOutputInstanceDto> ouputs;
 
-  @JsonProperty("collectResultValue")
   private Double collectResultValue = null;
 
-  @JsonProperty("rootDecisionInstanceId")
   private String rootDecisionInstanceId = null;
 
-  @JsonProperty("rootProcessInstanceId")
   private String rootProcessInstanceId = null;
 
-  @JsonProperty("decisionRequirementsDefinitionId")
   private String decisionRequirementsDefinitionId = null;
 
-  @JsonProperty("decisionRequirementsDefinitionKey")
   private String decisionRequirementsDefinitionKey = null;
 
   public HistoricDecisionInstanceDto id(String id) {
@@ -96,10 +84,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The id of the decision instance.
    * @return id
-   **/
-  @Schema(description = "The id of the decision instance.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the decision instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -115,10 +104,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The id of the decision definition that this decision instance belongs to.
    * @return decisionDefinitionId
-   **/
-  @Schema(description = "The id of the decision definition that this decision instance belongs to.")
+  */
   
-    public String getDecisionDefinitionId() {
+  @Schema(name = "decisionDefinitionId", description = "The id of the decision definition that this decision instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionDefinitionId")
+  public String getDecisionDefinitionId() {
     return decisionDefinitionId;
   }
 
@@ -134,10 +124,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The key of the decision definition that this decision instance belongs to.
    * @return decisionDefinitionKey
-   **/
-  @Schema(description = "The key of the decision definition that this decision instance belongs to.")
+  */
   
-    public String getDecisionDefinitionKey() {
+  @Schema(name = "decisionDefinitionKey", description = "The key of the decision definition that this decision instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionDefinitionKey")
+  public String getDecisionDefinitionKey() {
     return decisionDefinitionKey;
   }
 
@@ -153,10 +144,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The name of the decision definition that this decision instance belongs to.
    * @return decisionDefinitionName
-   **/
-  @Schema(description = "The name of the decision definition that this decision instance belongs to.")
+  */
   
-    public String getDecisionDefinitionName() {
+  @Schema(name = "decisionDefinitionName", description = "The name of the decision definition that this decision instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionDefinitionName")
+  public String getDecisionDefinitionName() {
     return decisionDefinitionName;
   }
 
@@ -172,11 +164,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The time the instance was evaluated.  [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return evaluationTime
-   **/
-  @Schema(description = "The time the instance was evaluated.  [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getEvaluationTime() {
+  */
+  @Valid 
+  @Schema(name = "evaluationTime", description = "The time the instance was evaluated.  [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("evaluationTime")
+  public OffsetDateTime getEvaluationTime() {
     return evaluationTime;
   }
 
@@ -192,11 +184,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The time after which the instance should be removed by the History Cleanup job. [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return removalTime
-   **/
-  @Schema(description = "The time after which the instance should be removed by the History Cleanup job. [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getRemovalTime() {
+  */
+  @Valid 
+  @Schema(name = "removalTime", description = "The time after which the instance should be removed by the History Cleanup job. [Default format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("removalTime")
+  public OffsetDateTime getRemovalTime() {
     return removalTime;
   }
 
@@ -212,10 +204,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The id of the process definition that this decision instance belongs to.
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definition that this decision instance belongs to.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definition that this decision instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -231,10 +224,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The key of the process definition that this decision instance belongs to.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "The key of the process definition that this decision instance belongs to.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "The key of the process definition that this decision instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -250,10 +244,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The id of the process instance that this decision instance belongs to.
    * @return processInstanceId
-   **/
-  @Schema(description = "The id of the process instance that this decision instance belongs to.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "The id of the process instance that this decision instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -269,10 +264,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The id of the case definition that this decision instance belongs to.
    * @return caseDefinitionId
-   **/
-  @Schema(description = "The id of the case definition that this decision instance belongs to.")
+  */
   
-    public String getCaseDefinitionId() {
+  @Schema(name = "caseDefinitionId", description = "The id of the case definition that this decision instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseDefinitionId")
+  public String getCaseDefinitionId() {
     return caseDefinitionId;
   }
 
@@ -288,10 +284,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The key of the case definition that this decision instance belongs to.
    * @return caseDefinitionKey
-   **/
-  @Schema(description = "The key of the case definition that this decision instance belongs to.")
+  */
   
-    public String getCaseDefinitionKey() {
+  @Schema(name = "caseDefinitionKey", description = "The key of the case definition that this decision instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseDefinitionKey")
+  public String getCaseDefinitionKey() {
     return caseDefinitionKey;
   }
 
@@ -307,10 +304,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The id of the case instance that this decision instance belongs to.
    * @return caseInstanceId
-   **/
-  @Schema(description = "The id of the case instance that this decision instance belongs to.")
+  */
   
-    public String getCaseInstanceId() {
+  @Schema(name = "caseInstanceId", description = "The id of the case instance that this decision instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceId")
+  public String getCaseInstanceId() {
     return caseInstanceId;
   }
 
@@ -326,10 +324,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The id of the activity that this decision instance belongs to.
    * @return activityId
-   **/
-  @Schema(description = "The id of the activity that this decision instance belongs to.")
+  */
   
-    public String getActivityId() {
+  @Schema(name = "activityId", description = "The id of the activity that this decision instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityId")
+  public String getActivityId() {
     return activityId;
   }
 
@@ -345,10 +344,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The id of the activity instance that this decision instance belongs to.
    * @return activityInstanceId
-   **/
-  @Schema(description = "The id of the activity instance that this decision instance belongs to.")
+  */
   
-    public String getActivityInstanceId() {
+  @Schema(name = "activityInstanceId", description = "The id of the activity instance that this decision instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityInstanceId")
+  public String getActivityInstanceId() {
     return activityInstanceId;
   }
 
@@ -364,10 +364,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The tenant id of the historic decision instance.
    * @return tenantId
-   **/
-  @Schema(description = "The tenant id of the historic decision instance.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The tenant id of the historic decision instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -383,10 +384,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The id of the authenticated user that has evaluated this decision instance without a process or case instance.
    * @return userId
-   **/
-  @Schema(description = "The id of the authenticated user that has evaluated this decision instance without a process or case instance.")
+  */
   
-    public String getUserId() {
+  @Schema(name = "userId", description = "The id of the authenticated user that has evaluated this decision instance without a process or case instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("userId")
+  public String getUserId() {
     return userId;
   }
 
@@ -394,7 +396,7 @@ public class HistoricDecisionInstanceDto   {
     this.userId = userId;
   }
 
-  public HistoricDecisionInstanceDto inputs(List<HistoricDecisionInputInstanceDto> inputs) {
+  public HistoricDecisionInstanceDto inputs(List<@Valid HistoricDecisionInputInstanceDto> inputs) {
     this.inputs = inputs;
     return this;
   }
@@ -410,18 +412,19 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The list of decision input values. **Only exists** if `includeInputs` was set to `true` in the query.
    * @return inputs
-   **/
-  @Schema(description = "The list of decision input values. **Only exists** if `includeInputs` was set to `true` in the query.")
-      @Valid
-    public List<HistoricDecisionInputInstanceDto> getInputs() {
+  */
+  @Valid 
+  @Schema(name = "inputs", description = "The list of decision input values. **Only exists** if `includeInputs` was set to `true` in the query.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("inputs")
+  public List<@Valid HistoricDecisionInputInstanceDto> getInputs() {
     return inputs;
   }
 
-  public void setInputs(List<HistoricDecisionInputInstanceDto> inputs) {
+  public void setInputs(List<@Valid HistoricDecisionInputInstanceDto> inputs) {
     this.inputs = inputs;
   }
 
-  public HistoricDecisionInstanceDto ouputs(List<HistoricDecisionOutputInstanceDto> ouputs) {
+  public HistoricDecisionInstanceDto ouputs(List<@Valid HistoricDecisionOutputInstanceDto> ouputs) {
     this.ouputs = ouputs;
     return this;
   }
@@ -437,14 +440,15 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The list of decision output values. **Only exists** if `includeOutputs` was set to `true` in the query.
    * @return ouputs
-   **/
-  @Schema(description = "The list of decision output values. **Only exists** if `includeOutputs` was set to `true` in the query.")
-      @Valid
-    public List<HistoricDecisionOutputInstanceDto> getOuputs() {
+  */
+  @Valid 
+  @Schema(name = "ouputs", description = "The list of decision output values. **Only exists** if `includeOutputs` was set to `true` in the query.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("ouputs")
+  public List<@Valid HistoricDecisionOutputInstanceDto> getOuputs() {
     return ouputs;
   }
 
-  public void setOuputs(List<HistoricDecisionOutputInstanceDto> ouputs) {
+  public void setOuputs(List<@Valid HistoricDecisionOutputInstanceDto> ouputs) {
     this.ouputs = ouputs;
   }
 
@@ -456,10 +460,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The result of the collect aggregation of the decision result if used. `null` if no aggregation was used.
    * @return collectResultValue
-   **/
-  @Schema(description = "The result of the collect aggregation of the decision result if used. `null` if no aggregation was used.")
+  */
   
-    public Double getCollectResultValue() {
+  @Schema(name = "collectResultValue", description = "The result of the collect aggregation of the decision result if used. `null` if no aggregation was used.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("collectResultValue")
+  public Double getCollectResultValue() {
     return collectResultValue;
   }
 
@@ -475,10 +480,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The decision instance id of the evaluated root decision. Can be `null` if this instance is the root decision instance of the evaluation.
    * @return rootDecisionInstanceId
-   **/
-  @Schema(description = "The decision instance id of the evaluated root decision. Can be `null` if this instance is the root decision instance of the evaluation.")
+  */
   
-    public String getRootDecisionInstanceId() {
+  @Schema(name = "rootDecisionInstanceId", description = "The decision instance id of the evaluated root decision. Can be `null` if this instance is the root decision instance of the evaluation.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("rootDecisionInstanceId")
+  public String getRootDecisionInstanceId() {
     return rootDecisionInstanceId;
   }
 
@@ -494,10 +500,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The process instance id of the root process instance that initiated the evaluation of this decision. Can be `null` if this decision instance is not evaluated as part of a BPMN process.
    * @return rootProcessInstanceId
-   **/
-  @Schema(description = "The process instance id of the root process instance that initiated the evaluation of this decision. Can be `null` if this decision instance is not evaluated as part of a BPMN process.")
+  */
   
-    public String getRootProcessInstanceId() {
+  @Schema(name = "rootProcessInstanceId", description = "The process instance id of the root process instance that initiated the evaluation of this decision. Can be `null` if this decision instance is not evaluated as part of a BPMN process.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("rootProcessInstanceId")
+  public String getRootProcessInstanceId() {
     return rootProcessInstanceId;
   }
 
@@ -513,10 +520,11 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The id of the decision requirements definition that this decision instance belongs to.
    * @return decisionRequirementsDefinitionId
-   **/
-  @Schema(description = "The id of the decision requirements definition that this decision instance belongs to.")
+  */
   
-    public String getDecisionRequirementsDefinitionId() {
+  @Schema(name = "decisionRequirementsDefinitionId", description = "The id of the decision requirements definition that this decision instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionRequirementsDefinitionId")
+  public String getDecisionRequirementsDefinitionId() {
     return decisionRequirementsDefinitionId;
   }
 
@@ -532,17 +540,17 @@ public class HistoricDecisionInstanceDto   {
   /**
    * The key of the decision requirements definition that this decision instance belongs to.
    * @return decisionRequirementsDefinitionKey
-   **/
-  @Schema(description = "The key of the decision requirements definition that this decision instance belongs to.")
+  */
   
-    public String getDecisionRequirementsDefinitionKey() {
+  @Schema(name = "decisionRequirementsDefinitionKey", description = "The key of the decision requirements definition that this decision instance belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("decisionRequirementsDefinitionKey")
+  public String getDecisionRequirementsDefinitionKey() {
     return decisionRequirementsDefinitionKey;
   }
 
   public void setDecisionRequirementsDefinitionKey(String decisionRequirementsDefinitionKey) {
     this.decisionRequirementsDefinitionKey = decisionRequirementsDefinitionKey;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -587,7 +595,6 @@ public class HistoricDecisionInstanceDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricDecisionInstanceDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    decisionDefinitionId: ").append(toIndentedString(decisionDefinitionId)).append("\n");
     sb.append("    decisionDefinitionKey: ").append(toIndentedString(decisionDefinitionKey)).append("\n");
@@ -626,3 +633,4 @@ public class HistoricDecisionInstanceDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

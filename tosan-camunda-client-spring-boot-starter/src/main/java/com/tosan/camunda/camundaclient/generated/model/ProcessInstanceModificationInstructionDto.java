@@ -1,22 +1,27 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+import com.tosan.camunda.camundaclient.generated.model.TriggerVariableValueDto;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * ProcessInstanceModificationInstructionDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ProcessInstanceModificationInstructionDto {
 
-public class ProcessInstanceModificationInstructionDto   {
   /**
    * **Mandatory**. One of the following values: `cancel`, `startBeforeActivity`, `startAfterActivity`, `startTransition`.  * A cancel instruction requests cancellation of a single activity instance or all instances of one activity. * A startBeforeActivity instruction requests to enter a given activity. * A startAfterActivity instruction requests to execute the single outgoing sequence flow of a given activity. * A startTransition instruction requests to execute a specific sequence flow.
    */
@@ -35,45 +40,58 @@ public class ProcessInstanceModificationInstructionDto   {
       this.value = value;
     }
 
-    @Override
     @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static TypeEnum fromValue(String text) {
+    public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
-      return null;
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
   }
-  @JsonProperty("type")
-  private TypeEnum type = null;
 
-  @JsonProperty("variables")
-  private TriggerVariableValueDto variables = null;
+  private TypeEnum type;
 
-  @JsonProperty("activityId")
+  private TriggerVariableValueDto variables;
+
   private String activityId = null;
 
-  @JsonProperty("transitionId")
   private String transitionId = null;
 
-  @JsonProperty("activityInstanceId")
   private String activityInstanceId = null;
 
-  @JsonProperty("transitionInstanceId")
   private String transitionInstanceId = null;
 
-  @JsonProperty("ancestorActivityInstanceId")
   private String ancestorActivityInstanceId = null;
 
-  @JsonProperty("cancelCurrentActiveActivityInstances")
   private Boolean cancelCurrentActiveActivityInstances = null;
+
+  /**
+   * Default constructor
+   * @deprecated Use {@link ProcessInstanceModificationInstructionDto#ProcessInstanceModificationInstructionDto(TypeEnum)}
+   */
+  @Deprecated
+  public ProcessInstanceModificationInstructionDto() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public ProcessInstanceModificationInstructionDto(TypeEnum type) {
+    this.type = type;
+  }
 
   public ProcessInstanceModificationInstructionDto type(TypeEnum type) {
     this.type = type;
@@ -83,11 +101,11 @@ public class ProcessInstanceModificationInstructionDto   {
   /**
    * **Mandatory**. One of the following values: `cancel`, `startBeforeActivity`, `startAfterActivity`, `startTransition`.  * A cancel instruction requests cancellation of a single activity instance or all instances of one activity. * A startBeforeActivity instruction requests to enter a given activity. * A startAfterActivity instruction requests to execute the single outgoing sequence flow of a given activity. * A startTransition instruction requests to execute a specific sequence flow.
    * @return type
-   **/
-  @Schema(required = true, description = "**Mandatory**. One of the following values: `cancel`, `startBeforeActivity`, `startAfterActivity`, `startTransition`.  * A cancel instruction requests cancellation of a single activity instance or all instances of one activity. * A startBeforeActivity instruction requests to enter a given activity. * A startAfterActivity instruction requests to execute the single outgoing sequence flow of a given activity. * A startTransition instruction requests to execute a specific sequence flow.")
-      @NotNull
-
-    public TypeEnum getType() {
+  */
+  @NotNull 
+  @Schema(name = "type", description = "**Mandatory**. One of the following values: `cancel`, `startBeforeActivity`, `startAfterActivity`, `startTransition`.  * A cancel instruction requests cancellation of a single activity instance or all instances of one activity. * A startBeforeActivity instruction requests to enter a given activity. * A startAfterActivity instruction requests to execute the single outgoing sequence flow of a given activity. * A startTransition instruction requests to execute a specific sequence flow.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("type")
+  public TypeEnum getType() {
     return type;
   }
 
@@ -103,11 +121,11 @@ public class ProcessInstanceModificationInstructionDto   {
   /**
    * Get variables
    * @return variables
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public TriggerVariableValueDto getVariables() {
+  */
+  @Valid 
+  @Schema(name = "variables", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variables")
+  public TriggerVariableValueDto getVariables() {
     return variables;
   }
 
@@ -123,10 +141,11 @@ public class ProcessInstanceModificationInstructionDto   {
   /**
    * Can be used with instructions of types `startTransition`. Specifies the sequence flow to start.
    * @return activityId
-   **/
-  @Schema(description = "Can be used with instructions of types `startTransition`. Specifies the sequence flow to start.")
+  */
   
-    public String getActivityId() {
+  @Schema(name = "activityId", description = "Can be used with instructions of types `startTransition`. Specifies the sequence flow to start.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityId")
+  public String getActivityId() {
     return activityId;
   }
 
@@ -142,10 +161,11 @@ public class ProcessInstanceModificationInstructionDto   {
   /**
    * Can be used with instructions of types `startTransition`. Specifies the sequence flow to start.
    * @return transitionId
-   **/
-  @Schema(description = "Can be used with instructions of types `startTransition`. Specifies the sequence flow to start.")
+  */
   
-    public String getTransitionId() {
+  @Schema(name = "transitionId", description = "Can be used with instructions of types `startTransition`. Specifies the sequence flow to start.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("transitionId")
+  public String getTransitionId() {
     return transitionId;
   }
 
@@ -161,10 +181,11 @@ public class ProcessInstanceModificationInstructionDto   {
   /**
    * Can be used with instructions of type `cancel`. Specifies the activity instance to cancel. Valid values are the activity instance IDs supplied by the [Get Activity Instance request](https://docs.camunda.org/manual/7.17/reference/rest/process-instance/get-activity-instances/).
    * @return activityInstanceId
-   **/
-  @Schema(description = "Can be used with instructions of type `cancel`. Specifies the activity instance to cancel. Valid values are the activity instance IDs supplied by the [Get Activity Instance request](https://docs.camunda.org/manual/7.17/reference/rest/process-instance/get-activity-instances/).")
+  */
   
-    public String getActivityInstanceId() {
+  @Schema(name = "activityInstanceId", description = "Can be used with instructions of type `cancel`. Specifies the activity instance to cancel. Valid values are the activity instance IDs supplied by the [Get Activity Instance request](https://docs.camunda.org/manual/7.17/reference/rest/process-instance/get-activity-instances/).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityInstanceId")
+  public String getActivityInstanceId() {
     return activityInstanceId;
   }
 
@@ -180,10 +201,11 @@ public class ProcessInstanceModificationInstructionDto   {
   /**
    * Can be used with instructions of type `cancel`. Specifies the transition instance to cancel. Valid values are the transition instance IDs supplied by the [Get Activity Instance request](https://docs.camunda.org/manual/7.17/reference/rest/process-instance/get-activity-instances/).
    * @return transitionInstanceId
-   **/
-  @Schema(description = "Can be used with instructions of type `cancel`. Specifies the transition instance to cancel. Valid values are the transition instance IDs supplied by the [Get Activity Instance request](https://docs.camunda.org/manual/7.17/reference/rest/process-instance/get-activity-instances/).")
+  */
   
-    public String getTransitionInstanceId() {
+  @Schema(name = "transitionInstanceId", description = "Can be used with instructions of type `cancel`. Specifies the transition instance to cancel. Valid values are the transition instance IDs supplied by the [Get Activity Instance request](https://docs.camunda.org/manual/7.17/reference/rest/process-instance/get-activity-instances/).", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("transitionInstanceId")
+  public String getTransitionInstanceId() {
     return transitionInstanceId;
   }
 
@@ -199,10 +221,11 @@ public class ProcessInstanceModificationInstructionDto   {
   /**
    * Can be used with instructions of type `startBeforeActivity`, `startAfterActivity`, and `startTransition`. Valid values are the activity instance IDs supplied by the Get Activity Instance request. If there are multiple parent activity instances of the targeted activity, this specifies the ancestor scope in which hierarchy the activity/transition is to be instantiated.  Example: When there are two instances of a subprocess and an activity contained in the subprocess is to be started, this parameter allows to specifiy under which subprocess instance the activity should be started.
    * @return ancestorActivityInstanceId
-   **/
-  @Schema(description = "Can be used with instructions of type `startBeforeActivity`, `startAfterActivity`, and `startTransition`. Valid values are the activity instance IDs supplied by the Get Activity Instance request. If there are multiple parent activity instances of the targeted activity, this specifies the ancestor scope in which hierarchy the activity/transition is to be instantiated.  Example: When there are two instances of a subprocess and an activity contained in the subprocess is to be started, this parameter allows to specifiy under which subprocess instance the activity should be started.")
+  */
   
-    public String getAncestorActivityInstanceId() {
+  @Schema(name = "ancestorActivityInstanceId", description = "Can be used with instructions of type `startBeforeActivity`, `startAfterActivity`, and `startTransition`. Valid values are the activity instance IDs supplied by the Get Activity Instance request. If there are multiple parent activity instances of the targeted activity, this specifies the ancestor scope in which hierarchy the activity/transition is to be instantiated.  Example: When there are two instances of a subprocess and an activity contained in the subprocess is to be started, this parameter allows to specifiy under which subprocess instance the activity should be started.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("ancestorActivityInstanceId")
+  public String getAncestorActivityInstanceId() {
     return ancestorActivityInstanceId;
   }
 
@@ -218,17 +241,17 @@ public class ProcessInstanceModificationInstructionDto   {
   /**
    * Can be used with instructions of type cancel. Prevents the deletion of new created activity instances.
    * @return cancelCurrentActiveActivityInstances
-   **/
-  @Schema(description = "Can be used with instructions of type cancel. Prevents the deletion of new created activity instances.")
+  */
   
-    public Boolean isCancelCurrentActiveActivityInstances() {
+  @Schema(name = "cancelCurrentActiveActivityInstances", description = "Can be used with instructions of type cancel. Prevents the deletion of new created activity instances.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("cancelCurrentActiveActivityInstances")
+  public Boolean getCancelCurrentActiveActivityInstances() {
     return cancelCurrentActiveActivityInstances;
   }
 
   public void setCancelCurrentActiveActivityInstances(Boolean cancelCurrentActiveActivityInstances) {
     this.cancelCurrentActiveActivityInstances = cancelCurrentActiveActivityInstances;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -258,7 +281,6 @@ public class ProcessInstanceModificationInstructionDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessInstanceModificationInstructionDto {\n");
-    
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
     sb.append("    activityId: ").append(toIndentedString(activityId)).append("\n");
@@ -282,3 +304,4 @@ public class ProcessInstanceModificationInstructionDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

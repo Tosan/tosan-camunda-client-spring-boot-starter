@@ -1,28 +1,32 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * Describes a rule of a password policy.
  */
-@Schema(description = "Describes a rule of a password policy.")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "PasswordPolicyRuleDto", description = "Describes a rule of a password policy.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class PasswordPolicyRuleDto {
 
-public class PasswordPolicyRuleDto   {
-  @JsonProperty("placeholder")
   private String placeholder = null;
 
-  @JsonProperty("parameter")
   @Valid
-  private Map<String, String> parameter = null;
+  private Map<String, String> parameter = new HashMap<>();
 
   public PasswordPolicyRuleDto placeholder(String placeholder) {
     this.placeholder = placeholder;
@@ -32,10 +36,11 @@ public class PasswordPolicyRuleDto   {
   /**
    * A placeholder string that contains the name of a password policy rule.
    * @return placeholder
-   **/
-  @Schema(description = "A placeholder string that contains the name of a password policy rule.")
+  */
   
-    public String getPlaceholder() {
+  @Schema(name = "placeholder", description = "A placeholder string that contains the name of a password policy rule.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("placeholder")
+  public String getPlaceholder() {
     return placeholder;
   }
 
@@ -59,17 +64,17 @@ public class PasswordPolicyRuleDto   {
   /**
    * A map that describes the characteristics of a password policy rule, such as the minimum number of digits.
    * @return parameter
-   **/
-  @Schema(description = "A map that describes the characteristics of a password policy rule, such as the minimum number of digits.")
+  */
   
-    public Map<String, String> getParameter() {
+  @Schema(name = "parameter", description = "A map that describes the characteristics of a password policy rule, such as the minimum number of digits.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("parameter")
+  public Map<String, String> getParameter() {
     return parameter;
   }
 
   public void setParameter(Map<String, String> parameter) {
     this.parameter = parameter;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -93,7 +98,6 @@ public class PasswordPolicyRuleDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PasswordPolicyRuleDto {\n");
-    
     sb.append("    placeholder: ").append(toIndentedString(placeholder)).append("\n");
     sb.append("    parameter: ").append(toIndentedString(parameter)).append("\n");
     sb.append("}");
@@ -111,3 +115,4 @@ public class PasswordPolicyRuleDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

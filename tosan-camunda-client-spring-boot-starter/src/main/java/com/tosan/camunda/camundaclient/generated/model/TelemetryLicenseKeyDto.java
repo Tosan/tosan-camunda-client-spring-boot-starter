@@ -1,39 +1,41 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * TelemetryLicenseKeyDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class TelemetryLicenseKeyDto {
 
-public class TelemetryLicenseKeyDto   {
-  @JsonProperty("customer")
   private String customer = null;
 
-  @JsonProperty("type")
   private String type = null;
 
-  @JsonProperty("valid-until")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
   private LocalDate validUntil = null;
 
-  @JsonProperty("unlimited")
   private Boolean unlimited = null;
 
-  @JsonProperty("features")
   @Valid
-  private Map<String, String> features = null;
+  private Map<String, String> features = new HashMap<>();
 
-  @JsonProperty("raw")
   private String raw = null;
 
   public TelemetryLicenseKeyDto customer(String customer) {
@@ -44,10 +46,11 @@ public class TelemetryLicenseKeyDto   {
   /**
    * The name of the customer the license was issued for.
    * @return customer
-   **/
-  @Schema(description = "The name of the customer the license was issued for.")
+  */
   
-    public String getCustomer() {
+  @Schema(name = "customer", description = "The name of the customer the license was issued for.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("customer")
+  public String getCustomer() {
     return customer;
   }
 
@@ -63,10 +66,11 @@ public class TelemetryLicenseKeyDto   {
   /**
    * The license type.
    * @return type
-   **/
-  @Schema(description = "The license type.")
+  */
   
-    public String getType() {
+  @Schema(name = "type", description = "The license type.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("type")
+  public String getType() {
     return type;
   }
 
@@ -82,11 +86,11 @@ public class TelemetryLicenseKeyDto   {
   /**
    * The expiration date of the license.
    * @return validUntil
-   **/
-  @Schema(description = "The expiration date of the license.")
-  
-    @Valid
-    public LocalDate getValidUntil() {
+  */
+  @Valid 
+  @Schema(name = "valid-until", description = "The expiration date of the license.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("valid-until")
+  public LocalDate getValidUntil() {
     return validUntil;
   }
 
@@ -102,10 +106,11 @@ public class TelemetryLicenseKeyDto   {
   /**
    * Flag that indicates if the license is unlimited.
    * @return unlimited
-   **/
-  @Schema(description = "Flag that indicates if the license is unlimited.")
+  */
   
-    public Boolean isUnlimited() {
+  @Schema(name = "unlimited", description = "Flag that indicates if the license is unlimited.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("unlimited")
+  public Boolean getUnlimited() {
     return unlimited;
   }
 
@@ -129,10 +134,11 @@ public class TelemetryLicenseKeyDto   {
   /**
    * A map of features included in the license.
    * @return features
-   **/
-  @Schema(description = "A map of features included in the license.")
+  */
   
-    public Map<String, String> getFeatures() {
+  @Schema(name = "features", description = "A map of features included in the license.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("features")
+  public Map<String, String> getFeatures() {
     return features;
   }
 
@@ -148,17 +154,17 @@ public class TelemetryLicenseKeyDto   {
   /**
    * The raw license information.
    * @return raw
-   **/
-  @Schema(description = "The raw license information.")
+  */
   
-    public String getRaw() {
+  @Schema(name = "raw", description = "The raw license information.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("raw")
+  public String getRaw() {
     return raw;
   }
 
   public void setRaw(String raw) {
     this.raw = raw;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -186,7 +192,6 @@ public class TelemetryLicenseKeyDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TelemetryLicenseKeyDto {\n");
-    
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    validUntil: ").append(toIndentedString(validUntil)).append("\n");
@@ -208,3 +213,4 @@ public class TelemetryLicenseKeyDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

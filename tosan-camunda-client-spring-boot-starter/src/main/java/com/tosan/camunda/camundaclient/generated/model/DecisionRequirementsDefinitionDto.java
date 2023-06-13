@@ -1,40 +1,39 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * DecisionRequirementsDefinitionDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class DecisionRequirementsDefinitionDto {
 
-public class DecisionRequirementsDefinitionDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("key")
   private String key = null;
 
-  @JsonProperty("name")
   private String name = null;
 
-  @JsonProperty("category")
   private String category = null;
 
-  @JsonProperty("version")
   private Integer version = null;
 
-  @JsonProperty("resource")
   private String resource = null;
 
-  @JsonProperty("deploymentId")
   private String deploymentId = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
   public DecisionRequirementsDefinitionDto id(String id) {
@@ -45,10 +44,11 @@ public class DecisionRequirementsDefinitionDto   {
   /**
    * The id of the decision requirements definition
    * @return id
-   **/
-  @Schema(description = "The id of the decision requirements definition")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the decision requirements definition", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -64,10 +64,11 @@ public class DecisionRequirementsDefinitionDto   {
   /**
    * The key of the decision requirements definition, i.e., the id of the DMN 1.0 XML decision definition.
    * @return key
-   **/
-  @Schema(description = "The key of the decision requirements definition, i.e., the id of the DMN 1.0 XML decision definition.")
+  */
   
-    public String getKey() {
+  @Schema(name = "key", description = "The key of the decision requirements definition, i.e., the id of the DMN 1.0 XML decision definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("key")
+  public String getKey() {
     return key;
   }
 
@@ -83,10 +84,11 @@ public class DecisionRequirementsDefinitionDto   {
   /**
    * The name of the decision requirements definition.
    * @return name
-   **/
-  @Schema(description = "The name of the decision requirements definition.")
+  */
   
-    public String getName() {
+  @Schema(name = "name", description = "The name of the decision requirements definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
     return name;
   }
 
@@ -102,10 +104,11 @@ public class DecisionRequirementsDefinitionDto   {
   /**
    * The category of the decision requirements definition.
    * @return category
-   **/
-  @Schema(description = "The category of the decision requirements definition.")
+  */
   
-    public String getCategory() {
+  @Schema(name = "category", description = "The category of the decision requirements definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("category")
+  public String getCategory() {
     return category;
   }
 
@@ -121,10 +124,11 @@ public class DecisionRequirementsDefinitionDto   {
   /**
    * The version of the decision requirements definition that the engine assigned to it.
    * @return version
-   **/
-  @Schema(description = "The version of the decision requirements definition that the engine assigned to it.")
+  */
   
-    public Integer getVersion() {
+  @Schema(name = "version", description = "The version of the decision requirements definition that the engine assigned to it.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("version")
+  public Integer getVersion() {
     return version;
   }
 
@@ -140,10 +144,11 @@ public class DecisionRequirementsDefinitionDto   {
   /**
    * The file name of the decision requirements definition.
    * @return resource
-   **/
-  @Schema(description = "The file name of the decision requirements definition.")
+  */
   
-    public String getResource() {
+  @Schema(name = "resource", description = "The file name of the decision requirements definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("resource")
+  public String getResource() {
     return resource;
   }
 
@@ -159,10 +164,11 @@ public class DecisionRequirementsDefinitionDto   {
   /**
    * The deployment id of the decision requirements definition.
    * @return deploymentId
-   **/
-  @Schema(description = "The deployment id of the decision requirements definition.")
+  */
   
-    public String getDeploymentId() {
+  @Schema(name = "deploymentId", description = "The deployment id of the decision requirements definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deploymentId")
+  public String getDeploymentId() {
     return deploymentId;
   }
 
@@ -178,17 +184,17 @@ public class DecisionRequirementsDefinitionDto   {
   /**
    * The tenant id of the decisionrequirements definition.
    * @return tenantId
-   **/
-  @Schema(description = "The tenant id of the decisionrequirements definition.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The tenant id of the decisionrequirements definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
   public void setTenantId(String tenantId) {
     this.tenantId = tenantId;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -218,7 +224,6 @@ public class DecisionRequirementsDefinitionDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DecisionRequirementsDefinitionDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -242,3 +247,4 @@ public class DecisionRequirementsDefinitionDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

@@ -1,102 +1,84 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * HistoricDetailDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricDetailDto {
 
-public class HistoricDetailDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("type")
   private String type = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("activityInstanceId")
   private String activityInstanceId = null;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("caseDefinitionKey")
   private String caseDefinitionKey = null;
 
-  @JsonProperty("caseDefinitionId")
   private String caseDefinitionId = null;
 
-  @JsonProperty("caseInstanceId")
   private String caseInstanceId = null;
 
-  @JsonProperty("caseExecutionId")
   private String caseExecutionId = null;
 
-  @JsonProperty("taskId")
   private String taskId = null;
 
-  @JsonProperty("tenantId")
   private String tenantId = null;
 
-  @JsonProperty("userOperationId")
   private String userOperationId = null;
 
-  @JsonProperty("time")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime time = null;
 
-  @JsonProperty("removalTime")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime removalTime = null;
 
-  @JsonProperty("rootProcessInstanceId")
   private String rootProcessInstanceId = null;
 
-  @JsonProperty("fieldId")
   private String fieldId = null;
 
-  @JsonProperty("fieldValue")
-  private Object fieldValue = null;
+  private Object fieldValue;
 
-  @JsonProperty("variableName")
   private String variableName = null;
 
-  @JsonProperty("variableInstanceId")
   private String variableInstanceId = null;
 
-  @JsonProperty("variableType")
   private String variableType = null;
 
-  @JsonProperty("value")
-  private Object value = null;
+  private Object value;
 
-  @JsonProperty("valueInfo")
   @Valid
-  private Map<String, Object> valueInfo = null;
+  private Map<String, Object> valueInfo = new HashMap<>();
 
-  @JsonProperty("initial")
   private Boolean initial = null;
 
-  @JsonProperty("revision")
   private Integer revision = null;
 
-  @JsonProperty("errorMessage")
   private String errorMessage = null;
 
   public HistoricDetailDto id(String id) {
@@ -107,10 +89,11 @@ public class HistoricDetailDto   {
   /**
    * The id of the historic detail.
    * @return id
-   **/
-  @Schema(description = "The id of the historic detail.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the historic detail.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -126,10 +109,11 @@ public class HistoricDetailDto   {
   /**
    * The type of the historic detail. Either `formField` for a submitted form field value or `variableUpdate` for variable updates.
    * @return type
-   **/
-  @Schema(description = "The type of the historic detail. Either `formField` for a submitted form field value or `variableUpdate` for variable updates.")
+  */
   
-    public String getType() {
+  @Schema(name = "type", description = "The type of the historic detail. Either `formField` for a submitted form field value or `variableUpdate` for variable updates.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("type")
+  public String getType() {
     return type;
   }
 
@@ -145,10 +129,11 @@ public class HistoricDetailDto   {
   /**
    * The key of the process definition that this historic detail belongs to.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "The key of the process definition that this historic detail belongs to.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "The key of the process definition that this historic detail belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -164,10 +149,11 @@ public class HistoricDetailDto   {
   /**
    * The id of the process definition that this historic detail belongs to.
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definition that this historic detail belongs to.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definition that this historic detail belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -183,10 +169,11 @@ public class HistoricDetailDto   {
   /**
    * The id of the process instance the historic detail belongs to.
    * @return processInstanceId
-   **/
-  @Schema(description = "The id of the process instance the historic detail belongs to.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "The id of the process instance the historic detail belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -202,10 +189,11 @@ public class HistoricDetailDto   {
   /**
    * The id of the activity instance the historic detail belongs to.
    * @return activityInstanceId
-   **/
-  @Schema(description = "The id of the activity instance the historic detail belongs to.")
+  */
   
-    public String getActivityInstanceId() {
+  @Schema(name = "activityInstanceId", description = "The id of the activity instance the historic detail belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityInstanceId")
+  public String getActivityInstanceId() {
     return activityInstanceId;
   }
 
@@ -221,10 +209,11 @@ public class HistoricDetailDto   {
   /**
    * The id of the execution the historic detail belongs to.
    * @return executionId
-   **/
-  @Schema(description = "The id of the execution the historic detail belongs to.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "The id of the execution the historic detail belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -240,10 +229,11 @@ public class HistoricDetailDto   {
   /**
    * The key of the case definition that this historic detail belongs to.
    * @return caseDefinitionKey
-   **/
-  @Schema(description = "The key of the case definition that this historic detail belongs to.")
+  */
   
-    public String getCaseDefinitionKey() {
+  @Schema(name = "caseDefinitionKey", description = "The key of the case definition that this historic detail belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseDefinitionKey")
+  public String getCaseDefinitionKey() {
     return caseDefinitionKey;
   }
 
@@ -259,10 +249,11 @@ public class HistoricDetailDto   {
   /**
    * The id of the case definition that this historic detail belongs to.
    * @return caseDefinitionId
-   **/
-  @Schema(description = "The id of the case definition that this historic detail belongs to.")
+  */
   
-    public String getCaseDefinitionId() {
+  @Schema(name = "caseDefinitionId", description = "The id of the case definition that this historic detail belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseDefinitionId")
+  public String getCaseDefinitionId() {
     return caseDefinitionId;
   }
 
@@ -278,10 +269,11 @@ public class HistoricDetailDto   {
   /**
    * The id of the case instance the historic detail belongs to.
    * @return caseInstanceId
-   **/
-  @Schema(description = "The id of the case instance the historic detail belongs to.")
+  */
   
-    public String getCaseInstanceId() {
+  @Schema(name = "caseInstanceId", description = "The id of the case instance the historic detail belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceId")
+  public String getCaseInstanceId() {
     return caseInstanceId;
   }
 
@@ -297,10 +289,11 @@ public class HistoricDetailDto   {
   /**
    * The id of the case execution the historic detail belongs to.
    * @return caseExecutionId
-   **/
-  @Schema(description = "The id of the case execution the historic detail belongs to.")
+  */
   
-    public String getCaseExecutionId() {
+  @Schema(name = "caseExecutionId", description = "The id of the case execution the historic detail belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseExecutionId")
+  public String getCaseExecutionId() {
     return caseExecutionId;
   }
 
@@ -316,10 +309,11 @@ public class HistoricDetailDto   {
   /**
    * The id of the task the historic detail belongs to.
    * @return taskId
-   **/
-  @Schema(description = "The id of the task the historic detail belongs to.")
+  */
   
-    public String getTaskId() {
+  @Schema(name = "taskId", description = "The id of the task the historic detail belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskId")
+  public String getTaskId() {
     return taskId;
   }
 
@@ -335,10 +329,11 @@ public class HistoricDetailDto   {
   /**
    * The id of the tenant that this historic detail belongs to.
    * @return tenantId
-   **/
-  @Schema(description = "The id of the tenant that this historic detail belongs to.")
+  */
   
-    public String getTenantId() {
+  @Schema(name = "tenantId", description = "The id of the tenant that this historic detail belongs to.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantId")
+  public String getTenantId() {
     return tenantId;
   }
 
@@ -354,10 +349,11 @@ public class HistoricDetailDto   {
   /**
    * The id of user operation which links historic detail with [user operation log](https://docs.camunda.org/manual/7.17/reference/rest/history/user-operation-log/) entries.
    * @return userOperationId
-   **/
-  @Schema(description = "The id of user operation which links historic detail with [user operation log](https://docs.camunda.org/manual/7.17/reference/rest/history/user-operation-log/) entries.")
+  */
   
-    public String getUserOperationId() {
+  @Schema(name = "userOperationId", description = "The id of user operation which links historic detail with [user operation log](https://docs.camunda.org/manual/7.17/reference/rest/history/user-operation-log/) entries.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("userOperationId")
+  public String getUserOperationId() {
     return userOperationId;
   }
 
@@ -373,11 +369,11 @@ public class HistoricDetailDto   {
   /**
    * The time when this historic detail occurred. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return time
-   **/
-  @Schema(description = "The time when this historic detail occurred. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getTime() {
+  */
+  @Valid 
+  @Schema(name = "time", description = "The time when this historic detail occurred. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("time")
+  public OffsetDateTime getTime() {
     return time;
   }
 
@@ -393,11 +389,11 @@ public class HistoricDetailDto   {
   /**
    * The time after which the historic detail should be removed by the History Cleanup job. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.
    * @return removalTime
-   **/
-  @Schema(description = "The time after which the historic detail should be removed by the History Cleanup job. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.")
-  
-    @Valid
-    public OffsetDateTime getRemovalTime() {
+  */
+  @Valid 
+  @Schema(name = "removalTime", description = "The time after which the historic detail should be removed by the History Cleanup job. Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("removalTime")
+  public OffsetDateTime getRemovalTime() {
     return removalTime;
   }
 
@@ -413,10 +409,11 @@ public class HistoricDetailDto   {
   /**
    * The process instance id of the root process instance that initiated the process containing this historic detail.
    * @return rootProcessInstanceId
-   **/
-  @Schema(description = "The process instance id of the root process instance that initiated the process containing this historic detail.")
+  */
   
-    public String getRootProcessInstanceId() {
+  @Schema(name = "rootProcessInstanceId", description = "The process instance id of the root process instance that initiated the process containing this historic detail.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("rootProcessInstanceId")
+  public String getRootProcessInstanceId() {
     return rootProcessInstanceId;
   }
 
@@ -432,10 +429,11 @@ public class HistoricDetailDto   {
   /**
    * The id of the form field.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `formField`.
    * @return fieldId
-   **/
-  @Schema(description = "The id of the form field.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `formField`.")
+  */
   
-    public String getFieldId() {
+  @Schema(name = "fieldId", description = "The id of the form field.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `formField`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("fieldId")
+  public String getFieldId() {
     return fieldId;
   }
 
@@ -451,10 +449,11 @@ public class HistoricDetailDto   {
   /**
    * The submitted form field value. The value differs depending on the form field's type and on the `deserializeValue` parameter.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `formField`.
    * @return fieldValue
-   **/
-  @Schema(description = "The submitted form field value. The value differs depending on the form field's type and on the `deserializeValue` parameter.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `formField`.")
+  */
   
-    public Object getFieldValue() {
+  @Schema(name = "fieldValue", description = "The submitted form field value. The value differs depending on the form field's type and on the `deserializeValue` parameter.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `formField`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("fieldValue")
+  public Object getFieldValue() {
     return fieldValue;
   }
 
@@ -470,10 +469,11 @@ public class HistoricDetailDto   {
   /**
    * The name of the variable which has been updated.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.
    * @return variableName
-   **/
-  @Schema(description = "The name of the variable which has been updated.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.")
+  */
   
-    public String getVariableName() {
+  @Schema(name = "variableName", description = "The name of the variable which has been updated.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableName")
+  public String getVariableName() {
     return variableName;
   }
 
@@ -489,10 +489,11 @@ public class HistoricDetailDto   {
   /**
    * The id of the associated variable instance.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.
    * @return variableInstanceId
-   **/
-  @Schema(description = "The id of the associated variable instance.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.")
+  */
   
-    public String getVariableInstanceId() {
+  @Schema(name = "variableInstanceId", description = "The id of the associated variable instance.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableInstanceId")
+  public String getVariableInstanceId() {
     return variableInstanceId;
   }
 
@@ -508,10 +509,11 @@ public class HistoricDetailDto   {
   /**
    * The value type of the variable.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.
    * @return variableType
-   **/
-  @Schema(description = "The value type of the variable.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.")
+  */
   
-    public String getVariableType() {
+  @Schema(name = "variableType", description = "The value type of the variable.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableType")
+  public String getVariableType() {
     return variableType;
   }
 
@@ -527,10 +529,11 @@ public class HistoricDetailDto   {
   /**
    * The variable's value. Value differs depending on the variable's type and on the deserializeValues parameter.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.
    * @return value
-   **/
-  @Schema(description = "The variable's value. Value differs depending on the variable's type and on the deserializeValues parameter.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.")
+  */
   
-    public Object getValue() {
+  @Schema(name = "value", description = "The variable's value. Value differs depending on the variable's type and on the deserializeValues parameter.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("value")
+  public Object getValue() {
     return value;
   }
 
@@ -554,10 +557,11 @@ public class HistoricDetailDto   {
   /**
    * A JSON object containing additional, value-type-dependent properties. For variables of type `Object`, the following properties are returned:  * `objectTypeName`: A string representation of the object's type name. * `serializationDataFormat`: The serialization format used to store the variable.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.
    * @return valueInfo
-   **/
-  @Schema(description = "A JSON object containing additional, value-type-dependent properties. For variables of type `Object`, the following properties are returned:  * `objectTypeName`: A string representation of the object's type name. * `serializationDataFormat`: The serialization format used to store the variable.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.")
+  */
   
-    public Map<String, Object> getValueInfo() {
+  @Schema(name = "valueInfo", description = "A JSON object containing additional, value-type-dependent properties. For variables of type `Object`, the following properties are returned:  * `objectTypeName`: A string representation of the object's type name. * `serializationDataFormat`: The serialization format used to store the variable.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("valueInfo")
+  public Map<String, Object> getValueInfo() {
     return valueInfo;
   }
 
@@ -573,10 +577,11 @@ public class HistoricDetailDto   {
   /**
    * Returns `true` for variable updates that contains the initial values of the variables.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.
    * @return initial
-   **/
-  @Schema(description = "Returns `true` for variable updates that contains the initial values of the variables.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.")
+  */
   
-    public Boolean isInitial() {
+  @Schema(name = "initial", description = "Returns `true` for variable updates that contains the initial values of the variables.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("initial")
+  public Boolean getInitial() {
     return initial;
   }
 
@@ -592,10 +597,11 @@ public class HistoricDetailDto   {
   /**
    * The revision of the historic variable update.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.
    * @return revision
-   **/
-  @Schema(description = "The revision of the historic variable update.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.")
+  */
   
-    public Integer getRevision() {
+  @Schema(name = "revision", description = "The revision of the historic variable update.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("revision")
+  public Integer getRevision() {
     return revision;
   }
 
@@ -611,17 +617,17 @@ public class HistoricDetailDto   {
   /**
    * An error message in case a Java Serialized Object could not be de-serialized.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.
    * @return errorMessage
-   **/
-  @Schema(description = "An error message in case a Java Serialized Object could not be de-serialized.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.")
+  */
   
-    public String getErrorMessage() {
+  @Schema(name = "errorMessage", description = "An error message in case a Java Serialized Object could not be de-serialized.  **Note:** This property is only set for a `HistoricVariableUpdate` historic details. In these cases, the value of the `type` property is `variableUpdate`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("errorMessage")
+  public String getErrorMessage() {
     return errorMessage;
   }
 
   public void setErrorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -670,7 +676,6 @@ public class HistoricDetailDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricDetailDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    processDefinitionKey: ").append(toIndentedString(processDefinitionKey)).append("\n");
@@ -713,3 +718,4 @@ public class HistoricDetailDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

@@ -1,40 +1,43 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.ExternalTaskQueryDto;
+import com.tosan.camunda.camundaclient.generated.model.HistoricProcessInstanceQueryDto;
+import com.tosan.camunda.camundaclient.generated.model.ProcessInstanceQueryDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * SetRetriesForExternalTasksDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class SetRetriesForExternalTasksDto {
 
-public class SetRetriesForExternalTasksDto   {
-  @JsonProperty("retries")
   private Integer retries = null;
 
-  @JsonProperty("externalTaskIds")
   @Valid
-  private List<String> externalTaskIds = null;
+  private List<String> externalTaskIds;
 
-  @JsonProperty("processInstanceIds")
   @Valid
-  private List<String> processInstanceIds = null;
+  private List<String> processInstanceIds;
 
-  @JsonProperty("externalTaskQuery")
-  private ExternalTaskQueryDto externalTaskQuery = null;
+  private ExternalTaskQueryDto externalTaskQuery;
 
-  @JsonProperty("processInstanceQuery")
-  private ProcessInstanceQueryDto processInstanceQuery = null;
+  private ProcessInstanceQueryDto processInstanceQuery;
 
-  @JsonProperty("historicProcessInstanceQuery")
-  private HistoricProcessInstanceQueryDto historicProcessInstanceQuery = null;
+  private HistoricProcessInstanceQueryDto historicProcessInstanceQuery;
 
   public SetRetriesForExternalTasksDto retries(Integer retries) {
     this.retries = retries;
@@ -44,10 +47,11 @@ public class SetRetriesForExternalTasksDto   {
   /**
    * The number of retries to set for the external task.  Must be >= 0. If this is 0, an incident is created and the task cannot be fetched anymore unless the retries are increased again. Can not be null.
    * @return retries
-   **/
-  @Schema(description = "The number of retries to set for the external task.  Must be >= 0. If this is 0, an incident is created and the task cannot be fetched anymore unless the retries are increased again. Can not be null.")
+  */
   
-    public Integer getRetries() {
+  @Schema(name = "retries", description = "The number of retries to set for the external task.  Must be >= 0. If this is 0, an incident is created and the task cannot be fetched anymore unless the retries are increased again. Can not be null.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("retries")
+  public Integer getRetries() {
     return retries;
   }
 
@@ -71,10 +75,11 @@ public class SetRetriesForExternalTasksDto   {
   /**
    * The ids of the external tasks to set the number of retries for.
    * @return externalTaskIds
-   **/
-  @Schema(description = "The ids of the external tasks to set the number of retries for.")
+  */
   
-    public List<String> getExternalTaskIds() {
+  @Schema(name = "externalTaskIds", description = "The ids of the external tasks to set the number of retries for.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("externalTaskIds")
+  public List<String> getExternalTaskIds() {
     return externalTaskIds;
   }
 
@@ -98,10 +103,11 @@ public class SetRetriesForExternalTasksDto   {
   /**
    * The ids of process instances containing the tasks to set the number of retries for.
    * @return processInstanceIds
-   **/
-  @Schema(description = "The ids of process instances containing the tasks to set the number of retries for.")
+  */
   
-    public List<String> getProcessInstanceIds() {
+  @Schema(name = "processInstanceIds", description = "The ids of process instances containing the tasks to set the number of retries for.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceIds")
+  public List<String> getProcessInstanceIds() {
     return processInstanceIds;
   }
 
@@ -117,11 +123,11 @@ public class SetRetriesForExternalTasksDto   {
   /**
    * Get externalTaskQuery
    * @return externalTaskQuery
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public ExternalTaskQueryDto getExternalTaskQuery() {
+  */
+  @Valid 
+  @Schema(name = "externalTaskQuery", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("externalTaskQuery")
+  public ExternalTaskQueryDto getExternalTaskQuery() {
     return externalTaskQuery;
   }
 
@@ -137,11 +143,11 @@ public class SetRetriesForExternalTasksDto   {
   /**
    * Get processInstanceQuery
    * @return processInstanceQuery
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public ProcessInstanceQueryDto getProcessInstanceQuery() {
+  */
+  @Valid 
+  @Schema(name = "processInstanceQuery", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceQuery")
+  public ProcessInstanceQueryDto getProcessInstanceQuery() {
     return processInstanceQuery;
   }
 
@@ -157,18 +163,17 @@ public class SetRetriesForExternalTasksDto   {
   /**
    * Get historicProcessInstanceQuery
    * @return historicProcessInstanceQuery
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public HistoricProcessInstanceQueryDto getHistoricProcessInstanceQuery() {
+  */
+  @Valid 
+  @Schema(name = "historicProcessInstanceQuery", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("historicProcessInstanceQuery")
+  public HistoricProcessInstanceQueryDto getHistoricProcessInstanceQuery() {
     return historicProcessInstanceQuery;
   }
 
   public void setHistoricProcessInstanceQuery(HistoricProcessInstanceQueryDto historicProcessInstanceQuery) {
     this.historicProcessInstanceQuery = historicProcessInstanceQuery;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -196,7 +201,6 @@ public class SetRetriesForExternalTasksDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SetRetriesForExternalTasksDto {\n");
-    
     sb.append("    retries: ").append(toIndentedString(retries)).append("\n");
     sb.append("    externalTaskIds: ").append(toIndentedString(externalTaskIds)).append("\n");
     sb.append("    processInstanceIds: ").append(toIndentedString(processInstanceIds)).append("\n");
@@ -218,3 +222,4 @@ public class SetRetriesForExternalTasksDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

@@ -1,36 +1,39 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.IncidentStatisticsResultDto;
+import com.tosan.camunda.camundaclient.generated.model.ProcessDefinitionDto;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * ProcessDefinitionStatisticsResultDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class ProcessDefinitionStatisticsResultDto {
 
-public class ProcessDefinitionStatisticsResultDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("instances")
-  private Integer instances = null;
+  private Integer instances;
 
-  @JsonProperty("failedJobs")
-  private Integer failedJobs = null;
+  private Integer failedJobs;
 
-  @JsonProperty("incidents")
   @Valid
-  private List<IncidentStatisticsResultDto> incidents = null;
+  private List<@Valid IncidentStatisticsResultDto> incidents;
 
-  @JsonProperty("definition")
-  private ProcessDefinitionDto definition = null;
+  private ProcessDefinitionDto definition;
 
   public ProcessDefinitionStatisticsResultDto id(String id) {
     this.id = id;
@@ -40,10 +43,11 @@ public class ProcessDefinitionStatisticsResultDto   {
   /**
    * The id of the process definition the results are aggregated for.
    * @return id
-   **/
-  @Schema(description = "The id of the process definition the results are aggregated for.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the process definition the results are aggregated for.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -59,10 +63,11 @@ public class ProcessDefinitionStatisticsResultDto   {
   /**
    * The total number of running process instances of this process definition.
    * @return instances
-   **/
-  @Schema(description = "The total number of running process instances of this process definition.")
+  */
   
-    public Integer getInstances() {
+  @Schema(name = "instances", description = "The total number of running process instances of this process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("instances")
+  public Integer getInstances() {
     return instances;
   }
 
@@ -78,10 +83,11 @@ public class ProcessDefinitionStatisticsResultDto   {
   /**
    * The total number of failed jobs for the running instances. **Note**: Will be `0` (not `null`), if failed jobs were excluded.
    * @return failedJobs
-   **/
-  @Schema(description = "The total number of failed jobs for the running instances. **Note**: Will be `0` (not `null`), if failed jobs were excluded.")
+  */
   
-    public Integer getFailedJobs() {
+  @Schema(name = "failedJobs", description = "The total number of failed jobs for the running instances. **Note**: Will be `0` (not `null`), if failed jobs were excluded.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("failedJobs")
+  public Integer getFailedJobs() {
     return failedJobs;
   }
 
@@ -89,7 +95,7 @@ public class ProcessDefinitionStatisticsResultDto   {
     this.failedJobs = failedJobs;
   }
 
-  public ProcessDefinitionStatisticsResultDto incidents(List<IncidentStatisticsResultDto> incidents) {
+  public ProcessDefinitionStatisticsResultDto incidents(List<@Valid IncidentStatisticsResultDto> incidents) {
     this.incidents = incidents;
     return this;
   }
@@ -105,14 +111,15 @@ public class ProcessDefinitionStatisticsResultDto   {
   /**
    * Each item in the resulting array is an object which contains `incidentType` and `incidentCount`. **Note**: Will be an empty array, if `incidents` or `incidentsForType` were excluded. Furthermore, the array will be also empty if no incidents were found.
    * @return incidents
-   **/
-  @Schema(description = "Each item in the resulting array is an object which contains `incidentType` and `incidentCount`. **Note**: Will be an empty array, if `incidents` or `incidentsForType` were excluded. Furthermore, the array will be also empty if no incidents were found.")
-      @Valid
-    public List<IncidentStatisticsResultDto> getIncidents() {
+  */
+  @Valid 
+  @Schema(name = "incidents", description = "Each item in the resulting array is an object which contains `incidentType` and `incidentCount`. **Note**: Will be an empty array, if `incidents` or `incidentsForType` were excluded. Furthermore, the array will be also empty if no incidents were found.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("incidents")
+  public List<@Valid IncidentStatisticsResultDto> getIncidents() {
     return incidents;
   }
 
-  public void setIncidents(List<IncidentStatisticsResultDto> incidents) {
+  public void setIncidents(List<@Valid IncidentStatisticsResultDto> incidents) {
     this.incidents = incidents;
   }
 
@@ -124,18 +131,17 @@ public class ProcessDefinitionStatisticsResultDto   {
   /**
    * Get definition
    * @return definition
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public ProcessDefinitionDto getDefinition() {
+  */
+  @Valid 
+  @Schema(name = "definition", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("definition")
+  public ProcessDefinitionDto getDefinition() {
     return definition;
   }
 
   public void setDefinition(ProcessDefinitionDto definition) {
     this.definition = definition;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -162,7 +168,6 @@ public class ProcessDefinitionStatisticsResultDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessDefinitionStatisticsResultDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
     sb.append("    failedJobs: ").append(toIndentedString(failedJobs)).append("\n");
@@ -183,3 +188,4 @@ public class ProcessDefinitionStatisticsResultDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

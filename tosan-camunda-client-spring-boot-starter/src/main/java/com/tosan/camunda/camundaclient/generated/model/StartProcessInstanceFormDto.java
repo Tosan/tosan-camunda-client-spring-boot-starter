@@ -1,26 +1,31 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.VariableValueDto;
 import java.util.HashMap;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * StartProcessInstanceFormDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class StartProcessInstanceFormDto {
 
-public class StartProcessInstanceFormDto   {
-  @JsonProperty("variables")
   @Valid
-  private Map<String, VariableValueDto> variables = null;
+  private Map<String, VariableValueDto> variables;
 
-  @JsonProperty("businessKey")
   private String businessKey = null;
 
   public StartProcessInstanceFormDto variables(Map<String, VariableValueDto> variables) {
@@ -37,12 +42,13 @@ public class StartProcessInstanceFormDto   {
   }
 
   /**
-   * Get variables
+   * 
    * @return variables
-   **/
-  @Schema(description = "")
-      @Valid
-    public Map<String, VariableValueDto> getVariables() {
+  */
+  @Valid 
+  @Schema(name = "variables", description = "", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variables")
+  public Map<String, VariableValueDto> getVariables() {
     return variables;
   }
 
@@ -58,17 +64,17 @@ public class StartProcessInstanceFormDto   {
   /**
    * The business key the process instance is to be initialized with. The business key uniquely identifies the process instance in the context of the given process definition.
    * @return businessKey
-   **/
-  @Schema(description = "The business key the process instance is to be initialized with. The business key uniquely identifies the process instance in the context of the given process definition.")
+  */
   
-    public String getBusinessKey() {
+  @Schema(name = "businessKey", description = "The business key the process instance is to be initialized with. The business key uniquely identifies the process instance in the context of the given process definition.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("businessKey")
+  public String getBusinessKey() {
     return businessKey;
   }
 
   public void setBusinessKey(String businessKey) {
     this.businessKey = businessKey;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -92,7 +98,6 @@ public class StartProcessInstanceFormDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StartProcessInstanceFormDto {\n");
-    
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
     sb.append("    businessKey: ").append(toIndentedString(businessKey)).append("\n");
     sb.append("}");
@@ -110,3 +115,4 @@ public class StartProcessInstanceFormDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

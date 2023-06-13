@@ -1,83 +1,74 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.HistoricDetailQueryDtoSortingInner;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * A historic detail query which defines a group of historic details.
  */
-@Schema(description = "A historic detail query which defines a group of historic details.")
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Schema(name = "HistoricDetailQueryDto", description = "A historic detail query which defines a group of historic details.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricDetailQueryDto {
 
-public class HistoricDetailQueryDto   {
-  @JsonProperty("processInstanceId")
   private String processInstanceId = null;
 
-  @JsonProperty("processInstanceIdIn")
   @Valid
-  private List<String> processInstanceIdIn = null;
+  private List<String> processInstanceIdIn;
 
-  @JsonProperty("executionId")
   private String executionId = null;
 
-  @JsonProperty("taskId")
   private String taskId = null;
 
-  @JsonProperty("activityInstanceId")
   private String activityInstanceId = null;
 
-  @JsonProperty("caseInstanceId")
   private String caseInstanceId = null;
 
-  @JsonProperty("caseExecutionId")
   private String caseExecutionId = null;
 
-  @JsonProperty("variableInstanceId")
   private String variableInstanceId = null;
 
-  @JsonProperty("variableTypeIn")
   @Valid
-  private List<String> variableTypeIn = null;
+  private List<String> variableTypeIn;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("withoutTenantId")
   private Boolean withoutTenantId = null;
 
-  @JsonProperty("userOperationId")
   private String userOperationId = null;
 
-  @JsonProperty("formFields")
   private Boolean formFields = null;
 
-  @JsonProperty("variableUpdates")
   private Boolean variableUpdates = null;
 
-  @JsonProperty("excludeTaskDetails")
   private Boolean excludeTaskDetails = null;
 
-  @JsonProperty("initial")
   private Boolean initial = null;
 
-  @JsonProperty("occurredBefore")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime occurredBefore = null;
 
-  @JsonProperty("occurredAfter")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime occurredAfter = null;
 
-  @JsonProperty("sorting")
   @Valid
-  private List<HistoricDetailQueryDtoSorting> sorting = null;
+  private List<@Valid HistoricDetailQueryDtoSortingInner> sorting;
 
   public HistoricDetailQueryDto processInstanceId(String processInstanceId) {
     this.processInstanceId = processInstanceId;
@@ -87,10 +78,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Filter by process instance id.
    * @return processInstanceId
-   **/
-  @Schema(description = "Filter by process instance id.")
+  */
   
-    public String getProcessInstanceId() {
+  @Schema(name = "processInstanceId", description = "Filter by process instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceId")
+  public String getProcessInstanceId() {
     return processInstanceId;
   }
 
@@ -114,10 +106,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Only include historic details which belong to one of the passed  process instance ids.
    * @return processInstanceIdIn
-   **/
-  @Schema(description = "Only include historic details which belong to one of the passed  process instance ids.")
+  */
   
-    public List<String> getProcessInstanceIdIn() {
+  @Schema(name = "processInstanceIdIn", description = "Only include historic details which belong to one of the passed  process instance ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processInstanceIdIn")
+  public List<String> getProcessInstanceIdIn() {
     return processInstanceIdIn;
   }
 
@@ -133,10 +126,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Filter by execution id.
    * @return executionId
-   **/
-  @Schema(description = "Filter by execution id.")
+  */
   
-    public String getExecutionId() {
+  @Schema(name = "executionId", description = "Filter by execution id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("executionId")
+  public String getExecutionId() {
     return executionId;
   }
 
@@ -152,10 +146,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Filter by task id.
    * @return taskId
-   **/
-  @Schema(description = "Filter by task id.")
+  */
   
-    public String getTaskId() {
+  @Schema(name = "taskId", description = "Filter by task id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskId")
+  public String getTaskId() {
     return taskId;
   }
 
@@ -171,10 +166,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Filter by activity instance id.
    * @return activityInstanceId
-   **/
-  @Schema(description = "Filter by activity instance id.")
+  */
   
-    public String getActivityInstanceId() {
+  @Schema(name = "activityInstanceId", description = "Filter by activity instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("activityInstanceId")
+  public String getActivityInstanceId() {
     return activityInstanceId;
   }
 
@@ -190,10 +186,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Filter by case instance id.
    * @return caseInstanceId
-   **/
-  @Schema(description = "Filter by case instance id.")
+  */
   
-    public String getCaseInstanceId() {
+  @Schema(name = "caseInstanceId", description = "Filter by case instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceId")
+  public String getCaseInstanceId() {
     return caseInstanceId;
   }
 
@@ -209,10 +206,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Filter by case execution id.
    * @return caseExecutionId
-   **/
-  @Schema(description = "Filter by case execution id.")
+  */
   
-    public String getCaseExecutionId() {
+  @Schema(name = "caseExecutionId", description = "Filter by case execution id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseExecutionId")
+  public String getCaseExecutionId() {
     return caseExecutionId;
   }
 
@@ -228,10 +226,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Filter by variable instance id.
    * @return variableInstanceId
-   **/
-  @Schema(description = "Filter by variable instance id.")
+  */
   
-    public String getVariableInstanceId() {
+  @Schema(name = "variableInstanceId", description = "Filter by variable instance id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableInstanceId")
+  public String getVariableInstanceId() {
     return variableInstanceId;
   }
 
@@ -255,10 +254,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Only include historic details where the variable updates belong to one of the passed  list of variable types. A list of all supported variable types can be found [here](https://docs.camunda.org/manual/7.17/user-guide/process-engine/variables/#supported-variable-values). **Note:** All non-primitive variables are associated with the type `serializable`.
    * @return variableTypeIn
-   **/
-  @Schema(description = "Only include historic details where the variable updates belong to one of the passed  list of variable types. A list of all supported variable types can be found [here](https://docs.camunda.org/manual/7.17/user-guide/process-engine/variables/#supported-variable-values). **Note:** All non-primitive variables are associated with the type `serializable`.")
+  */
   
-    public List<String> getVariableTypeIn() {
+  @Schema(name = "variableTypeIn", description = "Only include historic details where the variable updates belong to one of the passed  list of variable types. A list of all supported variable types can be found [here](https://docs.camunda.org/manual/7.17/user-guide/process-engine/variables/#supported-variable-values). **Note:** All non-primitive variables are associated with the type `serializable`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableTypeIn")
+  public List<String> getVariableTypeIn() {
     return variableTypeIn;
   }
 
@@ -282,10 +282,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Filter by a  list of tenant ids.
    * @return tenantIdIn
-   **/
-  @Schema(description = "Filter by a  list of tenant ids.")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Filter by a  list of tenant ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -301,10 +302,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Only include historic details that belong to no tenant. Value may only be `true`, as `false` is the default behavior.
    * @return withoutTenantId
-   **/
-  @Schema(description = "Only include historic details that belong to no tenant. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "Only include historic details that belong to no tenant. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
@@ -320,10 +322,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Filter by a user operation id.
    * @return userOperationId
-   **/
-  @Schema(description = "Filter by a user operation id.")
+  */
   
-    public String getUserOperationId() {
+  @Schema(name = "userOperationId", description = "Filter by a user operation id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("userOperationId")
+  public String getUserOperationId() {
     return userOperationId;
   }
 
@@ -339,10 +342,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Only include `HistoricFormFields`. Value may only be `true`, as `false` is the default behavior.
    * @return formFields
-   **/
-  @Schema(description = "Only include `HistoricFormFields`. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isFormFields() {
+  @Schema(name = "formFields", description = "Only include `HistoricFormFields`. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("formFields")
+  public Boolean getFormFields() {
     return formFields;
   }
 
@@ -358,10 +362,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Only include `HistoricVariableUpdates`. Value may only be `true`, as `false` is the default behavior.
    * @return variableUpdates
-   **/
-  @Schema(description = "Only include `HistoricVariableUpdates`. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isVariableUpdates() {
+  @Schema(name = "variableUpdates", description = "Only include `HistoricVariableUpdates`. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variableUpdates")
+  public Boolean getVariableUpdates() {
     return variableUpdates;
   }
 
@@ -377,10 +382,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Excludes all task-related `HistoricDetails`, so only items which have no task id set will be selected. When this parameter is used together with `taskId`, this call is ignored and task details are not excluded. Value may only be `true`, as `false` is the default behavior.
    * @return excludeTaskDetails
-   **/
-  @Schema(description = "Excludes all task-related `HistoricDetails`, so only items which have no task id set will be selected. When this parameter is used together with `taskId`, this call is ignored and task details are not excluded. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isExcludeTaskDetails() {
+  @Schema(name = "excludeTaskDetails", description = "Excludes all task-related `HistoricDetails`, so only items which have no task id set will be selected. When this parameter is used together with `taskId`, this call is ignored and task details are not excluded. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("excludeTaskDetails")
+  public Boolean getExcludeTaskDetails() {
     return excludeTaskDetails;
   }
 
@@ -396,10 +402,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Restrict to historic variable updates that contain only initial variable values. Value may only be `true`, as `false` is the default behavior.
    * @return initial
-   **/
-  @Schema(description = "Restrict to historic variable updates that contain only initial variable values. Value may only be `true`, as `false` is the default behavior.")
+  */
   
-    public Boolean isInitial() {
+  @Schema(name = "initial", description = "Restrict to historic variable updates that contain only initial variable values. Value may only be `true`, as `false` is the default behavior.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("initial")
+  public Boolean getInitial() {
     return initial;
   }
 
@@ -415,11 +422,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Restrict to historic details that occured before the given date (including the date). Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., 2013-01-23T14:42:45.000+0200.
    * @return occurredBefore
-   **/
-  @Schema(description = "Restrict to historic details that occured before the given date (including the date). Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., 2013-01-23T14:42:45.000+0200.")
-  
-    @Valid
-    public OffsetDateTime getOccurredBefore() {
+  */
+  @Valid 
+  @Schema(name = "occurredBefore", description = "Restrict to historic details that occured before the given date (including the date). Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., 2013-01-23T14:42:45.000+0200.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("occurredBefore")
+  public OffsetDateTime getOccurredBefore() {
     return occurredBefore;
   }
 
@@ -435,11 +442,11 @@ public class HistoricDetailQueryDto   {
   /**
    * Restrict to historic details that occured after the given date (including the date). Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., 2013-01-23T14:42:45.000+0200.
    * @return occurredAfter
-   **/
-  @Schema(description = "Restrict to historic details that occured after the given date (including the date). Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., 2013-01-23T14:42:45.000+0200.")
-  
-    @Valid
-    public OffsetDateTime getOccurredAfter() {
+  */
+  @Valid 
+  @Schema(name = "occurredAfter", description = "Restrict to historic details that occured after the given date (including the date). Default [format](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/) `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., 2013-01-23T14:42:45.000+0200.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("occurredAfter")
+  public OffsetDateTime getOccurredAfter() {
     return occurredAfter;
   }
 
@@ -447,12 +454,12 @@ public class HistoricDetailQueryDto   {
     this.occurredAfter = occurredAfter;
   }
 
-  public HistoricDetailQueryDto sorting(List<HistoricDetailQueryDtoSorting> sorting) {
+  public HistoricDetailQueryDto sorting(List<@Valid HistoricDetailQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
     return this;
   }
 
-  public HistoricDetailQueryDto addSortingItem(HistoricDetailQueryDtoSorting sortingItem) {
+  public HistoricDetailQueryDto addSortingItem(HistoricDetailQueryDtoSortingInner sortingItem) {
     if (this.sorting == null) {
       this.sorting = new ArrayList<>();
     }
@@ -463,17 +470,17 @@ public class HistoricDetailQueryDto   {
   /**
    * A JSON array of criteria to sort the result by. Each element of the array is                     a JSON object that specifies one ordering. The position in the array                     identifies the rank of an ordering, i.e., whether it is primary, secondary,                     etc. Does not have an effect for the `count` endpoint.
    * @return sorting
-   **/
-  @Schema(description = "A JSON array of criteria to sort the result by. Each element of the array is                     a JSON object that specifies one ordering. The position in the array                     identifies the rank of an ordering, i.e., whether it is primary, secondary,                     etc. Does not have an effect for the `count` endpoint.")
-      @Valid
-    public List<HistoricDetailQueryDtoSorting> getSorting() {
+  */
+  @Valid 
+  @Schema(name = "sorting", description = "A JSON array of criteria to sort the result by. Each element of the array is                     a JSON object that specifies one ordering. The position in the array                     identifies the rank of an ordering, i.e., whether it is primary, secondary,                     etc. Does not have an effect for the `count` endpoint.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("sorting")
+  public List<@Valid HistoricDetailQueryDtoSortingInner> getSorting() {
     return sorting;
   }
 
-  public void setSorting(List<HistoricDetailQueryDtoSorting> sorting) {
+  public void setSorting(List<@Valid HistoricDetailQueryDtoSortingInner> sorting) {
     this.sorting = sorting;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -514,7 +521,6 @@ public class HistoricDetailQueryDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricDetailQueryDto {\n");
-    
     sb.append("    processInstanceId: ").append(toIndentedString(processInstanceId)).append("\n");
     sb.append("    processInstanceIdIn: ").append(toIndentedString(processInstanceIdIn)).append("\n");
     sb.append("    executionId: ").append(toIndentedString(executionId)).append("\n");
@@ -549,3 +555,4 @@ public class HistoricDetailQueryDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

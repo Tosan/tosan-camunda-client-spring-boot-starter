@@ -1,36 +1,36 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * HistoricTaskInstanceReportResultDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class HistoricTaskInstanceReportResultDto {
 
-public class HistoricTaskInstanceReportResultDto   {
-  @JsonProperty("taskName")
   private String taskName = null;
 
-  @JsonProperty("count")
   private Long count = null;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionName")
   private String processDefinitionName = null;
 
-  @JsonProperty("period")
   private Integer period = null;
 
   /**
@@ -47,32 +47,33 @@ public class HistoricTaskInstanceReportResultDto   {
       this.value = value;
     }
 
-    @Override
     @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
     public String toString() {
       return String.valueOf(value);
     }
 
     @JsonCreator
-    public static PeriodUnitEnum fromValue(String text) {
+    public static PeriodUnitEnum fromValue(String value) {
       for (PeriodUnitEnum b : PeriodUnitEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
       return null;
     }
   }
-  @JsonProperty("periodUnit")
+
   private PeriodUnitEnum periodUnit = null;
 
-  @JsonProperty("minimum")
   private Long minimum = null;
 
-  @JsonProperty("maximum")
   private Long maximum = null;
 
-  @JsonProperty("average")
   private Long average = null;
 
   public HistoricTaskInstanceReportResultDto taskName(String taskName) {
@@ -83,10 +84,11 @@ public class HistoricTaskInstanceReportResultDto   {
   /**
    * The name of the task. It is only available when the `groupBy` parameter is set to `taskName`. Else the value is `null`.  **Note:** This property is only set for a historic task report object. In these cases, the value of the `reportType` query parameter is `count`.
    * @return taskName
-   **/
-  @Schema(description = "The name of the task. It is only available when the `groupBy` parameter is set to `taskName`. Else the value is `null`.  **Note:** This property is only set for a historic task report object. In these cases, the value of the `reportType` query parameter is `count`.")
+  */
   
-    public String getTaskName() {
+  @Schema(name = "taskName", description = "The name of the task. It is only available when the `groupBy` parameter is set to `taskName`. Else the value is `null`.  **Note:** This property is only set for a historic task report object. In these cases, the value of the `reportType` query parameter is `count`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("taskName")
+  public String getTaskName() {
     return taskName;
   }
 
@@ -102,10 +104,11 @@ public class HistoricTaskInstanceReportResultDto   {
   /**
    * The number of tasks which have the given definition.  **Note:** This property is only set for a historic task report object. In these cases, the value of the `reportType` query parameter is `count`.
    * @return count
-   **/
-  @Schema(description = "The number of tasks which have the given definition.  **Note:** This property is only set for a historic task report object. In these cases, the value of the `reportType` query parameter is `count`.")
+  */
   
-    public Long getCount() {
+  @Schema(name = "count", description = "The number of tasks which have the given definition.  **Note:** This property is only set for a historic task report object. In these cases, the value of the `reportType` query parameter is `count`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("count")
+  public Long getCount() {
     return count;
   }
 
@@ -121,10 +124,11 @@ public class HistoricTaskInstanceReportResultDto   {
   /**
    * The key of the process definition.  **Note:** This property is only set for a historic task report object. In these cases, the value of the `reportType` query parameter is `count`.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "The key of the process definition.  **Note:** This property is only set for a historic task report object. In these cases, the value of the `reportType` query parameter is `count`.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "The key of the process definition.  **Note:** This property is only set for a historic task report object. In these cases, the value of the `reportType` query parameter is `count`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -140,10 +144,11 @@ public class HistoricTaskInstanceReportResultDto   {
   /**
    * The id of the process definition.  **Note:** This property is only set for a historic task report object. In these cases, the value of the `reportType` query parameter is `count`.
    * @return processDefinitionId
-   **/
-  @Schema(description = "The id of the process definition.  **Note:** This property is only set for a historic task report object. In these cases, the value of the `reportType` query parameter is `count`.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "The id of the process definition.  **Note:** This property is only set for a historic task report object. In these cases, the value of the `reportType` query parameter is `count`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -159,10 +164,11 @@ public class HistoricTaskInstanceReportResultDto   {
   /**
    * The name of the process definition.  **Note:** This property is only set for a historic task report object. In these cases, the value of the `reportType` query parameter is `count`.
    * @return processDefinitionName
-   **/
-  @Schema(description = "The name of the process definition.  **Note:** This property is only set for a historic task report object. In these cases, the value of the `reportType` query parameter is `count`.")
+  */
   
-    public String getProcessDefinitionName() {
+  @Schema(name = "processDefinitionName", description = "The name of the process definition.  **Note:** This property is only set for a historic task report object. In these cases, the value of the `reportType` query parameter is `count`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionName")
+  public String getProcessDefinitionName() {
     return processDefinitionName;
   }
 
@@ -178,10 +184,11 @@ public class HistoricTaskInstanceReportResultDto   {
   /**
    * Specifies a span of time within a year. **Note:** The period must be interpreted in conjunction with the returned `periodUnit`.  **Note:** This property is only set for a duration report object. In these cases, the value of the `reportType` query parameter is `duration`.
    * @return period
-   **/
-  @Schema(description = "Specifies a span of time within a year. **Note:** The period must be interpreted in conjunction with the returned `periodUnit`.  **Note:** This property is only set for a duration report object. In these cases, the value of the `reportType` query parameter is `duration`.")
+  */
   
-    public Integer getPeriod() {
+  @Schema(name = "period", description = "Specifies a span of time within a year. **Note:** The period must be interpreted in conjunction with the returned `periodUnit`.  **Note:** This property is only set for a duration report object. In these cases, the value of the `reportType` query parameter is `duration`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("period")
+  public Integer getPeriod() {
     return period;
   }
 
@@ -197,10 +204,11 @@ public class HistoricTaskInstanceReportResultDto   {
   /**
    * The unit of the given period. Possible values are `MONTH` and `QUARTER`.  **Note:** This property is only set for a duration report object. In these cases, the value of the `reportType` query parameter is `duration`.
    * @return periodUnit
-   **/
-  @Schema(description = "The unit of the given period. Possible values are `MONTH` and `QUARTER`.  **Note:** This property is only set for a duration report object. In these cases, the value of the `reportType` query parameter is `duration`.")
+  */
   
-    public PeriodUnitEnum getPeriodUnit() {
+  @Schema(name = "periodUnit", description = "The unit of the given period. Possible values are `MONTH` and `QUARTER`.  **Note:** This property is only set for a duration report object. In these cases, the value of the `reportType` query parameter is `duration`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("periodUnit")
+  public PeriodUnitEnum getPeriodUnit() {
     return periodUnit;
   }
 
@@ -216,10 +224,11 @@ public class HistoricTaskInstanceReportResultDto   {
   /**
    * The smallest duration in milliseconds of all completed process instances which were started in the given period.  **Note:** This property is only set for a duration report object. In these cases, the value of the `reportType` query parameter is `duration`.
    * @return minimum
-   **/
-  @Schema(description = "The smallest duration in milliseconds of all completed process instances which were started in the given period.  **Note:** This property is only set for a duration report object. In these cases, the value of the `reportType` query parameter is `duration`.")
+  */
   
-    public Long getMinimum() {
+  @Schema(name = "minimum", description = "The smallest duration in milliseconds of all completed process instances which were started in the given period.  **Note:** This property is only set for a duration report object. In these cases, the value of the `reportType` query parameter is `duration`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("minimum")
+  public Long getMinimum() {
     return minimum;
   }
 
@@ -235,10 +244,11 @@ public class HistoricTaskInstanceReportResultDto   {
   /**
    * The greatest duration in milliseconds of all completed process instances which were started in the given period.  **Note:** This property is only set for a duration report object. In these cases, the value of the `reportType` query parameter is `duration`.
    * @return maximum
-   **/
-  @Schema(description = "The greatest duration in milliseconds of all completed process instances which were started in the given period.  **Note:** This property is only set for a duration report object. In these cases, the value of the `reportType` query parameter is `duration`.")
+  */
   
-    public Long getMaximum() {
+  @Schema(name = "maximum", description = "The greatest duration in milliseconds of all completed process instances which were started in the given period.  **Note:** This property is only set for a duration report object. In these cases, the value of the `reportType` query parameter is `duration`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("maximum")
+  public Long getMaximum() {
     return maximum;
   }
 
@@ -254,17 +264,17 @@ public class HistoricTaskInstanceReportResultDto   {
   /**
    * The average duration in milliseconds of all completed process instances which were started in the given period.  **Note:** This property is only set for a duration report object. In these cases, the value of the `reportType` query parameter is `duration`.
    * @return average
-   **/
-  @Schema(description = "The average duration in milliseconds of all completed process instances which were started in the given period.  **Note:** This property is only set for a duration report object. In these cases, the value of the `reportType` query parameter is `duration`.")
+  */
   
-    public Long getAverage() {
+  @Schema(name = "average", description = "The average duration in milliseconds of all completed process instances which were started in the given period.  **Note:** This property is only set for a duration report object. In these cases, the value of the `reportType` query parameter is `duration`.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("average")
+  public Long getAverage() {
     return average;
   }
 
   public void setAverage(Long average) {
     this.average = average;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -296,7 +306,6 @@ public class HistoricTaskInstanceReportResultDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HistoricTaskInstanceReportResultDto {\n");
-    
     sb.append("    taskName: ").append(toIndentedString(taskName)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    processDefinitionKey: ").append(toIndentedString(processDefinitionKey)).append("\n");
@@ -322,3 +331,4 @@ public class HistoricTaskInstanceReportResultDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

@@ -1,44 +1,45 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.tosan.camunda.camundaclient.generated.model.ProcessInstanceModificationInstructionDto;
+import com.tosan.camunda.camundaclient.generated.model.VariableValueDto;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * StartProcessInstanceDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class StartProcessInstanceDto {
 
-public class StartProcessInstanceDto   {
-  @JsonProperty("businessKey")
   private String businessKey = null;
 
-  @JsonProperty("variables")
   @Valid
-  private Map<String, VariableValueDto> variables = null;
+  private Map<String, VariableValueDto> variables;
 
-  @JsonProperty("caseInstanceId")
   private String caseInstanceId = null;
 
-  @JsonProperty("startInstructions")
   @Valid
-  private List<ProcessInstanceModificationInstructionDto> startInstructions = null;
+  private List<@Valid ProcessInstanceModificationInstructionDto> startInstructions;
 
-  @JsonProperty("skipCustomListeners")
   private Boolean skipCustomListeners = null;
 
-  @JsonProperty("skipIoMappings")
   private Boolean skipIoMappings = null;
 
-  @JsonProperty("withVariablesInReturn")
   private Boolean withVariablesInReturn = null;
 
   public StartProcessInstanceDto businessKey(String businessKey) {
@@ -49,10 +50,11 @@ public class StartProcessInstanceDto   {
   /**
    * The business key of the process instance.
    * @return businessKey
-   **/
-  @Schema(description = "The business key of the process instance.")
+  */
   
-    public String getBusinessKey() {
+  @Schema(name = "businessKey", description = "The business key of the process instance.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("businessKey")
+  public String getBusinessKey() {
     return businessKey;
   }
 
@@ -74,12 +76,13 @@ public class StartProcessInstanceDto   {
   }
 
   /**
-   * Get variables
+   * 
    * @return variables
-   **/
-  @Schema(description = "")
-      @Valid
-    public Map<String, VariableValueDto> getVariables() {
+  */
+  @Valid 
+  @Schema(name = "variables", description = "", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variables")
+  public Map<String, VariableValueDto> getVariables() {
     return variables;
   }
 
@@ -95,10 +98,11 @@ public class StartProcessInstanceDto   {
   /**
    * The case instance id the process instance is to be initialized with.
    * @return caseInstanceId
-   **/
-  @Schema(description = "The case instance id the process instance is to be initialized with.")
+  */
   
-    public String getCaseInstanceId() {
+  @Schema(name = "caseInstanceId", description = "The case instance id the process instance is to be initialized with.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("caseInstanceId")
+  public String getCaseInstanceId() {
     return caseInstanceId;
   }
 
@@ -106,7 +110,7 @@ public class StartProcessInstanceDto   {
     this.caseInstanceId = caseInstanceId;
   }
 
-  public StartProcessInstanceDto startInstructions(List<ProcessInstanceModificationInstructionDto> startInstructions) {
+  public StartProcessInstanceDto startInstructions(List<@Valid ProcessInstanceModificationInstructionDto> startInstructions) {
     this.startInstructions = startInstructions;
     return this;
   }
@@ -122,14 +126,15 @@ public class StartProcessInstanceDto   {
   /**
    * **Optional**. A JSON array of instructions that specify which activities to start the process instance at. If this property is omitted, the process instance starts at its default blank start event.
    * @return startInstructions
-   **/
-  @Schema(description = "**Optional**. A JSON array of instructions that specify which activities to start the process instance at. If this property is omitted, the process instance starts at its default blank start event.")
-      @Valid
-    public List<ProcessInstanceModificationInstructionDto> getStartInstructions() {
+  */
+  @Valid 
+  @Schema(name = "startInstructions", description = "**Optional**. A JSON array of instructions that specify which activities to start the process instance at. If this property is omitted, the process instance starts at its default blank start event.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("startInstructions")
+  public List<@Valid ProcessInstanceModificationInstructionDto> getStartInstructions() {
     return startInstructions;
   }
 
-  public void setStartInstructions(List<ProcessInstanceModificationInstructionDto> startInstructions) {
+  public void setStartInstructions(List<@Valid ProcessInstanceModificationInstructionDto> startInstructions) {
     this.startInstructions = startInstructions;
   }
 
@@ -141,10 +146,11 @@ public class StartProcessInstanceDto   {
   /**
    * Skip execution listener invocation for activities that are started or ended as part of this request. **Note**: This option is currently only respected when start instructions are submitted via the `startInstructions` property.
    * @return skipCustomListeners
-   **/
-  @Schema(description = "Skip execution listener invocation for activities that are started or ended as part of this request. **Note**: This option is currently only respected when start instructions are submitted via the `startInstructions` property.")
+  */
   
-    public Boolean isSkipCustomListeners() {
+  @Schema(name = "skipCustomListeners", description = "Skip execution listener invocation for activities that are started or ended as part of this request. **Note**: This option is currently only respected when start instructions are submitted via the `startInstructions` property.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("skipCustomListeners")
+  public Boolean getSkipCustomListeners() {
     return skipCustomListeners;
   }
 
@@ -160,10 +166,11 @@ public class StartProcessInstanceDto   {
   /**
    * Skip execution of [input/output variable mappings](https://docs.camunda.org/manual/7.17/user-guide/process-engine/variables/#input-output-variable-mapping) for activities that are started or ended as part of this request. **Note**: This option is currently only respected when start instructions are submitted via the `startInstructions` property.
    * @return skipIoMappings
-   **/
-  @Schema(description = "Skip execution of [input/output variable mappings](https://docs.camunda.org/manual/7.17/user-guide/process-engine/variables/#input-output-variable-mapping) for activities that are started or ended as part of this request. **Note**: This option is currently only respected when start instructions are submitted via the `startInstructions` property.")
+  */
   
-    public Boolean isSkipIoMappings() {
+  @Schema(name = "skipIoMappings", description = "Skip execution of [input/output variable mappings](https://docs.camunda.org/manual/7.17/user-guide/process-engine/variables/#input-output-variable-mapping) for activities that are started or ended as part of this request. **Note**: This option is currently only respected when start instructions are submitted via the `startInstructions` property.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("skipIoMappings")
+  public Boolean getSkipIoMappings() {
     return skipIoMappings;
   }
 
@@ -179,17 +186,17 @@ public class StartProcessInstanceDto   {
   /**
    * Indicates if the variables, which was used by the process instance during execution, should be returned. Default value: `false`
    * @return withVariablesInReturn
-   **/
-  @Schema(description = "Indicates if the variables, which was used by the process instance during execution, should be returned. Default value: `false`")
+  */
   
-    public Boolean isWithVariablesInReturn() {
+  @Schema(name = "withVariablesInReturn", description = "Indicates if the variables, which was used by the process instance during execution, should be returned. Default value: `false`", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withVariablesInReturn")
+  public Boolean getWithVariablesInReturn() {
     return withVariablesInReturn;
   }
 
   public void setWithVariablesInReturn(Boolean withVariablesInReturn) {
     this.withVariablesInReturn = withVariablesInReturn;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -218,7 +225,6 @@ public class StartProcessInstanceDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StartProcessInstanceDto {\n");
-    
     sb.append("    businessKey: ").append(toIndentedString(businessKey)).append("\n");
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
     sb.append("    caseInstanceId: ").append(toIndentedString(caseInstanceId)).append("\n");
@@ -241,3 +247,4 @@ public class StartProcessInstanceDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

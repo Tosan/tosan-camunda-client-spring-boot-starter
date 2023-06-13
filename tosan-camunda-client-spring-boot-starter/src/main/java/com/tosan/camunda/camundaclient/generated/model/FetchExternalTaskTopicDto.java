@@ -1,73 +1,80 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.springframework.validation.annotation.Validated;
+import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * FetchExternalTaskTopicDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class FetchExternalTaskTopicDto {
 
-public class FetchExternalTaskTopicDto   {
-  @JsonProperty("topicName")
-  private String topicName = null;
+  private String topicName;
 
-  @JsonProperty("lockDuration")
   private Long lockDuration = null;
 
-  @JsonProperty("variables")
   @Valid
-  private List<String> variables = null;
+  private List<String> variables;
 
-  @JsonProperty("localVariables")
-  private Boolean localVariables = false;
+  private Boolean localVariables = null;
 
-  @JsonProperty("businessKey")
   private String businessKey = null;
 
-  @JsonProperty("processDefinitionId")
   private String processDefinitionId = null;
 
-  @JsonProperty("processDefinitionIdIn")
   @Valid
-  private List<String> processDefinitionIdIn = null;
+  private List<String> processDefinitionIdIn;
 
-  @JsonProperty("processDefinitionKey")
   private String processDefinitionKey = null;
 
-  @JsonProperty("processDefinitionKeyIn")
   @Valid
-  private List<String> processDefinitionKeyIn = null;
+  private List<String> processDefinitionKeyIn;
 
-  @JsonProperty("processDefinitionVersionTag")
   private String processDefinitionVersionTag = null;
 
-  @JsonProperty("withoutTenantId")
-  private Boolean withoutTenantId = false;
+  private Boolean withoutTenantId = null;
 
-  @JsonProperty("tenantIdIn")
   @Valid
-  private List<String> tenantIdIn = null;
+  private List<String> tenantIdIn;
 
-  @JsonProperty("processVariables")
   @Valid
-  private Map<String, Object> processVariables = null;
+  private Map<String, Object> processVariables = new HashMap<>();
 
-  @JsonProperty("deserializeValues")
-  private Boolean deserializeValues = false;
+  private Boolean deserializeValues = null;
 
-  @JsonProperty("includeExtensionProperties")
-  private Boolean includeExtensionProperties = false;
+  private Boolean includeExtensionProperties = null;
+
+  /**
+   * Default constructor
+   * @deprecated Use {@link FetchExternalTaskTopicDto#FetchExternalTaskTopicDto(String, Long)}
+   */
+  @Deprecated
+  public FetchExternalTaskTopicDto() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public FetchExternalTaskTopicDto(String topicName, Long lockDuration) {
+    this.topicName = topicName;
+    this.lockDuration = lockDuration;
+  }
 
   public FetchExternalTaskTopicDto topicName(String topicName) {
     this.topicName = topicName;
@@ -77,11 +84,11 @@ public class FetchExternalTaskTopicDto   {
   /**
    * **Mandatory.** The topic's name.
    * @return topicName
-   **/
-  @Schema(required = true, description = "**Mandatory.** The topic's name.")
-      @NotNull
-
-    public String getTopicName() {
+  */
+  @NotNull 
+  @Schema(name = "topicName", description = "**Mandatory.** The topic's name.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("topicName")
+  public String getTopicName() {
     return topicName;
   }
 
@@ -97,11 +104,11 @@ public class FetchExternalTaskTopicDto   {
   /**
    * **Mandatory.** The duration to lock the external tasks for in milliseconds.
    * @return lockDuration
-   **/
-  @Schema(required = true, description = "**Mandatory.** The duration to lock the external tasks for in milliseconds.")
-      @NotNull
-
-    public Long getLockDuration() {
+  */
+  @NotNull 
+  @Schema(name = "lockDuration", description = "**Mandatory.** The duration to lock the external tasks for in milliseconds.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("lockDuration")
+  public Long getLockDuration() {
     return lockDuration;
   }
 
@@ -125,10 +132,11 @@ public class FetchExternalTaskTopicDto   {
   /**
    * A JSON array of `String` values that represent variable names. For each result task belonging to this topic, the given variables are returned as well if they are accessible from the external task's execution. If not provided - all variables will be fetched.
    * @return variables
-   **/
-  @Schema(description = "A JSON array of `String` values that represent variable names. For each result task belonging to this topic, the given variables are returned as well if they are accessible from the external task's execution. If not provided - all variables will be fetched.")
+  */
   
-    public List<String> getVariables() {
+  @Schema(name = "variables", description = "A JSON array of `String` values that represent variable names. For each result task belonging to this topic, the given variables are returned as well if they are accessible from the external task's execution. If not provided - all variables will be fetched.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("variables")
+  public List<String> getVariables() {
     return variables;
   }
 
@@ -144,10 +152,11 @@ public class FetchExternalTaskTopicDto   {
   /**
    * If `true` only local variables will be fetched.
    * @return localVariables
-   **/
-  @Schema(description = "If `true` only local variables will be fetched.")
+  */
   
-    public Boolean isLocalVariables() {
+  @Schema(name = "localVariables", description = "If `true` only local variables will be fetched.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("localVariables")
+  public Boolean getLocalVariables() {
     return localVariables;
   }
 
@@ -163,10 +172,11 @@ public class FetchExternalTaskTopicDto   {
   /**
    * A `String` value which enables the filtering of tasks based on process instance business key.
    * @return businessKey
-   **/
-  @Schema(description = "A `String` value which enables the filtering of tasks based on process instance business key.")
+  */
   
-    public String getBusinessKey() {
+  @Schema(name = "businessKey", description = "A `String` value which enables the filtering of tasks based on process instance business key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("businessKey")
+  public String getBusinessKey() {
     return businessKey;
   }
 
@@ -182,10 +192,11 @@ public class FetchExternalTaskTopicDto   {
   /**
    * Filter tasks based on process definition id.
    * @return processDefinitionId
-   **/
-  @Schema(description = "Filter tasks based on process definition id.")
+  */
   
-    public String getProcessDefinitionId() {
+  @Schema(name = "processDefinitionId", description = "Filter tasks based on process definition id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionId")
+  public String getProcessDefinitionId() {
     return processDefinitionId;
   }
 
@@ -209,10 +220,11 @@ public class FetchExternalTaskTopicDto   {
   /**
    * Filter tasks based on process definition ids.
    * @return processDefinitionIdIn
-   **/
-  @Schema(description = "Filter tasks based on process definition ids.")
+  */
   
-    public List<String> getProcessDefinitionIdIn() {
+  @Schema(name = "processDefinitionIdIn", description = "Filter tasks based on process definition ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionIdIn")
+  public List<String> getProcessDefinitionIdIn() {
     return processDefinitionIdIn;
   }
 
@@ -228,10 +240,11 @@ public class FetchExternalTaskTopicDto   {
   /**
    * Filter tasks based on process definition key.
    * @return processDefinitionKey
-   **/
-  @Schema(description = "Filter tasks based on process definition key.")
+  */
   
-    public String getProcessDefinitionKey() {
+  @Schema(name = "processDefinitionKey", description = "Filter tasks based on process definition key.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKey")
+  public String getProcessDefinitionKey() {
     return processDefinitionKey;
   }
 
@@ -255,10 +268,11 @@ public class FetchExternalTaskTopicDto   {
   /**
    * Filter tasks based on process definition keys.
    * @return processDefinitionKeyIn
-   **/
-  @Schema(description = "Filter tasks based on process definition keys.")
+  */
   
-    public List<String> getProcessDefinitionKeyIn() {
+  @Schema(name = "processDefinitionKeyIn", description = "Filter tasks based on process definition keys.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionKeyIn")
+  public List<String> getProcessDefinitionKeyIn() {
     return processDefinitionKeyIn;
   }
 
@@ -274,10 +288,11 @@ public class FetchExternalTaskTopicDto   {
   /**
    * Filter tasks based on process definition version tag.
    * @return processDefinitionVersionTag
-   **/
-  @Schema(description = "Filter tasks based on process definition version tag.")
+  */
   
-    public String getProcessDefinitionVersionTag() {
+  @Schema(name = "processDefinitionVersionTag", description = "Filter tasks based on process definition version tag.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processDefinitionVersionTag")
+  public String getProcessDefinitionVersionTag() {
     return processDefinitionVersionTag;
   }
 
@@ -293,10 +308,11 @@ public class FetchExternalTaskTopicDto   {
   /**
    * Filter tasks without tenant id.
    * @return withoutTenantId
-   **/
-  @Schema(description = "Filter tasks without tenant id.")
+  */
   
-    public Boolean isWithoutTenantId() {
+  @Schema(name = "withoutTenantId", description = "Filter tasks without tenant id.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("withoutTenantId")
+  public Boolean getWithoutTenantId() {
     return withoutTenantId;
   }
 
@@ -320,10 +336,11 @@ public class FetchExternalTaskTopicDto   {
   /**
    * Filter tasks based on tenant ids.
    * @return tenantIdIn
-   **/
-  @Schema(description = "Filter tasks based on tenant ids.")
+  */
   
-    public List<String> getTenantIdIn() {
+  @Schema(name = "tenantIdIn", description = "Filter tasks based on tenant ids.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("tenantIdIn")
+  public List<String> getTenantIdIn() {
     return tenantIdIn;
   }
 
@@ -347,10 +364,11 @@ public class FetchExternalTaskTopicDto   {
   /**
    * A `JSON` object used for filtering tasks based on process instance variable values. A property name of the object represents a process variable name, while the property value represents the process variable value to filter tasks by.
    * @return processVariables
-   **/
-  @Schema(description = "A `JSON` object used for filtering tasks based on process instance variable values. A property name of the object represents a process variable name, while the property value represents the process variable value to filter tasks by.")
+  */
   
-    public Map<String, Object> getProcessVariables() {
+  @Schema(name = "processVariables", description = "A `JSON` object used for filtering tasks based on process instance variable values. A property name of the object represents a process variable name, while the property value represents the process variable value to filter tasks by.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("processVariables")
+  public Map<String, Object> getProcessVariables() {
     return processVariables;
   }
 
@@ -366,10 +384,11 @@ public class FetchExternalTaskTopicDto   {
   /**
    * Determines whether serializable variable values (typically variables that store custom Java objects) should be deserialized on server side (default `false`).  If set to `true`, a serializable variable will be deserialized on server side and transformed to JSON using [Jackson's](https://github.com/FasterXML/jackson) POJO/bean property introspection feature. Note that this requires the Java classes of the variable value to be on the REST API's classpath.  If set to `false`, a serializable variable will be returned in its serialized format. For example, a variable that is serialized as XML will be returned as a JSON string containing XML.
    * @return deserializeValues
-   **/
-  @Schema(description = "Determines whether serializable variable values (typically variables that store custom Java objects) should be deserialized on server side (default `false`).  If set to `true`, a serializable variable will be deserialized on server side and transformed to JSON using [Jackson's](https://github.com/FasterXML/jackson) POJO/bean property introspection feature. Note that this requires the Java classes of the variable value to be on the REST API's classpath.  If set to `false`, a serializable variable will be returned in its serialized format. For example, a variable that is serialized as XML will be returned as a JSON string containing XML.")
+  */
   
-    public Boolean isDeserializeValues() {
+  @Schema(name = "deserializeValues", description = "Determines whether serializable variable values (typically variables that store custom Java objects) should be deserialized on server side (default `false`).  If set to `true`, a serializable variable will be deserialized on server side and transformed to JSON using [Jackson's](https://github.com/FasterXML/jackson) POJO/bean property introspection feature. Note that this requires the Java classes of the variable value to be on the REST API's classpath.  If set to `false`, a serializable variable will be returned in its serialized format. For example, a variable that is serialized as XML will be returned as a JSON string containing XML.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("deserializeValues")
+  public Boolean getDeserializeValues() {
     return deserializeValues;
   }
 
@@ -385,17 +404,17 @@ public class FetchExternalTaskTopicDto   {
   /**
    * Determines whether custom extension properties defined in the BPMN activity of the external task (e.g. via the Extensions tab in the Camunda modeler) should be included in the response. Default: false
    * @return includeExtensionProperties
-   **/
-  @Schema(description = "Determines whether custom extension properties defined in the BPMN activity of the external task (e.g. via the Extensions tab in the Camunda modeler) should be included in the response. Default: false")
+  */
   
-    public Boolean isIncludeExtensionProperties() {
+  @Schema(name = "includeExtensionProperties", description = "Determines whether custom extension properties defined in the BPMN activity of the external task (e.g. via the Extensions tab in the Camunda modeler) should be included in the response. Default: false", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("includeExtensionProperties")
+  public Boolean getIncludeExtensionProperties() {
     return includeExtensionProperties;
   }
 
   public void setIncludeExtensionProperties(Boolean includeExtensionProperties) {
     this.includeExtensionProperties = includeExtensionProperties;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -432,7 +451,6 @@ public class FetchExternalTaskTopicDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FetchExternalTaskTopicDto {\n");
-    
     sb.append("    topicName: ").append(toIndentedString(topicName)).append("\n");
     sb.append("    lockDuration: ").append(toIndentedString(lockDuration)).append("\n");
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
@@ -463,3 +481,4 @@ public class FetchExternalTaskTopicDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+

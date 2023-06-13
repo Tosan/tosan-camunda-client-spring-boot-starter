@@ -1,28 +1,31 @@
 package com.tosan.camunda.camundaclient.generated.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.time.OffsetDateTime;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.springframework.validation.annotation.Validated;
+
+
+import java.util.*;
+import jakarta.annotation.Generated;
 
 /**
  * IdentityServiceUserDto
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-04-17T19:18:35.625055400+04:30[Asia/Tehran]")
 
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-28T23:54:11.217695800+03:30[GMT+03:30]")
+public class IdentityServiceUserDto {
 
-public class IdentityServiceUserDto   {
-  @JsonProperty("id")
   private String id = null;
 
-  @JsonProperty("firstName")
   private String firstName = null;
 
-  @JsonProperty("lastName")
   private String lastName = null;
 
-  @JsonProperty("displayName")
   private String displayName = null;
 
   public IdentityServiceUserDto id(String id) {
@@ -33,10 +36,11 @@ public class IdentityServiceUserDto   {
   /**
    * The id of the user.
    * @return id
-   **/
-  @Schema(description = "The id of the user.")
+  */
   
-    public String getId() {
+  @Schema(name = "id", description = "The id of the user.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
     return id;
   }
 
@@ -52,10 +56,11 @@ public class IdentityServiceUserDto   {
   /**
    * The firstname of the user.
    * @return firstName
-   **/
-  @Schema(description = "The firstname of the user.")
+  */
   
-    public String getFirstName() {
+  @Schema(name = "firstName", description = "The firstname of the user.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("firstName")
+  public String getFirstName() {
     return firstName;
   }
 
@@ -71,10 +76,11 @@ public class IdentityServiceUserDto   {
   /**
    * The lastname of the user.
    * @return lastName
-   **/
-  @Schema(description = "The lastname of the user.")
+  */
   
-    public String getLastName() {
+  @Schema(name = "lastName", description = "The lastname of the user.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("lastName")
+  public String getLastName() {
     return lastName;
   }
 
@@ -90,17 +96,17 @@ public class IdentityServiceUserDto   {
   /**
    * The displayName is generated from the id or firstName and lastName if available.
    * @return displayName
-   **/
-  @Schema(description = "The displayName is generated from the id or firstName and lastName if available.")
+  */
   
-    public String getDisplayName() {
+  @Schema(name = "displayName", description = "The displayName is generated from the id or firstName and lastName if available.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("displayName")
+  public String getDisplayName() {
     return displayName;
   }
 
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -126,7 +132,6 @@ public class IdentityServiceUserDto   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IdentityServiceUserDto {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
@@ -146,3 +151,4 @@ public class IdentityServiceUserDto   {
     return o.toString().replace("\n", "\n    ");
   }
 }
+
