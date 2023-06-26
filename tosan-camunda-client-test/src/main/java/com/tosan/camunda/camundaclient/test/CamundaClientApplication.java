@@ -3,6 +3,7 @@ package com.tosan.camunda.camundaclient.test;
 import com.tosan.camunda.camundaclient.generated.api.DeploymentApi;
 import com.tosan.camunda.camundaclient.generated.api.MessageApi;
 import com.tosan.camunda.camundaclient.generated.api.ProcessDefinitionApi;
+import com.tosan.camunda.camundaclient.generated.api.ProcessInstanceApi;
 import com.tosan.camunda.camundaclient.generated.model.*;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItem;
@@ -33,11 +34,14 @@ public class CamundaClientApplication implements CommandLineRunner {
     private final MessageApi messageApi;
     private final DeploymentApi deploymentApi;
     private final ProcessDefinitionApi processDefinitionApi;
+    private final ProcessInstanceApi processInstanceApi;
 
-    public CamundaClientApplication(MessageApi messageApi, DeploymentApi deploymentApi, ProcessDefinitionApi processDefinitionApi) {
+    public CamundaClientApplication(MessageApi messageApi, DeploymentApi deploymentApi,
+                                    ProcessDefinitionApi processDefinitionApi, ProcessInstanceApi processInstanceApi) {
         this.messageApi = messageApi;
         this.deploymentApi = deploymentApi;
         this.processDefinitionApi = processDefinitionApi;
+        this.processInstanceApi = processInstanceApi;
     }
 
     public static void main(String[] args) {
@@ -50,9 +54,21 @@ public class CamundaClientApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws IOException {
         deployBpmn("process");
-        startInstanceWithMessage();
+        String businessKey = UUID.randomUUID().toString();
+        startInstanceWithMessage(businessKey);
         deployBpmn("SimpleProcess");
         startInstance();
+        countInstanceByBusinessKey(businessKey);
+    }
+
+    private void countInstanceByBusinessKey(String businessKey) {
+        ResponseEntity<CountResultDto> processInstancesCount = processInstanceApi.getProcessInstancesCount(
+                null, businessKey, null, null, null, null,
+                null, null, null, null, null,
+                null, null, null, null, null, null, null,
+                null, null, null, null, null,
+                null, null, null, null, null, null);
+        System.out.println("processCount: " + processInstancesCount.getBody().getCount());
     }
 
     private void startInstance() {
@@ -74,9 +90,9 @@ public class CamundaClientApplication implements CommandLineRunner {
                 processName, OffsetDateTime.now(), data);
     }
 
-    private void startInstanceWithMessage() {
+    private void startInstanceWithMessage(String businessKey) {
         CorrelationMessageDto correlationMessageDto = new CorrelationMessageDto();
-        correlationMessageDto.setBusinessKey(UUID.randomUUID().toString());
+        correlationMessageDto.setBusinessKey(businessKey);
         correlationMessageDto.setMessageName("test_message");
         correlationMessageDto.setResultEnabled(true);
         correlationMessageDto.setVariablesInResultEnabled(true);

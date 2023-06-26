@@ -80,12 +80,12 @@ public interface DeploymentApi {
         consumes = { "multipart/form-data" }
     )
     ResponseEntity<DeploymentWithDefinitionsDto> createDeployment(
-        @Parameter(name = "tenant-id", description = "The tenant id for the deployment to be created.") @Valid @RequestParam(value = "tenant-id", required = false) String tenantId,
-        @Parameter(name = "deployment-source", description = "The source for the deployment to be created.") @Valid @RequestParam(value = "deployment-source", required = false) String deploymentSource,
-        @Parameter(name = "deploy-changed-only", description = "A flag indicating whether the process engine should perform duplicate checking on a per-resource basis. If set to true, only those resources that have actually changed are deployed. Checks are made against resources included previous deployments of the same name and only against the latest versions of those resources. If set to true, the option enable-duplicate-filtering is overridden and set to true.") @Valid @RequestParam(value = "deploy-changed-only", required = false) Boolean deployChangedOnly,
-        @Parameter(name = "enable-duplicate-filtering", description = "A flag indicating whether the process engine should perform duplicate checking for the deployment or not. This allows you to check if a deployment with the same name and the same resouces already exists and if true, not create a new deployment but instead return the existing deployment. The default value is false.") @Valid @RequestParam(value = "enable-duplicate-filtering", required = false) Boolean enableDuplicateFiltering,
-        @Parameter(name = "deployment-name", description = "The name for the deployment to be created.") @Valid @RequestParam(value = "deployment-name", required = false) String deploymentName,
-        @Parameter(name = "deployment-activation-time", description = "Sets the date on which the process definitions contained in this deployment will be activated. This means that all process definitions will be deployed as usual, but they will be suspended from the start until the given activation date. By [default](https://docs.camunda.org/manual/7.17/reference/rest/overview/date-format/), the date must have the format `yyyy-MM-dd'T'HH:mm:ss.SSSZ`, e.g., `2013-01-23T14:42:45.000+0200`.") @Valid @RequestParam(value = "deployment-activation-time", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime deploymentActivationTime,
+        @RequestPart(name = "tenant-id") @Valid @RequestParam(value = "tenant-id", required = false) String tenantId,
+        @RequestPart(name = "deployment-source") @Valid @RequestParam(value = "deployment-source", required = false) String deploymentSource,
+        @RequestPart(name = "deploy-changed-only") @Valid @RequestParam(value = "deploy-changed-only", required = false) Boolean deployChangedOnly,
+        @RequestPart(name = "enable-duplicate-filtering") @Valid @RequestParam(value = "enable-duplicate-filtering", required = false) Boolean enableDuplicateFiltering,
+        @RequestPart(name = "deployment-name") @Valid @RequestParam(value = "deployment-name", required = false) String deploymentName,
+        @RequestPart(name = "deployment-activation-time") @Valid @RequestParam(value = "deployment-activation-time", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime deploymentActivationTime,
         @Parameter(name = "data", description = "The binary data to create the deployment resource. It is possible to have more than one form part with different form part names for the binary data to create a deployment.") @RequestPart(value = "data", required = false) MultipartFile data
     );
 

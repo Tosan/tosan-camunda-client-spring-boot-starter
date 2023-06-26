@@ -15,7 +15,7 @@
     </appender>
 
     <logger name="org.camunda.bpm.client" additivity="true" level="${APPLICATION_LEVEL}"/>
-    <logger name="com.tosan.camunda.camundaclient.generated.api" additivity="true" level="${APPLICATION_LEVEL}"/>
+    <logger name="com.tosan.camunda.camundaclient.generated.api" additivity="true" level="DEBUG"/>
 
     <root level="${ROOT_LEVEL}">
         <appender-ref ref="CONSOLE"/>
