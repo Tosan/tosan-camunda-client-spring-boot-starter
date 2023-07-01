@@ -12,6 +12,7 @@ import com.tosan.camunda.camundaclient.external.aspect.ExternalTaskLogAspect;
 import com.tosan.camunda.camundaclient.external.aspect.ExternalTaskMdcAspect;
 import com.tosan.camunda.camundaclient.external.aspect.ExternalTaskResultAspect;
 import com.tosan.camunda.camundaclient.feign.aspect.FeignUndeclaredThrowableExceptionAspect;
+import com.tosan.camunda.camundaclient.util.ExternalTaskResultUtil;
 import com.tosan.client.http.core.HttpClientProperties;
 import com.tosan.client.http.starter.configuration.AbstractFeignConfiguration;
 import com.tosan.client.http.starter.impl.feign.CustomErrorDecoder;
@@ -227,8 +228,13 @@ public class CamundaEngineClientConfig extends AbstractFeignConfiguration {
     }
 
     @Bean
-    public ExternalTaskResultAspect externalTaskResultAspect(CamundaClientConfig camundaClientConfig) {
-        return new ExternalTaskResultAspect(camundaClientConfig);
+    public ExternalTaskResultAspect externalTaskResultAspect(ExternalTaskResultUtil externalTaskResultUtil) {
+        return new ExternalTaskResultAspect(externalTaskResultUtil);
+    }
+
+    @Bean
+    public ExternalTaskResultUtil externalTaskResultUtil(CamundaClientConfig camundaClientConfig) {
+        return new ExternalTaskResultUtil(camundaClientConfig.getRetry());
     }
 
     @Bean

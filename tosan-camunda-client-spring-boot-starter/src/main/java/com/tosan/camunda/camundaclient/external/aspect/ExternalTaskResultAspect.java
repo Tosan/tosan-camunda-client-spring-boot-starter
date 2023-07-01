@@ -2,22 +2,15 @@ package com.tosan.camunda.camundaclient.external.aspect;
 
 import com.tosan.camunda.api.CamundaClientRuntimeIncident;
 import com.tosan.camunda.api.ExceptionIncidentState;
-import com.tosan.camunda.camundaclient.config.CamundaClientConfig;
-import com.tosan.camunda.camundaclient.config.ExternalTaskInfo;
-import com.tosan.camunda.camundaclient.config.RetryConfig;
+import com.tosan.camunda.camundaclient.config.CamundaClientExternalTaskSubscription;
+import com.tosan.camunda.camundaclient.util.ExternalTaskResultUtil;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.camunda.bpm.client.task.ExternalTask;
-import org.camunda.bpm.client.task.ExternalTaskService;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
-
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.Objects;
-
-import static com.tosan.camunda.camundaclient.external.ExternalTaskService.getTaskInfo;
 
 /**
  * @author M.khoshnevisan
@@ -26,68 +19,42 @@ import static com.tosan.camunda.camundaclient.external.ExternalTaskService.getTa
 @Aspect
 @Order(40)
 @Slf4j
+@AllArgsConstructor
 public class ExternalTaskResultAspect extends ExternalTaskBaseAspect {
 
-    private final RetryConfig retryConfig;
-
-    public ExternalTaskResultAspect(CamundaClientConfig camundaClientConfig) {
-        this.retryConfig = camundaClientConfig.getRetry();
-    }
+    private final ExternalTaskResultUtil externalTaskResultUtil;
 
     @Around(value = "externalTaskHandler()")
     public Object sendResults(ProceedingJoinPoint pjp) throws Throwable {
+        boolean convertToBpmnError = checkConvertToBpmnErrorInCaseOfIncident(pjp);
         try {
             Object proceed = pjp.proceed();
-            declareTaskCompleted(pjp);
+            externalTaskResultUtil.declareTaskCompleted(pjp.getArgs());
             return proceed;
         } catch (Exception e) {
             if (e instanceof CamundaClientRuntimeIncident) {
-                CamundaClientRuntimeIncident camundaClientRuntimeIncident = (CamundaClientRuntimeIncident) e;
-                handleException(camundaClientRuntimeIncident.getExceptionIncidentState(), e, pjp);
+                CamundaClientRuntimeIncident runtimeIncident = (CamundaClientRuntimeIncident) e;
+                externalTaskResultUtil.handleException(runtimeIncident.getExceptionIncidentState(), e, pjp.getArgs(), convertToBpmnError);
             } else {
-                handleException(ExceptionIncidentState.NON_REPEATABLE, e, pjp);
+                externalTaskResultUtil.handleException(ExceptionIncidentState.NON_REPEATABLE, e, pjp.getArgs(), convertToBpmnError);
             }
             throw e;
         }
     }
 
-    private void declareTaskCompleted(ProceedingJoinPoint pjp) {
-        Object[] args = pjp.getArgs();
-        ExternalTask externalTask = (ExternalTask) args[0];
-        ExternalTaskService externalTaskService = (ExternalTaskService) args[1];
-        ExternalTaskInfo taskInfo = getTaskInfo(externalTask);
-        externalTaskService.complete(externalTask, taskInfo.getVariables());
-    }
-
-    private void handleException(ExceptionIncidentState exceptionIncidentState,
-                                 Exception e, ProceedingJoinPoint pjp) {
-
-        Object[] args = pjp.getArgs();
-        ExternalTask externalTask = (ExternalTask) args[0];
-        ExternalTaskService externalTaskService = (ExternalTaskService) args[1];
-        ExternalTaskInfo taskInfo = getTaskInfo(externalTask);
-        int retryCount = exceptionIncidentState.equals(ExceptionIncidentState.NON_REPEATABLE) ? 0 :
-                calculateRetries(externalTask.getRetries());
-        int retryInterval = (retryCount == 0 ? 0 : retryConfig.getRetryInterval());
-        log.info("determined retry count:{} with retry interval{}", retryCount, retryInterval);
-        externalTaskService.handleFailure(externalTask.getId(), e.getMessage(), getStackTrace(e),
-                retryCount, retryInterval, taskInfo.getVariables(), null);
-    }
-
-    private int calculateRetries(Integer retries) {
-        if (retries == null) {
-            return retryConfig.getRetryCount();
+    private boolean checkConvertToBpmnErrorInCaseOfIncident(ProceedingJoinPoint pjp) {
+        try {
+            MethodSignature signature = (MethodSignature) pjp.getSignature();
+            Class declaringType = signature.getDeclaringType();
+            CamundaClientExternalTaskSubscription externalTaskSubscription = (CamundaClientExternalTaskSubscription)
+                    declaringType.getAnnotation(CamundaClientExternalTaskSubscription.class);
+            if (externalTaskSubscription == null) {
+                return false;
+            }
+            return externalTaskSubscription.changeIncidentToBpmnError();
+        } catch (Exception e) {
+            log.error("error on extracting bpmn error to incident", e);
+            return false;
         }
-        return retries <= 0 ? retries : retries - 1;
-    }
-
-    private String getStackTrace(final Throwable throwable) {
-        if (Objects.nonNull(throwable.getCause())) {
-            return this.getStackTrace(throwable.getCause());
-        }
-        StringWriter stackTrace = new StringWriter();
-        PrintWriter printWriter = new PrintWriter(stackTrace, true);
-        throwable.printStackTrace(printWriter);
-        return stackTrace.getBuffer().toString();
     }
 }
