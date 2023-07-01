@@ -288,6 +288,44 @@ provided apis as far is as below:
 > VersionApi
 
 other apis can be added easily via [CamundaServiceConfig](./tosan-camunda-client-spring-boot-starter/src/main/java/com/tosan/camunda/camundaclient/CamundaServiceConfig.java)
+### changing to bpmn error instead of incident automatically
+sometimes it's needed to raise bpmn error after retry count of a repeatable exception is over. in normal
+scenario when retry count reach to 0 incident is created but in some cases this behaviour might not be intended.
+for changing this behaviour you can use camunda client exclusive annotation instead of ExternalTaskSubscription.
+```
+@Component
+@CamundaClientExternalTaskSubscription(topicName = "incidentServiceTask",
+        processDefinitionKey = "SimpleProcess",
+        includeExtensionProperties = true,
+        changeIncidentToBpmnError = true)
+public class TestCamundaClientWorker implements ExternalWorker {
+    @Override
+    public Worker getWorker() {
+        return WorkerType.SIMPLE_WORKER;
+    }
+
+    /**
+     * be careful when changeIncidentToBpmnError is enabled you must define boundary error event for the task.
+     *
+     * @param externalTask
+     * @param externalTaskService
+     */
+    @Override
+    public void execute(ExternalTask externalTask, ExternalTaskService externalTaskService) {
+        try {
+            if (true) {
+                throw new CamundaClientTestRuntimeException();
+            }
+        } catch (CamundaClientTestException e) {
+            externalTaskService.handleBpmnError(externalTask, e.getClass().getSimpleName(), e.getMessage(), variables);
+        }
+    }
+}
+```
+when this flag (changeIncidentToBpmnError) is set to true, after retry count reach to 0 handleBpmnError will be called.
+so you have to be careful if this flag is present and have true value you must define error boundary event for your task.
+the default value of this flag is false and after retry count reach to zero, incident will be created.
+non-repeatable errors will result into incident with presence or absence of this flag so that non predicated errors get detected.
 
 ### Sample Project
 

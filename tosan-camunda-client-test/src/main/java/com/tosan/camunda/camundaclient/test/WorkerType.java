@@ -8,7 +8,9 @@ import com.tosan.camunda.api.Worker;
  */
 public enum WorkerType implements Worker {
 
-    TEST_WORKER("TEST_WORKER");
+    TEST_WORKER("TEST_WORKER"),
+    SIMPLE_WORKER("SIMPLE_WORKER"),
+    ERROR_WORKER("ERROR_WORKER");
 
     private String workerName;
 
