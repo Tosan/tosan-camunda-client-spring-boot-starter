@@ -50,9 +50,9 @@ public class CamundaClientApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws IOException {
-        deployBpmn("process");
+        deployBpmn("process", "1234");
         startInstanceWithMessage();
-        deployBpmn("SimpleProcess");
+        deployBpmn("SimpleProcess", null);
         startInstance();
     }
 
@@ -63,7 +63,7 @@ public class CamundaClientApplication implements CommandLineRunner {
                 startProcessInstanceByKey("SimpleProcess", body);
     }
 
-    private void deployBpmn(String processName) throws IOException {
+    private void deployBpmn(String processName, String tenantId) throws IOException {
         String fileName = processName + ".bpmn";
         InputStream inputStream = getFileFromResourceAsStream(fileName);
         File outFile = new File("\\tmp\\file.bpmn");
@@ -71,7 +71,7 @@ public class CamundaClientApplication implements CommandLineRunner {
                 fileName, inputStream.available(), outFile);
         IOUtils.copy(inputStream, fileItem.getOutputStream());
         MultipartFile data = new CommonsMultipartFile(fileItem);
-        deploymentApi.createDeployment("testApplication", true, true,
+        deploymentApi.createDeployment("testApplication",tenantId, true, true,
                 processName, OffsetDateTime.now(), data);
     }
 

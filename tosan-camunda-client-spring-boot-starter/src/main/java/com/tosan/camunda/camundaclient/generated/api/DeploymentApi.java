@@ -62,6 +62,7 @@ public interface DeploymentApi {
         consumes = { "multipart/form-data" }, 
         method = RequestMethod.POST)
     ResponseEntity<DeploymentWithDefinitionsDto> createDeployment(@RequestPart(value = "deployment-source") String deploymentSource,
+                                                                  @RequestPart(value = "tenant-id") String tenantId,
                                                                   @RequestPart(value = "deploy-changed-only") Boolean deployChangedOnly,
                                                                   @RequestPart(value = "enable-duplicate-filtering") Boolean enableDuplicateFiltering,
                                                                   @RequestPart(value = "deployment-name") String deploymentName,
