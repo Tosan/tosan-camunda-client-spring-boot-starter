@@ -1,9 +1,12 @@
 package feign;
 
+import org.springframework.cloud.openfeign.AnnotatedParameterProcessor;
 import org.springframework.cloud.openfeign.support.SpringMvcContract;
+import org.springframework.core.convert.ConversionService;
 
 import java.lang.reflect.Method;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -16,6 +19,10 @@ public class SpringMvcContractImpl extends SpringMvcContract {
         add("getObjectMapper");
         add("getRequest");
     }};
+
+    public SpringMvcContractImpl(ConversionService feignConversionService, List<AnnotatedParameterProcessor> processors) {
+        super(processors, feignConversionService);
+    }
 
     @Override
     public MethodMetadata parseAndValidateMetadata(Class<?> targetType, Method method) {

@@ -45,7 +45,7 @@
 
     <properties>
         <java.version>17</java.version>
-        <tosan.httpclient.version>3.0.3</tosan.httpclient.version>
+        <tosan.httpclient.version>3.1.0</tosan.httpclient.version>
         <camunda.version>7.17.0</camunda.version>
         <swagger-annotations.version>2.2.10</swagger-annotations.version>
     </properties>
