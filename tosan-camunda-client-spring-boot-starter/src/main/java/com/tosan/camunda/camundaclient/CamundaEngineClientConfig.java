@@ -18,6 +18,10 @@ import com.tosan.client.http.starter.configuration.AbstractFeignConfiguration;
 import com.tosan.client.http.starter.impl.feign.CustomErrorDecoder;
 import com.tosan.client.http.starter.impl.feign.CustomErrorDecoderConfig;
 import com.tosan.client.http.starter.impl.feign.ExceptionExtractType;
+import com.tosan.tools.mask.starter.config.SecureParametersConfig;
+import com.tosan.tools.mask.starter.replace.JacksonReplaceHelper;
+import com.tosan.tools.mask.starter.replace.JsonReplaceHelperDecider;
+import com.tosan.tools.mask.starter.replace.RegexReplaceHelper;
 import feign.*;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
@@ -30,9 +34,13 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.commons.httpclient.ApacheHttpClientConnectionManagerFactory;
 import org.springframework.cloud.commons.httpclient.ApacheHttpClientFactory;
+import org.springframework.cloud.openfeign.AnnotatedParameterProcessor;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.openfeign.FeignFormatterRegistrar;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.convert.ConversionService;
+import org.springframework.format.support.FormattingConversionService;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.converter.HttpMessageConverter;
 
@@ -67,6 +75,26 @@ public class CamundaEngineClientConfig extends AbstractFeignConfiguration {
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                 .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
         return objectMapper;
+    }
+
+    @Bean("camunda-client-replace-helper")
+    public JsonReplaceHelperDecider replaceHelperDecider(JacksonReplaceHelper jacksonReplaceHelper,
+                                                         RegexReplaceHelper regexReplaceHelper,
+                                                         @Qualifier("camunda-client-secured-parameters")
+                                                         SecureParametersConfig secureParametersConfig) {
+        return super.replaceHelperDecider(jacksonReplaceHelper, regexReplaceHelper, secureParametersConfig);
+    }
+
+    @Bean("camunda-client-httpFeignClientLogger")
+    public Logger httpFeignClientLogger(@Qualifier("camunda-client-replace-helper")
+                                        JsonReplaceHelperDecider replaceHelperDecider) {
+        return super.httpFeignClientLogger(replaceHelperDecider, "camunda-client");
+    }
+
+    @Bean("camunda-client-secured-parameters")
+    @ConditionalOnMissingBean(name = "camunda-client-secured-parameters")
+    public SecureParametersConfig secureParametersConfig() {
+        return super.secureParametersConfig();
     }
 
     @Bean
@@ -142,8 +170,15 @@ public class CamundaEngineClientConfig extends AbstractFeignConfiguration {
 
     @Override
     @Bean("camunda-client-feignContract")
-    public Contract feignContract() {
-        return new SpringMvcContractImpl();
+    public Contract feignContractWithCustomSpringConversion(
+            @Qualifier("camunda-client-feignConversionService") ConversionService feignConversionService,
+            List<AnnotatedParameterProcessor> processors) {
+        return new SpringMvcContractImpl(feignConversionService, processors);
+    }
+
+    @Bean("camunda-client-feignConversionService")
+    public FormattingConversionService feignConversionService(List<FeignFormatterRegistrar> feignFormatterRegistrars) {
+        return super.feignConversionService(feignFormatterRegistrars);
     }
 
     @Override
@@ -161,7 +196,7 @@ public class CamundaEngineClientConfig extends AbstractFeignConfiguration {
     @Override
     @Bean("camunda-client-jacksonHttpMessageConverter")
     public HttpMessageConverter<Object> httpMessageConverter(@Qualifier("camunda-client-objectMapper")
-                                                                     ObjectMapper objectMapper) {
+                                                             ObjectMapper objectMapper) {
         return super.httpMessageConverter(objectMapper);
     }
 
