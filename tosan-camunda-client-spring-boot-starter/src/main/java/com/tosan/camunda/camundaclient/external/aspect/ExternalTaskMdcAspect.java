@@ -1,5 +1,6 @@
 package com.tosan.camunda.camundaclient.external.aspect;
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -14,7 +15,7 @@ import static com.tosan.camunda.api.Constants.WORKER_MDC_FIELD_NAME;
  * @author M.khoshnevisan
  * @since 11/3/2021
  */
-@Order(10)
+@Order(15)
 @Aspect
 public class ExternalTaskMdcAspect extends ExternalTaskBaseAspect {
 

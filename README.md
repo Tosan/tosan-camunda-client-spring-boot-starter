@@ -155,6 +155,34 @@ worker name in above log will be provided from getWorker method:
     }
 ```
 
+### Parallel External Task Execution Capability
+With the limitations of conventional single-threaded, sequential execution of the polling external tasks, we decided to enable the  execution of the polling external tasks through a multi-threaded approach. By doing so, we not only overcome the limitations of the sequential way but also enhanced overall performance.
+Explore the details of this transition below.
+
+In our latest changes, we introduced a new Aspect, designed with the lowest order, takes the lead in submitting each external task to an executorService.
+Each task either allocated its own thread within the executerService or waits to allocate its own thread.
+
+We’ve added this config in order of enabling this new parallel task execution aspect properly designed :
+> camunda.bpm.client.execution.execution-type
+
+specifying type of execution between options: parallel, sequential.
+By selecting the parallel option for this config the parallel mode is enabaled and you use the next provided configs.
+
+And by the config below, you can specify the size thread pool :
+>camunda.bpm.client.execution.thread-pool-size
+
+We’ve also provided an option for situations where we have multiple instances of the client, and we want to check if any of polling external tasks has reached its lockExpirationDate, it cancels the task so that other instances of the client could be able to fetch that task.
+By this config you can specify if you have multiple instance or not :
+>camunda.bpm.client.execution.multi-instance-enabled
+
+possible values of above config : true , false
+
+Addressing the imperative need for all fetched and locked tasks completion within specified timeouts, we’ve implemented a special Backoff strategy mechanism for parallel execution. This mechanism ensures that the main thread waits for all of the tasks to be either completed or canceled by timely interruption. So we’ve added this config to specify the wait duration per each task:
+> camunda.bpm.client.execution.wait-duration-per-task
+
+that takes wait duration in milliseconds and multiplied it by number of tasks and then wait for their execution within the time.
+
+
 ## 🚀 camunda rest client
 there are other camunda rest services such as messageApi or deploymentApi that camunda-external client doesn't cover but usually need to be used in external project. this project provide a rest client based on camunda official openApi json and  creates rest client for these restControllers with tosan-httpclient-feign-spring-boot-starter project.
 in order to call a rest service you can easily inject selected api into your class and call each method with proper inputs.

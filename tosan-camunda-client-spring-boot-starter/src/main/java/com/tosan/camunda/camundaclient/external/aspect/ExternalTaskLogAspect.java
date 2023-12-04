@@ -19,7 +19,7 @@ import static com.tosan.camunda.camundaclient.external.ExternalTaskService.getTa
  */
 @Aspect
 @Slf4j
-@Order(20)
+@Order(25)
 public class ExternalTaskLogAspect extends ExternalTaskBaseAspect {
 
     @Around(value = "externalTaskHandler()")
