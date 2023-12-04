@@ -45,7 +45,7 @@ public class ParallelTaskExecutor {
         }, getLockExpirationTimeDuration(externalTask), TimeUnit.MILLISECONDS);
     }
 
-    private long getLockExpirationTimeDuration(ExternalTask externalTask) {
+    public long getLockExpirationTimeDuration(ExternalTask externalTask) {
         return externalTask.getLockExpirationTime().getTime() - System.currentTimeMillis();
     }
 
