@@ -42,7 +42,11 @@ public class ParallelTaskExecutor {
                 log.info("Task : {} is canceled by scheduledCanceller!!!", externalTask.getBusinessKey());
                 future.cancel(true);
             }
-        }, 5, TimeUnit.SECONDS);
+        }, getLockExpirationTimeDuration(externalTask), TimeUnit.MILLISECONDS);
+    }
+
+    private long getLockExpirationTimeDuration(ExternalTask externalTask) {
+        return externalTask.getLockExpirationTime().getTime() - System.currentTimeMillis();
     }
 
     public List<Future<?>> getFutures() {
