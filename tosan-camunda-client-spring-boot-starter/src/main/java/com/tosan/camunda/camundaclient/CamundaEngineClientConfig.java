@@ -4,13 +4,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.tosan.camunda.camundaclient.config.CamundaClientConfig;
-import com.tosan.camunda.camundaclient.config.CamundaFeignConfig;
-import com.tosan.camunda.camundaclient.config.CamundaRestServiceConfig;
-import com.tosan.camunda.camundaclient.external.aspect.ExternalTaskInfoAspect;
-import com.tosan.camunda.camundaclient.external.aspect.ExternalTaskLogAspect;
-import com.tosan.camunda.camundaclient.external.aspect.ExternalTaskMdcAspect;
-import com.tosan.camunda.camundaclient.external.aspect.ExternalTaskResultAspect;
+import com.tosan.camunda.camundaclient.config.*;
+import com.tosan.camunda.camundaclient.external.aspect.*;
 import com.tosan.camunda.camundaclient.feign.aspect.FeignUndeclaredThrowableExceptionAspect;
 import com.tosan.camunda.camundaclient.util.ExternalTaskResultUtil;
 import com.tosan.client.http.core.HttpClientProperties;
@@ -32,6 +27,7 @@ import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
 import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.openfeign.AnnotatedParameterProcessor;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -47,6 +43,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @author M.khoshnevisan
@@ -58,6 +56,7 @@ public class CamundaEngineClientConfig extends AbstractFeignConfiguration {
 
     public static final String DATE_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
     private static HashMap<String, Class<? extends Exception>> exceptionMap = new HashMap<>();
+
     static {
         exceptionMap.put("Validation.invalid", Exception.class);
     }
@@ -102,6 +101,28 @@ public class CamundaEngineClientConfig extends AbstractFeignConfiguration {
     @Primary
     public CamundaClientConfig camundaClientConfig() {
         return new CamundaClientConfig();
+    }
+
+    @Bean
+    @ConditionalOnProperty(name = "camunda.bpm.client.execution.execution-type", havingValue = "parallel", matchIfMissing = false)
+    public ParallelBackoffStrategy backoffStrategy(ParallelTaskExecutor parallelTaskExecutor) {
+        return new ParallelBackoffStrategy(parallelTaskExecutor);
+    }
+
+    @Bean
+    @ConditionalOnProperty(name = "camunda.bpm.client.execution.execution-type", havingValue = "parallel", matchIfMissing = false)
+    public ParallelTaskExecutor parallelTaskExecutor(@Qualifier("camunda-executorService") ExecutorService executorService) {
+        return new ParallelTaskExecutor(executorService);
+    }
+
+    @Bean(name = "camunda-executorService")
+    @ConditionalOnProperty(name = "camunda.bpm.client.execution.execution-type", havingValue = "parallel", matchIfMissing = false)
+    public ExecutorService executorService(CamundaClientConfig camundaClientConfig) {
+        if (camundaClientConfig.getExecution() != null && camundaClientConfig.getExecution().getThreadPoolSize() > 0) {
+            return Executors.newFixedThreadPool(camundaClientConfig.getExecution().getThreadPoolSize());
+        } else {
+            throw new RuntimeException("camunda.bpm.client.execution.thread-pool-size is not set or is not valid.");
+        }
     }
 
     @Bean("camunda-client-clientConfig")
@@ -197,7 +218,7 @@ public class CamundaEngineClientConfig extends AbstractFeignConfiguration {
     @Override
     @Bean("camunda-client-jacksonHttpMessageConverter")
     public HttpMessageConverter<Object> httpMessageConverter(@Qualifier("camunda-client-objectMapper")
-                                                                     ObjectMapper objectMapper) {
+                                                             ObjectMapper objectMapper) {
         return super.httpMessageConverter(objectMapper);
     }
 
@@ -266,6 +287,12 @@ public class CamundaEngineClientConfig extends AbstractFeignConfiguration {
     @Bean
     public ExternalTaskResultAspect externalTaskResultAspect(ExternalTaskResultUtil externalTaskResultUtil) {
         return new ExternalTaskResultAspect(externalTaskResultUtil);
+    }
+
+    @Bean
+    @ConditionalOnProperty(name = "camunda.bpm.client.execution.execution-type", havingValue = "parallel", matchIfMissing = false)
+    public ExternalTaskParallelExecutionAspect externalTaskParallelExecutionAspect(ParallelTaskExecutor parallelTaskExecutor) {
+        return new ExternalTaskParallelExecutionAspect(parallelTaskExecutor);
     }
 
     @Bean
