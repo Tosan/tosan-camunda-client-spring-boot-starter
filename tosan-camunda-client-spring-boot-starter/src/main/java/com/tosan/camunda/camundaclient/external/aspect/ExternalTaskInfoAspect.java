@@ -11,7 +11,7 @@ import static com.tosan.camunda.camundaclient.external.ExternalTaskService.creat
 import static com.tosan.camunda.camundaclient.external.ExternalTaskService.removeTaskInfo;
 
 @Aspect
-@Order(5)
+@Order(10)
 @Slf4j
 public class ExternalTaskInfoAspect extends ExternalTaskBaseAspect {
     @Around(value = "externalTaskHandler()")

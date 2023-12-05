@@ -41,6 +41,17 @@ public class ExternalTaskResultAspectUTest {
     }
 
     @Test
+    public void testSendResults_proceedWithInterruptException_declareInterruptExceptionState() throws Throwable {
+        ProceedingJoinPoint pjp = mock(ProceedingJoinPoint.class);
+        mockCamundaExternalTaskAnnotation(pjp, ExternalTaskSampleWithExternalTaskSubscription.class);
+        Object[] args = new Object[2];
+        when(pjp.getArgs()).thenReturn(args);
+        InterruptedException interruptedException = new InterruptedException();
+        when(pjp.proceed()).thenThrow(interruptedException);
+        assertThrows(InterruptedException.class, () -> externalTaskResultAspect.sendResults(pjp));
+    }
+
+    @Test
     public void testSendResults_proceedWithCamundaClientRuntimeNonRepeatableException_declareExceptionState() throws Throwable {
         ProceedingJoinPoint pjp = mock(ProceedingJoinPoint.class);
         mockCamundaExternalTaskAnnotation(pjp, ExternalTaskSampleWithExternalTaskSubscription.class);

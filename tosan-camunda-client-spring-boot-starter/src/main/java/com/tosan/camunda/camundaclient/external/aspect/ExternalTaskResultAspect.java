@@ -29,10 +29,17 @@ public class ExternalTaskResultAspect extends ExternalTaskBaseAspect {
         boolean convertToBpmnError = checkConvertToBpmnErrorInCaseOfIncident(pjp);
         try {
             Object proceed = pjp.proceed();
-            externalTaskResultUtil.declareTaskCompleted(pjp.getArgs());
+            if (Thread.currentThread().isInterrupted()) {
+                log.error("Thread has been interrupted before completion.");
+                throw new InterruptedException("Thread has been interrupted before completion.");
+            } else {
+                externalTaskResultUtil.declareTaskCompleted(pjp.getArgs());
+            }
             return proceed;
         } catch (Exception e) {
-            if (e instanceof CamundaClientRuntimeIncident) {
+            if (Thread.currentThread().isInterrupted() || e.getCause() instanceof InterruptedException) {
+                throw new InterruptedException("Task has been interrupted before completion.");
+            } else if (e instanceof CamundaClientRuntimeIncident) {
                 CamundaClientRuntimeIncident runtimeIncident = (CamundaClientRuntimeIncident) e;
                 externalTaskResultUtil.handleException(runtimeIncident.getExceptionIncidentState(), e, pjp.getArgs(), convertToBpmnError);
             } else {

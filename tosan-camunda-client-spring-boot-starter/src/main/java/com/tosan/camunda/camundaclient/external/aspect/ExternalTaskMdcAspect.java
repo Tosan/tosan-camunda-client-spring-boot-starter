@@ -14,7 +14,7 @@ import static com.tosan.camunda.api.Constants.WORKER_MDC_FIELD_NAME;
  * @author M.khoshnevisan
  * @since 11/3/2021
  */
-@Order(10)
+@Order(15)
 @Aspect
 public class ExternalTaskMdcAspect extends ExternalTaskBaseAspect {
 
