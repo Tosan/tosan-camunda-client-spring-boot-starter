@@ -47,7 +47,8 @@ public class ExternalTaskResultUtil {
         log.info("determined retry count:{} with retry interval{}", retryCount, retryInterval);
         if (exceptionIncidentState.equals(ExceptionIncidentState.REPEATABLE) && convertToBpmnError && retryCount == 0) {
             log.info("converted repeatable exception to bpmn error");
-            handleBpmnException(externalTask, externalTaskService, INCIDENT_TO_BPMN_ERROR_CODE, "converted to BpmnError instead of incident");
+            externalTaskService.handleBpmnError(externalTask, INCIDENT_TO_BPMN_ERROR_CODE,
+                    "converted to BpmnError instead of incident");
         } else {
             externalTaskService.handleFailure(externalTask.getId(), e.getMessage(), getStackTrace(e),
                     retryCount, retryInterval, taskInfo.getVariables(), null);
