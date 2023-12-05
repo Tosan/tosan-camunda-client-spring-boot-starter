@@ -44,6 +44,7 @@ public class ParallelBackoffStrategy extends ExponentialBackoffStrategy {
             throw new RuntimeException("camunda.bpm.client.execution.wait-duration-per-task is not set or is not valid.");
         } else {
             Date expireDate = new Date(System.currentTimeMillis() + waitDurationPerTask * externalTasks.size());
+            log.debug("Waiting for list of polled external tasks:{} to be completed till:{}", externalTasks.toArray(), expireDate);
             while (!isAllTasksCompleted(parallelTaskExecutor.getFutures())) {
                 Date currentTime = new Date(System.currentTimeMillis());
                 if (expireDate.before(currentTime)) {
@@ -52,6 +53,7 @@ public class ParallelBackoffStrategy extends ExponentialBackoffStrategy {
                 Thread.sleep(5000);
             }
             cancelAllFutures(parallelTaskExecutor.getFutures());
+            log.info("Canceling all the futures with size of:{}", parallelTaskExecutor.getFutures().size());
             parallelTaskExecutor.getFutures().clear();
         }
     }
