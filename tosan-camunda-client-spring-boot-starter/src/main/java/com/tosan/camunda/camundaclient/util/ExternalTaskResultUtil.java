@@ -26,16 +26,20 @@ public class ExternalTaskResultUtil {
     private final RetryConfig retryConfig;
 
     public void declareTaskCompleted(Object[] args) {
-        ExternalTask externalTask = (ExternalTask) args[0];
-        ExternalTaskService externalTaskService = (ExternalTaskService) args[1];
+        ExternalTask externalTask = getExternalTask(args);
+        ExternalTaskService externalTaskService = getExternalTaskService(args);
         ExternalTaskInfo taskInfo = getTaskInfo(externalTask);
         externalTaskService.complete(externalTask, taskInfo.getVariables());
     }
 
+    public void handleBpmnException(ExternalTask externalTask, ExternalTaskService externalTaskService, String errorCode, String errorMessage) {
+        externalTaskService.handleBpmnError(externalTask, errorCode, errorMessage, getTaskInfo(externalTask).getVariables());
+    }
+
     public void handleException(ExceptionIncidentState exceptionIncidentState,
                                 Exception e, Object[] args, boolean convertToBpmnError) {
-        ExternalTask externalTask = (ExternalTask) args[0];
-        ExternalTaskService externalTaskService = (ExternalTaskService) args[1];
+        ExternalTask externalTask = getExternalTask(args);
+        ExternalTaskService externalTaskService = getExternalTaskService(args);
         ExternalTaskInfo taskInfo = getTaskInfo(externalTask);
         int retryCount = exceptionIncidentState.equals(ExceptionIncidentState.NON_REPEATABLE) ? 0 :
                 calculateRetries(externalTask.getRetries());
@@ -49,6 +53,14 @@ public class ExternalTaskResultUtil {
             externalTaskService.handleFailure(externalTask.getId(), e.getMessage(), getStackTrace(e),
                     retryCount, retryInterval, taskInfo.getVariables(), null);
         }
+    }
+
+    protected ExternalTask getExternalTask(Object[] args) {
+        return (ExternalTask) args[0];
+    }
+
+    protected ExternalTaskService getExternalTaskService(Object[] args) {
+        return (ExternalTaskService) args[1];
     }
 
     private int calculateRetries(Integer retries) {
