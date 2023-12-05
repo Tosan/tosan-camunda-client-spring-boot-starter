@@ -10,6 +10,9 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.camunda.bpm.client.exception.ConnectionLostException;
+import org.camunda.bpm.client.exception.NotResumedException;
+import org.camunda.bpm.client.task.ExternalTask;
 import org.springframework.core.annotation.Order;
 
 /**
@@ -29,20 +32,30 @@ public class ExternalTaskResultAspect extends ExternalTaskBaseAspect {
         boolean convertToBpmnError = checkConvertToBpmnErrorInCaseOfIncident(pjp);
         try {
             Object proceed = pjp.proceed();
+            Object[] args = pjp.getArgs();
+            ExternalTask externalTask = (ExternalTask) args[0];
             if (Thread.currentThread().isInterrupted()) {
-                log.error("Thread has been interrupted before completion.");
+                log.error("Thread has been interrupted before completion of task with business key:{}", externalTask.getBusinessKey());
                 throw new InterruptedException("Thread has been interrupted before completion.");
             } else {
-                externalTaskResultUtil.declareTaskCompleted(pjp.getArgs());
+                externalTaskResultUtil.declareTaskCompleted(args);
             }
             return proceed;
+        } catch (NotResumedException | ConnectionLostException e) {
+            log.error("Error occurred in task completion.", e);
+            return null;
         } catch (Exception e) {
-            if (Thread.currentThread().isInterrupted() || e.getCause() instanceof InterruptedException) {
-                throw new InterruptedException("Task has been interrupted before completion.");
-            } else if (e instanceof CamundaClientRuntimeIncident runtimeIncident) {
-                externalTaskResultUtil.handleException(runtimeIncident.getExceptionIncidentState(), e, pjp.getArgs(), convertToBpmnError);
-            } else {
-                externalTaskResultUtil.handleException(ExceptionIncidentState.NON_REPEATABLE, e, pjp.getArgs(), convertToBpmnError);
+            try {
+                if (Thread.currentThread().isInterrupted() || e.getCause() instanceof InterruptedException) {
+                    throw new InterruptedException("Task has been interrupted before completion.");
+                } else if (e instanceof CamundaClientRuntimeIncident) {
+                    CamundaClientRuntimeIncident runtimeIncident = (CamundaClientRuntimeIncident) e;
+                    externalTaskResultUtil.handleException(runtimeIncident.getExceptionIncidentState(), e, pjp.getArgs(), convertToBpmnError);
+                } else {
+                    externalTaskResultUtil.handleException(ExceptionIncidentState.NON_REPEATABLE, e, pjp.getArgs(), convertToBpmnError);
+                }
+            } catch (NotResumedException | ConnectionLostException exception) {
+                log.error("Error occurred in task completion.", exception);
             }
             throw e;
         }

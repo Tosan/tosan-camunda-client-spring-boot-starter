@@ -8,6 +8,7 @@ import com.tosan.camunda.camundaclient.config.*;
 import com.tosan.camunda.camundaclient.external.aspect.*;
 import com.tosan.camunda.camundaclient.feign.aspect.FeignUndeclaredThrowableExceptionAspect;
 import com.tosan.camunda.camundaclient.util.ExternalTaskResultUtil;
+import com.tosan.camunda.camundaclient.util.ParallelExternalTaskResultUtil;
 import com.tosan.client.http.core.HttpClientProperties;
 import com.tosan.client.http.core.factory.ConfigurableApacheHttpClientFactory;
 import com.tosan.client.http.starter.configuration.AbstractFeignConfiguration;
@@ -296,8 +297,15 @@ public class CamundaEngineClientConfig extends AbstractFeignConfiguration {
     }
 
     @Bean
+    @ConditionalOnProperty(name = "camunda.bpm.client.execution.execution-type", havingValue = "sequential", matchIfMissing = true)
     public ExternalTaskResultUtil externalTaskResultUtil(CamundaClientConfig camundaClientConfig) {
         return new ExternalTaskResultUtil(camundaClientConfig.getRetry());
+    }
+
+    @Bean
+    @ConditionalOnProperty(name = "camunda.bpm.client.execution.execution-type", havingValue = "parallel", matchIfMissing = false)
+    public ParallelExternalTaskResultUtil parallelExternalTaskResultUtil(CamundaClientConfig camundaClientConfig) {
+        return new ParallelExternalTaskResultUtil(camundaClientConfig.getRetry());
     }
 
     @Bean
