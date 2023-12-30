@@ -1,5 +1,6 @@
 package com.tosan.camunda.camundaclient.external.aspect;
 
+import com.tosan.camunda.api.BpmnException;
 import com.tosan.camunda.api.CamundaClientRuntimeIncident;
 import com.tosan.camunda.api.ExceptionIncidentState;
 import com.tosan.camunda.camundaclient.config.CamundaClientExternalTaskSubscription;
@@ -51,6 +52,9 @@ public class ExternalTaskResultAspect extends ExternalTaskBaseAspect {
                 } else if (e instanceof CamundaClientRuntimeIncident) {
                     CamundaClientRuntimeIncident runtimeIncident = (CamundaClientRuntimeIncident) e;
                     externalTaskResultUtil.handleException(runtimeIncident.getExceptionIncidentState(), e, pjp.getArgs(), convertToBpmnError);
+                } else if (e instanceof BpmnException) {
+                    log.error("Bpmn exception happened while completing task.");
+                    throw e;
                 } else {
                     externalTaskResultUtil.handleException(ExceptionIncidentState.NON_REPEATABLE, e, pjp.getArgs(), convertToBpmnError);
                 }
