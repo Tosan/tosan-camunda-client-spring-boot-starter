@@ -1,5 +1,6 @@
 package com.tosan.camunda.camundaclient.external.aspect;
 
+import com.tosan.camunda.api.BpmnException;
 import com.tosan.camunda.api.CamundaClientRuntimeIncident;
 import com.tosan.camunda.api.ExceptionIncidentState;
 import com.tosan.camunda.camundaclient.config.CamundaClientExternalTaskSubscription;
@@ -30,10 +31,10 @@ public class ExternalTaskResultAspect extends ExternalTaskBaseAspect {
     @Around(value = "externalTaskHandler()")
     public Object sendResults(ProceedingJoinPoint pjp) throws Throwable {
         boolean convertToBpmnError = checkConvertToBpmnErrorInCaseOfIncident(pjp);
+        Object proceed = pjp.proceed();
+        Object[] args = pjp.getArgs();
+        ExternalTask externalTask = (ExternalTask) args[0];
         try {
-            Object proceed = pjp.proceed();
-            Object[] args = pjp.getArgs();
-            ExternalTask externalTask = (ExternalTask) args[0];
             if (Thread.currentThread().isInterrupted()) {
                 log.error("Thread has been interrupted before completion of task with business key:{}", externalTask.getBusinessKey());
                 throw new InterruptedException("Thread has been interrupted before completion.");
@@ -51,6 +52,9 @@ public class ExternalTaskResultAspect extends ExternalTaskBaseAspect {
                 } else if (e instanceof CamundaClientRuntimeIncident) {
                     CamundaClientRuntimeIncident runtimeIncident = (CamundaClientRuntimeIncident) e;
                     externalTaskResultUtil.handleException(runtimeIncident.getExceptionIncidentState(), e, pjp.getArgs(), convertToBpmnError);
+                } else if (e instanceof BpmnException) {
+                    log.error("Bpmn exception happened for task with business key:{}", externalTask.getBusinessKey());
+                    throw e;
                 } else {
                     externalTaskResultUtil.handleException(ExceptionIncidentState.NON_REPEATABLE, e, pjp.getArgs(), convertToBpmnError);
                 }
