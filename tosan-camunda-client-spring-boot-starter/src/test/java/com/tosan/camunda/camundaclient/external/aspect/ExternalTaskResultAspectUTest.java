@@ -1,5 +1,6 @@
 package com.tosan.camunda.camundaclient.external.aspect;
 
+import com.tosan.camunda.api.BpmnException;
 import com.tosan.camunda.api.ExceptionIncidentState;
 import com.tosan.camunda.camundaclient.external.aspect.exception.CamundaClientTestRunTimeNonRepeatableException;
 import com.tosan.camunda.camundaclient.external.aspect.exception.CamundaClientTestRuntimeException;
@@ -49,6 +50,16 @@ public class ExternalTaskResultAspectUTest {
         InterruptedException interruptedException = new InterruptedException();
         when(pjp.proceed()).thenThrow(interruptedException);
         assertThrows(InterruptedException.class, () -> externalTaskResultAspect.sendResults(pjp));
+    }
+
+    @Test
+    public void testSendResults_proceedWithBpmnException_declareBpmnExceptionState() throws Throwable {
+        ProceedingJoinPoint pjp = mock(ProceedingJoinPoint.class);
+        Object[] args = new Object[2];
+        when(pjp.getArgs()).thenReturn(args);
+        BpmnException exception = new BpmnException();
+        when(pjp.proceed()).thenThrow(exception);
+        assertThrows(BpmnException.class, () -> externalTaskResultAspect.sendResults(pjp));
     }
 
     @Test
