@@ -1,5 +1,6 @@
 package com.tosan.camunda.camundaclient.util;
 
+import com.tosan.camunda.api.BpmnException;
 import com.tosan.camunda.api.ExceptionIncidentState;
 import com.tosan.camunda.camundaclient.config.ExternalTaskInfo;
 import com.tosan.camunda.camundaclient.config.RetryConfig;
@@ -34,6 +35,7 @@ public class ExternalTaskResultUtil {
 
     public void handleBpmnException(ExternalTask externalTask, ExternalTaskService externalTaskService, String errorCode, String errorMessage) {
         externalTaskService.handleBpmnError(externalTask, errorCode, errorMessage, getTaskInfo(externalTask).getVariables());
+        throw new BpmnException("Bpmn error happened in result util.");
     }
 
     public void handleException(ExceptionIncidentState exceptionIncidentState,
