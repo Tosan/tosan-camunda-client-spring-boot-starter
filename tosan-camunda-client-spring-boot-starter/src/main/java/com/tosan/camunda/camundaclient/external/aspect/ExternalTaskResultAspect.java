@@ -31,10 +31,10 @@ public class ExternalTaskResultAspect extends ExternalTaskBaseAspect {
     @Around(value = "externalTaskHandler()")
     public Object sendResults(ProceedingJoinPoint pjp) throws Throwable {
         boolean convertToBpmnError = checkConvertToBpmnErrorInCaseOfIncident(pjp);
-        Object proceed = pjp.proceed();
-        Object[] args = pjp.getArgs();
-        ExternalTask externalTask = (ExternalTask) args[0];
         try {
+            Object proceed = pjp.proceed();
+            Object[] args = pjp.getArgs();
+            ExternalTask externalTask = (ExternalTask) args[0];
             if (Thread.currentThread().isInterrupted()) {
                 log.error("Thread has been interrupted before completion of task with business key:{}", externalTask.getBusinessKey());
                 throw new InterruptedException("Thread has been interrupted before completion.");
@@ -53,7 +53,7 @@ public class ExternalTaskResultAspect extends ExternalTaskBaseAspect {
                     CamundaClientRuntimeIncident runtimeIncident = (CamundaClientRuntimeIncident) e;
                     externalTaskResultUtil.handleException(runtimeIncident.getExceptionIncidentState(), e, pjp.getArgs(), convertToBpmnError);
                 } else if (e instanceof BpmnException) {
-                    log.error("Bpmn exception happened for task with business key:{}", externalTask.getBusinessKey());
+                    log.error("Bpmn exception happened while completing task.");
                     throw e;
                 } else {
                     externalTaskResultUtil.handleException(ExceptionIncidentState.NON_REPEATABLE, e, pjp.getArgs(), convertToBpmnError);
