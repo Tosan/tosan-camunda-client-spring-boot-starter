@@ -3,12 +3,12 @@ package com.tosan.camunda.camundaclient.external;
 import com.tosan.camunda.camundaclient.config.ExternalTaskInfo;
 import org.camunda.bpm.client.task.ExternalTask;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ExternalTaskService {
 
-    private static final Map<String, ExternalTaskInfo> TASK_INFO_MAP = new HashMap<>();
+    private static final Map<String, ExternalTaskInfo> TASK_INFO_MAP = new ConcurrentHashMap<>();
 
     public static ExternalTaskInfo getTaskInfo(ExternalTask externalTask) {
         return TASK_INFO_MAP.get(externalTask.getId());
