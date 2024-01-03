@@ -36,6 +36,7 @@ public class ExternalTaskLogAspectUTest {
         args[0] = externalTask;
         when(externalTask.getProcessInstanceId()).thenReturn(processInstanceId);
         when(externalTask.getBusinessKey()).thenReturn(businessKey);
+        when(externalTask.getId()).thenReturn("1");
     }
 
     @Test
