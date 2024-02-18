@@ -3,6 +3,7 @@ package com.tosan.camunda.camundaclient.test;
 import com.tosan.camunda.camundaclient.generated.api.DeploymentApi;
 import com.tosan.camunda.camundaclient.generated.api.MessageApi;
 import com.tosan.camunda.camundaclient.generated.api.ProcessDefinitionApi;
+import com.tosan.camunda.camundaclient.generated.api.VariableInstanceApi;
 import com.tosan.camunda.camundaclient.generated.model.*;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItem;
@@ -19,10 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.OffsetDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * @author M.khoshnevisan
@@ -35,10 +33,14 @@ public class CamundaClientApplication implements CommandLineRunner {
     private DeploymentApi deploymentApi;
     private ProcessDefinitionApi processDefinitionApi;
 
-    public CamundaClientApplication(MessageApi messageApi, DeploymentApi deploymentApi, ProcessDefinitionApi processDefinitionApi) {
+    private VariableInstanceApi variableInstanceApi;
+
+    public CamundaClientApplication(MessageApi messageApi, DeploymentApi deploymentApi, ProcessDefinitionApi processDefinitionApi,
+                                    VariableInstanceApi variableInstanceApi) {
         this.messageApi = messageApi;
         this.deploymentApi = deploymentApi;
         this.processDefinitionApi = processDefinitionApi;
+        this.variableInstanceApi = variableInstanceApi;
     }
 
     public static void main(String[] args) {
@@ -50,10 +52,21 @@ public class CamundaClientApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws IOException {
-        deployBpmn("process", "1234");
+        /*deployBpmn("process", "1234");
         startInstanceWithMessage();
         deployBpmn("SimpleProcess", null);
-        startInstance();
+        startInstance();*/
+        getVariables();
+    }
+
+    private void getVariables() {
+        VariableInstanceQueryDto body = new VariableInstanceQueryDto();
+        ArrayList<String> processInstanceIdIn = new ArrayList<>();
+        processInstanceIdIn.add("677ccfaa-ce8c-11ee-8603-68ecc5b246a8");
+        body.setProcessInstanceIdIn(processInstanceIdIn);
+        ResponseEntity<List<VariableInstanceDto>> entity = variableInstanceApi.queryVariableInstances(0,
+                Integer.MAX_VALUE, true, body);
+        System.out.println("entity = " + entity);
     }
 
     private void startInstance() {

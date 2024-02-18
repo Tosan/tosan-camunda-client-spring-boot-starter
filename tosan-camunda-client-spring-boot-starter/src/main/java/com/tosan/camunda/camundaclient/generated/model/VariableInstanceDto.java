@@ -16,6 +16,10 @@ import javax.validation.Valid;
 
 
 public class VariableInstanceDto   {
+
+  @JsonProperty("name")
+  private Object name = null;
+
   @JsonProperty("value")
   private Object value = null;
 
@@ -106,6 +110,14 @@ public class VariableInstanceDto   {
         Objects.equals(this.valueInfo, variableInstanceDto.valueInfo);
   }
 
+  public Object getName() {
+    return name;
+  }
+
+  public void setName(Object name) {
+    this.name = name;
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(value, type, valueInfo);
@@ -118,6 +130,7 @@ public class VariableInstanceDto   {
     
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    valueInfo: ").append(toIndentedString(valueInfo)).append("\n");
     sb.append("}");
     return sb.toString();
