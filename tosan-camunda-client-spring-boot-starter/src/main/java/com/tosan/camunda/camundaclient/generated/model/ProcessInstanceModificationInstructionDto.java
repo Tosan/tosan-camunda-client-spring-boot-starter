@@ -63,7 +63,7 @@ public class ProcessInstanceModificationInstructionDto {
 
   private TypeEnum type;
 
-  private TriggerVariableValueDto variables;
+  private Map<String,TriggerVariableValueDto> variables;
 
   private String activityId = null;
 
@@ -113,7 +113,7 @@ public class ProcessInstanceModificationInstructionDto {
     this.type = type;
   }
 
-  public ProcessInstanceModificationInstructionDto variables(TriggerVariableValueDto variables) {
+  public ProcessInstanceModificationInstructionDto variables(Map<String,TriggerVariableValueDto> variables) {
     this.variables = variables;
     return this;
   }
@@ -125,11 +125,11 @@ public class ProcessInstanceModificationInstructionDto {
   @Valid 
   @Schema(name = "variables", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("variables")
-  public TriggerVariableValueDto getVariables() {
+  public Map<String,TriggerVariableValueDto> getVariables() {
     return variables;
   }
 
-  public void setVariables(TriggerVariableValueDto variables) {
+  public void setVariables(Map<String,TriggerVariableValueDto> variables) {
     this.variables = variables;
   }
 
