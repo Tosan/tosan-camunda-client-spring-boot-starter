@@ -19,10 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.OffsetDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * @author M.khoshnevisan
@@ -55,10 +52,11 @@ public class CamundaClientApplication implements CommandLineRunner {
     public void run(String... args) throws IOException {
         deployBpmn("process");
         String businessKey = UUID.randomUUID().toString();
-        startInstanceWithMessage(businessKey);
+        String processInstanceId = startInstanceWithMessage(businessKey);
         deployBpmn("SimpleProcess");
         startInstance();
         countInstanceByBusinessKey(businessKey);
+        modifyProcessInstance(processInstanceId);
     }
 
     private void countInstanceByBusinessKey(String businessKey) {
@@ -90,7 +88,7 @@ public class CamundaClientApplication implements CommandLineRunner {
                 processName, OffsetDateTime.now(), data);
     }
 
-    private void startInstanceWithMessage(String businessKey) {
+    private String startInstanceWithMessage(String businessKey) {
         CorrelationMessageDto correlationMessageDto = new CorrelationMessageDto();
         correlationMessageDto.setBusinessKey(businessKey);
         correlationMessageDto.setMessageName("test_message");
@@ -105,6 +103,7 @@ public class CamundaClientApplication implements CommandLineRunner {
         ResponseEntity<List<MessageCorrelationResultWithVariableDto>> entity =
                 messageApi.deliverMessage(correlationMessageDto);
         System.out.println("entity = " + entity);
+        return Objects.requireNonNull(entity.getBody()).get(0).getProcessInstance().getId();
     }
 
     private InputStream getFileFromResourceAsStream(String fileName) {
@@ -116,4 +115,31 @@ public class CamundaClientApplication implements CommandLineRunner {
             return inputStream;
         }
     }
+
+    private void modifyProcessInstance(String processInstanceId) {
+        List<ProcessInstanceModificationInstructionDto> instructions = List.of(
+                new ProcessInstanceModificationInstructionDto()
+                        .type(ProcessInstanceModificationInstructionDto.TypeEnum.STARTBEFOREACTIVITY)
+                        .activityId("Activity_userTaskTwo")
+                        .variables(Map.of(
+                                        "variable-one", new TriggerVariableValueDto()
+                                                .value("value-one")
+                                                .local(Boolean.FALSE) // instance variable scope
+                                                .type("string"),
+                                        "variable-two", new TriggerVariableValueDto()
+                                                .value("true")
+                                                .local(Boolean.TRUE) // activity variable scope
+                                                .type("boolean")
+                                )
+                        ),
+                new ProcessInstanceModificationInstructionDto()
+                        .type(ProcessInstanceModificationInstructionDto.TypeEnum.CANCEL)
+                        .activityId("Activity_userTaskOne")
+        );
+        ProcessInstanceModificationDto processInstanceModificationDto = new ProcessInstanceModificationDto()
+                .annotation("process modification description")
+                .instructions(instructions);
+        processInstanceApi.modifyProcessInstance(processInstanceId, processInstanceModificationDto);
+    }
+
 }
